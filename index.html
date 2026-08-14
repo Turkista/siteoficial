@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TURKISTA — Em Construção</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ec1f8a;
+    --purple:#5b2a86;
+    --green:#3ecf5b;
+    --ink:#141018;
+    --cream:#fff8f2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--ink);
+    color:var(--cream);
+    overflow-x:hidden;
+  }
+
+  /* ===== HEADER (mesmo padrão do site oficial) ===== */
+  header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 48px;
+    background:rgba(20,16,24,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.5rem;
+    letter-spacing:2px;
+    font-weight:600;
+    color:var(--cream);
+  }
+  .logo span{color:var(--pink);}
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:36px;
+  }
+  nav a{
+    color:rgba(255,248,242,0.55);
+    text-decoration:none;
+    font-size:0.95rem;
+    font-weight:400;
+    pointer-events:none;
+    cursor:default;
+  }
+  .header-actions{display:flex;align-items:center;gap:18px;}
+  .btn-ghost{
+    border:1px solid rgba(255,255,255,0.25);
+    color:rgba(255,248,242,0.5);
+    padding:10px 22px;
+    border-radius:30px;
+    font-size:0.9rem;
+    background:none;
+    cursor:default;
+  }
+  .cart-icon{
+    width:22px;height:22px;
+    opacity:0.4;
+  }
+
+  @media (max-width:780px){
+    nav{display:none;}
+    header{padding:18px 22px;}
+  }
+
+  /* ===== HERO / EM CONSTRUÇÃO ===== */
+  main{
+    position:relative;
+    min-height:calc(100vh - 82px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 24px 100px;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(236,31,138,0.28), transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(91,42,134,0.35), transparent 50%),
+      radial-gradient(circle at 50% 100%, rgba(62,207,91,0.12), transparent 55%),
+      var(--ink);
+  }
+
+  .content{max-width:760px;}
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.8rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:28px;
+  }
+  .eyebrow::before,.eyebrow::after{
+    content:"";
+    width:28px;height:1px;
+    background:var(--green);
+    opacity:0.6;
+  }
+
+  h1{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    font-size:clamp(2.4rem, 6vw, 4.6rem);
+    line-height:1.08;
+    letter-spacing:-0.5px;
+  }
+  h1 em{
+    font-style:italic;
+    background:linear-gradient(90deg, var(--pink), #ff7ac0);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .sub{
+    margin-top:26px;
+    font-size:1.05rem;
+    font-weight:300;
+    color:rgba(255,248,242,0.7);
+    line-height:1.7;
+  }
+
+  .tags{
+    margin-top:22px;
+    font-size:0.85rem;
+    letter-spacing:2px;
+    color:rgba(255,248,242,0.4);
+    text-transform:uppercase;
+  }
+
+  /* progress bar simbólica */
+  .progress-wrap{
+    margin:48px auto 0;
+    max-width:340px;
+  }
+  .progress-track{
+    width:100%;
+    height:4px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.08);
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    width:62%;
+    border-radius:10px;
+    background:linear-gradient(90deg, var(--purple), var(--pink), var(--green));
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:1;}
+    50%{opacity:0.55;}
+  }
+  .progress-label{
+    margin-top:12px;
+    font-size:0.78rem;
+    letter-spacing:1.5px;
+    color:rgba(255,248,242,0.45);
+    text-transform:uppercase;
+  }
+
+  .cta-row{
+    margin-top:44px;
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    border:1px solid var(--pink);
+    color:var(--pink);
+    padding:15px 36px;
+    border-radius:30px;
+    font-size:0.95rem;
+    font-weight:500;
+    background:none;
+    text-decoration:none;
+    transition:all .25s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{
+    background:var(--pink);
+    color:var(--ink);
+  }
+  .btn-secondary{
+    padding:15px 36px;
+    border-radius:30px;
+    font-size:0.95rem;
+    font-weight:500;
+    background:none;
+    border:1px solid rgba(255,255,255,0.2);
+    color:rgba(255,248,242,0.75);
+    text-decoration:none;
+    transition:all .25s ease;
+  }
+  .btn-secondary:hover{
+    border-color:rgba(255,255,255,0.45);
+  }
+
+  footer{
+    text-align:center;
+    padding:26px 20px;
+    font-size:0.78rem;
+    color:rgba(255,248,242,0.3);
+    letter-spacing:1px;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+
+  @media (max-width:600px){
+    header{padding:18px 20px;}
+    .logo{font-size:1.2rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">TURK<span>ISTA</span></div>
+  <nav>
+    <ul>
+      <li><a href="#">Praia</a></li>
+      <li><a href="#">Surf</a></li>
+      <li><a href="#">Turk Fit</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Sobre a Marca</a></li>
+      <li><a href="#">Guia de Cuidados</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="20" cy="21" r="1"></circle>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+  </div>
+</header>
+
+<main>
+  <div class="content">
+    <div class="eyebrow">Em breve</div>
+    <h1>Estamos costurando<br>algo <em>novo</em> pra você.</h1>
+    <p class="sub">
+      Esta página está em construção. Estamos preparando uma nova experiência
+      para viver o movimento com a Turkista — logo estará pronta.
+    </p>
+    <p class="tags">Moda Praia · Surf · Turk Fit</p>
+
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill"></div></div>
+      <div class="progress-label">Página em desenvolvimento</div>
+    </div>
+
+    <div class="cta-row">
+      <a href="https://instagram.com/turkista.com.br" target="_blank" rel="noopener" class="btn-primary">@turkista.com.br</a>
+      <a href="https://instagram.com/turkfit.com.br" target="_blank" rel="noopener" class="btn-secondary">@turkfit.com.br</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 TURKISTA — Feita para o seu movimento.
+</footer>
+
+</body>
+</html>
