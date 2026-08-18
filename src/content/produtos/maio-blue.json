@@ -1,0 +1,59 @@
+{
+  "id": "prod_maioblue",
+  "slug": "maio-blue",
+  "nome": "Maiô Blue",
+  "linha": "praia",
+  "categoria": "maiô",
+  "descricaoCurta": "Maiô Azul Royal Franzido com Regulagem Lateral",
+  "descricaoCompleta": "Maiô feminino em azul royal, com design moderno e modelagem que valoriza a silhueta. Possui decote reto com franzido, alças finas ajustáveis e franzidos nas laterais com regulagem por cordões, permitindo ajustar a altura e o caimento da peça conforme a preferência.\r\n\r\nA modelagem une conforto, versatilidade e estilo, sendo ideal para praia, piscina e produções de moda resort. O acabamento franzido proporciona um visual sofisticado e permite personalizar o ajuste da peça.\r\n\r\nDestaques da peça:\r\n\r\nAzul royal vibrante\r\nDecote reto franzido\r\nAlças finas com amarração\r\nLaterais franzidas com regulagem\r\nModelagem que acompanha o corpo\r\nDesign versátil para praia e piscina\r\nEstilo moderno e sofisticado",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "azul caneta",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-blue-1.webp",
+          "alt": "Maiô Blue - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-blue-2.webp",
+          "alt": "Maiô Blue - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 150,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-blue-1.webp",
+      "alt": "Maiô Blue - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-blue-2.webp",
+      "alt": "Maiô Blue - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

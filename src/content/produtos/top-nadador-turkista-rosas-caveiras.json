@@ -1,0 +1,51 @@
+{
+  "id": "prod_topnadad",
+  "slug": "top-nadador-turkista-rosas-caveiras",
+  "nome": "Top Nadador TURKISTA – Rosas & Caveiras",
+  "linha": "turk-fit",
+  "categoria": "top",
+  "descricaoCurta": "Modelagem nadador, desenvolvido para oferecer conforto, liberdade de movimento e segurança durante os treinos. A parte frontal apresenta uma estampa marcante.",
+  "descricaoCompleta": "Top fitness de modelagem nadador, desenvolvido para oferecer conforto, liberdade de movimento e segurança durante os treinos. A parte frontal apresenta uma estampa marcante que combina rosas vermelhas, flores claras e caveiras em tons de preto, branco e vermelho, criando uma identidade forte e diferenciada.\r\n\r\nO modelo possui decote arredondado, laterais mais fechadas e costas em estilo nadador, com as alças formando um desenho que deixa os ombros e a região das escápulas livres, favorecendo a mobilidade dos braços durante os exercícios.\r\n\r\nO top é totalmente forrado, proporcionando maior cobertura e segurança durante o uso. O tecido é leve, confortável e respirável, permitindo melhor circulação de ar e ajudando a manter a sensação de frescor durante a atividade física.\r\n\r\nDestaques da peça:\r\n\r\nModelagem esportiva estilo nadador;\r\nCostas nadador para maior liberdade de movimento;\r\nEstampa exclusiva de rosas e caveiras;\r\nTecido leve e confortável;\r\nMaterial com boa respirabilidade;\r\nForro interno, oferecendo mais cobertura;\r\nMaior segurança durante os movimentos;\r\nNão fica transparente com facilidade devido ao forro;\r\nIdeal para academia, musculação, funcional, corrida e outros treinos;\r\nDesign que une performance, conforto e personalidade.\r\n\r\nDescrição comercial curta:\r\n\r\nTop Nadador Rosas & Caveiras — para quem gosta de treinar com atitude. Com costas nadador, tecido leve e respirável e forro interno para maior segurança, ele acompanha seus movimentos com conforto e liberdade. A estampa de rosas e caveiras transforma uma peça esportiva em um verdadeiro destaque do look.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-nadador-turkista-rosas-caveiras.webp",
+          "alt": "Top Nadador TURKISTA – Rosas & Caveiras",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 90,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-nadador-turkista-rosas-caveiras.webp",
+      "alt": "Top Nadador TURKISTA – Rosas & Caveiras",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

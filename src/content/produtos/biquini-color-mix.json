@@ -1,0 +1,50 @@
+{
+  "id": "prod_biquinic",
+  "slug": "biquini-color-mix",
+  "nome": "Biquíni Color Mix",
+  "linha": "praia",
+  "categoria": "Biquíni",
+  "descricaoCurta": "Há somente em estoque a parte superior. \r\nConfeccionado em lycra de alta qualidade.\r\nTop com bojo para maior sustentação e conforto.\r\nModelo de amar",
+  "descricaoCompleta": "O biquíni é confeccionado em lycra de alta qualidade, proporcionando excelente elasticidade, conforto e ajuste ao corpo. O top possui bojo estruturado, que oferece melhor sustentação, modela o busto e valoriza o caimento de forma natural.\r\n\r\nSeu design conta com uma argola metálica central, trazendo um toque moderno e sofisticado ao visual. As alças são confeccionadas em lycra lisa na cor roxa e possuem amarração no pescoço e nas costas, permitindo regulagem personalizada para maior conforto e segurança durante o uso.\r\n\r\nA estampa exclusiva combina tons vibrantes de rosa, azul, laranja, amarelo e detalhes animal print, criando um visual alegre, tropical e perfeito para os dias de praia e piscina.\r\n\r\nCaracterísticas:\r\nConfeccionado em lycra de alta qualidade.\r\nTop com bojo para maior sustentação e conforto.\r\nModelo de amarrar no pescoço.\r\nFechamento com amarração nas costas.\r\nArgola metálica no centro do busto.\r\nEstampa exclusiva em cores vibrantes.\r\nTecido macio, com excelente elasticidade e secagem rápida.\r\nIdeal para praia, piscina e lazer.\r\n\r\nDestaque: Um modelo que une conforto, sustentação e estilo, perfeito para quem busca um biquíni moderno, com excelente caimento e uma estampa cheia de personalidade.",
+  "composicao": {
+    "tecido": "Lycra",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-color-mix.webp",
+          "alt": "Biquíni Color Mix",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 40,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-color-mix.webp",
+      "alt": "Biquíni Color Mix",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "sustentação"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-04"
+}

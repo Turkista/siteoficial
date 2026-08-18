@@ -1,0 +1,50 @@
+{
+  "id": "prod_topfanny",
+  "slug": "top-fanny",
+  "nome": "Top Fanny",
+  "linha": "turk-fit",
+  "categoria": "top",
+  "descricaoCurta": "Top fitness confeccionado com lycra na composição, proporcionando elasticidade, conforto e liberdade de movimentos durante os treinos. ",
+  "descricaoCompleta": "Top fitness confeccionado com lycra na composição, proporcionando elasticidade, conforto e liberdade de movimentos durante os treinos. O modelo possui alças, decote em V e não conta com bojo, oferecendo um visual clean e esportivo. Forrado com estampa de desenho retrô (historia em quadrinho).\r\n\r\nIdeal para musculação, treinos de academia e atividades de força, acompanha os movimentos do corpo sem limitar a mobilidade. Uma peça versátil para quem busca praticidade, conforto e estilo na rotina fitness.\r\n\r\nDestaques:\r\n• Lycra na composição\r\n• Decote em V\r\n• Modelo de alças\r\n• Sem bojo\r\n• Confortável e flexível\r\n• Ideal para musculação e academia\r\n• Design esportivo e versátil",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "azul caneta",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-fanny.webp",
+          "alt": "Top Fanny",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 80,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-fanny.webp",
+      "alt": "Top Fanny",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

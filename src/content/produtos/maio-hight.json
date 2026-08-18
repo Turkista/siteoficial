@@ -1,0 +1,49 @@
+{
+  "id": "prod_maiohigh",
+  "slug": "maio-hight",
+  "nome": "Maiô Hight",
+  "linha": "praia",
+  "categoria": "maiô",
+  "descricaoCurta": "Modelagem recortada, combinando rosa neon/fúcsia na parte superior e verde-limão na parte inferior. ",
+  "descricaoCompleta": "Modelagem recortada, combinando rosa neon/fúcsia na parte superior e verde-limão na parte inferior. O top possui decote arredondado e alças largas. Na região central do abdômen há recortes laterais amplos, deixando a cintura à mostra. As duas partes são conectadas por uma argola circular confeccionada em material que imita madeira, em tom natural amadeirado — não é uma peça metálica. A parte inferior possui modelagem cavada e cintura alta, com laterais largas.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "neon/fúcsia",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-hight.webp",
+          "alt": "Maiô Hight",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 210,
+    "parcelamento": "3 x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-hight.webp",
+      "alt": "Maiô Hight",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

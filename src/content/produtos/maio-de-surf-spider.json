@@ -1,0 +1,62 @@
+{
+  "id": "prod_maiodesu",
+  "slug": "maio-de-surf-spider",
+  "nome": "Maiô de Surf Spider",
+  "linha": "surf",
+  "categoria": "maiô",
+  "descricaoCurta": "Maiô de surf feminino de manga longa, desenvolvido para proporcionar conforto, liberdade de movimento e praticidade durante a prática de esportes aquáticos.",
+  "descricaoCompleta": "Confeccionado em malha de fácil secagem, é ideal para acompanhar a rotina na praia, no surf e em outras atividades ao ar livre. Seu design colorido combina tons vibrantes de rosa, roxo e azul, criando um visual moderno e esportivo.\r\n\r\nA peça possui fechamento na parte inferior, entre as pernas, que facilita o vestir e retirar o maiô, além de proporcionar mais praticidade durante o uso.\r\n\r\nAs mangas longas oferecem maior cobertura dos braços, enquanto o caimento ajustado acompanha os movimentos do corpo sem comprometer o conforto.\r\n\r\nDestaques da peça:\r\n\r\nMalha de fácil secagem\r\nManga longa\r\nDesign colorido e esportivo\r\nModelagem ajustada ao corpo\r\nLiberdade de movimento\r\nFechamento na parte inferior, entre as pernas\r\nIdeal para surf, praia e atividades aquáticas",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-de-surf-spider-1.webp",
+          "alt": "Maiô de Surf Spider",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-de-surf-spider-2.webp",
+          "alt": "Maiô de Surf Spider",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "preco": {
+    "valor": 680,
+    "parcelamento": "5x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-de-surf-spider-1.webp",
+      "alt": "Maiô de Surf Spider",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-de-surf-spider-2.webp",
+      "alt": "Maiô de Surf Spider",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo"
+  ],
+  "tags": [
+    "maiô de surf",
+    "surf",
+    "maiô colorido"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

@@ -1,0 +1,59 @@
+{
+  "id": "prod_maiosupr",
+  "slug": "maio-supreme",
+  "nome": "Maiô supreme",
+  "linha": "praia",
+  "categoria": "Maiô",
+  "descricaoCurta": "Cor preta texturizado estilo holográfico ",
+  "descricaoCompleta": "Maiô preto de design moderno e sofisticado, desenvolvido com recortes estratégicos que criam um visual marcante. A parte superior possui gola mais fechada e recorte frontal na região do colo, enquanto o recorte central na cintura traz um toque contemporâneo à peça. A modelagem valoriza o desenho do corpo e transforma o maiô em uma opção versátil, que pode ser usada tanto na praia quanto em produções de verão.\r\n\r\nDetalhes:\r\n\r\nCor preta texturizado estilo holográfico \r\nGola mais fechada\r\nRecorte frontal no colo\r\nRecorte amplo na cintura\r\nModelagem moderna\r\nPeça versátil para praia e looks de verão",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "preto",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-supreme-1.webp",
+          "alt": "Maiô supreme - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-supreme-2.webp",
+          "alt": "Maiô supreme - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 250,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-supreme-1.webp",
+      "alt": "Maiô supreme - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-supreme-2.webp",
+      "alt": "Maiô supreme - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

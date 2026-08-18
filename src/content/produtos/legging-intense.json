@@ -1,0 +1,49 @@
+{
+  "id": "prod_leggingi",
+  "slug": "legging-intense",
+  "nome": "Legging Intense",
+  "linha": "turk-fit",
+  "categoria": "legging",
+  "descricaoCurta": "Conforto e liberdade de movimento para acompanhar sua rotina de treinos. A legging possui cós alto, que proporciona maior sustentação e um ajuste confortável.",
+  "descricaoCompleta": "Conforto e liberdade de movimento para acompanhar sua rotina de treinos. A legging possui cós alto, que proporciona maior sustentação e um ajuste confortável ao corpo, além de modelagem sem bolso, garantindo um visual clean e funcional.\r\n\r\nIdeal para yoga, corrida, academia e outras atividades físicas, oferece flexibilidade para acompanhar cada movimento com conforto e segurança. Uma peça essencial para quem busca praticidade, conforto e estilo no treino.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "rosa intenso",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "legging-intense.webp",
+          "alt": "Legging Intense",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 120,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "legging-intense.webp",
+      "alt": "Legging Intense",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "legging"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

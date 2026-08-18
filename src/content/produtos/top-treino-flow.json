@@ -1,0 +1,51 @@
+{
+  "id": "prod_toptrein",
+  "slug": "top-treino-flow",
+  "nome": "Top treino Flow",
+  "linha": "turk-fit",
+  "categoria": "Top",
+  "descricaoCurta": "Top fitness de modelagem nadador, criado para proporcionar conforto, liberdade de movimento e segurança durante os treinos.",
+  "descricaoCompleta": "O modelo possui decote arredondado, laterais bem estruturadas e alças largas que seguem até as costas, formando o tradicional desenho nadador.\r\n\r\nA peça se destaca pela estampa floral tropical, que combina flores em tons de azul, amarelo e verde com folhagens, sobre uma base em tom rosa-claro com textura animal print. O resultado é um visual vibrante, feminino e cheio de personalidade.\r\n\r\nA modelagem nadador deixa os ombros e a região das escápulas mais livres, favorecendo a movimentação dos braços durante exercícios e atividades esportivas. O comprimento cropped acompanha a cintura, proporcionando um ajuste firme e confortável ao corpo.\r\n\r\nDestaques da peça:\r\n\r\nModelagem nadador;\r\nDecote arredondado;\r\nAlças largas;\r\nCostas esportivas que favorecem a liberdade dos movimentos;\r\nEstampa floral tropical exclusiva;\r\nCombinação de flores, folhagens e textura animal print;\r\nComprimento cropped;\r\nModelagem que acompanha o corpo;\r\nIdeal para academia, musculação, funcional, corrida e treinos diversos;\r\nUne conforto, praticidade e um visual marcante.\r\n\r\nDescrição comercial curta:\r\n\r\nTop Nadador Floral TURKISTA — movimento, conforto e muita cor. Com modelagem nadador e alças largas, oferece liberdade para você se movimentar durante o treino, enquanto a esta",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "floral",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-treino-flow.webp",
+          "alt": "Top treino Flow",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 50,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-treino-flow.webp",
+      "alt": "Top treino Flow",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

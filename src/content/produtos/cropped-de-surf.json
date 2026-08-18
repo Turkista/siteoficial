@@ -1,0 +1,51 @@
+{
+  "id": "prod_croppedd",
+  "slug": "cropped-de-surf",
+  "nome": "Cropped de Surf",
+  "linha": "surf",
+  "categoria": "Cropped",
+  "descricaoCurta": "Cropped feminino desenvolvido para acompanhar momentos de surf, praia e atividades ao ar livre, unindo leveza, conforto e um visual moderno.",
+  "descricaoCompleta": "A peça possui tecido extremamente leve e macio, com sensação de segunda pele, proporcionando liberdade de movimento e conforto durante o uso. O corpo do cropped recebe uma estampa exclusiva e marcante, enquanto as mangas em rosa vibrante criam um contraste moderno e cheio de personalidade.\r\n\r\nO grande destaque está nas mangas de tecido transparente e leve, que deixam o visual mais delicado e diferenciado sem abrir mão da proposta esportiva. As mangas possuem comprimento até próximo dos cotovelos e acabamento delicado nas extremidades.\r\n\r\nA modelagem é curta e ajustada ao corpo, proporcionando um caimento confortável e moderno. O recorte das mangas acompanha os ombros e facilita os movimentos dos braços, sendo uma ótima opção para quem busca uma peça esportiva com estilo.\r\n\r\nA estampa central apresenta uma combinação de tons de azul, preto, lilás e detalhes claros, criando um efeito visual inspirado na natureza e no universo do mar.\r\n\r\nDestaques da peça:\r\n\r\nTecido super leve e confortável\r\nSensação de segunda pele\r\nMangas transparentes\r\nMangas leves e com ótima mobilidade\r\nModelagem cropped\r\nCaimento ajustado ao corpo\r\nEstampa exclusiva e marcante\r\nCombinação de cores vibrantes\r\nVisual moderno e esportivo\r\nIdeal para surf, praia e atividades ao ar livre\r\n\r\nUma peça para quem gosta de sentir leveza no corpo sem abrir mão de personalidade e estilo.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "cropped-de-surf.webp",
+          "alt": "Cropped de Surf",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 190,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "cropped-de-surf.webp",
+      "alt": "Cropped de Surf",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "Cropped",
+    "surf"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

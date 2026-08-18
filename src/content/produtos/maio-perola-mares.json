@@ -1,0 +1,62 @@
+{
+  "id": "prod_maiopero",
+  "slug": "maio-perola-mares",
+  "nome": "Maiô Pérola Mares",
+  "linha": "surf",
+  "categoria": "maiô",
+  "descricaoCurta": "Maiô de surf feminino de manga longa, com modelagem esportiva e design moderno em blocos de cores vibrantes.",
+  "descricaoCompleta": "A combinação de rosa, verde, roxo e preto cria um visual marcante e cheio de personalidade.\r\nConfeccionado em malha de fácil secagem, é uma peça prática para quem vive entre o mar, a praia e atividades ao ar livre. A modelagem ajustada acompanha o corpo e proporciona liberdade de movimento e conforto durante o uso.\r\n\r\nO maiô possui fechamento na parte inferior, entre as pernas, facilitando o vestir e retirar a peça e trazendo mais praticidade para a rotina.\r\n\r\nAs mangas longas oferecem maior cobertura dos braços, enquanto os recortes coloridos valorizam o design esportivo da peça.\r\n\r\nDestaques da peça:\r\n\r\nMalha de fácil secagem\r\nManga longa\r\nModelagem esportiva e ajustada\r\nDesign em cores vibrantes\r\nLiberdade de movimento\r\nFechamento entre as pernas\r\nPrático para vestir e retirar\r\nIdeal para surf, praia e atividades aquáticas",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-perola-mares-1.webp",
+          "alt": "Maiô Pérola Mares",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-perola-mares-2.webp",
+          "alt": "Maiô Pérola Mares",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 800,
+    "parcelamento": "6x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-perola-mares-1.webp",
+      "alt": "Maiô Pérola Mares",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-perola-mares-2.webp",
+      "alt": "Maiô Pérola Mares",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô de surf",
+    "surf",
+    "maiô colorido"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

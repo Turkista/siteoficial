@@ -1,0 +1,59 @@
+{
+  "id": "prod_topoliva",
+  "slug": "top-oliva",
+  "nome": "Top Oliva",
+  "linha": "turk-fit",
+  "categoria": "top",
+  "descricaoCurta": "Conforto e estilo para acompanhar seus treinos com leveza.",
+  "descricaoCompleta": "Desenvolvido para musculação, yoga e atividades de menor impacto, este top combina uma malha texturizada de toque suave com uma modelagem confortável que proporciona liberdade de movimento.\r\n\r\nO tecido oferece boa cobertura e não fica transparente, garantindo segurança durante a prática. Os detalhes são sutis e sofisticados, criando um visual clean e moderno que transita com facilidade entre o treino e o dia a dia.\r\n\r\nUma peça essencial para quem valoriza conforto, praticidade e elegância na rotina fitness.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "verde oliva acetinado",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-oliva-1.webp",
+          "alt": "Top Oliva",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-oliva-2.webp",
+          "alt": "Top Oliva",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 60,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-oliva-1.webp",
+      "alt": "Top Oliva",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-oliva-2.webp",
+      "alt": "Top Oliva",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

@@ -1,0 +1,69 @@
+{
+  "id": "prod_biquinio",
+  "slug": "biquini-orange",
+  "nome": "Biquíni Orange",
+  "linha": "praia",
+  "categoria": "Biquíni",
+  "descricaoCurta": "Estilo, conforto e praticidade em uma única peça. O modelo \"tomara que não caia\" traz amarração frontal ajustável, permitindo um ajuste personalizado ao corpo.",
+  "descricaoCompleta": "Estilo, conforto e praticidade em uma única peça. O modelo \"tomara que não caia\" traz amarração frontal ajustável, permitindo um ajuste personalizado ao corpo, além de ser sem bojo e totalmente forrado, garantindo conforto e segurança durante o uso.\r\n\r\nConfeccionado em tecido de toque suave, com acabamento fosco e efeito marmorizado, apresenta visual moderno e sofisticado. A modelagem valoriza a silhueta, enquanto a elasticidade do tecido proporciona liberdade de movimento e facilidade ao vestir.\r\n\r\nUma peça versátil e confortável, perfeita para compor looks de verão, praia e momentos de lazer.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Laranja marmorizado",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-orange-1.webp",
+          "alt": "Biquíni Orange",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-orange-2.webp",
+          "alt": "Biquíni Orange",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-orange-3.webp",
+          "alt": "Biquíni Orange",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 140,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-orange-1.webp",
+      "alt": "Biquíni Orange",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-orange-2.webp",
+      "alt": "Biquíni Orange",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-orange-3.webp",
+      "alt": "Biquíni Orange",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

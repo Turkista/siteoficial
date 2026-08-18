@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://www.turkista.com.br/src/schema/produto.schema.json",
+  "title": "Produto Turkista",
+  "description": "Schema de um produto do catálogo Turkista. Cobre as 3 linhas (Praia, Surf, Turk Fit). Preparado na Etapa 2 do Plano Mestre, antes da produção fotográfica, para validar a estrutura de dados sem depender das fotos — ver 'O que ainda depende de decisão humana' no README desta pasta.",
+  "type": "object",
+  "required": [
+    "id",
+    "slug",
+    "nome",
+    "linha",
+    "categoria",
+    "descricaoCurta",
+    "composicao",
+    "cores",
+    "tamanhos",
+    "imagens",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Identificador único e estável do produto. Não muda mesmo se o nome ou slug mudarem.",
+      "pattern": "^prod_[a-z0-9]{6,}$",
+      "examples": ["prod_aurora01"]
+    },
+    "slug": {
+      "type": "string",
+      "description": "Usado na URL da ficha de produto (Etapa 5), ex.: /catalogo/praia/biquini-aurora/",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "examples": ["biquini-aurora"]
+    },
+    "nome": {
+      "type": "string",
+      "description": "Nome comercial exibido no site.",
+      "examples": ["Biquíni Aurora"]
+    },
+    "linha": {
+      "type": "string",
+      "description": "Uma das 3 linhas da marca (Manual da Marca, seção de arquitetura de produto). Determina cor de destaque e agrupamento no catálogo (Etapa 4).",
+      "enum": ["praia", "surf", "turk-fit"]
+    },
+    "categoria": {
+      "type": "string",
+      "description": "Tipo de peça dentro da linha. Lista aberta — adicionar valores conforme o catálogo real crescer.",
+      "examples": ["biquíni", "maiô", "saída de praia", "top", "short", "conjunto", "calça"]
+    },
+    "descricaoCurta": {
+      "type": "string",
+      "description": "1-2 frases para card de catálogo e meta description da ficha de produto.",
+      "maxLength": 160
+    },
+    "descricaoCompleta": {
+      "type": "string",
+      "description": "Texto completo da ficha de produto (Etapa 5). Opcional até lá — pode ficar vazio enquanto só o card de catálogo (Etapa 4) está em uso."
+    },
+    "composicao": {
+      "type": "object",
+      "description": "Ficha técnica do tecido — mesma política de 'lycra de alto padrão' já usada em como-cuidar-da-peca.html. Preencher com o dado real de cada peça; não reaproveitar um valor genérico entre peças com tecidos diferentes.",
+      "required": ["tecido"],
+      "properties": {
+        "tecido": {
+          "type": "string",
+          "examples": ["88% Poliamida / 12% Elastano"]
+        },
+        "protecaoUV": {
+          "type": ["string", "null"],
+          "description": "Só preencher se houver laudo técnico do tecido (ver nota de conteúdo em Adendo 4 do status: nada sobre UV é afirmado sem base técnica). Usar null enquanto não houver confirmação.",
+          "examples": [null, "FPS 50+"]
+        },
+        "paisDeFabricacao": {
+          "type": "string",
+          "default": "Brasil"
+        }
+      }
+    },
+    "cores": {
+      "type": "array",
+      "description": "Cada cor é uma variante com seu próprio estoque e fotos.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["nome", "hex", "imagens"],
+        "properties": {
+          "nome": { "type": "string", "examples": ["Rosa Turkista"] },
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$",
+            "description": "Usado como swatch de cor na ficha de produto. Não precisa bater com os tokens de marca — é a cor real da peça."
+          },
+          "imagens": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/imagem" },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "tamanhos": {
+      "type": "array",
+      "description": "Grade de tamanhos disponíveis para esta peça (nem toda peça tem a grade inteira).",
+      "items": {
+        "type": "string",
+        "enum": ["PP", "P", "M", "G", "GG"]
+      },
+      "minItems": 1
+    },
+    "medidas": {
+      "type": "object",
+      "description": "Tabela de medidas por tamanho, em cm. Opcional até a ficha de produto (Etapa 5) precisar dela — mas já modelada aqui para não faltar campo depois.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "busto": { "type": "number" },
+          "cintura": { "type": "number" },
+          "quadril": { "type": "number" }
+        }
+      }
+    },
+    "preco": {
+      "type": ["object", "null"],
+      "description": "Null enquanto a marca não confirmar preço público (hoje a venda é via WhatsApp, sem preço fixo no site). Preencher só quando a decisão de exibir preço for tomada — ver Plano Mestre, prontidão para e-commerce.",
+      "properties": {
+        "valor": { "type": "number", "description": "Em reais, ex.: 189.90" },
+        "parcelamento": { "type": "string", "examples": ["em até 3x sem juros"] }
+      }
+    },
+    "imagens": {
+      "type": "array",
+      "description": "Imagens gerais do produto (capa do card de catálogo), independentes de cor. Se o produto tiver variação de cor com fotos próprias, usar também cores[].imagens.",
+      "items": { "$ref": "#/definitions/imagem" },
+      "minItems": 1
+    },
+    "badges": {
+      "type": "array",
+      "description": "Selos visuais opcionais (componente já existe no Design System — Etapa 1).",
+      "items": {
+        "type": "string",
+        "enum": ["novo", "exclusivo", "ultimas-unidades", "reposicao"]
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Para busca e filtros do catálogo (Etapa 4) além do filtro por linha.",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "description": "Controla se o produto aparece no catálogo publicado.",
+      "enum": ["rascunho", "publicado", "esgotado", "descontinuado"],
+      "default": "rascunho"
+    },
+    "dataCriacao": {
+      "type": "string",
+      "format": "date",
+      "description": "Usado para ordenar 'novidades' e para o badge 'novo' expirar automaticamente."
+    }
+  },
+  "definitions": {
+    "imagem": {
+      "type": "object",
+      "required": ["arquivo", "alt"],
+      "properties": {
+        "arquivo": {
+          "type": "string",
+          "description": "Caminho relativo a assets/produtos/, mesmo padrão de nomenclatura já usado (ver assets/produtos/README.md). Extensão faz parte do nome. Padrão do projeto é .webp (qualidade 85, sem perda perceptível, ~90-95% menor que .jpg/.png — ver auditoria de performance) — não usar .jpg/.png em imagens novas.",
+          "examples": ["biquini-aurora-frente.webp"]
+        },
+        "alt": {
+          "type": "string",
+          "description": "Texto alternativo obrigatório — acessibilidade (checklist de qualidade, Etapa 1)."
+        },
+        "proporcao": {
+          "type": "string",
+          "default": "3:4",
+          "description": "Mesma proporção still-life já definida em assets/produtos/README.md."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "prod_croppeds",
+  "slug": "cropped-surf",
+  "nome": "Cropped surf",
+  "linha": "surf",
+  "categoria": "Blusa",
+  "descricaoCurta": "A blusa é um cropped de manga curta em estilo patchwork artesanal, com modelagem ampla e comprimento curto, terminando acima do umbigo.",
+  "descricaoCompleta": "A blusa é um cropped de manga curta em estilo patchwork artesanal, com modelagem ampla e comprimento curto, terminando acima do umbigo.\r\n\r\nBase: tecido vermelho intenso.\r\nMangas: mangas curtas em laranja/mostarda, aplicadas de forma contrastante.\r\nPatchwork frontal: composição de vários retalhos de tecido costurados e sobrepostos.\r\nCores dos retalhos: vermelho, laranja, amarelo, verde, bege, marrom e tons terrosos.\r\nEstampa central: os retalhos formam uma paisagem tropical/artística, com elementos que lembram pôr do sol, céu, vegetação, palmeiras e praia.\r\nAcabamento: as bordas dos retalhos são irregulares e aparentes, com costuras visíveis, reforçando o aspecto artesanal e feito à mão.\r\nGola: gola redonda simples, com acabamento aparente em tom contrastante.\r\nBarra: curta e irregular, acompanhando o caráter artesanal da peça.\r\nEstilo: mistura de moda praia, arte, upcycling e patchwork, com aparência descontraída, colorida e autoral.\r\nObs.: Para ficar no estilo da modelo, por exemplo: se você normalmente usa P, escolha M.\r\nNeste caso, como temos disponível apenas 1 unidade no tamanho P, ela é indicada para quem normalmente usa PP.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorida",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "cropped-surf.webp",
+          "alt": "Cropped surf",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 190,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "cropped-surf.webp",
+      "alt": "Cropped surf",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

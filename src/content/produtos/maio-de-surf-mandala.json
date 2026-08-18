@@ -1,0 +1,60 @@
+{
+  "id": "prod_maiodesu",
+  "slug": "maio-de-surf-mandala",
+  "nome": "Maiô de Surf Mandala",
+  "linha": "surf",
+  "categoria": "Maiô",
+  "descricaoCurta": "Confeccionado em lycra de alta qualidade, este modelo veste perfeitamente o corpo, proporcionando um ajuste confortável e valorizando a silhueta. ",
+  "descricaoCompleta": "Realce sua beleza com um maiô que une conforto, estilo e excelente caimento.\r\n\r\nConfeccionado em lycra de alta qualidade, este modelo veste perfeitamente o corpo, proporcionando um ajuste confortável e valorizando a silhueta. O fechamento na parte inferior (entre as pernas) facilita o uso no dia a dia, oferecendo mais praticidade.\r\n\r\nA estampa exclusiva em tons vibrantes traz personalidade ao visual, enquanto as mangas longas deixam a peça ainda mais elegante e versátil, ideal para praia, piscina, surf, passeios de barco ou até mesmo para compor looks casuais com shorts ou saias.",
+  "composicao": {
+    "tecido": "Lycra",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-de-surf-mandala-1.webp",
+          "alt": "Maiô de Surf Mandala",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-de-surf-mandala-2.webp",
+          "alt": "Maiô de Surf Mandala",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 580,
+    "parcelamento": "5x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-de-surf-mandala-1.webp",
+      "alt": "Maiô de Surf Mandala",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-de-surf-mandala-2.webp",
+      "alt": "Maiô de Surf Mandala",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maio_surf"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-03"
+}

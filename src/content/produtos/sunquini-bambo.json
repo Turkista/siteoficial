@@ -1,0 +1,50 @@
+{
+  "id": "prod_sunquini",
+  "slug": "sunquini-bambo",
+  "nome": "Sunquíni Art",
+  "linha": "praia",
+  "categoria": "Sunquíni",
+  "descricaoCurta": "Modelagem curta, confortável e forrada, desenvolvido para proporcionar segurança, liberdade de movimento e conforto durante o uso. ",
+  "descricaoCompleta": "Short de praia com modelagem curta, confortável e forrada, desenvolvido para proporcionar segurança, liberdade de movimento e conforto durante o uso. A peça possui cintura com elástico, garantindo um ajuste confortável ao corpo.\r\n\r\nO destaque fica por conta da estampa tropical em tons vibrantes de verde, amarelo e preto, inspirada em elementos da natureza e perfeita para a proposta colorida e descontraída da TURKISTA.\r\n\r\nO forro interno proporciona maior cobertura e segurança, evitando transparência e deixando a peça mais confortável para movimentos na praia, no surf e em atividades ao ar livre.\r\n\r\nDestaques:\r\n\r\nModelagem curta;\r\nForro interno para maior segurança e cobertura;\r\nCintura com elástico;\r\nEstampa tropical vibrante;\r\nTecido confortável;\r\nLiberdade de movimento;\r\nNão fica transparente facilmente graças ao forro;\r\nIdeal para praia, surf, caminhadas e atividades ao ar livre.\r\n\r\nDescrição comercial curta:\r\n\r\nShort Praia Tropical TURKISTA — leve, colorido e feito para se movimentar. Com forro interno, cintura confortável e estampa tropical vibrante, oferece segurança e liberdade para aproveitar a praia, o surf e todos os momentos ao ar livre.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "estampa de bambo ",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "sunquini-bambo.webp",
+          "alt": "Sunquíni Art",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 120,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "sunquini-bambo.webp",
+      "alt": "Sunquíni Art",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "sunquíni",
+    "calcinha de praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

@@ -1,0 +1,99 @@
+{
+  "id": "prod_xuxinhas",
+  "slug": "xuxinhas-coloridas",
+  "nome": "Xuxinhas coloridas",
+  "linha": "turk-fit",
+  "categoria": "acessório de cabelo",
+  "descricaoCurta": "Praticidade sem destruir com seu visual.",
+  "descricaoCompleta": "Temos várias estampas e tamanhos. Consulte se ainda há o modelo que deseja. ",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "xuxinhas-coloridas-1.webp",
+          "alt": "Xuxinhas coloridas - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-2.webp",
+          "alt": "Xuxinhas coloridas - foto 2",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-3.webp",
+          "alt": "Xuxinhas coloridas - foto 3",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-4.webp",
+          "alt": "Xuxinhas coloridas - foto 4",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-5.webp",
+          "alt": "Xuxinhas coloridas - foto 5",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-6.webp",
+          "alt": "Xuxinhas coloridas - foto 6",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 10,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "xuxinhas-coloridas-1.webp",
+      "alt": "Xuxinhas coloridas - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-2.webp",
+      "alt": "Xuxinhas coloridas - foto 2",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-3.webp",
+      "alt": "Xuxinhas coloridas - foto 3",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-4.webp",
+      "alt": "Xuxinhas coloridas - foto 4",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-5.webp",
+      "alt": "Xuxinhas coloridas - foto 5",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-6.webp",
+      "alt": "Xuxinhas coloridas - foto 6",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "xuxinha"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

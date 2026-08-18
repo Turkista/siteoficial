@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rastreie seu pedido — Turkista</title>
+<meta name="description" content="Rastreie a entrega do seu pedido Turkista pelos Correios usando o código enviado no seu WhatsApp.">
+<link rel="canonical" href="https://www.turkista.com.br/rastreie-seu-pedido.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Turkista">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Rastreie seu pedido — Turkista">
+<meta property="og:description" content="Rastreie a entrega do seu pedido Turkista pelos Correios usando o código enviado no seu WhatsApp.">
+<meta property="og:url" content="https://www.turkista.com.br/rastreie-seu-pedido.html">
+<meta property="og:image" content="https://www.turkista.com.br/assets/hero/hero-praia.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rastreie seu pedido — Turkista">
+<meta name="twitter:description" content="Rastreie a entrega do seu pedido Turkista pelos Correios usando o código enviado no seu WhatsApp.">
+<meta name="twitter:image" content="https://www.turkista.com.br/assets/hero/hero-praia.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles/tokens/tokens.css">
+<link rel="stylesheet" href="src/styles/base/base.css">
+<link rel="stylesheet" href="src/styles/componentes/botoes.css">
+<link rel="stylesheet" href="src/styles/componentes/header.css">
+<link rel="stylesheet" href="src/styles/componentes/busca.css">
+<link rel="stylesheet" href="src/styles/componentes/footer.css">
+<link rel="stylesheet" href="src/styles/componentes/whatsapp-flutuante.css">
+<link rel="stylesheet" href="src/styles/componentes/carrinho.css">
+<link rel="stylesheet" href="src/layouts/institucional.css">
+<style>
+  .rastreio-grade { display: grid; gap: var(--esp-6); }
+  .rastreio-passos { display: grid; gap: var(--esp-4); margin-top: var(--esp-3); }
+  .rastreio-passo { display: flex; gap: var(--esp-3); align-items: flex-start; }
+  .rastreio-passo__numero {
+    flex: none; width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(242,121,200,0.15); color: var(--cor-rosa-turkista);
+    display: flex; align-items: center; justify-content: center;
+    font-size: var(--tam-legenda); font-weight: var(--peso-semibold);
+  }
+  .rastreio-passo p { margin: 0; color: rgba(255,255,255,0.75); font-size: var(--tam-corpo); }
+  .rastreio-aviso { font-size: var(--tam-legenda); color: rgba(255,255,255,0.55); margin-top: var(--esp-4); }
+  @media (min-width: 860px) { .rastreio-grade { grid-template-columns: 1fr 1fr; align-items: start; } }
+</style>
+</head>
+<body>
+<a href="#conteudo-principal" class="somente-leitor-tela pular-link">Pular para o conteúdo</a>
+
+<header class="cabecalho">
+  <div class="container cabecalho__linha">
+    <a href="index.html" class="cabecalho__logo">TURK<span>ISTA</span></a>
+    <nav class="cabecalho__nav-desktop" aria-label="Navegação principal">
+      <a href="catalogo.html#praia">Praia</a>
+      <a href="catalogo.html#surf">Surf</a>
+      <a href="catalogo.html#turk-fit">Turk Fit</a>
+      <a href="blog.html">Blog</a>
+      <a href="sobre-a-marca.html">Sobre a Marca</a>
+      <a href="como-cuidar-da-peca.html">Guia de Cuidados</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="cabecalho__acoes">
+      <a href="contato.html" class="botao botao--secundario" style="padding:.6rem 1.2rem; display:none" data-mostrar-desktop>Fale conosco</a>
+      <button class="cabecalho__botao-menu" data-menu-abrir aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav id="menu-mobile" class="menu-mobile" data-menu-mobile aria-label="Menu mobile">
+  <button class="menu-mobile__fechar" data-menu-fechar aria-label="Fechar menu">&times;</button>
+  <ul class="menu-mobile__lista">
+    <li><a href="catalogo.html#praia">Praia</a></li>
+    <li><a href="catalogo.html#surf">Surf</a></li>
+    <li><a href="catalogo.html#turk-fit">Turk Fit</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="sobre-a-marca.html">Sobre a Marca</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="como-cuidar-da-peca.html">Como Cuidar da Peça</a></li>
+    <li><a href="rastreie-seu-pedido.html" aria-current="page">Rastreie seu Pedido</a></li>
+  </ul>
+</nav>
+
+<main id="conteudo-principal">
+
+  <section class="pagina-hero">
+    <div class="container pagina-hero__conteudo">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Rastreie seu pedido</span>
+      </nav>
+      <span class="eyebrow">Acompanhe sua entrega</span>
+      <h1>Rastreie seu pedido</h1>
+      <p style="max-width:56ch; font-size:var(--tam-corpo-lg)">Digite o código de rastreio que enviamos no seu WhatsApp para acompanhar a entrega direto nos Correios.</p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="container rastreio-grade">
+
+      <div class="contato-cartao">
+        <h3>Código de rastreio</h3>
+        <p style="margin:.5rem 0 1.25rem">O código tem o formato <strong>AA123456789BR</strong> e é enviado assim que seu pedido é postado.</p>
+        <form class="form-contato" action="https://rastreamento.correios.com.br/app/index.php" method="POST" target="_blank" data-formulario-rastreio>
+          <div class="campo">
+            <label for="objetos">Código de rastreio</label>
+            <input type="text" id="objetos" name="objetos" placeholder="AA123456789BR" required autocomplete="off" autocapitalize="characters" pattern="[A-Za-z0-9]{8,20}" title="Digite o código de rastreio enviado pelos Correios">
+          </div>
+          <button type="submit" class="botao botao--primario botao--bloco">Rastrear nos Correios</button>
+        </form>
+        <p class="rastreio-aviso">Você será direcionado ao site oficial dos Correios em uma nova aba.</p>
+      </div>
+
+      <div>
+        <div class="contato-cartao contato-cartao--whatsapp">
+          <h3>Como funciona</h3>
+          <div class="rastreio-passos">
+            <div class="rastreio-passo">
+              <span class="rastreio-passo__numero">1</span>
+              <p>Seu pedido é confirmado e preparado aqui em Araruama.</p>
+            </div>
+            <div class="rastreio-passo">
+              <span class="rastreio-passo__numero">2</span>
+              <p>Assim que despachamos pelos Correios, enviamos o código de rastreio no seu WhatsApp.</p>
+            </div>
+            <div class="rastreio-passo">
+              <span class="rastreio-passo__numero">3</span>
+              <p>Cole o código aqui ao lado para ver o status da entrega em tempo real.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contato-cartao" style="margin-top:1.5rem">
+          <h3>Ainda não recebeu o código?</h3>
+          <p style="margin:.5rem 0 1rem">Se já faz alguns dias que seu pedido foi confirmado e você não recebeu o código de rastreio, fale com a gente.</p>
+          <a href="https://wa.me/5521992197518?text=Oi!%20Ainda%20n%C3%A3o%20recebi%20o%20c%C3%B3digo%20de%20rastreio%20do%20meu%20pedido." class="botao botao--secundario" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="container rodape__grade">
+    <div class="rodape__marca">
+      <span class="cabecalho__logo">TURK<span>ISTA</span></span>
+      <p>Roupas de praia, surf e academia, feitas à mão, com tecido pensado para o movimento de cada corpo. Araruama, Região dos Lagos — RJ.</p>
+      <div class="rodape__redes">
+        <a href="https://instagram.com/turkista.com.br" target="_blank" rel="noopener" aria-label="Instagram Turkista">IG</a>
+        <a href="https://instagram.com/turkfit.com.br" target="_blank" rel="noopener" aria-label="Instagram Turk Fit">TF</a>
+        <a href="https://wa.me/5521992197518" target="_blank" rel="noopener" aria-label="WhatsApp Turkista">WA</a>
+      </div>
+    </div>
+    <div class="rodape__coluna">
+      <h3>Linhas</h3>
+      <ul>
+        <li><a href="catalogo.html#praia">Praia</a></li>
+        <li><a href="catalogo.html#surf">Surf</a></li>
+        <li><a href="catalogo.html#turk-fit">Turk Fit</a></li>
+      </ul>
+    </div>
+    <div class="rodape__coluna">
+      <h3>Marca</h3>
+      <ul>
+        <li><a href="sobre-a-marca.html">Sobre a Marca</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="como-cuidar-da-peca.html">Como Cuidar da Peça</a></li>
+        <li><a href="faq.html">Perguntas Frequentes</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="rodape__coluna">
+      <h3>Atendimento</h3>
+      <ul>
+        <li><a href="https://wa.me/5521992197518" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="rastreie-seu-pedido.html">Rastreie seu Pedido</a></li>
+        <li><a href="politica-de-envio-e-prazo-de-entrega.html">Política de Envio e Entrega</a></li>
+        <li><a href="politica-de-troca-e-reembolso.html">Troca e Reembolso</a></li>
+        <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container rodape__base">
+    <span>© 2026 Turkista · Araruama, RJ</span>
+    <div class="rodape__base-links">
+      <a href="politica-de-privacidade.html">Privacidade</a>
+      <span>Feito por Yansix</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5521992197518?text=Oi!%20Vi%20o%20site%20da%20Turkista%20e%20queria%20saber%20mais%20sobre%20as%20pe%C3%A7as." class="whatsapp-flutuante esta-visivel" data-whatsapp-flutuante target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 004.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.83 14.02c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2 .9 2.14.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2 1.11.99 2.05 1.3 2.34 1.44.29.15.46.13.63-.08.17-.2.71-.83.9-1.11.19-.29.38-.24.63-.15.26.1 1.65.78 1.93.92.29.15.48.22.55.34.07.13.07.71-.17 1.39z"/></svg>
+  <span class="whatsapp-flutuante__texto">Falar no WhatsApp</span>
+</a>
+
+<script src="src/scripts/componentes/menu-mobile.js"></script>
+<script src="src/scripts/componentes/busca-dinamica.js"></script>
+<script src="src/scripts/utils/carrinho.js"></script>
+<script src="src/scripts/componentes/carrinho-ui.js"></script>
+<script>
+  var formularioRastreio = document.querySelector('[data-formulario-rastreio]');
+  if (formularioRastreio) {
+    formularioRastreio.addEventListener('submit', function (evento) {
+      var campo = formularioRastreio.querySelector('#objetos');
+      campo.value = campo.value.trim().toUpperCase();
+      if (!campo.value) {
+        evento.preventDefault();
+      }
+    });
+  }
+</script>
+</body>
+</html>

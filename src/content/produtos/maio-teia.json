@@ -1,0 +1,49 @@
+{
+  "id": "prod_maioteia",
+  "slug": "maio-teia",
+  "nome": "Maiô Teia",
+  "linha": "praia",
+  "categoria": "maiô",
+  "descricaoCurta": "Esse modelo é um maiô/biquíni de modelagem strappy, com design ousado e cheio de detalhes.",
+  "descricaoCompleta": "Esse modelo é um maiô/biquíni de modelagem strappy, com design ousado e cheio de detalhes.\r\nTop triangular, com alças finas ajustáveis e detalhe de argola metálica central.\r\nPossui uma tira vertical central que conecta o top à parte inferior.\r\nA cintura é formada por tiras finas cruzadas, criando um efeito geométrico e valorizando a silhueta.\r\nAs laterais também possuem tiras com argolas metálicas, trazendo um visual moderno e diferenciado.\r\nCalcinha de modelagem cavada, com tiras finas e reguláveis.\r\nFechamentos e amarrações permitem ajuste ao corpo.\r\nO design das costas é aberto, com várias tiras e amarrações, reforçando a proposta sensual, moderna e sofisticada.\r\nA cor laranja vibrante destaca ainda mais o desenho da peça.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "laranja",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-teia.webp",
+          "alt": "Maiô Teia",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 220,
+    "parcelamento": "4x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-teia.webp",
+      "alt": "Maiô Teia",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

@@ -1,0 +1,72 @@
+{
+  "id": "prod_surfbloom01",
+  "slug": "maio-surf-bloom",
+  "nome": "Maiô Surf Bloom",
+  "linha": "surf",
+  "categoria": "maiô",
+  "descricaoCurta": "De manga longa, com design moderno e marcante, combinando uma vibrante estampa floral tropical em tons de laranja, verde, amarelo e rosa.",
+  "descricaoCompleta": "A peça possui o corpo central estampado com flores tropicais, enquanto as mangas recebem blocos de cor laranja e rosa, criando um contraste alegre e esportivo. Os punhos contam com detalhes da própria estampa floral, complementando o visual.\r\n\r\nConfeccionado em malha de fácil secagem, o modelo foi pensado para acompanhar atividades na água com praticidade, conforto e liberdade de movimento. Sua modelagem ajustada proporciona um caimento confortável ao corpo.\r\n\r\nO maiô possui fechamento na parte inferior, entre as pernas, facilitando o vestir e retirar a peça e oferecendo mais praticidade no uso.\r\n\r\nDestaques da peça:\r\n\r\nMalha de fácil secagem\r\nManga longa\r\nEstampa floral tropical\r\nCores vibrantes e contrastantes\r\nModelagem ajustada ao corpo\r\nLiberdade de movimento\r\nFechamento entre as pernas\r\nIdeal para surf, praia e atividades aquáticas",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#0C1014",
+      "imagens": [
+        {
+          "arquivo": "maio-surf-bloom-1.webp",
+          "alt": "Maiô Surf Bloom",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-surf-bloom-2.webp",
+          "alt": "Maiô Surf Bloom",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-surf-bloom-3.webp",
+          "alt": "Maiô Surf Bloom",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "medidas": {},
+  "preco": {
+    "valor": 680,
+    "parcelamento": "5x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-surf-bloom-1.webp",
+      "alt": "Maiô Surf Bloom",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-surf-bloom-2.webp",
+      "alt": "Maiô Surf Bloom",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-surf-bloom-3.webp",
+      "alt": "Maiô Surf Bloom",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "surf",
+    "maiô",
+    "estruturado"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-02"
+}

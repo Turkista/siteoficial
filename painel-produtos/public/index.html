@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Produtos — Turkista</title>
+<style>
+  :root {
+    --rosa: #F279C8;
+    --rosa-profundo: #C94E9C;
+    --grafite: #0C1014;
+    --cinza: #6B6B6B;
+    --borda: #E4E4E4;
+    --fundo: #FAFAFA;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--grafite);
+    margin: 0;
+    padding: 32px 16px 80px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  header { margin-bottom: 28px; }
+  header h1 {
+    font-size: 24px; margin: 0 0 4px;
+    color: var(--grafite);
+  }
+  header p { color: var(--cinza); margin: 0; font-size: 14px; }
+  form {
+    background: #fff;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  fieldset {
+    border: none;
+    border-top: 1px solid var(--borda);
+    padding: 20px 0 4px;
+    margin: 0 0 8px;
+  }
+  fieldset:first-of-type { border-top: none; padding-top: 0; }
+  legend {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--rosa-profundo);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0;
+    margin-bottom: 12px;
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-top: 14px;
+  }
+  label:first-child { margin-top: 0; }
+  .ajuda {
+    font-weight: 400;
+    color: var(--cinza);
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+  }
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+  }
+  textarea { resize: vertical; min-height: 70px; }
+  input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--rosa);
+    outline-offset: 1px;
+    border-color: var(--rosa);
+  }
+  .linha-dupla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    margin: 0;
+    border: 1px solid var(--borda);
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .checkboxes input { width: auto; margin: 0; }
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px dashed var(--borda);
+    border-radius: 8px;
+    background: var(--fundo);
+    font-size: 13px;
+  }
+  #preview {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  #preview img {
+    width: 72px; height: 96px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--borda);
+  }
+  button {
+    width: 100%;
+    background: var(--rosa-profundo);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 24px;
+  }
+  button:hover { background: var(--rosa); }
+  button:disabled { opacity: 0.6; cursor: wait; }
+  #mensagem {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
+  }
+  #mensagem.sucesso { display: block; background: #E9F9EE; color: #1C6B3B; }
+  #mensagem.erro { display: block; background: #FDECEC; color: #A3312A; }
+  #mensagem.aviso { display: block; background: #FFF6E5; color: #8A5A00; }
+  #lista-produtos {
+    margin-top: 32px;
+  }
+  #lista-produtos h2 { font-size: 16px; margin-bottom: 10px; }
+  .busca-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .busca-lista input[type="text"],
+  .busca-lista select {
+    padding: 9px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #fff;
+  }
+  .busca-lista input[type="text"] { flex: 1 1 220px; }
+  .busca-lista select { flex: 0 1 160px; }
+  .busca-lista input:focus, .busca-lista select:focus {
+    outline: 2px solid var(--rosa);
+    outline-offset: 1px;
+    border-color: var(--rosa);
+  }
+  .busca-lista__limpar {
+    width: auto;
+    margin: 0;
+    background: transparent;
+    border: 1px solid var(--borda);
+    color: var(--cinza);
+    padding: 9px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .busca-lista__limpar:hover { background: var(--fundo); }
+  #contagem-produtos { font-size: 12px; color: var(--cinza); margin: -4px 0 10px; }
+  .produto-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .produto-item .status {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--fundo);
+    color: var(--cinza);
+    flex-shrink: 0;
+  }
+  .produto-item__info { min-width: 0; flex: 1; }
+  .produto-item__acoes { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .botao-editar {
+    background: #fff;
+    color: var(--rosa-profundo);
+    border: 1px solid var(--rosa-profundo);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .botao-editar:hover { background: #FFF0F8; }
+  #aviso-edicao {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: #FFF0F8;
+    border: 1px solid var(--rosa);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rosa-profundo);
+  }
+  #aviso-edicao.ativo { display: flex; }
+  #cancelar-edicao {
+    width: auto;
+    margin: 0;
+    background: transparent;
+    border: 1px solid var(--rosa-profundo);
+    color: var(--rosa-profundo);
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  #cancelar-edicao:hover { background: #fff; }
+  .foto-existente {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+  .foto-existente img {
+    width: 56px; height: 74px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .foto-existente__info { flex: 1; min-width: 0; font-size: 12px; }
+  .foto-existente__nome { font-weight: 600; word-break: break-all; }
+  .foto-existente__acoes { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+  .foto-existente__acoes label {
+    margin: 0; font-weight: 400; font-size: 11px; cursor: pointer;
+    color: var(--rosa-profundo); text-decoration: underline;
+  }
+  .foto-existente__acoes input[type="file"] { display: none; }
+  .foto-existente.marcada-para-remover { opacity: 0.4; }
+  .foto-existente.marcada-para-remover .foto-existente__info { text-decoration: line-through; }
+  .remover-foto { color: #A3312A !important; }
+  .foto-existente__selo-nova {
+    font-size: 10px; color: var(--rosa-profundo); display: block; margin-top: 2px;
+  }
+  .abas {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--borda);
+  }
+  .abas a {
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cinza);
+    border-bottom: 2px solid transparent;
+  }
+  .abas a.ativa {
+    color: var(--rosa-profundo);
+    border-bottom-color: var(--rosa-profundo);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Painel Turkista</h1>
+    <p>Cadastre uma peça nova: preencha os campos, escolha as fotos e clique em salvar.
+       Tudo é gravado direto na pasta do site, sem precisar mexer em código.</p>
+  </header>
+
+  <nav class="abas">
+    <a href="index.html" class="ativa">Produtos</a>
+    <a href="artigos.html">Artigos do Blog</a>
+    <a href="fotos.html">Fotos do Site</a>
+  </nav>
+
+
+  <div id="aviso-edicao">
+    <span id="aviso-edicao-texto">Editando um produto já cadastrado</span>
+    <button type="button" id="cancelar-edicao">Cancelar edição</button>
+  </div>
+
+  <form id="form-produto">
+    <fieldset>
+      <legend>Identificação</legend>
+
+      <label for="nome">Nome do produto *
+        <span class="ajuda" id="ajuda-nome-slug"></span>
+      </label>
+      <input type="text" id="nome" name="nome" placeholder="Ex.: Biquíni Aurora" required>
+
+      <div class="linha-dupla">
+        <div>
+          <label for="linha">Linha *</label>
+          <select id="linha" name="linha" required>
+            <option value="">Selecione</option>
+            <option value="praia">Praia</option>
+            <option value="surf">Surf</option>
+            <option value="turk-fit">Turk Fit</option>
+          </select>
+        </div>
+        <div>
+          <label for="categoria">Categoria *</label>
+          <input type="text" id="categoria" name="categoria" placeholder="Ex.: biquíni, maiô, top, short" required>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Descrição</legend>
+
+      <label for="descricaoCurta">Descrição curta
+        <span class="ajuda">Aparece no card do catálogo. Até 160 caracteres.</span>
+      </label>
+      <textarea id="descricaoCurta" name="descricaoCurta" maxlength="160" rows="2"></textarea>
+
+      <label for="descricaoCompleta">Descrição completa
+        <span class="ajuda">Opcional — texto maior, usado na ficha de produto.</span>
+      </label>
+      <textarea id="descricaoCompleta" name="descricaoCompleta" rows="4"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ficha técnica</legend>
+
+      <label for="tecido">Composição do tecido
+        <span class="ajuda">Ex.: 88% Poliamida / 12% Elastano. Deixe em branco se ainda não tiver certeza.</span>
+      </label>
+      <input type="text" id="tecido" name="tecido" placeholder="Ex.: 88% Poliamida / 12% Elastano">
+
+      <label for="paisDeFabricacao">País de fabricação</label>
+      <input type="text" id="paisDeFabricacao" name="paisDeFabricacao" value="Brasil">
+
+      <p class="ajuda" style="margin-top:10px;">Proteção UV não é preenchida aqui — as peças não têm laudo de FPS, então este campo fica sempre em branco no site, de propósito.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Cor</legend>
+      <div class="linha-dupla">
+        <div>
+          <label for="corNome">Nome da cor</label>
+          <input type="text" id="corNome" name="corNome" placeholder="Ex.: Rosa Turkista">
+        </div>
+        <div>
+          <label for="corHex">Cor (código)</label>
+          <input type="text" id="corHex" name="corHex" placeholder="#F279C8" value="#F279C8">
+        </div>
+      </div>
+      <p class="ajuda">Este painel cadastra uma cor por vez. Se a peça tiver mais de uma cor, cadastre com a primeira cor e me avise — eu ajusto o arquivo gerado para incluir as demais.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Tamanhos disponíveis *</legend>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="tamanhos" value="PP"> PP</label>
+        <label><input type="checkbox" name="tamanhos" value="P"> P</label>
+        <label><input type="checkbox" name="tamanhos" value="M"> M</label>
+        <label><input type="checkbox" name="tamanhos" value="G"> G</label>
+        <label><input type="checkbox" name="tamanhos" value="GG"> GG</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preço (opcional)</legend>
+      <div class="linha-dupla">
+        <div>
+          <label for="preco">Valor (R$)
+            <span class="ajuda">Deixe em branco para manter "sob consulta" via WhatsApp.</span>
+          </label>
+          <input type="number" step="0.01" id="preco" name="preco" placeholder="Ex.: 189.90">
+        </div>
+        <div>
+          <label for="parcelamento">Parcelamento</label>
+          <input type="text" id="parcelamento" name="parcelamento" placeholder="Ex.: em até 3x sem juros">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Selos (opcional)</legend>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="badges" value="novo"> Novo</label>
+        <label><input type="checkbox" name="badges" value="exclusivo"> Exclusivo</label>
+        <label><input type="checkbox" name="badges" value="ultimas-unidades"> Últimas unidades</label>
+        <label><input type="checkbox" name="badges" value="reposicao"> Reposição</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Busca (opcional)</legend>
+      <label for="tags">Tags de busca
+        <span class="ajuda">Separadas por vírgula. Ex.: verão, estampado, sustentação</span>
+      </label>
+      <input type="text" id="tags" name="tags" placeholder="verão, estampado, sustentação">
+    </fieldset>
+
+    <fieldset>
+      <legend>Fotos *</legend>
+      <div id="fotos-existentes"></div>
+      <label for="fotos" id="rotulo-fotos">Escolha até 6 fotos
+        <span class="ajuda">São convertidas para .webp e salvas automaticamente em assets/produtos/</span>
+      </label>
+      <input type="file" id="fotos" name="fotos" accept="image/*" multiple>
+      <div id="preview"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Publicação</legend>
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="rascunho" selected>Rascunho (não aparece no site ainda)</option>
+        <option value="publicado">Publicado</option>
+        <option value="esgotado">Esgotado</option>
+        <option value="descontinuado">Descontinuado</option>
+      </select>
+    </fieldset>
+
+    <button type="submit" id="botao-salvar">Salvar produto</button>
+    <div id="mensagem"></div>
+  </form>
+
+  <div id="lista-produtos">
+    <h2>Produtos já cadastrados</h2>
+    <div class="busca-lista">
+      <input type="text" id="busca-produto" placeholder="Buscar por nome ou categoria...">
+      <select id="busca-linha">
+        <option value="">Todas as linhas</option>
+        <option value="praia">Praia</option>
+        <option value="surf">Surf</option>
+        <option value="turk-fit">Turk Fit</option>
+      </select>
+      <button type="button" class="busca-lista__limpar" id="limpar-busca-produto">Limpar</button>
+    </div>
+    <p id="contagem-produtos"></p>
+    <div id="lista"></div>
+  </div>
+</div>
+
+<script>
+const form = document.getElementById("form-produto");
+const mensagem = document.getElementById("mensagem");
+const botao = document.getElementById("botao-salvar");
+const inputFotos = document.getElementById("fotos");
+const preview = document.getElementById("preview");
+const rotuloFotos = document.getElementById("rotulo-fotos");
+const fotosExistentesDiv = document.getElementById("fotos-existentes");
+const avisoEdicao = document.getElementById("aviso-edicao");
+const avisoEdicaoTexto = document.getElementById("aviso-edicao-texto");
+const botaoCancelarEdicao = document.getElementById("cancelar-edicao");
+const ajudaNomeSlug = document.getElementById("ajuda-nome-slug");
+
+// Estado da edição: quando null, o formulário está em modo "criar produto
+// novo". Quando preenchido, guarda o slug (travado — é a URL da página,
+// não muda mesmo se o nome mudar) e a lista de fotos já cadastradas.
+let edicao = null; // { slug, fotos: [{arquivo, alt}] }
+
+inputFotos.addEventListener("change", () => {
+  preview.innerHTML = "";
+  [...inputFotos.files].forEach((arquivo) => {
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(arquivo);
+    preview.appendChild(img);
+  });
+});
+
+function mostrarMensagem(texto, tipo) {
+  mensagem.textContent = texto;
+  mensagem.className = tipo;
+}
+
+// Cache local de todos os produtos carregados da API — a busca e o
+// filtro de linha trabalham em cima dessa cópia, sem precisar ir ao
+// servidor de novo a cada tecla digitada.
+let todosOsProdutos = [];
+const inputBuscaProduto = document.getElementById("busca-produto");
+const selectBuscaLinha = document.getElementById("busca-linha");
+const botaoLimparBuscaProduto = document.getElementById("limpar-busca-produto");
+const contagemProdutos = document.getElementById("contagem-produtos");
+
+function normalizar(texto) {
+  return (texto || "").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+function renderizarListaProdutos(produtos) {
+  const lista = document.getElementById("lista");
+  const semFiltro = todosOsProdutos.length === produtos.length;
+
+  if (todosOsProdutos.length === 0) {
+    lista.innerHTML = '<p style="color:#6B6B6B;font-size:13px;">Nenhum produto cadastrado ainda.</p>';
+    contagemProdutos.textContent = "";
+    return;
+  }
+  if (produtos.length === 0) {
+    lista.innerHTML = '<p style="color:#6B6B6B;font-size:13px;">Nenhum produto encontrado com esses filtros.</p>';
+    contagemProdutos.textContent = "";
+    return;
+  }
+
+  contagemProdutos.textContent = semFiltro
+    ? `${produtos.length} produto${produtos.length === 1 ? "" : "s"} no total`
+    : `${produtos.length} de ${todosOsProdutos.length} produtos`;
+
+  lista.innerHTML = produtos.map(p => `
+    <div class="produto-item">
+      <span class="produto-item__info"><strong>${p.nome}</strong> — ${p.categoria ? `${p.categoria} · ` : ""}${p.linha}</span>
+      <span class="produto-item__acoes">
+        <span class="status">${p.status}</span>
+        <button type="button" class="botao-editar" data-slug="${p.slug}">Editar</button>
+      </span>
+    </div>
+  `).join("");
+  lista.querySelectorAll(".botao-editar").forEach((btn) => {
+    btn.addEventListener("click", () => entrarEmModoEdicao(btn.getAttribute("data-slug")));
+  });
+}
+
+function aplicarFiltroProdutos() {
+  const termo = normalizar(inputBuscaProduto.value.trim());
+  const linha = selectBuscaLinha.value;
+
+  const filtrados = todosOsProdutos.filter((p) => {
+    const bateLinha = !linha || p.linha === linha;
+    const bateTermo = !termo
+      || normalizar(p.nome).includes(termo)
+      || normalizar(p.categoria).includes(termo);
+    return bateLinha && bateTermo;
+  });
+
+  renderizarListaProdutos(filtrados);
+}
+
+inputBuscaProduto.addEventListener("input", aplicarFiltroProdutos);
+selectBuscaLinha.addEventListener("change", aplicarFiltroProdutos);
+botaoLimparBuscaProduto.addEventListener("click", () => {
+  inputBuscaProduto.value = "";
+  selectBuscaLinha.value = "";
+  aplicarFiltroProdutos();
+});
+
+async function carregarLista() {
+  const lista = document.getElementById("lista");
+  try {
+    const resp = await fetch("/api/produtos");
+    todosOsProdutos = await resp.json();
+    aplicarFiltroProdutos();
+  } catch (e) {
+    lista.innerHTML = '<p style="color:#A3312A;font-size:13px;">Não foi possível carregar a lista.</p>';
+  }
+}
+
+function preencherFormulario(p) {
+  form.nome.value = p.nome || "";
+  form.linha.value = p.linha || "";
+  form.categoria.value = p.categoria || "";
+  form.descricaoCurta.value = p.descricaoCurta || "";
+  form.descricaoCompleta.value = p.descricaoCompleta || "";
+  form.tecido.value = p.composicao?.tecido || "";
+  form.paisDeFabricacao.value = p.composicao?.paisDeFabricacao || "Brasil";
+  const cor = (p.cores && p.cores[0]) || {};
+  form.corNome.value = cor.nome || "";
+  form.corHex.value = cor.hex || "#F279C8";
+  form.querySelectorAll('input[name="tamanhos"]').forEach((cb) => {
+    cb.checked = (p.tamanhos || []).includes(cb.value);
+  });
+  form.preco.value = p.preco?.valor ?? "";
+  form.parcelamento.value = p.preco?.parcelamento || "";
+  form.querySelectorAll('input[name="badges"]').forEach((cb) => {
+    cb.checked = (p.badges || []).includes(cb.value);
+  });
+  form.tags.value = (p.tags || []).join(", ");
+  form.status.value = p.status || "rascunho";
+}
+
+// Cria a lista visual de fotos já cadastradas, cada uma com opção de
+// trocar (escolher um arquivo novo pra ocupar aquela posição) ou remover.
+// O estado de cada foto (mantida/trocada/removida) fica guardado nos
+// próprios elementos do DOM e é lido de novo na hora de montar o FormData.
+function montarListaFotosExistentes(fotos) {
+  fotosExistentesDiv.innerHTML = fotos.map((img, i) => `
+    <div class="foto-existente" data-posicao="${i}" data-arquivo="${img.arquivo}">
+      <img src="/site/assets/produtos/${img.arquivo}" alt="${img.alt || ""}">
+      <div class="foto-existente__info">
+        <div class="foto-existente__nome">${img.arquivo}</div>
+        <span class="foto-existente__selo-nova" data-papel="selo-nova" style="display:none;">Nova foto selecionada</span>
+      </div>
+      <div class="foto-existente__acoes">
+        <label>Trocar foto
+          <input type="file" accept="image/*" data-papel="substituto">
+        </label>
+        <label class="remover-foto" data-papel="remover-toggle">Remover</label>
+      </div>
+    </div>
+  `).join("");
+
+  fotosExistentesDiv.querySelectorAll(".foto-existente").forEach((div) => {
+    const inputSubstituto = div.querySelector('[data-papel="substituto"]');
+    const selo = div.querySelector('[data-papel="selo-nova"]');
+    const botaoRemover = div.querySelector('[data-papel="remover-toggle"]');
+
+    inputSubstituto.addEventListener("change", () => {
+      selo.style.display = inputSubstituto.files[0] ? "block" : "none";
+    });
+
+    botaoRemover.addEventListener("click", () => {
+      const marcada = div.classList.toggle("marcada-para-remover");
+      botaoRemover.textContent = marcada ? "Desfazer remoção" : "Remover";
+    });
+  });
+}
+
+async function entrarEmModoEdicao(slug) {
+  try {
+    const resp = await fetch(`/api/produtos/${slug}`);
+    if (!resp.ok) throw new Error("não encontrado");
+    const produto = await resp.json();
+
+    edicao = { slug, fotos: produto.imagens || [] };
+    preencherFormulario(produto);
+    montarListaFotosExistentes(edicao.fotos);
+
+    rotuloFotos.firstChild.textContent = "Adicionar fotos novas (opcional)";
+    ajudaNomeSlug.textContent = "Trocar o nome não muda o endereço da página do produto.";
+    avisoEdicaoTexto.textContent = `Editando: ${produto.nome}`;
+    avisoEdicao.classList.add("ativo");
+    botao.textContent = "Salvar alterações";
+    preview.innerHTML = "";
+    inputFotos.value = "";
+    mensagem.className = "";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } catch (e) {
+    mostrarMensagem("✗ Não foi possível carregar esse produto para edição.", "erro");
+  }
+}
+
+function sairDoModoEdicao() {
+  edicao = null;
+  form.reset();
+  preview.innerHTML = "";
+  fotosExistentesDiv.innerHTML = "";
+  rotuloFotos.firstChild.textContent = "Escolha até 6 fotos";
+  ajudaNomeSlug.textContent = "";
+  avisoEdicao.classList.remove("ativo");
+  botao.textContent = "Salvar produto";
+  mensagem.className = "";
+}
+
+botaoCancelarEdicao.addEventListener("click", sairDoModoEdicao);
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // Fora do modo edição, fotos continuam obrigatórias (produto novo
+  // sempre precisa nascer com pelo menos uma foto).
+  if (!edicao && inputFotos.files.length === 0) {
+    mostrarMensagem("✗ Envie pelo menos uma foto do produto.", "erro");
+    return;
+  }
+
+  botao.disabled = true;
+  botao.textContent = edicao ? "Salvando alterações..." : "Salvando...";
+  mensagem.className = "";
+
+  try {
+    let resp;
+    if (edicao) {
+      const dados = new FormData(form);
+      dados.delete("fotos"); // não usado no modo edição
+
+      const fotosFinais = [];
+      let algumaFotoRestou = false;
+      fotosExistentesDiv.querySelectorAll(".foto-existente").forEach((div) => {
+        if (div.classList.contains("marcada-para-remover")) return;
+        algumaFotoRestou = true;
+        const posicao = div.getAttribute("data-posicao");
+        const arquivo = div.getAttribute("data-arquivo");
+        const inputSubstituto = div.querySelector('[data-papel="substituto"]');
+        fotosFinais.push({ posicao, arquivo, alt: form.nome.value.trim() });
+        if (inputSubstituto.files[0]) {
+          dados.append(`substituto_${posicao}`, inputSubstituto.files[0]);
+        }
+      });
+      dados.append("fotosExistentes", JSON.stringify(fotosFinais));
+
+      [...inputFotos.files].forEach((arquivo) => dados.append("novasFotos", arquivo));
+      const haveraFotoNova = inputFotos.files.length > 0;
+
+      if (!algumaFotoRestou && !haveraFotoNova) {
+        mostrarMensagem("✗ O produto precisa ficar com pelo menos uma foto.", "erro");
+        botao.disabled = false;
+        botao.textContent = "Salvar alterações";
+        return;
+      }
+
+      resp = await fetch(`/api/produtos/${edicao.slug}`, { method: "PUT", body: dados });
+    } else {
+      const dados = new FormData(form);
+      resp = await fetch("/api/produtos", { method: "POST", body: dados });
+    }
+
+    const resultado = await resp.json();
+
+    if (resp.ok && !resultado.aviso) {
+      mostrarMensagem(`✓ ${resultado.mensagem} (${resultado.slug})`, "sucesso");
+      sairDoModoEdicao();
+      carregarLista();
+    } else if (resultado.aviso) {
+      mostrarMensagem(`⚠ ${resultado.aviso}`, "aviso");
+      if (edicao) sairDoModoEdicao();
+      carregarLista();
+    } else {
+      mostrarMensagem(`✗ ${resultado.erro || "Erro ao salvar."}`, "erro");
+    }
+  } catch (erro) {
+    mostrarMensagem("✗ Não foi possível conectar ao painel. Verifique se o servidor está rodando.", "erro");
+  } finally {
+    botao.disabled = false;
+    botao.textContent = edicao ? "Salvar alterações" : "Salvar produto";
+  }
+});
+
+carregarLista();
+</script>
+</body>
+</html>

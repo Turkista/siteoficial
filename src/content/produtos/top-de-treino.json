@@ -1,0 +1,61 @@
+{
+  "id": "prod_topdetre",
+  "slug": "top-de-treino",
+  "nome": "Top de treino",
+  "linha": "turk-fit",
+  "categoria": "Top",
+  "descricaoCurta": "Top fitness feminino com design moderno e estampa exclusiva, desenvolvido para unir personalidade, conforto e segurança durante os treinos.",
+  "descricaoCompleta": "A peça possui modelagem ajustada ao corpo, com base mais larga na região inferior, proporcionando melhor firmeza durante os movimentos. As alças largas e estampadas oferecem maior estabilidade e conforto, além de trazerem um detalhe diferenciado ao visual.\r\n\r\nO destaque fica por conta da estampa geométrica e psicodélica, que combina preto, laranja, rosa, azul e verde em uma composição vibrante e marcante. O desenho central cria um efeito visual de profundidade, dando à peça uma identidade forte e contemporânea.\r\n\r\nO top apresenta acabamento reforçado nas bordas e costuras bem definidas, contribuindo para um ajuste confortável ao corpo. As alças possuem construção cruzada nas costas, ajudando na distribuição do suporte e permitindo maior liberdade para os movimentos dos braços.\r\n\r\nÉ uma peça versátil que pode ser usada tanto em treinos de academia e musculação quanto em atividades que pedem conforto e mobilidade.\r\n\r\nDestaques da peça:\r\n\r\nEstampa exclusiva e vibrante\r\nModelagem ajustada ao corpo\r\nAlças largas\r\nCostas com alças cruzadas\r\nBase inferior mais larga\r\nAcabamento reforçado\r\nConforto e liberdade de movimento\r\nVisual moderno e marcante\r\nIdeal para academia, musculação, funcional e atividades físicas",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-de-treino-1.webp",
+          "alt": "Top de treino - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-de-treino-2.webp",
+          "alt": "Top de treino - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 90,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-de-treino-1.webp",
+      "alt": "Top de treino - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-de-treino-2.webp",
+      "alt": "Top de treino - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

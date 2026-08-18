@@ -1,0 +1,60 @@
+{
+  "id": "prod_biquinia",
+  "slug": "biquini-andrea-dupla-face-parte-superior",
+  "nome": "Biquíni Andrea dupla face - Parte superior",
+  "linha": "praia",
+  "categoria": "Biquíni parte superior",
+  "descricaoCurta": "Parte superior disponível para venda, dupla face. Fácil secagem. Material de malha premium. Regula e pode usar dos dois lados. ",
+  "descricaoCompleta": "",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-andrea-dupla-face-parte-superior-1.webp",
+          "alt": "Biquíni Andrea dupla face - Parte superior - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-andrea-dupla-face-parte-superior-2.webp",
+          "alt": "Biquíni Andrea dupla face - Parte superior - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 45,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-andrea-dupla-face-parte-superior-1.webp",
+      "alt": "Biquíni Andrea dupla face - Parte superior - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-andrea-dupla-face-parte-superior-2.webp",
+      "alt": "Biquíni Andrea dupla face - Parte superior - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

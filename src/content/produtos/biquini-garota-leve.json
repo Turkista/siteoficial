@@ -1,0 +1,50 @@
+{
+  "id": "prod_biquinig",
+  "slug": "biquini-garota-leve",
+  "nome": "Biquíni Garota Leve",
+  "linha": "praia",
+  "categoria": "Biquíni",
+  "descricaoCurta": "Biquíni estampado com inspiração tropical, perfeito para quem gosta de cores e estampas marcantes. Conjunto. ",
+  "descricaoCompleta": "Biquíni estampado com inspiração tropical, perfeito para quem gosta de cores e estampas marcantes. O top possui modelagem triangular estilo cortininha, com amarrações que permitem melhor ajuste ao corpo. A calcinha acompanha a mesma estampa e conta com laterais de amarração, oferecendo praticidade e regulagem. Uma peça descontraída e cheia de personalidade para compor seu look de verão.\r\n\r\nDetalhes:\r\n\r\nEstampa tropical exclusiva\r\nTop triangular estilo cortininha\r\nAmarração no pescoço e nas costas\r\nCalcinha com laterais ajustáveis\r\nModelagem leve e confortável\r\nIdeal para praia e piscina",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "floral",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-garota-leve.webp",
+          "alt": "Biquíni Garota Leve",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 120,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-garota-leve.webp",
+      "alt": "Biquíni Garota Leve",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

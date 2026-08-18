@@ -1,0 +1,50 @@
+{
+  "id": "prod_biquiniv",
+  "slug": "biquini-vermelho-intense",
+  "nome": "Biquíni Vermelho Intense",
+  "linha": "praia",
+  "categoria": "Biquíni ",
+  "descricaoCurta": "Modelagem cortininha, com visual clássico e marcante. O top possui formato triangular com franzidos que valorizam o design da peça.",
+  "descricaoCompleta": "Biquíni vermelho de modelagem cortininha, com visual clássico e marcante. O top possui formato triangular com franzidos que valorizam o design da peça e amarrações para ajuste no pescoço e nas costas. A calcinha possui laterais com tiras para amarração, permitindo regular a modelagem de acordo com sua preferência. Uma escolha atemporal para quem busca um biquíni elegante, feminino e cheio de personalidade.\r\n\r\nDetalhes:\r\n\r\nCor vermelha intensa\r\nTop cortininha com franzidos\r\nAmarração ajustável\r\nCalcinha com laterais de amarração\r\nModelagem versátil\r\nEstilo clássico e sofisticado",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "vermelho",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-vermelho-intense.webp",
+          "alt": "Biquíni Vermelho Intense",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 80,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-vermelho-intense.webp",
+      "alt": "Biquíni Vermelho Intense",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

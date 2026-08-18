@@ -1,0 +1,52 @@
+{
+  "id": "prod_biquiniv",
+  "slug": "biquini-vivence-parte-superior",
+  "nome": "Biquíni Vivence - parte superior",
+  "linha": "praia",
+  "categoria": "Biquíni parte superior",
+  "descricaoCurta": "Com bojo estruturado e de amarrar no pescoço e costas, com fivela não metálica. Tamanho 58. Ideal para uma forte sustentação e conforto. ",
+  "descricaoCompleta": "",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido com lantejoulas",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-vivence-parte-superior.webp",
+          "alt": "Biquíni Vivence - parte superior",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "GG"
+  ],
+  "preco": {
+    "valor": 95,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-vivence-parte-superior.webp",
+      "alt": "Biquíni Vivence - parte superior",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni",
+    "praia",
+    "sustentação"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

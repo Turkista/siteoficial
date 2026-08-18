@@ -1,0 +1,54 @@
+{
+  "id": "prod_aurora01",
+  "slug": "biquini-aurora",
+  "nome": "Biquíni Aurora",
+  "linha": "praia",
+  "categoria": "biquíni",
+  "descricaoCurta": "Biquíni de amarração lateral em lycra de alto padrão, para o dia inteiro na praia.",
+  "descricaoCompleta": "",
+  "composicao": {
+    "tecido": "Lycra",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Rosa Turkista",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-aurora.webp",
+          "alt": "Biquíni Aurora na cor Rosa Turkista",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M",
+    "G"
+  ],
+  "medidas": {},
+  "preco": {
+    "valor": 60,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-aurora.webp",
+      "alt": "Biquíni Aurora",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "novo"
+  ],
+  "tags": [
+    "praia",
+    "amarração",
+    "biquíni"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-02"
+}

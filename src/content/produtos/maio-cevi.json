@@ -1,0 +1,69 @@
+{
+  "id": "prod_maiocevi",
+  "slug": "maio-cevi",
+  "nome": "Maiô Cevi",
+  "linha": "praia",
+  "categoria": "maiô",
+  "descricaoCurta": "Maiô feminino laranja de modelagem assimétrica, confeccionado em tecido liso de acabamento fosco e cor laranja vibrante.",
+  "descricaoCompleta": "Decote assimétrico, com uma única alça fina sobre um dos ombros.\r\nCorpo do maiô com recorte lateral na cintura, criando um efeito moderno e alongando visualmente a silhueta.\r\nParte frontal com modelagem ajustada ao corpo.\r\nDetalhe franzido na lateral do busto, com pequeno ajuste/amarração.\r\nParte inferior com cava alta, valorizando as pernas.\r\nCosturas e acabamentos discretos, acompanhando o contorno da peça.\r\nTecido sem estampa e sem brilho, com aparência uniforme e sofisticada.\r\nCor: laranja intenso.\r\n\r\nEstilo: moderno, tropical e sofisticado, com uma proposta de beachwear marcante e contemporânea.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "laranja",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-cevi-1.webp",
+          "alt": "Maiô Cevi - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-cevi-2.webp",
+          "alt": "Maiô Cevi - foto 2",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-cevi-3.webp",
+          "alt": "Maiô Cevi - foto 3",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 220,
+    "parcelamento": "4x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-cevi-1.webp",
+      "alt": "Maiô Cevi - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-cevi-2.webp",
+      "alt": "Maiô Cevi - foto 2",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-cevi-3.webp",
+      "alt": "Maiô Cevi - foto 3",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

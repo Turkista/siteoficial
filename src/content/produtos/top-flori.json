@@ -1,0 +1,61 @@
+{
+  "id": "prod_topflori",
+  "slug": "top-flori",
+  "nome": "Top Flori",
+  "linha": "turk-fit",
+  "categoria": "Top",
+  "descricaoCurta": "Top fitness de modelagem transpassada, com design envolvente que cruza o busto e cria um visual moderno, feminino e cheio de personalidade. ",
+  "descricaoCompleta": "A parte frontal combina tecido liso em tom vinho com detalhes estampados em floral colorido, trazendo contraste e originalidade à peça.\r\n\r\nPossui alças finas estampadas, que passam pelos ombros e se encontram na parte de trás, permitindo ajuste por amarração. A região das costas recebe a estampa floral em destaque, valorizando o design da peça.\r\n\r\nO comprimento é curto, na altura da cintura, proporcionando liberdade de movimento e permitindo combinar facilmente com leggings, shorts ou peças de cintura alta.\r\n\r\nDestaques da peça:\r\n\r\nModelagem transpassada;\r\nDesign moderno e diferenciado;\r\nDetalhes em estampa floral colorida;\r\nAlças finas com amarração;\r\nCostas estampadas;\r\nComprimento cropped;\r\nConfortável e flexível para acompanhar os movimentos;\r\nIdeal para academia, treino funcional, dança e atividades que pedem liberdade de movimento;\r\nVisual versátil, podendo ser usado tanto para treinar quanto em uma composição fitness casual.\r\n\r\nDescrição comercial curta:\r\nTop Transpassado TURKISTA — estilo, movimento e personalidade em uma única peça. A modelagem envolvente valoriza o visual, enquanto a combinação de cores e estampas cria um design único para acompanhar seus treinos com conforto e liberdade.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-flori-1.webp",
+          "alt": "Top Flori - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-flori-2.webp",
+          "alt": "Top Flori - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 95,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-flori-1.webp",
+      "alt": "Top Flori - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-flori-2.webp",
+      "alt": "Top Flori - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "academia",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

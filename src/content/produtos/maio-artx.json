@@ -1,0 +1,59 @@
+{
+  "id": "prod_maioartx",
+  "slug": "maio-artx",
+  "nome": "Maiô ArtX",
+  "linha": "praia",
+  "categoria": "maiô",
+  "descricaoCurta": "Maiô de design moderno e marcante, com modelagem strappy e recortes estratégicos que criam um visual geométrico e valorizam a silhueta.",
+  "descricaoCompleta": "O top possui decote profundo em formato triangular, com alças finas ajustáveis e acabamento franzido nas laterais.\r\n\r\nA região da cintura traz tiras cruzadas que formam um desenho em X, deixando parte da pele à mostra e conectando o top à parte inferior. A calcinha possui laterais com tiras largas e modelagem cavada, complementando o design ousado da peça.\r\n\r\nConfeccionado em tecido texturizado, com toque macio e agradável, é uma peça que combina conforto, personalidade e um visual contemporâneo, ideal para quem busca um beachwear diferenciado.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "laranja",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-artx-1.webp",
+          "alt": "Maiô ArtX - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-artx-2.webp",
+          "alt": "Maiô ArtX - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 220,
+    "parcelamento": "4x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-artx-1.webp",
+      "alt": "Maiô ArtX - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-artx-2.webp",
+      "alt": "Maiô ArtX - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

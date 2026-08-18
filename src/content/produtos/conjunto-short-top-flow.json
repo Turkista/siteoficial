@@ -1,0 +1,63 @@
+{
+  "id": "prod_conjunto",
+  "slug": "conjunto-short-top-flow",
+  "nome": "Conjunto de Short + top",
+  "linha": "turk-fit",
+  "categoria": "Conjunto ",
+  "descricaoCurta": "Composto por top de alças largas e bermuda de cintura alta, desenvolvido para proporcionar alta sustentação, conforto e segurança durante os treinos.",
+  "descricaoCompleta": "O top possui modelagem ajustada ao corpo, alças largas e barra reforçada, oferecendo excelente sustentação para atividades que exigem maior estabilidade. A bermuda possui cintura alta e cós largo, proporcionando firmeza e conforto durante os movimentos.\r\n\r\nO tecido tem toque macio e aparência aveludada, proporcionando uma sensação extremamente agradável em contato com a pele. É aquele tipo de roupa que veste tão bem que quase parece que você não está usando nada.\r\n\r\nSua estrutura oferece alta sustentação, ajudando a manter a peça firme durante os movimentos. O tecido também não apresenta transparência, proporcionando mais segurança e tranquilidade durante o treino.\r\n\r\nIdeal para atividades de impacto, como corrida, funcional, musculação, treinos intensos e outras modalidades que exigem liberdade de movimento e segurança.\r\n\r\nDestaques do conjunto:\r\n\r\nToque macio e aveludado\r\nSensação extremamente confortável no corpo\r\nAlta sustentação\r\nTecido sem transparência\r\nTop com alças largas\r\nBarra reforçada no top\r\nBermuda de cintura alta\r\nCós largo e confortável\r\nModelagem que acompanha os movimentos\r\nIdeal para atividades de impacto e treinos intensos",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "vermelho fechado",
+      "hex": "#0C1014",
+      "imagens": [
+        {
+          "arquivo": "conjunto-short-top-flow-1.webp",
+          "alt": "Conjunto de Short + top",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-short-top-flow-2.webp",
+          "alt": "Conjunto de Short + top",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P",
+    "M"
+  ],
+  "medidas": {},
+  "preco": {
+    "valor": 180,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-short-top-flow-1.webp",
+      "alt": "Conjunto de Short + top",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-short-top-flow-2.webp",
+      "alt": "Conjunto de Short + top",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "turk-fit",
+    "treino",
+    "short"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-02"
+}

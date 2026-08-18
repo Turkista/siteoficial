@@ -1,0 +1,50 @@
+{
+  "id": "prod_conjunto",
+  "slug": "conjunto-de-treino-short-e-top-cintila",
+  "nome": "Conjunto de treino Short e Top Cintila",
+  "linha": "turk-fit",
+  "categoria": "Conjunto ",
+  "descricaoCurta": "Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto.",
+  "descricaoCompleta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas. Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto.\r\nConfeccionado em tecido liso, com toque acetinado, que combina conforto, elasticidade e um acabamento sofisticado para você treinar com liberdade e estilo.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Roxo cintilante",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "conjunto-de-treino-short-e-top-cintila.webp",
+          "alt": "Conjunto de treino Short e Top Cintila",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 140,
+    "parcelamento": "2x sem juros = 70 reais"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-de-treino-short-e-top-cintila.webp",
+      "alt": "Conjunto de treino Short e Top Cintila",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "conjunto de academia",
+    "short e top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-12"
+}

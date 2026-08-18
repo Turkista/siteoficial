@@ -1,0 +1,89 @@
+{
+  "id": "prod_xuxinhas",
+  "slug": "xuxinhas-coloridas-diversas",
+  "nome": "Xuxinhas coloridas diversas",
+  "linha": "turk-fit",
+  "categoria": "acessório de cabelo",
+  "descricaoCurta": "Praticidade sem destruir com seu visual.",
+  "descricaoCompleta": "Temos várias estampas e tamanhos. Consulte se ainda há o modelo que deseja.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "coloridas",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "xuxinhas-coloridas-diversas-1.webp",
+          "alt": "Xuxinhas coloridas diversas - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-diversas-2.webp",
+          "alt": "Xuxinhas coloridas diversas - foto 2",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-diversas-3.webp",
+          "alt": "Xuxinhas coloridas diversas - foto 3",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-diversas-4.webp",
+          "alt": "Xuxinhas coloridas diversas - foto 4",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinhas-coloridas-diversas-5.webp",
+          "alt": "Xuxinhas coloridas diversas - foto 5",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 10,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "xuxinhas-coloridas-diversas-1.webp",
+      "alt": "Xuxinhas coloridas diversas - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-diversas-2.webp",
+      "alt": "Xuxinhas coloridas diversas - foto 2",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-diversas-3.webp",
+      "alt": "Xuxinhas coloridas diversas - foto 3",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-diversas-4.webp",
+      "alt": "Xuxinhas coloridas diversas - foto 4",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinhas-coloridas-diversas-5.webp",
+      "alt": "Xuxinhas coloridas diversas - foto 5",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "xuxinha"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

@@ -1,0 +1,72 @@
+{
+  "id": "prod_essence01",
+  "slug": "top-turk-fit-essence",
+  "nome": "Top Turk Fit Essence",
+  "linha": "turk-fit",
+  "categoria": "top",
+  "descricaoCurta": "Top de sustentação média para treino, em tecido de secagem rápida.",
+  "descricaoCompleta": "",
+  "composicao": {
+    "tecido": "Lycra",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Rosa Profundo",
+      "hex": "#C94E9C",
+      "imagens": [
+        {
+          "arquivo": "top-turk-fit-essence-1.webp",
+          "alt": "Top Turk Fit Essence",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-turk-fit-essence-2.webp",
+          "alt": "Top Turk Fit Essence",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-turk-fit-essence-3.webp",
+          "alt": "Top Turk Fit Essence",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "medidas": {},
+  "preco": {
+    "valor": 60,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-turk-fit-essence-1.webp",
+      "alt": "Top Turk Fit Essence",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-turk-fit-essence-2.webp",
+      "alt": "Top Turk Fit Essence",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-turk-fit-essence-3.webp",
+      "alt": "Top Turk Fit Essence",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "turk-fit",
+    "treino",
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-02"
+}

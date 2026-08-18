@@ -1,0 +1,49 @@
+{
+  "id": "prod_topdebiq",
+  "slug": "top-de-biquini-cortininha-dupla-face-em-lycra",
+  "nome": "Top de Biquíni Cortininha Dupla Face em Lycra",
+  "linha": "praia",
+  "categoria": "Biquini",
+  "descricaoCurta": "Seu modelo dupla face permite dois visuais em uma única peça, ideal para quem gosta de variar o estilo com praticidade.",
+  "descricaoCompleta": "Top de Biquíni Cortininha Dupla Face em Lycra\r\n\r\nVersátil, moderno e confortável, este top de biquíni cortininha é confeccionado em lycra premium, oferecendo toque macio, excelente elasticidade e ajuste perfeito ao corpo. Seu modelo dupla face permite dois visuais em uma única peça, ideal para quem gosta de variar o estilo com praticidade.\r\n\r\nO design de amarrar no pescoço e nas costas proporciona um ajuste personalizado, garantindo conforto e liberdade para aproveitar os dias de sol.\r\n\r\nDestaques do produto:\r\n👙 Venda somente da parte superior (top).\r\n✨ Confeccionado em lycra premium, resistente e confortável.\r\n🔄 Dupla face, oferecendo duas opções de uso.\r\n🎀 Modelo cortininha de amarrar, com ajuste no pescoço e nas costas.\r\n💕 Sem bojo, proporcionando um caimento leve e natural.\r\n🌊 Secagem rápida e alta resistência ao cloro e à água salgada.\r\n🧵 Costuras reforçadas para maior durabilidade.\r\n☀️ Ideal para praia, piscina e momentos de lazer.\r\nIndicação de uso\r\n\r\nPerfeito para quem procura um biquíni que combine conforto, versatilidade e estilo, sendo uma excelente opção para praia, piscina, viagens e dias ensolarados.\r\n\r\nMaterial: Lycra premium.\r\nModelo: Cortininha de amarrar.\r\nBojo: Sem bojo.\r\nDiferencial: Dupla face (2 looks em uma única peça).",
+  "composicao": {
+    "tecido": "Lycra",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "preto e vermelho cintilante",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-de-biquini-cortininha-dupla-face-em-lycra.webp",
+          "alt": "Top de Biquíni Cortininha Dupla Face em Lycra",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 45,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "top-de-biquini-cortininha-dupla-face-em-lycra.webp",
+      "alt": "Top de Biquíni Cortininha Dupla Face em Lycra",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo"
+  ],
+  "tags": [
+    "biquini"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-06"
+}

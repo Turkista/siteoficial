@@ -1,0 +1,59 @@
+{
+  "id": "prod_maiogree",
+  "slug": "maio-green",
+  "nome": "Maiô Green",
+  "linha": "praia",
+  "categoria": "maiô",
+  "descricaoCurta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. ",
+  "descricaoCompleta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. A lateral apresenta franzidos verticais, que acompanham a silhueta. Na região dos quadris, a peça possui tiras para amarração, permitindo ajuste lateral. A parte inferior tem modelagem cavada.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Verde musgo",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-green-1.webp",
+          "alt": "Maiô Green - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-green-2.webp",
+          "alt": "Maiô Green - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 250,
+    "parcelamento": "4x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-green-1.webp",
+      "alt": "Maiô Green - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-green-2.webp",
+      "alt": "Maiô Green - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

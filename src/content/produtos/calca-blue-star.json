@@ -1,0 +1,59 @@
+{
+  "id": "prod_calcablu",
+  "slug": "calca-blue-star",
+  "nome": "Calça Blue Star",
+  "linha": "turk-fit",
+  "categoria": "Linha Academia",
+  "descricaoCurta": "Eleve seu treino com uma legging que une estilo, conforto e desempenho. Confeccionada em lycra cintilante de alta qualidade, ela possui um acabamento sofistica",
+  "descricaoCompleta": "Legging Fitness Lycra Cintilante Azul\r\n\r\nEleve seu treino com uma legging que une estilo, conforto e desempenho. Confeccionada em lycra cintilante de alta qualidade, ela possui um acabamento sofisticado com brilho discreto, valorizando o visual sem abrir mão da funcionalidade.\r\n\r\nA modelagem de cintura alta oferece excelente sustentação e ajuste ao corpo, enquanto a costura reforçada garante maior resistência e durabilidade, mesmo durante treinos intensos.\r\n\r\nDestaques do produto:\r\n✨ Lycra cintilante premium com toque macio e confortável.\r\n💪 Não transparente, proporcionando segurança e confiança em qualquer movimento.\r\n🧵 Costura reforçada para maior resistência e excelente acabamento.\r\n👖 Cintura alta que modela a silhueta e oferece melhor sustentação.\r\n🤸 Tecido com elasticidade que acompanha os movimentos do corpo sem limitar o desempenho.\r\n🌬️ Confortável para musculação, corrida, pilates, yoga e uso no dia a dia.\r\n\r\nComposição: Lycra de alta elasticidade.\r\nTransparência: Não transparente.\r\nModelagem: Justa ao corpo.\r\nIndicação: Academia, treinos, caminhadas e uso casual esportivo.\r\n\r\nUma peça que combina elegância, resistência e conforto, ideal para quem busca desempenho com um visual moderno.",
+  "composicao": {
+    "tecido": "Lycra",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "azul cintilante",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "calca-blue-star-1.webp",
+          "alt": "Calça Blue Star",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "calca-blue-star-2.webp",
+          "alt": "Calça Blue Star",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "G"
+  ],
+  "preco": {
+    "valor": 120,
+    "parcelamento": "2 x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "calca-blue-star-1.webp",
+      "alt": "Calça Blue Star",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "calca-blue-star-2.webp",
+      "alt": "Calça Blue Star",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "legging"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-06"
+}

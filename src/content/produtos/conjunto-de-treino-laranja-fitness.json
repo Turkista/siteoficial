@@ -1,0 +1,70 @@
+{
+  "id": "prod_conjunto",
+  "slug": "conjunto-de-treino-laranja-fitness",
+  "nome": "Conjunto de treino Laranja Fitness",
+  "linha": "turk-fit",
+  "categoria": "Conjunto ",
+  "descricaoCurta": "Conjunto fitness feminino composto por top de alcinhas finas e legging de cintura alta, com design minimalista, moderno e confortável para acompanhar diferentes",
+  "descricaoCompleta": "O top possui alcinhas finas, modelagem ajustada ao corpo e uma construção que mantém a parte frontal mais fechada, proporcionando cobertura e segurança durante os movimentos. A barra mais larga ajuda a manter a peça firme no corpo.\r\n\r\nA legging de cintura alta possui cós largo e modelagem ajustada, acompanhando as curvas do corpo e proporcionando conforto e liberdade de movimento durante os exercícios.\r\n\r\nConfeccionado em tecido com textura sutil e aparência encorpada, o conjunto apresenta acabamento uniforme e visual esportivo sofisticado.\r\n\r\nA cor coral vibrante traz personalidade à produção e combina com uma proposta fitness moderna e energética.\r\n\r\nDestaques do conjunto:\r\n\r\nTop com alcinhas finas\r\nParte frontal mais fechada\r\nModelagem ajustada\r\nBarra larga no top\r\nLegging de cintura alta\r\nCós largo\r\nTecido com textura sutil\r\nConforto e liberdade de movimento",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Laranja neon",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "conjunto-de-treino-laranja-fitness-1.webp",
+          "alt": "Conjunto de treino Laranja Fitness",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-de-treino-laranja-fitness-2.webp",
+          "alt": "Conjunto de treino Laranja Fitness",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-de-treino-laranja-fitness-3.webp",
+          "alt": "Conjunto de treino Laranja Fitness",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 180,
+    "parcelamento": "2 x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-de-treino-laranja-fitness-1.webp",
+      "alt": "Conjunto de treino Laranja Fitness",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-de-treino-laranja-fitness-2.webp",
+      "alt": "Conjunto de treino Laranja Fitness",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-de-treino-laranja-fitness-3.webp",
+      "alt": "Conjunto de treino Laranja Fitness",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "academia",
+    "treino"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-12"
+}

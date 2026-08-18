@@ -1,0 +1,58 @@
+{
+  "id": "prod_biquinin",
+  "slug": "biquini-nautic-parte-superior",
+  "nome": "Biquíni Nautic - Parte superior",
+  "linha": "praia",
+  "categoria": "Biquíni",
+  "descricaoCurta": "Dupla face, você pode fazer combinações dos dois lados.",
+  "descricaoCompleta": "Versatilidade para criar diferentes combinações em uma única peça. O biquíni cortininha dupla face permite usar os dois lados e variar a composição conforme o seu estilo, criando novas possibilidades de looks para praia e piscina.\r\n\r\nCom modelagem clássica e ajustável, o modelo proporciona liberdade para personalizar o caimento e combina praticidade, conforto e estilo. Uma peça versátil para quem gosta de transformar o visual sem abrir mão da funcionalidade.\r\n\r\nDois lados, diferentes combinações e muito mais possibilidades para aproveitar o verão.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-nautic-parte-superior-1.webp",
+          "alt": "Biquíni Nautic - Parte superior - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-nautic-parte-superior-2.webp",
+          "alt": "Biquíni Nautic - Parte superior - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 95,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-nautic-parte-superior-1.webp",
+      "alt": "Biquíni Nautic - Parte superior - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-nautic-parte-superior-2.webp",
+      "alt": "Biquíni Nautic - Parte superior - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

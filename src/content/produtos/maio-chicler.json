@@ -1,0 +1,59 @@
+{
+  "id": "prod_maiochic",
+  "slug": "maio-chicler",
+  "nome": "Maiô Chicler",
+  "linha": "praia",
+  "categoria": "Maiô",
+  "descricaoCurta": "Maiô pink vibrante com textura em ondas e design moderno de um ombro só. A modelagem possui recorte estratégico na região da cintura, criando um visual contempo",
+  "descricaoCompleta": "Maiô pink vibrante com textura em ondas e design moderno de um ombro só. A modelagem possui recorte estratégico na região da cintura, criando um visual contemporâneo e valorizando a silhueta. O acabamento texturizado traz um diferencial à peça, enquanto a cor intensa deixa o look marcante e cheio de personalidade. Uma opção versátil para a praia, piscina ou para compor produções de verão.\r\n\r\nDetalhes:\r\n\r\nMaiô de um ombro só\r\nCor pink vibrante\r\nTextura em ondas\r\nRecorte estratégico na cintura\r\nModelagem moderna\r\nVisual marcante e sofisticado\r\nIdeal para praia e piscina",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "rosa ciclete",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-chicler-1.webp",
+          "alt": "Maiô Chicler - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-chicler-2.webp",
+          "alt": "Maiô Chicler - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 250,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-chicler-1.webp",
+      "alt": "Maiô Chicler - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-chicler-2.webp",
+      "alt": "Maiô Chicler - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

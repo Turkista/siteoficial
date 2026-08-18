@@ -1,0 +1,61 @@
+{
+  "id": "prod_biquinic",
+  "slug": "biquini-constela-dupla-face-parte-superior",
+  "nome": "Biquíni Constela dupla face - Parte superior",
+  "linha": "praia",
+  "categoria": "Biquíni parte superior",
+  "descricaoCurta": "Dupla face, malha texturizada em com brilho cintilante. Uma verdadeira joia. Pode ser usada em ocasiões de festas e com um glamour de chamar atenção. ",
+  "descricaoCompleta": "",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-constela-dupla-face-parte-superior-1.webp",
+          "alt": "Biquíni Constela dupla face - Parte superior - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-constela-dupla-face-parte-superior-2.webp",
+          "alt": "Biquíni Constela dupla face - Parte superior - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 55,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-constela-dupla-face-parte-superior-1.webp",
+      "alt": "Biquíni Constela dupla face - Parte superior - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-constela-dupla-face-parte-superior-2.webp",
+      "alt": "Biquíni Constela dupla face - Parte superior - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

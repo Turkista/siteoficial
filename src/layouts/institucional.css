@@ -1,0 +1,137 @@
+/* ============================================================
+   LAYOUT — Institucional (UX, seção 08)
+   Compartilhado por Sobre a Marca, Contato, Como Cuidar da Peça,
+   Política de Privacidade
+   ============================================================ */
+
+.pagina-hero {
+  padding: calc(68px + var(--esp-7)) 0 var(--esp-7);
+  background: linear-gradient(160deg, #1a0f18, var(--cor-preto-grafite) 60%);
+  border-bottom: 1px solid var(--cor-grafite-linha);
+}
+.pagina-hero__conteudo { max-width: 760px; }
+
+/* Breadcrumb (UX, seção 3.6) */
+.breadcrumb { display: flex; align-items: center; gap: var(--esp-2); font-size: var(--tam-legenda); color: rgba(255,255,255,0.5); margin-bottom: var(--esp-5); }
+.breadcrumb a:hover { color: var(--cor-rosa-turkista); }
+.breadcrumb span[aria-hidden] { color: rgba(255,255,255,0.3); }
+.breadcrumb [aria-current="page"] { color: rgba(255,255,255,0.75); }
+
+/* --- Sobre a Marca --- */
+.narrativa-abertura { display: grid; gap: var(--esp-6); align-items: center; }
+.narrativa-abertura__foto {
+  aspect-ratio: 4/3;
+  border-radius: var(--raio-lg);
+  background: linear-gradient(135deg, #2a1824, #0C1014);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.25);
+  font-family: var(--fonte-titulo);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: var(--esp-5);
+  border: 1px dashed rgba(255,255,255,0.15);
+  overflow: hidden;
+}
+.narrativa-abertura__foto:has(img) {
+  padding: 0;
+  border: none;
+}
+.narrativa-abertura__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.linha-do-tempo { display: grid; gap: var(--esp-5); }
+.linha-do-tempo__item {
+  position: relative;
+  padding-left: var(--esp-6);
+  border-left: 2px solid var(--cor-grafite-linha);
+  padding-bottom: var(--esp-5);
+}
+.linha-do-tempo__item:last-child { border-left-color: transparent; padding-bottom: 0; }
+.linha-do-tempo__item::before {
+  content: "";
+  position: absolute; left: -7px; top: 2px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--cor-rosa-turkista);
+}
+.linha-do-tempo__fase { font-size: var(--tam-eyebrow); text-transform: uppercase; letter-spacing: 0.1em; color: var(--cor-rosa-turkista); font-weight: var(--peso-semibold); }
+.linha-do-tempo__marco { margin-top: var(--esp-2); max-width: 60ch; }
+
+.manifesto {
+  border-left: 3px solid var(--cor-rosa-turkista);
+  padding: var(--esp-2) 0 var(--esp-2) var(--esp-6);
+  margin: 0;
+}
+.manifesto p {
+  font-family: var(--fonte-titulo);
+  font-size: var(--tam-h3);
+  color: var(--cor-branco-cristal);
+  line-height: 1.5;
+}
+
+.lista-valores { display: grid; gap: var(--esp-3); }
+.lista-valores li {
+  display: flex; gap: var(--esp-3);
+  padding: var(--esp-4);
+  background: var(--cor-grafite-elevado);
+  border-radius: var(--raio-md);
+}
+.lista-valores li::before { content: "—"; color: var(--cor-rosa-turkista); font-weight: var(--peso-bold); }
+
+/* --- Contato --- */
+.contato-grade { display: grid; gap: var(--esp-6); }
+.contato-cartao {
+  background: var(--cor-grafite-elevado);
+  border-radius: var(--raio-lg);
+  padding: var(--esp-6);
+  border: 1px solid var(--cor-grafite-linha);
+}
+.contato-cartao--whatsapp { border-color: rgba(242,121,200,0.35); background: linear-gradient(135deg, rgba(242,121,200,0.08), transparent); }
+.contato-cartao h3 { font-size: 1.1rem; }
+.contato-cartao .horario { font-size: var(--tam-legenda); color: rgba(255,255,255,0.55); margin-top: var(--esp-2); }
+
+.contato-instagram { display: grid; gap: var(--esp-3); margin-top: var(--esp-3); }
+.contato-instagram a { display: flex; justify-content: space-between; align-items: center; padding: var(--esp-3) var(--esp-4); background: rgba(255,255,255,0.04); border-radius: var(--raio-md); }
+.contato-instagram a:hover { background: rgba(242,121,200,0.1); }
+.contato-instagram small { display: block; color: rgba(255,255,255,0.5); font-weight: var(--peso-regular); }
+
+.form-contato { display: grid; gap: var(--esp-4); }
+.campo { display: grid; gap: var(--esp-2); }
+.campo label { font-size: var(--tam-legenda); font-weight: var(--peso-semibold); color: rgba(255,255,255,0.7); }
+.campo input, .campo textarea {
+  padding: var(--esp-4);
+  border-radius: var(--raio-sm);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.03);
+  color: var(--cor-branco-cristal);
+  width: 100%;
+  font-family: inherit;
+}
+.campo textarea { resize: vertical; min-height: 120px; }
+.campo input:focus, .campo textarea:focus { border-color: var(--cor-rosa-turkista); }
+
+/* --- Como Cuidar / Privacidade (texto corrido institucional) --- */
+.conteudo-institucional { max-width: 760px; }
+.conteudo-institucional h2 { margin-top: var(--esp-7); }
+.conteudo-institucional ul { list-style: none; display: grid; gap: var(--esp-3); margin: var(--esp-4) 0; }
+.conteudo-institucional ul li { padding-left: var(--esp-5); position: relative; color: rgba(255,255,255,0.82); }
+.conteudo-institucional ul li::before { content: "•"; color: var(--cor-rosa-turkista); position: absolute; left: 0; }
+
+.aviso-destaque {
+  background: rgba(242,121,200,0.08);
+  border: 1px solid rgba(242,121,200,0.3);
+  border-radius: var(--raio-md);
+  padding: var(--esp-5);
+  margin: var(--esp-6) 0;
+}
+.aviso-destaque p:last-child { margin-bottom: 0; }
+
+@media (min-width: 768px) {
+  .narrativa-abertura { grid-template-columns: 1fr 1fr; }
+  .contato-grade { grid-template-columns: 1fr 1fr; align-items: start; }
+}

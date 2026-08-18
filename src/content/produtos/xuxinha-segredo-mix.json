@@ -1,0 +1,79 @@
+{
+  "id": "prod_xuxinhas",
+  "slug": "xuxinha-segredo-mix",
+  "nome": "Xuxinha segredo mix",
+  "linha": "turk-fit",
+  "categoria": "acessório de cabelo",
+  "descricaoCurta": "Xuxinha Segredo — Praticidade que acompanha você",
+  "descricaoCompleta": "A Xuxinha Segredo é o acessório perfeito para quem gosta de praticidade, segurança e liberdade durante a rotina. Além de prender o cabelo com estilo, ela possui um compartimento discreto e funcional, ideal para guardar pequenos itens essenciais, como dinheiro, cartões e chaves.\r\nPerfeita para caminhadas, corridas, academia, treinos e atividades ao ar livre, ela permite que você leve o necessário sem precisar carregar bolsa ou pochete.\r\nDestaques:\r\n✨ Xuxinha de cabelo com compartimento secreto\r\n🔑 Espaço para guardar chaves\r\n💵 Ideal para dinheiro e pequenos objetos\r\n🏃‍♀️ Perfeita para caminhada, corrida e academia\r\n🎒 Dispensa o uso de bolsa durante o treino\r\n💖 Prática, discreta e funcional\r\n🔒 Mantém seus pequenos pertences sempre por perto\r\nXuxinha Segredo: seu cabelo preso e seus essenciais sempre com você.\r\n\r\n",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorida",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "xuxinha-segredo-mix-1.webp",
+          "alt": "Xuxinha segredo mix",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinha-segredo-mix-2.webp",
+          "alt": "Xuxinha segredo mix",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinha-segredo-mix-3.webp",
+          "alt": "Xuxinha segredo mix",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinha-segredo-mix-4.webp",
+          "alt": "Xuxinha segredo mix",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "xuxinha-segredo-mix-1.webp",
+      "alt": "Xuxinha segredo mix",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinha-segredo-mix-2.webp",
+      "alt": "Xuxinha segredo mix",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinha-segredo-mix-3.webp",
+      "alt": "Xuxinha segredo mix",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinha-segredo-mix-4.webp",
+      "alt": "Xuxinha segredo mix",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "xuxinha"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

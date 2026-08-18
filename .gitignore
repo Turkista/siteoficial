@@ -1,0 +1,26 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (caso ferramentas de build/lint sejam adicionadas futuramente —
+# hoje o projeto é HTML/CSS/JS estático, sem dependências de build)
+node_modules/
+npm-debug.log*
+
+# Build (reservado para a migração futura a Astro/Next prevista na
+# Arquitetura Técnica — hoje não há passo de build)
+dist/
+.astro/
+.next/
+
+# Arquivos locais/temporários
+*.local
+.env
+.env.local

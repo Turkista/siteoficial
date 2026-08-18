@@ -1,0 +1,60 @@
+{
+  "id": "prod_biquinim",
+  "slug": "biquini-memore",
+  "nome": "Biquíni Memore",
+  "linha": "praia",
+  "categoria": "Biquíni ",
+  "descricaoCurta": "Duas peças com modelagem estruturada e acabamento premium, composto por um top estilo meia-taça/balconê e uma calcinha de cintura alta",
+  "descricaoCompleta": "O modelo veste um biquíni de duas peças com modelagem estruturada e acabamento premium, composto por um top estilo meia-taça/balconê e uma calcinha de cintura alta.\r\n\r\nTop\r\nModelo meia-taça estruturado, com dois bojos moldados.\r\nOs bojos possuem recortes e costuras estruturais, criando um desenho elegante e bem definido.\r\nDecote em V suave, valorizando o colo.\r\nAlças finas, posicionadas próximas às laterais dos bojos.\r\nAlças com aparência de serem reguláveis.\r\nPossui uma faixa inferior estruturada, acompanhando a linha abaixo do busto.\r\nAs costuras dos bojos formam um desenho central que dá identidade à peça.\r\nAs bordas possuem acabamento em vivo fino, feito no próprio tom laranja da peça.\r\nO top tem uma construção mais firme e sofisticada, diferente de um modelo cortininha.\r\n\r\nCalcinha\r\nModelo clássico, com cintura alta.\r\nLaterais de largura média, sem tiras ou amarrações.\r\nCorte levemente cavado na região das pernas.\r\nParte frontal com cobertura moderada, mantendo uma aparência elegante.\r\nModelagem acompanha naturalmente o quadril.\r\nPossui acabamento em vivo fino ao redor das bordas, combinando com o top.\r\nA parte traseira segue uma modelagem limpa, sem excesso de tecido.\r\n\r\nTecido\r\nTecido de moda praia fosco (matte).\r\nSem brilho, sem acabamento acetinado e sem efeito metalizado.\r\nAparência opaca e uniforme, mesmo quando recebe iluminação direta.\r\nTecido com elasticidade e estrutura suficientes para manter a modelagem do biquíni.\r\nNão apresenta textura brilhante, glitter ou efeito molhado.\r\nEstampa\r\n\r\nA característica mais marcante é a estampa orgânica marmorizada, semelhante a um tie-dye artesanal:\r\n\r\nBase predominante em laranja intenso.\r\nÁreas em laranja queimado.\r\nManchas e nuances em amarelo/dourado.\r\nPequenas variações de tonalidade mais claras e mais escuras.\r\nDesenho irregular e orgânico, sem formas geométricas definidas.\r\nO efeito parece formado por manchas de pigmento ou pinceladas fluidas.\r\nA estampa se mantém contínua no top e na calcinha.\r\nSem brilho na estampa: mesmo os tons amarelos/dourados são foscos, não metálicos.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "laranja mamorizado",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-memore-1.webp",
+          "alt": "Biquíni Memore - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-memore-2.webp",
+          "alt": "Biquíni Memore - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 190,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-memore-1.webp",
+      "alt": "Biquíni Memore - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-memore-2.webp",
+      "alt": "Biquíni Memore - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

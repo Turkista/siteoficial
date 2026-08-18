@@ -1,0 +1,49 @@
+{
+  "id": "prod_maiodesu",
+  "slug": "maio-de-surf-vivence",
+  "nome": "Maiô de surf Vivence",
+  "linha": "surf",
+  "categoria": "Maiô",
+  "descricaoCurta": "Desenvolvido para quem busca estilo, conforto e liberdade de movimentos, este maiô de surf em lycra premium combina um design moderno em patchwork de cores e es",
+  "descricaoCompleta": "Maiô Feminino Surf em Lycra Patchwork\r\n\r\nDesenvolvido para quem busca estilo, conforto e liberdade de movimentos, este maiô de surf em lycra premium combina um design moderno em patchwork de cores e estampas com excelente ajuste ao corpo. Ideal para esportes aquáticos, ele oferece segurança e praticidade dentro e fora da água.\r\n\r\nSeu modelo possui abertura na parte inferior da calcinha, proporcionando maior conforto e mobilidade durante o uso, além de um caimento anatômico que valoriza a silhueta.\r\n\r\nDestaques do produto:\r\n🏄 Ideal para surf, stand up paddle, natação e esportes aquáticos.\r\n✨ Confeccionado em lycra premium, com toque macio e alta elasticidade.\r\n🎨 Design exclusivo em patchwork, combinando cores vibrantes e estampa floral.\r\n👙 Abertura na parte inferior da calcinha, proporcionando mais conforto e liberdade de movimentos.\r\n💪 Modelagem anatômica que oferece excelente ajuste ao corpo.\r\n☀️ Tecido resistente ao cloro, à água salgada e de secagem rápida.\r\n🚫 Não transparente, garantindo segurança durante o uso.\r\n🧵 Costuras reforçadas para maior resistência e durabilidade.\r\nIndicação de uso\r\n\r\nPerfeito para surf, praia, piscina, esportes aquáticos, hidroginástica e momentos de lazer, unindo desempenho, conforto e um visual moderno e cheio de personalidade.",
+  "composicao": {
+    "tecido": "Lycra",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-de-surf-vivence.webp",
+          "alt": "Maiô de surf Vivence",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 490,
+    "parcelamento": "5x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-de-surf-vivence.webp",
+      "alt": "Maiô de surf Vivence",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo"
+  ],
+  "tags": [
+    "maiô de surf"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-06"
+}

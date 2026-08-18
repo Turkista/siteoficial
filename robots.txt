@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Rotas reservadas (Etapa 15 — Prontidão para E-commerce do Plano Mestre).
+# Ainda não existem no site, mas ficam bloqueadas de antemão para que,
+# quando o carrinho/checkout for construído, nenhum motor de busca chegue
+# a indexar uma etapa transacional de compra.
+Disallow: /carrinho/
+Disallow: /checkout/
+
+# Página legal — já tem noindex no <meta name="robots">, reforçado aqui.
+Disallow: /politica-de-privacidade.html
+
+# Sitemap — domínio www.turkista.com.br já está no ar.
+Sitemap: https://www.turkista.com.br/sitemap.xml

@@ -1,0 +1,70 @@
+{
+  "id": "prod_croppedv",
+  "slug": "cropped-verdin",
+  "nome": "Cropped Verdin",
+  "linha": "surf",
+  "categoria": "cropped",
+  "descricaoCurta": "O Cropped Esportivo de Manga Longa foi desenvolvido para acompanhar você em diferentes momentos — da prática esportiva aos momentos de lazer — com um design mod",
+  "descricaoCompleta": "Movimento, conforto e estilo em uma única peça.\r\n\r\nO Cropped Esportivo de Manga Longa foi desenvolvido para acompanhar você em diferentes momentos — da prática esportiva aos momentos de lazer — com um design moderno e funcional.\r\n\r\nO corpo do cropped é confeccionado em tecido de alta elasticidade, proporcionando ajuste ao corpo, liberdade de movimento e conforto durante a atividade. As mangas em tecido semitransparente e respirável favorecem a circulação de ar, ajudando na ventilação durante os movimentos.\r\n\r\nO contraste entre o tecido estampado e as mangas leves cria uma estética esportiva sofisticada, enquanto o acabamento ajustado valoriza a silhueta sem limitar os movimentos.\r\n\r\nDestaques da peça:\r\n\r\nTecido com alta elasticidade em todo o cropped\r\nMangas semitransparentes e respiráveis\r\nModelagem que acompanha os movimentos do corpo\r\nDesign esportivo contemporâneo\r\nConforto para atividades e momentos de lazer\r\nAcabamento ajustado e sofisticado\r\n\r\nUma peça para quem quer se movimentar com liberdade sem abrir mão do estilo.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "estampado ",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "cropped-verdin-1.webp",
+          "alt": "Cropped Verdin",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "cropped-verdin-2.webp",
+          "alt": "Cropped Verdin",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "cropped-verdin-3.webp",
+          "alt": "Cropped Verdin",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 250,
+    "parcelamento": "4x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "cropped-verdin-1.webp",
+      "alt": "Cropped Verdin",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "cropped-verdin-2.webp",
+      "alt": "Cropped Verdin",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "cropped-verdin-3.webp",
+      "alt": "Cropped Verdin",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "croppet de surf"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

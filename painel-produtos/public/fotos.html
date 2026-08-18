@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Fotos — Turkista</title>
+<style>
+  :root {
+    --rosa: #F279C8;
+    --rosa-profundo: #C94E9C;
+    --grafite: #0C1014;
+    --cinza: #6B6B6B;
+    --borda: #E4E4E4;
+    --fundo: #FAFAFA;
+    --verde: #1C6B3B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--grafite);
+    margin: 0;
+    padding: 32px 16px 80px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  header { margin-bottom: 12px; }
+  header h1 { font-size: 24px; margin: 0 0 4px; }
+  header p { color: var(--cinza); margin: 0; font-size: 14px; }
+  .abas { display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid var(--borda); }
+  .abas a { padding: 10px 16px; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--cinza); border-bottom: 2px solid transparent; }
+  .abas a.ativa { color: var(--rosa-profundo); border-bottom-color: var(--rosa-profundo); }
+  .grupo { margin-bottom: 28px; }
+  .grupo h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--rosa-profundo); margin-bottom: 10px; }
+  .slot {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; border: 1px solid var(--borda); border-radius: 10px;
+    padding: 12px 14px; margin-bottom: 8px;
+  }
+  .slot__info { flex: 1; min-width: 0; }
+  .slot__rotulo { font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .slot__descricao { font-size: 12px; color: var(--cinza); margin-top: 2px; }
+  .slot__selo {
+    font-size: 10px; padding: 1px 7px; border-radius: 8px; font-weight: 600;
+  }
+  .slot__selo.ok { background: #E9F9EE; color: var(--verde); }
+  .slot__selo.pendente { background: #FFF6E5; color: #8A5A00; }
+  .slot__acao { flex-shrink: 0; }
+  .slot__acao label {
+    display: inline-block; background: var(--rosa-profundo); color: #fff;
+    padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    cursor: pointer; white-space: nowrap;
+  }
+  .slot__acao label:hover { background: var(--rosa); }
+  .slot__acao input[type="file"] { display: none; }
+  .slot.enviando .slot__acao label { background: var(--cinza); cursor: wait; }
+  #mensagem-global {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    padding: 12px 20px; border-radius: 8px; font-size: 14px; display: none;
+    max-width: 90vw; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  #mensagem-global.sucesso { display: block; background: #1C6B3B; color: #fff; }
+  #mensagem-global.erro { display: block; background: #A3312A; color: #fff; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Painel Turkista</h1>
+    <p>Envie as fotos institucionais do site. Cada uma já sai com o nome certo, na pasta certa — é só escolher onde ela entra.</p>
+  </header>
+
+  <nav class="abas">
+    <a href="index.html">Produtos</a>
+    <a href="artigos.html">Artigos do Blog</a>
+    <a href="fotos.html" class="ativa">Fotos do Site</a>
+  </nav>
+
+  <div id="grupos"></div>
+</div>
+
+<div id="mensagem-global"></div>
+
+<script>
+const grupos = document.getElementById("grupos");
+const mensagemGlobal = document.getElementById("mensagem-global");
+
+const NOMES_GRUPO = {
+  hero: "Hero da Home",
+  linhas: "Cards das linhas (Home)",
+  sobre: "Colagem \"Sobre a Turkista\" (Home)",
+  blog: "Capas de artigos do Blog",
+};
+
+function mostrarMensagemGlobal(texto, tipo) {
+  mensagemGlobal.textContent = texto;
+  mensagemGlobal.className = tipo;
+  setTimeout(() => { mensagemGlobal.className = ""; }, 4000);
+}
+
+function slotHTML(slot) {
+  const seloClasse = slot.existe ? "ok" : "pendente";
+  const seloTexto = slot.existe ? "✓ enviada" : "pendente";
+  return `
+    <div class="slot" data-chave="${slot.chave}">
+      <div class="slot__info">
+        <div class="slot__rotulo">${slot.rotulo} <span class="slot__selo ${seloClasse}">${seloTexto}</span></div>
+        <div class="slot__descricao">${slot.descricao}</div>
+      </div>
+      <div class="slot__acao">
+        <label>
+          ${slot.existe ? "Trocar foto" : "Enviar foto"}
+          <input type="file" accept="image/*" data-chave="${slot.chave}">
+        </label>
+      </div>
+    </div>
+  `;
+}
+
+async function carregarSlots() {
+  const resp = await fetch("/api/fotos-institucionais/slots");
+  const slots = await resp.json();
+
+  const porGrupo = {};
+  slots.forEach(s => {
+    if (!porGrupo[s.pasta]) porGrupo[s.pasta] = [];
+    porGrupo[s.pasta].push(s);
+  });
+
+  grupos.innerHTML = Object.keys(porGrupo).map(pasta => `
+    <div class="grupo">
+      <h2>${NOMES_GRUPO[pasta] || pasta}</h2>
+      ${porGrupo[pasta].map(slotHTML).join("")}
+    </div>
+  `).join("");
+
+  grupos.querySelectorAll('input[type="file"]').forEach(input => {
+    input.addEventListener("change", enviarFoto);
+  });
+}
+
+async function enviarFoto(e) {
+  const input = e.target;
+  const chave = input.getAttribute("data-chave");
+  const arquivo = input.files[0];
+  if (!arquivo) return;
+
+  const slotDiv = input.closest(".slot");
+  slotDiv.classList.add("enviando");
+
+  const dados = new FormData();
+  dados.append("chave", chave);
+  dados.append("foto", arquivo);
+
+  try {
+    const resp = await fetch("/api/fotos-institucionais", { method: "POST", body: dados });
+    const resultado = await resp.json();
+    if (resp.ok) {
+      mostrarMensagemGlobal(`✓ ${resultado.mensagem}`, "sucesso");
+      carregarSlots();
+    } else {
+      mostrarMensagemGlobal(`✗ ${resultado.erro || "Erro ao enviar."}`, "erro");
+      slotDiv.classList.remove("enviando");
+    }
+  } catch (erro) {
+    mostrarMensagemGlobal("✗ Não foi possível conectar ao painel.", "erro");
+    slotDiv.classList.remove("enviando");
+  }
+}
+
+carregarSlots();
+</script>
+</body>
+</html>

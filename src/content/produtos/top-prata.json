@@ -1,0 +1,62 @@
+{
+  "id": "prod_topprata",
+  "slug": "top-prata",
+  "nome": "Top Prata",
+  "linha": "turk-fit",
+  "categoria": "Top",
+  "descricaoCurta": "Top fitness feminino desenvolvido para treinos de alto impacto, combinando sustentação, conforto e um design moderno e sofisticado.",
+  "descricaoCompleta": "A peça possui alças largas e estruturadas, que proporcionam excelente sustentação e ajudam a manter o top firme durante os movimentos. Sua modelagem ajustada oferece segurança para atividades que exigem maior estabilidade.\r\n\r\nO tecido apresenta uma textura diferenciada e sofisticada, com um sutil reflexo prateado que cria um efeito moderno conforme a luz incide sobre a peça.\r\n\r\nAlém do visual marcante, o top foi pensado para proporcionar conforto durante o uso, acompanhando os movimentos do corpo sem comprometer a segurança.\r\n\r\nIdeal para treinos de alto impacto, como corrida, funcional, musculação, cross training e outras atividades esportivas de maior intensidade.\r\n\r\nDestaques da peça:\r\n\r\nExcelente sustentação\r\nAlças largas e estruturadas\r\nTecido com textura diferenciada\r\nSutil reflexo prateado\r\nModelagem firme e confortável\r\nDesign moderno e sofisticado\r\nSegurança durante os movimentos\r\nIdeal para treinos de alto impacto",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "cinza prateado",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-prata-1.webp",
+          "alt": "Top Prata - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "top-prata-2.webp",
+          "alt": "Top Prata - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "PP"
+  ],
+  "preco": {
+    "valor": 90,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-prata-1.webp",
+      "alt": "Top Prata - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "top-prata-2.webp",
+      "alt": "Top Prata - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "top",
+    "sustentação",
+    "top de academia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-14"
+}

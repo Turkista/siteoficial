@@ -1,0 +1,49 @@
+{
+  "id": "prod_topslimt",
+  "slug": "top-slim-turk",
+  "nome": "Top Slim Turk",
+  "linha": "turk-fit",
+  "categoria": "top",
+  "descricaoCurta": "Top de treino de musculação com alça. ",
+  "descricaoCompleta": "Top fitness confeccionado com lycra na composição, proporcionando elasticidade, conforto e liberdade de movimentos durante os treinos. O modelo possui alças, decote em V e não conta com bojo, oferecendo um visual clean e esportivo.\r\n\r\nIdeal para musculação, treinos de academia e atividades de força, acompanha os movimentos do corpo sem limitar a mobilidade. Uma peça versátil para quem busca praticidade, conforto e estilo na rotina fitness.\r\n\r\nDestaques:\r\n• Lycra na composição\r\n• Decote em V\r\n• Modelo de alças\r\n• Sem bojo\r\n• Confortável e flexível\r\n• Ideal para musculação e academia\r\n• Design esportivo e versátil",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "azul escuro",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "top-slim-turk.webp",
+          "alt": "Top Slim Turk",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "P"
+  ],
+  "preco": {
+    "valor": 80,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "top-slim-turk.webp",
+      "alt": "Top Slim Turk",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "top"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

@@ -1,0 +1,3831 @@
+[
+  {
+    "id": "prod_biquinia",
+    "slug": "biquini-andrea-dupla-face-parte-superior",
+    "nome": "Biquíni Andrea dupla face - Parte superior",
+    "linha": "praia",
+    "categoria": "Biquíni parte superior",
+    "descricaoCurta": "Parte superior disponível para venda, dupla face. Fácil secagem. Material de malha premium. Regula e pode usar dos dois lados. ",
+    "descricaoCompleta": "",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-andrea-dupla-face-parte-superior-1.webp",
+            "alt": "Biquíni Andrea dupla face - Parte superior - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "biquini-andrea-dupla-face-parte-superior-2.webp",
+            "alt": "Biquíni Andrea dupla face - Parte superior - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 45,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-andrea-dupla-face-parte-superior-1.webp",
+        "alt": "Biquíni Andrea dupla face - Parte superior - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "biquini-andrea-dupla-face-parte-superior-2.webp",
+        "alt": "Biquíni Andrea dupla face - Parte superior - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_aurora01",
+    "slug": "biquini-aurora",
+    "nome": "Biquíni Aurora",
+    "linha": "praia",
+    "categoria": "biquíni",
+    "descricaoCurta": "Biquíni de amarração lateral em lycra de alto padrão, para o dia inteiro na praia.",
+    "descricaoCompleta": "",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Rosa Turkista",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-aurora.webp",
+            "alt": "Biquíni Aurora na cor Rosa Turkista",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P",
+      "M",
+      "G"
+    ],
+    "medidas": {},
+    "preco": {
+      "valor": 60,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-aurora.webp",
+        "alt": "Biquíni Aurora",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "novo"
+    ],
+    "tags": [
+      "praia",
+      "amarração",
+      "biquíni"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-02"
+  },
+  {
+    "id": "prod_biquinic",
+    "slug": "biquini-color-mix",
+    "nome": "Biquíni Color Mix",
+    "linha": "praia",
+    "categoria": "Biquíni",
+    "descricaoCurta": "Há somente em estoque a parte superior. \r\nConfeccionado em lycra de alta qualidade.\r\nTop com bojo para maior sustentação e conforto.\r\nModelo de amar",
+    "descricaoCompleta": "O biquíni é confeccionado em lycra de alta qualidade, proporcionando excelente elasticidade, conforto e ajuste ao corpo. O top possui bojo estruturado, que oferece melhor sustentação, modela o busto e valoriza o caimento de forma natural.\r\n\r\nSeu design conta com uma argola metálica central, trazendo um toque moderno e sofisticado ao visual. As alças são confeccionadas em lycra lisa na cor roxa e possuem amarração no pescoço e nas costas, permitindo regulagem personalizada para maior conforto e segurança durante o uso.\r\n\r\nA estampa exclusiva combina tons vibrantes de rosa, azul, laranja, amarelo e detalhes animal print, criando um visual alegre, tropical e perfeito para os dias de praia e piscina.\r\n\r\nCaracterísticas:\r\nConfeccionado em lycra de alta qualidade.\r\nTop com bojo para maior sustentação e conforto.\r\nModelo de amarrar no pescoço.\r\nFechamento com amarração nas costas.\r\nArgola metálica no centro do busto.\r\nEstampa exclusiva em cores vibrantes.\r\nTecido macio, com excelente elasticidade e secagem rápida.\r\nIdeal para praia, piscina e lazer.\r\n\r\nDestaque: Um modelo que une conforto, sustentação e estilo, perfeito para quem busca um biquíni moderno, com excelente caimento e uma estampa cheia de personalidade.",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-color-mix.webp",
+            "alt": "Biquíni Color Mix",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 40,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-color-mix.webp",
+        "alt": "Biquíni Color Mix",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "sustentação"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-04"
+  },
+  {
+    "id": "prod_biquinic",
+    "slug": "biquini-constela-dupla-face-parte-superior",
+    "nome": "Biquíni Constela dupla face - Parte superior",
+    "linha": "praia",
+    "categoria": "Biquíni parte superior",
+    "descricaoCurta": "Dupla face, malha texturizada em com brilho cintilante. Uma verdadeira joia. Pode ser usada em ocasiões de festas e com um glamour de chamar atenção. ",
+    "descricaoCompleta": "",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-constela-dupla-face-parte-superior-1.webp",
+            "alt": "Biquíni Constela dupla face - Parte superior - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "biquini-constela-dupla-face-parte-superior-2.webp",
+            "alt": "Biquíni Constela dupla face - Parte superior - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 55,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-constela-dupla-face-parte-superior-1.webp",
+        "alt": "Biquíni Constela dupla face - Parte superior - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "biquini-constela-dupla-face-parte-superior-2.webp",
+        "alt": "Biquíni Constela dupla face - Parte superior - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_biquinic",
+    "slug": "biquini-cortininha-bicolor-laranja-e-roxo",
+    "nome": "Biquíni Cortininha Bicolor — Laranja e Roxo",
+    "linha": "praia",
+    "categoria": "Biquíni parte superior",
+    "descricaoCurta": "Biquíni cortininha bicolor que combina laranja vibrante e roxo intenso em uma composição moderna e cheia de personalidade. Dupla face. Venda da parte superior.",
+    "descricaoCompleta": "Biquíni cortininha bicolor que combina laranja vibrante e roxo intenso em uma composição moderna e cheia de personalidade. O top possui modelagem triangular com regulagem por amarração no pescoço e nas costas, permitindo ajustar a peça ao corpo. \r\n\r\nDetalhes:\r\n\r\nTop modelo cortininha\r\nDuas cores contrastantes\r\nAmarração no pescoço e nas costas\r\nModelagem ajustável\r\nEstilo tropical e vibrante",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "laranja e roxo",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-cortininha-bicolor-laranja-e-roxo.webp",
+            "alt": "Biquíni Cortininha Bicolor — Laranja e Roxo",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 40,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-cortininha-bicolor-laranja-e-roxo.webp",
+        "alt": "Biquíni Cortininha Bicolor — Laranja e Roxo",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_biquinif",
+    "slug": "biquini-fany",
+    "nome": "Biquíni Fany",
+    "linha": "praia",
+    "categoria": "Biquíni",
+    "descricaoCurta": "Conjunto em malha de textura agradável, estilo tomara que segure. Amarração frontal. Calcinha com cós largo. ",
+    "descricaoCompleta": "",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Rosa",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-fany-1.webp",
+            "alt": "Biquíni Fany",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "biquini-fany-2.webp",
+            "alt": "Biquíni Fany",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 190,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-fany-1.webp",
+        "alt": "Biquíni Fany",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "biquini-fany-2.webp",
+        "alt": "Biquíni Fany",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_biquinif",
+    "slug": "biquini-flash-parte-superior",
+    "nome": "Biquíni Flash - Parte superior",
+    "linha": "praia",
+    "categoria": "Biquíni",
+    "descricaoCurta": "Um biquíni sofisticado e marcante, criado para quem busca glamour, personalidade e brilho à beira-mar.",
+    "descricaoCompleta": "O top possui bojo estruturado, garantindo um caimento firme e elegante, com modelagem frente única e alças pretas para amarração no pescoço. O destaque fica por conta do acabamento inteiramente revestido de lantejoulas em tons de preto e dourado, que refletem a luz e criam um efeito luminoso sofisticado.\r\n\r\nOs detalhes dourados em formato floral nas laterais do top acrescentam um toque exclusivo à peça, enquanto a faixa preta inferior proporciona um acabamento elegante e maior definição à modelagem.\r\n\r\nUma peça statement, perfeita para transformar um look de praia em uma produção sofisticada e inesquecível.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "marrom estampado com dourado",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-flash-parte-superior-1.webp",
+            "alt": "Biquíni Flash - Parte superior",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "biquini-flash-parte-superior-2.webp",
+            "alt": "Biquíni Flash - Parte superior",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "PP"
+    ],
+    "preco": {
+      "valor": 90,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-flash-parte-superior-1.webp",
+        "alt": "Biquíni Flash - Parte superior",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "biquini-flash-parte-superior-2.webp",
+        "alt": "Biquíni Flash - Parte superior",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_biquinig",
+    "slug": "biquini-garota-leve",
+    "nome": "Biquíni Garota Leve",
+    "linha": "praia",
+    "categoria": "Biquíni",
+    "descricaoCurta": "Biquíni estampado com inspiração tropical, perfeito para quem gosta de cores e estampas marcantes. Conjunto. ",
+    "descricaoCompleta": "Biquíni estampado com inspiração tropical, perfeito para quem gosta de cores e estampas marcantes. O top possui modelagem triangular estilo cortininha, com amarrações que permitem melhor ajuste ao corpo. A calcinha acompanha a mesma estampa e conta com laterais de amarração, oferecendo praticidade e regulagem. Uma peça descontraída e cheia de personalidade para compor seu look de verão.\r\n\r\nDetalhes:\r\n\r\nEstampa tropical exclusiva\r\nTop triangular estilo cortininha\r\nAmarração no pescoço e nas costas\r\nCalcinha com laterais ajustáveis\r\nModelagem leve e confortável\r\nIdeal para praia e piscina",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "floral",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-garota-leve.webp",
+            "alt": "Biquíni Garota Leve",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 120,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-garota-leve.webp",
+        "alt": "Biquíni Garota Leve",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_biquinim",
+    "slug": "biquini-memore",
+    "nome": "Biquíni Memore",
+    "linha": "praia",
+    "categoria": "Biquíni ",
+    "descricaoCurta": "Duas peças com modelagem estruturada e acabamento premium, composto por um top estilo meia-taça/balconê e uma calcinha de cintura alta",
+    "descricaoCompleta": "O modelo veste um biquíni de duas peças com modelagem estruturada e acabamento premium, composto por um top estilo meia-taça/balconê e uma calcinha de cintura alta.\r\n\r\nTop\r\nModelo meia-taça estruturado, com dois bojos moldados.\r\nOs bojos possuem recortes e costuras estruturais, criando um desenho elegante e bem definido.\r\nDecote em V suave, valorizando o colo.\r\nAlças finas, posicionadas próximas às laterais dos bojos.\r\nAlças com aparência de serem reguláveis.\r\nPossui uma faixa inferior estruturada, acompanhando a linha abaixo do busto.\r\nAs costuras dos bojos formam um desenho central que dá identidade à peça.\r\nAs bordas possuem acabamento em vivo fino, feito no próprio tom laranja da peça.\r\nO top tem uma construção mais firme e sofisticada, diferente de um modelo cortininha.\r\n\r\nCalcinha\r\nModelo clássico, com cintura alta.\r\nLaterais de largura média, sem tiras ou amarrações.\r\nCorte levemente cavado na região das pernas.\r\nParte frontal com cobertura moderada, mantendo uma aparência elegante.\r\nModelagem acompanha naturalmente o quadril.\r\nPossui acabamento em vivo fino ao redor das bordas, combinando com o top.\r\nA parte traseira segue uma modelagem limpa, sem excesso de tecido.\r\n\r\nTecido\r\nTecido de moda praia fosco (matte).\r\nSem brilho, sem acabamento acetinado e sem efeito metalizado.\r\nAparência opaca e uniforme, mesmo quando recebe iluminação direta.\r\nTecido com elasticidade e estrutura suficientes para manter a modelagem do biquíni.\r\nNão apresenta textura brilhante, glitter ou efeito molhado.\r\nEstampa\r\n\r\nA característica mais marcante é a estampa orgânica marmorizada, semelhante a um tie-dye artesanal:\r\n\r\nBase predominante em laranja intenso.\r\nÁreas em laranja queimado.\r\nManchas e nuances em amarelo/dourado.\r\nPequenas variações de tonalidade mais claras e mais escuras.\r\nDesenho irregular e orgânico, sem formas geométricas definidas.\r\nO efeito parece formado por manchas de pigmento ou pinceladas fluidas.\r\nA estampa se mantém contínua no top e na calcinha.\r\nSem brilho na estampa: mesmo os tons amarelos/dourados são foscos, não metálicos.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "laranja mamorizado",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-memore-1.webp",
+            "alt": "Biquíni Memore - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "biquini-memore-2.webp",
+            "alt": "Biquíni Memore - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 190,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-memore-1.webp",
+        "alt": "Biquíni Memore - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "biquini-memore-2.webp",
+        "alt": "Biquíni Memore - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_biquinim",
+    "slug": "biquini-monsa",
+    "nome": "Biquíni Monsa",
+    "linha": "praia",
+    "categoria": "Biquíni parte superior",
+    "descricaoCurta": "Parte superior em estilo patch work. Texturizado em linhas e parte preta lisa com leve cintilante. ",
+    "descricaoCompleta": "",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "prata e preto",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-monsa.webp",
+            "alt": "Biquíni Monsa",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "PP"
+    ],
+    "preco": {
+      "valor": 55,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-monsa.webp",
+        "alt": "Biquíni Monsa",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_biquinin",
+    "slug": "biquini-nautic-parte-superior",
+    "nome": "Biquíni Nautic - Parte superior",
+    "linha": "praia",
+    "categoria": "Biquíni",
+    "descricaoCurta": "Dupla face, você pode fazer combinações dos dois lados.",
+    "descricaoCompleta": "Versatilidade para criar diferentes combinações em uma única peça. O biquíni cortininha dupla face permite usar os dois lados e variar a composição conforme o seu estilo, criando novas possibilidades de looks para praia e piscina.\r\n\r\nCom modelagem clássica e ajustável, o modelo proporciona liberdade para personalizar o caimento e combina praticidade, conforto e estilo. Uma peça versátil para quem gosta de transformar o visual sem abrir mão da funcionalidade.\r\n\r\nDois lados, diferentes combinações e muito mais possibilidades para aproveitar o verão.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-nautic-parte-superior-1.webp",
+            "alt": "Biquíni Nautic - Parte superior - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "biquini-nautic-parte-superior-2.webp",
+            "alt": "Biquíni Nautic - Parte superior - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 95,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-nautic-parte-superior-1.webp",
+        "alt": "Biquíni Nautic - Parte superior - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "biquini-nautic-parte-superior-2.webp",
+        "alt": "Biquíni Nautic - Parte superior - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_biquinio",
+    "slug": "biquini-orange",
+    "nome": "Biquíni Orange",
+    "linha": "praia",
+    "categoria": "Biquíni",
+    "descricaoCurta": "Estilo, conforto e praticidade em uma única peça. O modelo \"tomara que não caia\" traz amarração frontal ajustável, permitindo um ajuste personalizado ao corpo.",
+    "descricaoCompleta": "Estilo, conforto e praticidade em uma única peça. O modelo \"tomara que não caia\" traz amarração frontal ajustável, permitindo um ajuste personalizado ao corpo, além de ser sem bojo e totalmente forrado, garantindo conforto e segurança durante o uso.\r\n\r\nConfeccionado em tecido de toque suave, com acabamento fosco e efeito marmorizado, apresenta visual moderno e sofisticado. A modelagem valoriza a silhueta, enquanto a elasticidade do tecido proporciona liberdade de movimento e facilidade ao vestir.\r\n\r\nUma peça versátil e confortável, perfeita para compor looks de verão, praia e momentos de lazer.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Laranja marmorizado",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-orange-1.webp",
+            "alt": "Biquíni Orange",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "biquini-orange-2.webp",
+            "alt": "Biquíni Orange",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "biquini-orange-3.webp",
+            "alt": "Biquíni Orange",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 140,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-orange-1.webp",
+        "alt": "Biquíni Orange",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "biquini-orange-2.webp",
+        "alt": "Biquíni Orange",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "biquini-orange-3.webp",
+        "alt": "Biquíni Orange",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_biquiniv",
+    "slug": "biquini-vermelho-intense",
+    "nome": "Biquíni Vermelho Intense",
+    "linha": "praia",
+    "categoria": "Biquíni ",
+    "descricaoCurta": "Modelagem cortininha, com visual clássico e marcante. O top possui formato triangular com franzidos que valorizam o design da peça.",
+    "descricaoCompleta": "Biquíni vermelho de modelagem cortininha, com visual clássico e marcante. O top possui formato triangular com franzidos que valorizam o design da peça e amarrações para ajuste no pescoço e nas costas. A calcinha possui laterais com tiras para amarração, permitindo regular a modelagem de acordo com sua preferência. Uma escolha atemporal para quem busca um biquíni elegante, feminino e cheio de personalidade.\r\n\r\nDetalhes:\r\n\r\nCor vermelha intensa\r\nTop cortininha com franzidos\r\nAmarração ajustável\r\nCalcinha com laterais de amarração\r\nModelagem versátil\r\nEstilo clássico e sofisticado",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "vermelho",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-vermelho-intense.webp",
+            "alt": "Biquíni Vermelho Intense",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 80,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-vermelho-intense.webp",
+        "alt": "Biquíni Vermelho Intense",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_biquiniv",
+    "slug": "biquini-vivence-parte-superior",
+    "nome": "Biquíni Vivence - parte superior",
+    "linha": "praia",
+    "categoria": "Biquíni parte superior",
+    "descricaoCurta": "Com bojo estruturado e de amarrar no pescoço e costas, com fivela não metálica. Tamanho 58. Ideal para uma forte sustentação e conforto. ",
+    "descricaoCompleta": "",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido com lantejoulas",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "biquini-vivence-parte-superior.webp",
+            "alt": "Biquíni Vivence - parte superior",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "GG"
+    ],
+    "preco": {
+      "valor": 95,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "biquini-vivence-parte-superior.webp",
+        "alt": "Biquíni Vivence - parte superior",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "biquíni",
+      "praia",
+      "sustentação"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_calcablu",
+    "slug": "calca-blue-star",
+    "nome": "Calça Blue Star",
+    "linha": "turk-fit",
+    "categoria": "Linha Academia",
+    "descricaoCurta": "Eleve seu treino com uma legging que une estilo, conforto e desempenho. Confeccionada em lycra cintilante de alta qualidade, ela possui um acabamento sofistica",
+    "descricaoCompleta": "Legging Fitness Lycra Cintilante Azul\r\n\r\nEleve seu treino com uma legging que une estilo, conforto e desempenho. Confeccionada em lycra cintilante de alta qualidade, ela possui um acabamento sofisticado com brilho discreto, valorizando o visual sem abrir mão da funcionalidade.\r\n\r\nA modelagem de cintura alta oferece excelente sustentação e ajuste ao corpo, enquanto a costura reforçada garante maior resistência e durabilidade, mesmo durante treinos intensos.\r\n\r\nDestaques do produto:\r\n✨ Lycra cintilante premium com toque macio e confortável.\r\n💪 Não transparente, proporcionando segurança e confiança em qualquer movimento.\r\n🧵 Costura reforçada para maior resistência e excelente acabamento.\r\n👖 Cintura alta que modela a silhueta e oferece melhor sustentação.\r\n🤸 Tecido com elasticidade que acompanha os movimentos do corpo sem limitar o desempenho.\r\n🌬️ Confortável para musculação, corrida, pilates, yoga e uso no dia a dia.\r\n\r\nComposição: Lycra de alta elasticidade.\r\nTransparência: Não transparente.\r\nModelagem: Justa ao corpo.\r\nIndicação: Academia, treinos, caminhadas e uso casual esportivo.\r\n\r\nUma peça que combina elegância, resistência e conforto, ideal para quem busca desempenho com um visual moderno.",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "azul cintilante",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "calca-blue-star-1.webp",
+            "alt": "Calça Blue Star",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "calca-blue-star-2.webp",
+            "alt": "Calça Blue Star",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "G"
+    ],
+    "preco": {
+      "valor": 120,
+      "parcelamento": "2 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "calca-blue-star-1.webp",
+        "alt": "Calça Blue Star",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "calca-blue-star-2.webp",
+        "alt": "Calça Blue Star",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "legging"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-06"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-azul-dark",
+    "nome": "Conjunto Azul Dark",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas.",
+    "descricaoCompleta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas. Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto.\r\n\r\nConfeccionado em tecido liso, com toque acetinado, que combina conforto, elasticidade e um acabamento sofisticado para você treinar com liberdade e estilo.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Azul escuro cintilante",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-azul-dark-1.webp",
+            "alt": "Conjunto Azul Dark",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "conjunto-azul-dark-2.webp",
+            "alt": "Conjunto Azul Dark",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "conjunto-azul-dark-3.webp",
+            "alt": "Conjunto Azul Dark",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 120,
+      "parcelamento": "2 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-azul-dark-1.webp",
+        "alt": "Conjunto Azul Dark",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-azul-dark-2.webp",
+        "alt": "Conjunto Azul Dark",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-azul-dark-3.webp",
+        "alt": "Conjunto Azul Dark",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "conjunto de top e short"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-12"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-de-treino-azul-ocen",
+    "nome": "Conjunto de treino Azul Ocen",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCompleta": "O top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com modelagem que valoriza a silhueta, proporcionando firmeza, conforto e liberdade de movimento durante o treino.\r\n\r\nCom costuras reforçadas e design que valoriza as curvas, o conjunto proporciona um caimento impecável e um efeito visual de bumbum mais empinado e definido.\r\n\r\n✨ Destaques:\r\n\r\nTop com compressão e ótima sustentação\r\nCalça com modelagem que valoriza as curvas\r\nCosturas reforçadas\r\nEfeito visual de bumbum empinado\r\nIdeal para corrida, academia e treinos de alto impacto\r\nConforto, segurança e liberdade de movimento",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Azul escuro",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-de-treino-azul-ocen.webp",
+            "alt": "Conjunto de treino Azul Ocen",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "G"
+    ],
+    "preco": {
+      "valor": 180,
+      "parcelamento": "2 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-de-treino-azul-ocen.webp",
+        "alt": "Conjunto de treino Azul Ocen",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-12"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-de-treino-laranja-fitness",
+    "nome": "Conjunto de treino Laranja Fitness",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Conjunto fitness feminino composto por top de alcinhas finas e legging de cintura alta, com design minimalista, moderno e confortável para acompanhar diferentes",
+    "descricaoCompleta": "O top possui alcinhas finas, modelagem ajustada ao corpo e uma construção que mantém a parte frontal mais fechada, proporcionando cobertura e segurança durante os movimentos. A barra mais larga ajuda a manter a peça firme no corpo.\r\n\r\nA legging de cintura alta possui cós largo e modelagem ajustada, acompanhando as curvas do corpo e proporcionando conforto e liberdade de movimento durante os exercícios.\r\n\r\nConfeccionado em tecido com textura sutil e aparência encorpada, o conjunto apresenta acabamento uniforme e visual esportivo sofisticado.\r\n\r\nA cor coral vibrante traz personalidade à produção e combina com uma proposta fitness moderna e energética.\r\n\r\nDestaques do conjunto:\r\n\r\nTop com alcinhas finas\r\nParte frontal mais fechada\r\nModelagem ajustada\r\nBarra larga no top\r\nLegging de cintura alta\r\nCós largo\r\nTecido com textura sutil\r\nConforto e liberdade de movimento",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Laranja neon",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-de-treino-laranja-fitness-1.webp",
+            "alt": "Conjunto de treino Laranja Fitness",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "conjunto-de-treino-laranja-fitness-2.webp",
+            "alt": "Conjunto de treino Laranja Fitness",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "conjunto-de-treino-laranja-fitness-3.webp",
+            "alt": "Conjunto de treino Laranja Fitness",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 180,
+      "parcelamento": "2 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-de-treino-laranja-fitness-1.webp",
+        "alt": "Conjunto de treino Laranja Fitness",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-de-treino-laranja-fitness-2.webp",
+        "alt": "Conjunto de treino Laranja Fitness",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-de-treino-laranja-fitness-3.webp",
+        "alt": "Conjunto de treino Laranja Fitness",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-12"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-de-treino-short-e-top-cintila",
+    "nome": "Conjunto de treino Short e Top Cintila",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto.",
+    "descricaoCompleta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas. Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto.\r\nConfeccionado em tecido liso, com toque acetinado, que combina conforto, elasticidade e um acabamento sofisticado para você treinar com liberdade e estilo.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Roxo cintilante",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-de-treino-short-e-top-cintila.webp",
+            "alt": "Conjunto de treino Short e Top Cintila",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 140,
+      "parcelamento": "2x sem juros = 70 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-de-treino-short-e-top-cintila.webp",
+        "alt": "Conjunto de treino Short e Top Cintila",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "conjunto de academia",
+      "short e top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-12"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-fitness-em-lycra-azul-claro",
+    "nome": "Conjunto Fitness em Lycra Azul Claro",
+    "linha": "turk-fit",
+    "categoria": "Linha Academia",
+    "descricaoCurta": "Treine com conforto, segurança e muito estilo. Este conjunto fitness em lycra azul claro foi desenvolvido para oferecer alto desempenho durante os exercícios, ",
+    "descricaoCompleta": "Conjunto Fitness em Lycra Azul Claro\r\n\r\nTreine com conforto, segurança e muito estilo. Este conjunto fitness em lycra azul claro foi desenvolvido para oferecer alto desempenho durante os exercícios, combinando uma modelagem moderna com excelente sustentação.\r\n\r\nO top possui alta compressão na região das mamas, proporcionando firmeza e reduzindo o impacto durante atividades de maior intensidade. A legging de cintura alta oferece ajuste perfeito ao corpo, valorizando a silhueta sem comprometer a liberdade de movimentos.\r\n\r\nDestaques do produto:\r\n💙 Conjunto composto por top e legging.\r\n✨ Confeccionado em lycra premium com toque macio e excelente elasticidade.\r\n💪 Alta compressão para maior estabilidade e conforto durante os treinos.\r\n🏃 Excelente sustentação no busto, ideal para exercícios aeróbicos e de impacto moderado.\r\n👖 Legging de cintura alta que modela o corpo e proporciona ajuste seguro.\r\n🧵 Costuras reforçadas para maior durabilidade.\r\n🚫 Não transparente, oferecendo total segurança em qualquer movimento.\r\n🌬️ Tecido respirável, confortável e de secagem rápida.\r\nIndicação de uso\r\n\r\nPerfeito para corrida, caminhada, academia, spinning, funcional, dança, treino aeróbico, pilates e atividades do dia a dia.\r\n\r\nUm conjunto pensado para mulheres que buscam desempenho, sustentação e conforto, sem abrir mão de um visual elegante e moderno.",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "azul clarinho",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-fitness-em-lycra-azul-claro.webp",
+            "alt": "Conjunto Fitness em Lycra Azul Claro",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "G"
+    ],
+    "preco": {
+      "valor": 220,
+      "parcelamento": "3x sem juros = 73 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-fitness-em-lycra-azul-claro.webp",
+        "alt": "Conjunto Fitness em Lycra Azul Claro",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "legging"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-06"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-fitness-top-calca-verdan",
+    "nome": "Conjunto Fitness Top + Calça Verdan",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCompleta": "O top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com modelagem que valoriza a silhueta, proporcionando firmeza, conforto e liberdade de movimento durante o treino.\r\n\r\nCom costuras reforçadas e design que valoriza as curvas, o conjunto proporciona um caimento impecável e um efeito visual de bumbum mais empinado e definido.\r\n\r\n✨ Destaques:\r\n\r\nTop com compressão e ótima sustentação\r\nCalça com modelagem que valoriza as curvas\r\nCosturas reforçadas\r\nEfeito visual de bumbum empinado\r\nIdeal para corrida, academia e treinos de alto impacto\r\nConforto, segurança e liberdade de movimento",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "verde",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-fitness-top-calca-verdan.webp",
+            "alt": "Conjunto Fitness Top + Calça Verdan",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 170,
+      "parcelamento": "2x sem juros = 85 reais"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-fitness-top-calca-verdan.webp",
+        "alt": "Conjunto Fitness Top + Calça Verdan",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-12"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-fitness-top-calca",
+    "nome": "Conjunto Fitness Top + Calça",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCompleta": "O top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com modelagem que valoriza a silhueta, proporcionando firmeza, conforto e liberdade de movimento durante o treino.\r\n\r\nCom costuras reforçadas e design que valoriza as curvas, o conjunto proporciona um caimento impecável e um efeito visual de bumbum mais empinado e definido.\r\n\r\n✨ Destaques:\r\n\r\nTop com compressão e ótima sustentação\r\nCalça com modelagem que valoriza as curvas\r\nCosturas reforçadas\r\nEfeito visual de bumbum empinado\r\nIdeal para corrida, academia e treinos de alto impacto\r\nConforto, segurança e liberdade de movimento",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Roxo profundo",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-fitness-top-calca.webp",
+            "alt": "Conjunto Fitness Top + Calça",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "G"
+    ],
+    "preco": {
+      "valor": 190,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-fitness-top-calca.webp",
+        "alt": "Conjunto Fitness Top + Calça",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-12"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-lila-perfomance",
+    "nome": "Conjunto Lila Perfomance",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Conjunto Fitness Top + Calça com Bolsos Laterais.  Para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCompleta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com bolsos faca laterais, unindo praticidade e funcionalidade para levar pequenos itens durante o treino.\r\n\r\nCom costuras reforçadas e modelagem que valoriza a silhueta, o conjunto proporciona um caimento firme e confortável, ajudando a destacar as curvas e criando um efeito visual de bumbum mais empinado e definido.\r\n\r\n✨ Destaques:\r\n\r\nTop com compressão e ótima sustentação\r\nCalça com bolsos faca laterais\r\nCosturas reforçadas\r\nModelagem que valoriza as curvas\r\nEfeito visual de bumbum empinado\r\nIdeal para corrida, academia e treinos de alto impacto\r\nConforto, segurança e liberdade de movimento",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Roxo",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-lila-perfomance.webp",
+            "alt": "Conjunto Lila Perfomance",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 220,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-lila-perfomance.webp",
+        "alt": "Conjunto Lila Perfomance",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "conjunto de academia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-12"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-maro",
+    "nome": "Conjunto Maro",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Conjunto Fitness Top + Calça - Desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCompleta": "O top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com modelagem que valoriza a silhueta, proporcionando firmeza, conforto e liberdade de movimento durante o treino.\r\n\r\nCom costuras reforçadas e design que valoriza as curvas, o conjunto proporciona um caimento impecável e um efeito visual de bumbum mais empinado e definido.\r\n\r\n✨ Destaques:\r\n\r\nTop com compressão e ótima sustentação\r\nCalça com modelagem que valoriza as curvas\r\nCosturas reforçadas\r\nEfeito visual de bumbum empinado\r\nIdeal para corrida, academia e treinos de alto impacto\r\nConforto, segurança e liberdade de movimento",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Rosa Fúcsia ",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "conjunto-maro.webp",
+            "alt": "Conjunto Maro",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 220,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-maro.webp",
+        "alt": "Conjunto Maro",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "conjunto de academia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-12"
+  },
+  {
+    "id": "prod_conjunto",
+    "slug": "conjunto-short-top-flow",
+    "nome": "Conjunto de Short + top",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Composto por top de alças largas e bermuda de cintura alta, desenvolvido para proporcionar alta sustentação, conforto e segurança durante os treinos.",
+    "descricaoCompleta": "O top possui modelagem ajustada ao corpo, alças largas e barra reforçada, oferecendo excelente sustentação para atividades que exigem maior estabilidade. A bermuda possui cintura alta e cós largo, proporcionando firmeza e conforto durante os movimentos.\r\n\r\nO tecido tem toque macio e aparência aveludada, proporcionando uma sensação extremamente agradável em contato com a pele. É aquele tipo de roupa que veste tão bem que quase parece que você não está usando nada.\r\n\r\nSua estrutura oferece alta sustentação, ajudando a manter a peça firme durante os movimentos. O tecido também não apresenta transparência, proporcionando mais segurança e tranquilidade durante o treino.\r\n\r\nIdeal para atividades de impacto, como corrida, funcional, musculação, treinos intensos e outras modalidades que exigem liberdade de movimento e segurança.\r\n\r\nDestaques do conjunto:\r\n\r\nToque macio e aveludado\r\nSensação extremamente confortável no corpo\r\nAlta sustentação\r\nTecido sem transparência\r\nTop com alças largas\r\nBarra reforçada no top\r\nBermuda de cintura alta\r\nCós largo e confortável\r\nModelagem que acompanha os movimentos\r\nIdeal para atividades de impacto e treinos intensos",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "vermelho fechado",
+        "hex": "#0C1014",
+        "imagens": [
+          {
+            "arquivo": "conjunto-short-top-flow-1.webp",
+            "alt": "Conjunto de Short + top",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "conjunto-short-top-flow-2.webp",
+            "alt": "Conjunto de Short + top",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P",
+      "M"
+    ],
+    "medidas": {},
+    "preco": {
+      "valor": 180,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "conjunto-short-top-flow-1.webp",
+        "alt": "Conjunto de Short + top",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "conjunto-short-top-flow-2.webp",
+        "alt": "Conjunto de Short + top",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "turk-fit",
+      "treino",
+      "short"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-02"
+  },
+  {
+    "id": "prod_croppedd",
+    "slug": "cropped-de-surf",
+    "nome": "Cropped de Surf",
+    "linha": "surf",
+    "categoria": "Cropped",
+    "descricaoCurta": "Cropped feminino desenvolvido para acompanhar momentos de surf, praia e atividades ao ar livre, unindo leveza, conforto e um visual moderno.",
+    "descricaoCompleta": "A peça possui tecido extremamente leve e macio, com sensação de segunda pele, proporcionando liberdade de movimento e conforto durante o uso. O corpo do cropped recebe uma estampa exclusiva e marcante, enquanto as mangas em rosa vibrante criam um contraste moderno e cheio de personalidade.\r\n\r\nO grande destaque está nas mangas de tecido transparente e leve, que deixam o visual mais delicado e diferenciado sem abrir mão da proposta esportiva. As mangas possuem comprimento até próximo dos cotovelos e acabamento delicado nas extremidades.\r\n\r\nA modelagem é curta e ajustada ao corpo, proporcionando um caimento confortável e moderno. O recorte das mangas acompanha os ombros e facilita os movimentos dos braços, sendo uma ótima opção para quem busca uma peça esportiva com estilo.\r\n\r\nA estampa central apresenta uma combinação de tons de azul, preto, lilás e detalhes claros, criando um efeito visual inspirado na natureza e no universo do mar.\r\n\r\nDestaques da peça:\r\n\r\nTecido super leve e confortável\r\nSensação de segunda pele\r\nMangas transparentes\r\nMangas leves e com ótima mobilidade\r\nModelagem cropped\r\nCaimento ajustado ao corpo\r\nEstampa exclusiva e marcante\r\nCombinação de cores vibrantes\r\nVisual moderno e esportivo\r\nIdeal para surf, praia e atividades ao ar livre\r\n\r\nUma peça para quem gosta de sentir leveza no corpo sem abrir mão de personalidade e estilo.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "cropped-de-surf.webp",
+            "alt": "Cropped de Surf",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 190,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "cropped-de-surf.webp",
+        "alt": "Cropped de Surf",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "Cropped",
+      "surf"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_croppeds",
+    "slug": "cropped-surf",
+    "nome": "Cropped surf",
+    "linha": "surf",
+    "categoria": "Blusa",
+    "descricaoCurta": "A blusa é um cropped de manga curta em estilo patchwork artesanal, com modelagem ampla e comprimento curto, terminando acima do umbigo.",
+    "descricaoCompleta": "A blusa é um cropped de manga curta em estilo patchwork artesanal, com modelagem ampla e comprimento curto, terminando acima do umbigo.\r\n\r\nBase: tecido vermelho intenso.\r\nMangas: mangas curtas em laranja/mostarda, aplicadas de forma contrastante.\r\nPatchwork frontal: composição de vários retalhos de tecido costurados e sobrepostos.\r\nCores dos retalhos: vermelho, laranja, amarelo, verde, bege, marrom e tons terrosos.\r\nEstampa central: os retalhos formam uma paisagem tropical/artística, com elementos que lembram pôr do sol, céu, vegetação, palmeiras e praia.\r\nAcabamento: as bordas dos retalhos são irregulares e aparentes, com costuras visíveis, reforçando o aspecto artesanal e feito à mão.\r\nGola: gola redonda simples, com acabamento aparente em tom contrastante.\r\nBarra: curta e irregular, acompanhando o caráter artesanal da peça.\r\nEstilo: mistura de moda praia, arte, upcycling e patchwork, com aparência descontraída, colorida e autoral.\r\nObs.: Para ficar no estilo da modelo, por exemplo: se você normalmente usa P, escolha M.\r\nNeste caso, como temos disponível apenas 1 unidade no tamanho P, ela é indicada para quem normalmente usa PP.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorida",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "cropped-surf.webp",
+            "alt": "Cropped surf",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 190,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "cropped-surf.webp",
+        "alt": "Cropped surf",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_croppedv",
+    "slug": "cropped-verdin",
+    "nome": "Cropped Verdin",
+    "linha": "surf",
+    "categoria": "cropped",
+    "descricaoCurta": "O Cropped Esportivo de Manga Longa foi desenvolvido para acompanhar você em diferentes momentos — da prática esportiva aos momentos de lazer — com um design mod",
+    "descricaoCompleta": "Movimento, conforto e estilo em uma única peça.\r\n\r\nO Cropped Esportivo de Manga Longa foi desenvolvido para acompanhar você em diferentes momentos — da prática esportiva aos momentos de lazer — com um design moderno e funcional.\r\n\r\nO corpo do cropped é confeccionado em tecido de alta elasticidade, proporcionando ajuste ao corpo, liberdade de movimento e conforto durante a atividade. As mangas em tecido semitransparente e respirável favorecem a circulação de ar, ajudando na ventilação durante os movimentos.\r\n\r\nO contraste entre o tecido estampado e as mangas leves cria uma estética esportiva sofisticada, enquanto o acabamento ajustado valoriza a silhueta sem limitar os movimentos.\r\n\r\nDestaques da peça:\r\n\r\nTecido com alta elasticidade em todo o cropped\r\nMangas semitransparentes e respiráveis\r\nModelagem que acompanha os movimentos do corpo\r\nDesign esportivo contemporâneo\r\nConforto para atividades e momentos de lazer\r\nAcabamento ajustado e sofisticado\r\n\r\nUma peça para quem quer se movimentar com liberdade sem abrir mão do estilo.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "estampado ",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "cropped-verdin-1.webp",
+            "alt": "Cropped Verdin",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "cropped-verdin-2.webp",
+            "alt": "Cropped Verdin",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "cropped-verdin-3.webp",
+            "alt": "Cropped Verdin",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 250,
+      "parcelamento": "4x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "cropped-verdin-1.webp",
+        "alt": "Cropped Verdin",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "cropped-verdin-2.webp",
+        "alt": "Cropped Verdin",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "cropped-verdin-3.webp",
+        "alt": "Cropped Verdin",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "croppet de surf"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_leggingi",
+    "slug": "legging-intense",
+    "nome": "Legging Intense",
+    "linha": "turk-fit",
+    "categoria": "legging",
+    "descricaoCurta": "Conforto e liberdade de movimento para acompanhar sua rotina de treinos. A legging possui cós alto, que proporciona maior sustentação e um ajuste confortável.",
+    "descricaoCompleta": "Conforto e liberdade de movimento para acompanhar sua rotina de treinos. A legging possui cós alto, que proporciona maior sustentação e um ajuste confortável ao corpo, além de modelagem sem bolso, garantindo um visual clean e funcional.\r\n\r\nIdeal para yoga, corrida, academia e outras atividades físicas, oferece flexibilidade para acompanhar cada movimento com conforto e segurança. Uma peça essencial para quem busca praticidade, conforto e estilo no treino.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "rosa intenso",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "legging-intense.webp",
+            "alt": "Legging Intense",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 120,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "legging-intense.webp",
+        "alt": "Legging Intense",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "legging"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_maioartx",
+    "slug": "maio-artx",
+    "nome": "Maiô ArtX",
+    "linha": "praia",
+    "categoria": "maiô",
+    "descricaoCurta": "Maiô de design moderno e marcante, com modelagem strappy e recortes estratégicos que criam um visual geométrico e valorizam a silhueta.",
+    "descricaoCompleta": "O top possui decote profundo em formato triangular, com alças finas ajustáveis e acabamento franzido nas laterais.\r\n\r\nA região da cintura traz tiras cruzadas que formam um desenho em X, deixando parte da pele à mostra e conectando o top à parte inferior. A calcinha possui laterais com tiras largas e modelagem cavada, complementando o design ousado da peça.\r\n\r\nConfeccionado em tecido texturizado, com toque macio e agradável, é uma peça que combina conforto, personalidade e um visual contemporâneo, ideal para quem busca um beachwear diferenciado.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "laranja",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-artx-1.webp",
+            "alt": "Maiô ArtX - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-artx-2.webp",
+            "alt": "Maiô ArtX - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 220,
+      "parcelamento": "4x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-artx-1.webp",
+        "alt": "Maiô ArtX - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-artx-2.webp",
+        "alt": "Maiô ArtX - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_maioblue",
+    "slug": "maio-blue",
+    "nome": "Maiô Blue",
+    "linha": "praia",
+    "categoria": "maiô",
+    "descricaoCurta": "Maiô Azul Royal Franzido com Regulagem Lateral",
+    "descricaoCompleta": "Maiô feminino em azul royal, com design moderno e modelagem que valoriza a silhueta. Possui decote reto com franzido, alças finas ajustáveis e franzidos nas laterais com regulagem por cordões, permitindo ajustar a altura e o caimento da peça conforme a preferência.\r\n\r\nA modelagem une conforto, versatilidade e estilo, sendo ideal para praia, piscina e produções de moda resort. O acabamento franzido proporciona um visual sofisticado e permite personalizar o ajuste da peça.\r\n\r\nDestaques da peça:\r\n\r\nAzul royal vibrante\r\nDecote reto franzido\r\nAlças finas com amarração\r\nLaterais franzidas com regulagem\r\nModelagem que acompanha o corpo\r\nDesign versátil para praia e piscina\r\nEstilo moderno e sofisticado",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "azul caneta",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-blue-1.webp",
+            "alt": "Maiô Blue - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-blue-2.webp",
+            "alt": "Maiô Blue - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 150,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-blue-1.webp",
+        "alt": "Maiô Blue - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-blue-2.webp",
+        "alt": "Maiô Blue - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_maiocevi",
+    "slug": "maio-cevi",
+    "nome": "Maiô Cevi",
+    "linha": "praia",
+    "categoria": "maiô",
+    "descricaoCurta": "Maiô feminino laranja de modelagem assimétrica, confeccionado em tecido liso de acabamento fosco e cor laranja vibrante.",
+    "descricaoCompleta": "Decote assimétrico, com uma única alça fina sobre um dos ombros.\r\nCorpo do maiô com recorte lateral na cintura, criando um efeito moderno e alongando visualmente a silhueta.\r\nParte frontal com modelagem ajustada ao corpo.\r\nDetalhe franzido na lateral do busto, com pequeno ajuste/amarração.\r\nParte inferior com cava alta, valorizando as pernas.\r\nCosturas e acabamentos discretos, acompanhando o contorno da peça.\r\nTecido sem estampa e sem brilho, com aparência uniforme e sofisticada.\r\nCor: laranja intenso.\r\n\r\nEstilo: moderno, tropical e sofisticado, com uma proposta de beachwear marcante e contemporânea.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "laranja",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-cevi-1.webp",
+            "alt": "Maiô Cevi - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-cevi-2.webp",
+            "alt": "Maiô Cevi - foto 2",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-cevi-3.webp",
+            "alt": "Maiô Cevi - foto 3",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 220,
+      "parcelamento": "4x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-cevi-1.webp",
+        "alt": "Maiô Cevi - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-cevi-2.webp",
+        "alt": "Maiô Cevi - foto 2",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-cevi-3.webp",
+        "alt": "Maiô Cevi - foto 3",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_maiochic",
+    "slug": "maio-chicler",
+    "nome": "Maiô Chicler",
+    "linha": "praia",
+    "categoria": "Maiô",
+    "descricaoCurta": "Maiô pink vibrante com textura em ondas e design moderno de um ombro só. A modelagem possui recorte estratégico na região da cintura, criando um visual contempo",
+    "descricaoCompleta": "Maiô pink vibrante com textura em ondas e design moderno de um ombro só. A modelagem possui recorte estratégico na região da cintura, criando um visual contemporâneo e valorizando a silhueta. O acabamento texturizado traz um diferencial à peça, enquanto a cor intensa deixa o look marcante e cheio de personalidade. Uma opção versátil para a praia, piscina ou para compor produções de verão.\r\n\r\nDetalhes:\r\n\r\nMaiô de um ombro só\r\nCor pink vibrante\r\nTextura em ondas\r\nRecorte estratégico na cintura\r\nModelagem moderna\r\nVisual marcante e sofisticado\r\nIdeal para praia e piscina",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "rosa ciclete",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-chicler-1.webp",
+            "alt": "Maiô Chicler - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-chicler-2.webp",
+            "alt": "Maiô Chicler - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 250,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-chicler-1.webp",
+        "alt": "Maiô Chicler - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-chicler-2.webp",
+        "alt": "Maiô Chicler - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_maiodesu",
+    "slug": "maio-de-surf-flora",
+    "nome": "Maiô de Surf Flora",
+    "linha": "surf",
+    "categoria": "maiô",
+    "descricaoCurta": "Design esportivo e estampa floral multicolorida que combina diferentes tons vibrantes, criando uma peça alegre, marcante e cheia de personalidade. ",
+    "descricaoCompleta": "A parte frontal e traseira recebe a estampa floral, complementada por detalhes em amarelo nos ombros e mangas e acabamento preto nos punhos. A modelagem acompanha o corpo, proporcionando conforto e liberdade de movimento para a prática de surf e outras atividades na água.\r\n\r\nConfeccionado em malha de fácil secagem, é uma opção prática para quem busca uma peça funcional para a praia e esportes aquáticos.\r\n\r\nO modelo possui fechamento na parte inferior, entre as pernas, facilitando o vestir e retirar a peça e trazendo mais praticidade durante o uso.\r\n\r\nDestaques da peça:\r\n\r\nMalha de fácil secagem\r\nManga longa\r\nEstampa floral colorida\r\nDetalhes em amarelo e preto\r\nModelagem ajustada ao corpo\r\nLiberdade de movimento\r\nFechamento entre as pernas\r\nIdeal para surf, praia e atividades aquáticas",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-de-surf-flora-1.webp",
+            "alt": "Maiô de Surf Flora",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-de-surf-flora-2.webp",
+            "alt": "Maiô de Surf Flora",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 650,
+      "parcelamento": "5x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-de-surf-flora-1.webp",
+        "alt": "Maiô de Surf Flora",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-de-surf-flora-2.webp",
+        "alt": "Maiô de Surf Flora",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô de surf",
+      "surf",
+      "maiô colorido"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_maiodesu",
+    "slug": "maio-de-surf-mandala",
+    "nome": "Maiô de Surf Mandala",
+    "linha": "surf",
+    "categoria": "Maiô",
+    "descricaoCurta": "Confeccionado em lycra de alta qualidade, este modelo veste perfeitamente o corpo, proporcionando um ajuste confortável e valorizando a silhueta. ",
+    "descricaoCompleta": "Realce sua beleza com um maiô que une conforto, estilo e excelente caimento.\r\n\r\nConfeccionado em lycra de alta qualidade, este modelo veste perfeitamente o corpo, proporcionando um ajuste confortável e valorizando a silhueta. O fechamento na parte inferior (entre as pernas) facilita o uso no dia a dia, oferecendo mais praticidade.\r\n\r\nA estampa exclusiva em tons vibrantes traz personalidade ao visual, enquanto as mangas longas deixam a peça ainda mais elegante e versátil, ideal para praia, piscina, surf, passeios de barco ou até mesmo para compor looks casuais com shorts ou saias.",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-de-surf-mandala-1.webp",
+            "alt": "Maiô de Surf Mandala",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-de-surf-mandala-2.webp",
+            "alt": "Maiô de Surf Mandala",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 580,
+      "parcelamento": "5x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-de-surf-mandala-1.webp",
+        "alt": "Maiô de Surf Mandala",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-de-surf-mandala-2.webp",
+        "alt": "Maiô de Surf Mandala",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maio_surf"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-03"
+  },
+  {
+    "id": "prod_maiodesu",
+    "slug": "maio-de-surf-spider",
+    "nome": "Maiô de Surf Spider",
+    "linha": "surf",
+    "categoria": "maiô",
+    "descricaoCurta": "Maiô de surf feminino de manga longa, desenvolvido para proporcionar conforto, liberdade de movimento e praticidade durante a prática de esportes aquáticos.",
+    "descricaoCompleta": "Confeccionado em malha de fácil secagem, é ideal para acompanhar a rotina na praia, no surf e em outras atividades ao ar livre. Seu design colorido combina tons vibrantes de rosa, roxo e azul, criando um visual moderno e esportivo.\r\n\r\nA peça possui fechamento na parte inferior, entre as pernas, que facilita o vestir e retirar o maiô, além de proporcionar mais praticidade durante o uso.\r\n\r\nAs mangas longas oferecem maior cobertura dos braços, enquanto o caimento ajustado acompanha os movimentos do corpo sem comprometer o conforto.\r\n\r\nDestaques da peça:\r\n\r\nMalha de fácil secagem\r\nManga longa\r\nDesign colorido e esportivo\r\nModelagem ajustada ao corpo\r\nLiberdade de movimento\r\nFechamento na parte inferior, entre as pernas\r\nIdeal para surf, praia e atividades aquáticas",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-de-surf-spider-1.webp",
+            "alt": "Maiô de Surf Spider",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-de-surf-spider-2.webp",
+            "alt": "Maiô de Surf Spider",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P",
+      "M"
+    ],
+    "preco": {
+      "valor": 680,
+      "parcelamento": "5x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-de-surf-spider-1.webp",
+        "alt": "Maiô de Surf Spider",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-de-surf-spider-2.webp",
+        "alt": "Maiô de Surf Spider",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo"
+    ],
+    "tags": [
+      "maiô de surf",
+      "surf",
+      "maiô colorido"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_maiodesu",
+    "slug": "maio-de-surf-vivence",
+    "nome": "Maiô de surf Vivence",
+    "linha": "surf",
+    "categoria": "Maiô",
+    "descricaoCurta": "Desenvolvido para quem busca estilo, conforto e liberdade de movimentos, este maiô de surf em lycra premium combina um design moderno em patchwork de cores e es",
+    "descricaoCompleta": "Maiô Feminino Surf em Lycra Patchwork\r\n\r\nDesenvolvido para quem busca estilo, conforto e liberdade de movimentos, este maiô de surf em lycra premium combina um design moderno em patchwork de cores e estampas com excelente ajuste ao corpo. Ideal para esportes aquáticos, ele oferece segurança e praticidade dentro e fora da água.\r\n\r\nSeu modelo possui abertura na parte inferior da calcinha, proporcionando maior conforto e mobilidade durante o uso, além de um caimento anatômico que valoriza a silhueta.\r\n\r\nDestaques do produto:\r\n🏄 Ideal para surf, stand up paddle, natação e esportes aquáticos.\r\n✨ Confeccionado em lycra premium, com toque macio e alta elasticidade.\r\n🎨 Design exclusivo em patchwork, combinando cores vibrantes e estampa floral.\r\n👙 Abertura na parte inferior da calcinha, proporcionando mais conforto e liberdade de movimentos.\r\n💪 Modelagem anatômica que oferece excelente ajuste ao corpo.\r\n☀️ Tecido resistente ao cloro, à água salgada e de secagem rápida.\r\n🚫 Não transparente, garantindo segurança durante o uso.\r\n🧵 Costuras reforçadas para maior resistência e durabilidade.\r\nIndicação de uso\r\n\r\nPerfeito para surf, praia, piscina, esportes aquáticos, hidroginástica e momentos de lazer, unindo desempenho, conforto e um visual moderno e cheio de personalidade.",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-de-surf-vivence.webp",
+            "alt": "Maiô de surf Vivence",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 490,
+      "parcelamento": "5x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-de-surf-vivence.webp",
+        "alt": "Maiô de surf Vivence",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo"
+    ],
+    "tags": [
+      "maiô de surf"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-06"
+  },
+  {
+    "id": "prod_maiogree",
+    "slug": "maio-green",
+    "nome": "Maiô Green",
+    "linha": "praia",
+    "categoria": "maiô",
+    "descricaoCurta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. ",
+    "descricaoCompleta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. A lateral apresenta franzidos verticais, que acompanham a silhueta. Na região dos quadris, a peça possui tiras para amarração, permitindo ajuste lateral. A parte inferior tem modelagem cavada.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Verde musgo",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-green-1.webp",
+            "alt": "Maiô Green - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-green-2.webp",
+            "alt": "Maiô Green - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 250,
+      "parcelamento": "4x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-green-1.webp",
+        "alt": "Maiô Green - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-green-2.webp",
+        "alt": "Maiô Green - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_maiohigh",
+    "slug": "maio-hight",
+    "nome": "Maiô Hight",
+    "linha": "praia",
+    "categoria": "maiô",
+    "descricaoCurta": "Modelagem recortada, combinando rosa neon/fúcsia na parte superior e verde-limão na parte inferior. ",
+    "descricaoCompleta": "Modelagem recortada, combinando rosa neon/fúcsia na parte superior e verde-limão na parte inferior. O top possui decote arredondado e alças largas. Na região central do abdômen há recortes laterais amplos, deixando a cintura à mostra. As duas partes são conectadas por uma argola circular confeccionada em material que imita madeira, em tom natural amadeirado — não é uma peça metálica. A parte inferior possui modelagem cavada e cintura alta, com laterais largas.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "neon/fúcsia",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-hight.webp",
+            "alt": "Maiô Hight",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 210,
+      "parcelamento": "3 x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-hight.webp",
+        "alt": "Maiô Hight",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_maiopass",
+    "slug": "maio-passarela",
+    "nome": "Maiô Passarela",
+    "linha": "praia",
+    "categoria": "maiô",
+    "descricaoCurta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico.",
+    "descricaoCompleta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico, com a parte superior em formato assimétrico e decote profundo. Possui recortes estratégicos na cintura e nas laterais do abdômen, criando efeito de peça vazada. A parte inferior tem modelagem cavada, com acabamento ajustado ao corpo.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "preto e azul ",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-passarela-1.webp",
+            "alt": "Maiô Passarela - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-passarela-2.webp",
+            "alt": "Maiô Passarela - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 390,
+      "parcelamento": "5x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-passarela-1.webp",
+        "alt": "Maiô Passarela - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-passarela-2.webp",
+        "alt": "Maiô Passarela - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_maiopero",
+    "slug": "maio-perola-mares",
+    "nome": "Maiô Pérola Mares",
+    "linha": "surf",
+    "categoria": "maiô",
+    "descricaoCurta": "Maiô de surf feminino de manga longa, com modelagem esportiva e design moderno em blocos de cores vibrantes.",
+    "descricaoCompleta": "A combinação de rosa, verde, roxo e preto cria um visual marcante e cheio de personalidade.\r\nConfeccionado em malha de fácil secagem, é uma peça prática para quem vive entre o mar, a praia e atividades ao ar livre. A modelagem ajustada acompanha o corpo e proporciona liberdade de movimento e conforto durante o uso.\r\n\r\nO maiô possui fechamento na parte inferior, entre as pernas, facilitando o vestir e retirar a peça e trazendo mais praticidade para a rotina.\r\n\r\nAs mangas longas oferecem maior cobertura dos braços, enquanto os recortes coloridos valorizam o design esportivo da peça.\r\n\r\nDestaques da peça:\r\n\r\nMalha de fácil secagem\r\nManga longa\r\nModelagem esportiva e ajustada\r\nDesign em cores vibrantes\r\nLiberdade de movimento\r\nFechamento entre as pernas\r\nPrático para vestir e retirar\r\nIdeal para surf, praia e atividades aquáticas",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-perola-mares-1.webp",
+            "alt": "Maiô Pérola Mares",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-perola-mares-2.webp",
+            "alt": "Maiô Pérola Mares",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 800,
+      "parcelamento": "6x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-perola-mares-1.webp",
+        "alt": "Maiô Pérola Mares",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-perola-mares-2.webp",
+        "alt": "Maiô Pérola Mares",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô de surf",
+      "surf",
+      "maiô colorido"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_maiosupr",
+    "slug": "maio-supreme",
+    "nome": "Maiô supreme",
+    "linha": "praia",
+    "categoria": "Maiô",
+    "descricaoCurta": "Cor preta texturizado estilo holográfico ",
+    "descricaoCompleta": "Maiô preto de design moderno e sofisticado, desenvolvido com recortes estratégicos que criam um visual marcante. A parte superior possui gola mais fechada e recorte frontal na região do colo, enquanto o recorte central na cintura traz um toque contemporâneo à peça. A modelagem valoriza o desenho do corpo e transforma o maiô em uma opção versátil, que pode ser usada tanto na praia quanto em produções de verão.\r\n\r\nDetalhes:\r\n\r\nCor preta texturizado estilo holográfico \r\nGola mais fechada\r\nRecorte frontal no colo\r\nRecorte amplo na cintura\r\nModelagem moderna\r\nPeça versátil para praia e looks de verão",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "preto",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-supreme-1.webp",
+            "alt": "Maiô supreme - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-supreme-2.webp",
+            "alt": "Maiô supreme - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 250,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-supreme-1.webp",
+        "alt": "Maiô supreme - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-supreme-2.webp",
+        "alt": "Maiô supreme - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-15"
+  },
+  {
+    "id": "prod_surfbloom01",
+    "slug": "maio-surf-bloom",
+    "nome": "Maiô Surf Bloom",
+    "linha": "surf",
+    "categoria": "maiô",
+    "descricaoCurta": "De manga longa, com design moderno e marcante, combinando uma vibrante estampa floral tropical em tons de laranja, verde, amarelo e rosa.",
+    "descricaoCompleta": "A peça possui o corpo central estampado com flores tropicais, enquanto as mangas recebem blocos de cor laranja e rosa, criando um contraste alegre e esportivo. Os punhos contam com detalhes da própria estampa floral, complementando o visual.\r\n\r\nConfeccionado em malha de fácil secagem, o modelo foi pensado para acompanhar atividades na água com praticidade, conforto e liberdade de movimento. Sua modelagem ajustada proporciona um caimento confortável ao corpo.\r\n\r\nO maiô possui fechamento na parte inferior, entre as pernas, facilitando o vestir e retirar a peça e oferecendo mais praticidade no uso.\r\n\r\nDestaques da peça:\r\n\r\nMalha de fácil secagem\r\nManga longa\r\nEstampa floral tropical\r\nCores vibrantes e contrastantes\r\nModelagem ajustada ao corpo\r\nLiberdade de movimento\r\nFechamento entre as pernas\r\nIdeal para surf, praia e atividades aquáticas",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#0C1014",
+        "imagens": [
+          {
+            "arquivo": "maio-surf-bloom-1.webp",
+            "alt": "Maiô Surf Bloom",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-surf-bloom-2.webp",
+            "alt": "Maiô Surf Bloom",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "maio-surf-bloom-3.webp",
+            "alt": "Maiô Surf Bloom",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "medidas": {},
+    "preco": {
+      "valor": 680,
+      "parcelamento": "5x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-surf-bloom-1.webp",
+        "alt": "Maiô Surf Bloom",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-surf-bloom-2.webp",
+        "alt": "Maiô Surf Bloom",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "maio-surf-bloom-3.webp",
+        "alt": "Maiô Surf Bloom",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "surf",
+      "maiô",
+      "estruturado"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-02"
+  },
+  {
+    "id": "prod_maioteia",
+    "slug": "maio-teia",
+    "nome": "Maiô Teia",
+    "linha": "praia",
+    "categoria": "maiô",
+    "descricaoCurta": "Esse modelo é um maiô/biquíni de modelagem strappy, com design ousado e cheio de detalhes.",
+    "descricaoCompleta": "Esse modelo é um maiô/biquíni de modelagem strappy, com design ousado e cheio de detalhes.\r\nTop triangular, com alças finas ajustáveis e detalhe de argola metálica central.\r\nPossui uma tira vertical central que conecta o top à parte inferior.\r\nA cintura é formada por tiras finas cruzadas, criando um efeito geométrico e valorizando a silhueta.\r\nAs laterais também possuem tiras com argolas metálicas, trazendo um visual moderno e diferenciado.\r\nCalcinha de modelagem cavada, com tiras finas e reguláveis.\r\nFechamentos e amarrações permitem ajuste ao corpo.\r\nO design das costas é aberto, com várias tiras e amarrações, reforçando a proposta sensual, moderna e sofisticada.\r\nA cor laranja vibrante destaca ainda mais o desenho da peça.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "laranja",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-teia.webp",
+            "alt": "Maiô Teia",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 220,
+      "parcelamento": "4x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-teia.webp",
+        "alt": "Maiô Teia",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_maiotrio",
+    "slug": "maio-triocolor",
+    "nome": "Maiô TrioColor",
+    "linha": "praia",
+    "categoria": "maiô",
+    "descricaoCurta": "Maiô de design moderno e marcante, com modelagem que combina diferentes blocos de cores em um efeito patchwork sofisticado.",
+    "descricaoCompleta": "Maiô de design moderno e marcante, com modelagem que combina diferentes blocos de cores em um efeito patchwork sofisticado. O tecido é texturizado e possui uma sensação macia e aveludada, proporcionando um toque agradável e confortável sobre a pele.\r\n\r\nA combinação de cores valoriza a silhueta e traz um visual contemporâneo, perfeito para quem busca uma peça diferenciada para momentos na praia, no surf ou em atividades ao ar livre. Uma peça que une estilo, conforto e personalidade em um único design.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "branco, vermelho e preto",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "maio-triocolor.webp",
+            "alt": "Maiô TrioColor",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 190,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "maio-triocolor.webp",
+        "alt": "Maiô TrioColor",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "maiô"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_flow01",
+    "slug": "short-turk-fit-flow",
+    "nome": "Conjunto de Short + top",
+    "linha": "turk-fit",
+    "categoria": "Conjunto ",
+    "descricaoCurta": "Composto por top de alças largas e bermuda de cintura alta, desenvolvido para proporcionar alta sustentação, conforto e segurança durante os treinos.",
+    "descricaoCompleta": "O top possui modelagem ajustada ao corpo, alças largas e barra reforçada, oferecendo excelente sustentação para atividades que exigem maior estabilidade. A bermuda possui cintura alta e cós largo, proporcionando firmeza e conforto durante os movimentos.\r\n\r\nO tecido tem toque macio e aparência aveludada, proporcionando uma sensação extremamente agradável em contato com a pele. É aquele tipo de roupa que veste tão bem que quase parece que você não está usando nada.\r\n\r\nSua estrutura oferece alta sustentação, ajudando a manter a peça firme durante os movimentos. O tecido também não apresenta transparência, proporcionando mais segurança e tranquilidade durante o treino.\r\n\r\nIdeal para atividades de impacto, como corrida, funcional, musculação, treinos intensos e outras modalidades que exigem liberdade de movimento e segurança.\r\n\r\nDestaques do conjunto:\r\n\r\nToque macio e aveludado\r\nSensação extremamente confortável no corpo\r\nAlta sustentação\r\nTecido sem transparência\r\nTop com alças largas\r\nBarra reforçada no top\r\nBermuda de cintura alta\r\nCós largo e confortável\r\nModelagem que acompanha os movimentos\r\nIdeal para atividades de impacto e treinos intensos",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "vermelho fechado",
+        "hex": "#0C1014",
+        "imagens": [
+          {
+            "arquivo": "short-turk-fit-flow-1.webp",
+            "alt": "Conjunto de Short + top",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "short-turk-fit-flow-2.webp",
+            "alt": "Conjunto de Short + top",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P",
+      "M"
+    ],
+    "medidas": {},
+    "preco": {
+      "valor": 180,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "short-turk-fit-flow-1.webp",
+        "alt": "Conjunto de Short + top",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "short-turk-fit-flow-2.webp",
+        "alt": "Conjunto de Short + top",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "turk-fit",
+      "treino",
+      "short"
+    ],
+    "status": "descontinuado",
+    "dataCriacao": "2026-08-02"
+  },
+  {
+    "id": "prod_sunquini",
+    "slug": "sunquini-bambo",
+    "nome": "Sunquíni Art",
+    "linha": "praia",
+    "categoria": "Sunquíni",
+    "descricaoCurta": "Modelagem curta, confortável e forrada, desenvolvido para proporcionar segurança, liberdade de movimento e conforto durante o uso. ",
+    "descricaoCompleta": "Short de praia com modelagem curta, confortável e forrada, desenvolvido para proporcionar segurança, liberdade de movimento e conforto durante o uso. A peça possui cintura com elástico, garantindo um ajuste confortável ao corpo.\r\n\r\nO destaque fica por conta da estampa tropical em tons vibrantes de verde, amarelo e preto, inspirada em elementos da natureza e perfeita para a proposta colorida e descontraída da TURKISTA.\r\n\r\nO forro interno proporciona maior cobertura e segurança, evitando transparência e deixando a peça mais confortável para movimentos na praia, no surf e em atividades ao ar livre.\r\n\r\nDestaques:\r\n\r\nModelagem curta;\r\nForro interno para maior segurança e cobertura;\r\nCintura com elástico;\r\nEstampa tropical vibrante;\r\nTecido confortável;\r\nLiberdade de movimento;\r\nNão fica transparente facilmente graças ao forro;\r\nIdeal para praia, surf, caminhadas e atividades ao ar livre.\r\n\r\nDescrição comercial curta:\r\n\r\nShort Praia Tropical TURKISTA — leve, colorido e feito para se movimentar. Com forro interno, cintura confortável e estampa tropical vibrante, oferece segurança e liberdade para aproveitar a praia, o surf e todos os momentos ao ar livre.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "estampa de bambo ",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "sunquini-bambo.webp",
+            "alt": "Sunquíni Art",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 120,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "sunquini-bambo.webp",
+        "alt": "Sunquíni Art",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "sunquíni",
+      "calcinha de praia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_sunquini",
+    "slug": "sunquini-bamboo",
+    "nome": "Sunquíni Bamboo",
+    "linha": "praia",
+    "categoria": "sunquíni",
+    "descricaoCurta": "Sunquíni com fundo predominantemente verde, com estampa multicolorida. Cintura: cintura média/alta, com cós largo e elástico embutido.",
+    "descricaoCompleta": "Fundo predominantemente verde, com estampa multicolorida.\r\nEstampa: padrão tropical/abstrato com elementos que lembram folhagens, bambus ou vegetação, em tons de verde, amarelo, preto e pequenos detalhes em vermelho e laranja.\r\nCintura: cintura média/alta, com cós largo e elástico embutido.\r\nModelagem: shorts curto, com pernas ajustadas, cobrindo parte superior das coxas.\r\nComprimento: termina aproximadamente no meio da parte superior das coxas.\r\nAcabamento: costuras aparentes e acabamento limpo nas barras.\r\nTecido: material de moda praia com aparência elástica, encorpada e confortável, adequado para uso na água.\r\nEstilo: esportivo, tropical e descontraído, oferecendo mais cobertura do que uma calcinha de biquíni tradicional.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "estampado",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "sunquini-bamboo.webp",
+            "alt": "Sunquíni Bamboo",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 120,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "sunquini-bamboo.webp",
+        "alt": "Sunquíni Bamboo",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "sunquíni"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_sunquini",
+    "slug": "sunquini-mandala",
+    "nome": "Sunquíni mandala",
+    "linha": "praia",
+    "categoria": "sunquíni",
+    "descricaoCurta": "Confortável e forrada, desenvolvido para proporcionar segurança, liberdade de movimento e conforto durante o uso. Malha elástica.",
+    "descricaoCompleta": "",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido flores",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "sunquini-mandala.webp",
+            "alt": "Sunquíni mandala",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 120,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "sunquini-mandala.webp",
+        "alt": "Sunquíni mandala",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "sunquíni"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-17"
+  },
+  {
+    "id": "prod_topdebiq",
+    "slug": "top-de-biquini-cortininha-dupla-face-em-lycra",
+    "nome": "Top de Biquíni Cortininha Dupla Face em Lycra",
+    "linha": "praia",
+    "categoria": "Biquini",
+    "descricaoCurta": "Seu modelo dupla face permite dois visuais em uma única peça, ideal para quem gosta de variar o estilo com praticidade.",
+    "descricaoCompleta": "Top de Biquíni Cortininha Dupla Face em Lycra\r\n\r\nVersátil, moderno e confortável, este top de biquíni cortininha é confeccionado em lycra premium, oferecendo toque macio, excelente elasticidade e ajuste perfeito ao corpo. Seu modelo dupla face permite dois visuais em uma única peça, ideal para quem gosta de variar o estilo com praticidade.\r\n\r\nO design de amarrar no pescoço e nas costas proporciona um ajuste personalizado, garantindo conforto e liberdade para aproveitar os dias de sol.\r\n\r\nDestaques do produto:\r\n👙 Venda somente da parte superior (top).\r\n✨ Confeccionado em lycra premium, resistente e confortável.\r\n🔄 Dupla face, oferecendo duas opções de uso.\r\n🎀 Modelo cortininha de amarrar, com ajuste no pescoço e nas costas.\r\n💕 Sem bojo, proporcionando um caimento leve e natural.\r\n🌊 Secagem rápida e alta resistência ao cloro e à água salgada.\r\n🧵 Costuras reforçadas para maior durabilidade.\r\n☀️ Ideal para praia, piscina e momentos de lazer.\r\nIndicação de uso\r\n\r\nPerfeito para quem procura um biquíni que combine conforto, versatilidade e estilo, sendo uma excelente opção para praia, piscina, viagens e dias ensolarados.\r\n\r\nMaterial: Lycra premium.\r\nModelo: Cortininha de amarrar.\r\nBojo: Sem bojo.\r\nDiferencial: Dupla face (2 looks em uma única peça).",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "preto e vermelho cintilante",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-de-biquini-cortininha-dupla-face-em-lycra.webp",
+            "alt": "Top de Biquíni Cortininha Dupla Face em Lycra",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 45,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "top-de-biquini-cortininha-dupla-face-em-lycra.webp",
+        "alt": "Top de Biquíni Cortininha Dupla Face em Lycra",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo"
+    ],
+    "tags": [
+      "biquini"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-06"
+  },
+  {
+    "id": "prod_topdebiq",
+    "slug": "top-de-biquini-feminino-com-bojo-lycra-animal-print-cobra-rosa",
+    "nome": "Top de Biquíni Feminino com Bojo – Lycra Animal Print Cobra Rosa",
+    "linha": "praia",
+    "categoria": "Biquini",
+    "descricaoCurta": "Realce seu estilo na praia ou na piscina com este top de biquíni em lycra premium, desenvolvido para oferecer conforto, sustentação e um visual sofisticado. Seu",
+    "descricaoCompleta": "Top de Biquíni Feminino com Bojo – Lycra Animal Print Cobra Rosa\r\n\r\nRealce seu estilo na praia ou na piscina com este top de biquíni em lycra premium, desenvolvido para oferecer conforto, sustentação e um visual sofisticado. Seu design combina a elegante textura animal print de cobra na cor rosa com delicados detalhes em prata, criando uma peça moderna e cheia de personalidade.\r\n\r\nO modelo possui bojo, proporcionando melhor sustentação, valorização do busto e um caimento impecável.\r\n\r\nDestaques do produto:\r\n👙 Venda somente da parte superior (top).\r\n💖 Confeccionado em lycra premium, macia, resistente e de alta elasticidade.\r\n✨ Estampa em animal print de cobra na cor rosa.\r\n💎 Acabamentos e detalhes em prata, conferindo um toque sofisticado.\r\n🩷 Bojo embutido, oferecendo maior sustentação e modelagem ao busto.\r\n🎀 Alças ajustáveis para um encaixe confortável e seguro.\r\n☀️ Tecido de secagem rápida e resistente ao cloro e à água salgada.\r\n🚫 Não transparente.\r\n🧵 Costuras reforçadas para maior durabilidade.\r\nIndicação de uso\r\n\r\nIdeal para praia, piscina, resorts, passeios de barco e momentos de lazer, unindo conforto, elegância e excelente ajuste ao corpo.\r\n\r\nCor: Rosa com detalhes em prata.\r\nMaterial: Lycra premium.\r\nModelo: Top de biquíni com bojo.\r\nVenda: Somente da parte superior.",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "rosa pink ",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-de-biquini-feminino-com-bojo-lycra-animal-print-cobra-rosa.webp",
+            "alt": "Top de Biquíni Feminino com Bojo – Lycra Animal Print Cobra Rosa",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 50,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "top-de-biquini-feminino-com-bojo-lycra-animal-print-cobra-rosa.webp",
+        "alt": "Top de Biquíni Feminino com Bojo – Lycra Animal Print Cobra Rosa",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo"
+    ],
+    "tags": [
+      "biquini"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-06"
+  },
+  {
+    "id": "prod_topdetre",
+    "slug": "top-de-treino",
+    "nome": "Top de treino",
+    "linha": "turk-fit",
+    "categoria": "Top",
+    "descricaoCurta": "Top fitness feminino com design moderno e estampa exclusiva, desenvolvido para unir personalidade, conforto e segurança durante os treinos.",
+    "descricaoCompleta": "A peça possui modelagem ajustada ao corpo, com base mais larga na região inferior, proporcionando melhor firmeza durante os movimentos. As alças largas e estampadas oferecem maior estabilidade e conforto, além de trazerem um detalhe diferenciado ao visual.\r\n\r\nO destaque fica por conta da estampa geométrica e psicodélica, que combina preto, laranja, rosa, azul e verde em uma composição vibrante e marcante. O desenho central cria um efeito visual de profundidade, dando à peça uma identidade forte e contemporânea.\r\n\r\nO top apresenta acabamento reforçado nas bordas e costuras bem definidas, contribuindo para um ajuste confortável ao corpo. As alças possuem construção cruzada nas costas, ajudando na distribuição do suporte e permitindo maior liberdade para os movimentos dos braços.\r\n\r\nÉ uma peça versátil que pode ser usada tanto em treinos de academia e musculação quanto em atividades que pedem conforto e mobilidade.\r\n\r\nDestaques da peça:\r\n\r\nEstampa exclusiva e vibrante\r\nModelagem ajustada ao corpo\r\nAlças largas\r\nCostas com alças cruzadas\r\nBase inferior mais larga\r\nAcabamento reforçado\r\nConforto e liberdade de movimento\r\nVisual moderno e marcante\r\nIdeal para academia, musculação, funcional e atividades físicas",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-de-treino-1.webp",
+            "alt": "Top de treino - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "top-de-treino-2.webp",
+            "alt": "Top de treino - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 90,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-de-treino-1.webp",
+        "alt": "Top de treino - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-de-treino-2.webp",
+        "alt": "Top de treino - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_topfanny",
+    "slug": "top-fanny",
+    "nome": "Top Fanny",
+    "linha": "turk-fit",
+    "categoria": "top",
+    "descricaoCurta": "Top fitness confeccionado com lycra na composição, proporcionando elasticidade, conforto e liberdade de movimentos durante os treinos. ",
+    "descricaoCompleta": "Top fitness confeccionado com lycra na composição, proporcionando elasticidade, conforto e liberdade de movimentos durante os treinos. O modelo possui alças, decote em V e não conta com bojo, oferecendo um visual clean e esportivo. Forrado com estampa de desenho retrô (historia em quadrinho).\r\n\r\nIdeal para musculação, treinos de academia e atividades de força, acompanha os movimentos do corpo sem limitar a mobilidade. Uma peça versátil para quem busca praticidade, conforto e estilo na rotina fitness.\r\n\r\nDestaques:\r\n• Lycra na composição\r\n• Decote em V\r\n• Modelo de alças\r\n• Sem bojo\r\n• Confortável e flexível\r\n• Ideal para musculação e academia\r\n• Design esportivo e versátil",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "azul caneta",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-fanny.webp",
+            "alt": "Top Fanny",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 80,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-fanny.webp",
+        "alt": "Top Fanny",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_topfitbl",
+    "slug": "top-fit-black",
+    "nome": "Top Fit Black",
+    "linha": "turk-fit",
+    "categoria": "top",
+    "descricaoCurta": "Top fitness confeccionado com **lycra na composição**, proporcionando elasticidade, conforto e liberdade de movimentos durante os treinos. ",
+    "descricaoCompleta": "O modelo possui **alças, decote em V e não conta com bojo**, oferecendo um visual clean e esportivo.\r\n\r\nIdeal para **musculação, treinos de academia e atividades de força**, acompanha os movimentos do corpo sem limitar a mobilidade. Uma peça versátil para quem busca praticidade, conforto e estilo na rotina fitness.\r\n\r\n**Destaques:**\r\n• Lycra na composição\r\n• Decote em V\r\n• Modelo de alças\r\n• Sem bojo\r\n• Confortável e flexível\r\n• Ideal para musculação e academia\r\n• Design esportivo e versátil\r\n",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "preto",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-fit-black.webp",
+            "alt": "Top Fit Black",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 80,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-fit-black.webp",
+        "alt": "Top Fit Black",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_topflori",
+    "slug": "top-flori",
+    "nome": "Top Flori",
+    "linha": "turk-fit",
+    "categoria": "Top",
+    "descricaoCurta": "Top fitness de modelagem transpassada, com design envolvente que cruza o busto e cria um visual moderno, feminino e cheio de personalidade. ",
+    "descricaoCompleta": "A parte frontal combina tecido liso em tom vinho com detalhes estampados em floral colorido, trazendo contraste e originalidade à peça.\r\n\r\nPossui alças finas estampadas, que passam pelos ombros e se encontram na parte de trás, permitindo ajuste por amarração. A região das costas recebe a estampa floral em destaque, valorizando o design da peça.\r\n\r\nO comprimento é curto, na altura da cintura, proporcionando liberdade de movimento e permitindo combinar facilmente com leggings, shorts ou peças de cintura alta.\r\n\r\nDestaques da peça:\r\n\r\nModelagem transpassada;\r\nDesign moderno e diferenciado;\r\nDetalhes em estampa floral colorida;\r\nAlças finas com amarração;\r\nCostas estampadas;\r\nComprimento cropped;\r\nConfortável e flexível para acompanhar os movimentos;\r\nIdeal para academia, treino funcional, dança e atividades que pedem liberdade de movimento;\r\nVisual versátil, podendo ser usado tanto para treinar quanto em uma composição fitness casual.\r\n\r\nDescrição comercial curta:\r\nTop Transpassado TURKISTA — estilo, movimento e personalidade em uma única peça. A modelagem envolvente valoriza o visual, enquanto a combinação de cores e estampas cria um design único para acompanhar seus treinos com conforto e liberdade.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-flori-1.webp",
+            "alt": "Top Flori - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "top-flori-2.webp",
+            "alt": "Top Flori - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 95,
+      "parcelamento": "3x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-flori-1.webp",
+        "alt": "Top Flori - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-flori-2.webp",
+        "alt": "Top Flori - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_topnadad",
+    "slug": "top-nadador-turkista-rosas-caveiras",
+    "nome": "Top Nadador TURKISTA – Rosas & Caveiras",
+    "linha": "turk-fit",
+    "categoria": "top",
+    "descricaoCurta": "Modelagem nadador, desenvolvido para oferecer conforto, liberdade de movimento e segurança durante os treinos. A parte frontal apresenta uma estampa marcante.",
+    "descricaoCompleta": "Top fitness de modelagem nadador, desenvolvido para oferecer conforto, liberdade de movimento e segurança durante os treinos. A parte frontal apresenta uma estampa marcante que combina rosas vermelhas, flores claras e caveiras em tons de preto, branco e vermelho, criando uma identidade forte e diferenciada.\r\n\r\nO modelo possui decote arredondado, laterais mais fechadas e costas em estilo nadador, com as alças formando um desenho que deixa os ombros e a região das escápulas livres, favorecendo a mobilidade dos braços durante os exercícios.\r\n\r\nO top é totalmente forrado, proporcionando maior cobertura e segurança durante o uso. O tecido é leve, confortável e respirável, permitindo melhor circulação de ar e ajudando a manter a sensação de frescor durante a atividade física.\r\n\r\nDestaques da peça:\r\n\r\nModelagem esportiva estilo nadador;\r\nCostas nadador para maior liberdade de movimento;\r\nEstampa exclusiva de rosas e caveiras;\r\nTecido leve e confortável;\r\nMaterial com boa respirabilidade;\r\nForro interno, oferecendo mais cobertura;\r\nMaior segurança durante os movimentos;\r\nNão fica transparente com facilidade devido ao forro;\r\nIdeal para academia, musculação, funcional, corrida e outros treinos;\r\nDesign que une performance, conforto e personalidade.\r\n\r\nDescrição comercial curta:\r\n\r\nTop Nadador Rosas & Caveiras — para quem gosta de treinar com atitude. Com costas nadador, tecido leve e respirável e forro interno para maior segurança, ele acompanha seus movimentos com conforto e liberdade. A estampa de rosas e caveiras transforma uma peça esportiva em um verdadeiro destaque do look.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-nadador-turkista-rosas-caveiras.webp",
+            "alt": "Top Nadador TURKISTA – Rosas & Caveiras",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 90,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-nadador-turkista-rosas-caveiras.webp",
+        "alt": "Top Nadador TURKISTA – Rosas & Caveiras",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_topoliva",
+    "slug": "top-oliva",
+    "nome": "Top Oliva",
+    "linha": "turk-fit",
+    "categoria": "top",
+    "descricaoCurta": "Conforto e estilo para acompanhar seus treinos com leveza.",
+    "descricaoCompleta": "Desenvolvido para musculação, yoga e atividades de menor impacto, este top combina uma malha texturizada de toque suave com uma modelagem confortável que proporciona liberdade de movimento.\r\n\r\nO tecido oferece boa cobertura e não fica transparente, garantindo segurança durante a prática. Os detalhes são sutis e sofisticados, criando um visual clean e moderno que transita com facilidade entre o treino e o dia a dia.\r\n\r\nUma peça essencial para quem valoriza conforto, praticidade e elegância na rotina fitness.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "verde oliva acetinado",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-oliva-1.webp",
+            "alt": "Top Oliva",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "top-oliva-2.webp",
+            "alt": "Top Oliva",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 60,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-oliva-1.webp",
+        "alt": "Top Oliva",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-oliva-2.webp",
+        "alt": "Top Oliva",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_topprata",
+    "slug": "top-prata",
+    "nome": "Top Prata",
+    "linha": "turk-fit",
+    "categoria": "Top",
+    "descricaoCurta": "Top fitness feminino desenvolvido para treinos de alto impacto, combinando sustentação, conforto e um design moderno e sofisticado.",
+    "descricaoCompleta": "A peça possui alças largas e estruturadas, que proporcionam excelente sustentação e ajudam a manter o top firme durante os movimentos. Sua modelagem ajustada oferece segurança para atividades que exigem maior estabilidade.\r\n\r\nO tecido apresenta uma textura diferenciada e sofisticada, com um sutil reflexo prateado que cria um efeito moderno conforme a luz incide sobre a peça.\r\n\r\nAlém do visual marcante, o top foi pensado para proporcionar conforto durante o uso, acompanhando os movimentos do corpo sem comprometer a segurança.\r\n\r\nIdeal para treinos de alto impacto, como corrida, funcional, musculação, cross training e outras atividades esportivas de maior intensidade.\r\n\r\nDestaques da peça:\r\n\r\nExcelente sustentação\r\nAlças largas e estruturadas\r\nTecido com textura diferenciada\r\nSutil reflexo prateado\r\nModelagem firme e confortável\r\nDesign moderno e sofisticado\r\nSegurança durante os movimentos\r\nIdeal para treinos de alto impacto",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "cinza prateado",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-prata-1.webp",
+            "alt": "Top Prata - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "top-prata-2.webp",
+            "alt": "Top Prata - foto 2",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "PP"
+    ],
+    "preco": {
+      "valor": 90,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-prata-1.webp",
+        "alt": "Top Prata - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-prata-2.webp",
+        "alt": "Top Prata - foto 2",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo",
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top",
+      "sustentação",
+      "top de academia"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_topslimt",
+    "slug": "top-slim-turk",
+    "nome": "Top Slim Turk",
+    "linha": "turk-fit",
+    "categoria": "top",
+    "descricaoCurta": "Top de treino de musculação com alça. ",
+    "descricaoCompleta": "Top fitness confeccionado com lycra na composição, proporcionando elasticidade, conforto e liberdade de movimentos durante os treinos. O modelo possui alças, decote em V e não conta com bojo, oferecendo um visual clean e esportivo.\r\n\r\nIdeal para musculação, treinos de academia e atividades de força, acompanha os movimentos do corpo sem limitar a mobilidade. Uma peça versátil para quem busca praticidade, conforto e estilo na rotina fitness.\r\n\r\nDestaques:\r\n• Lycra na composição\r\n• Decote em V\r\n• Modelo de alças\r\n• Sem bojo\r\n• Confortável e flexível\r\n• Ideal para musculação e academia\r\n• Design esportivo e versátil",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "azul escuro",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-slim-turk.webp",
+            "alt": "Top Slim Turk",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 80,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-slim-turk.webp",
+        "alt": "Top Slim Turk",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_toptrein",
+    "slug": "top-treino-flow",
+    "nome": "Top treino Flow",
+    "linha": "turk-fit",
+    "categoria": "Top",
+    "descricaoCurta": "Top fitness de modelagem nadador, criado para proporcionar conforto, liberdade de movimento e segurança durante os treinos.",
+    "descricaoCompleta": "O modelo possui decote arredondado, laterais bem estruturadas e alças largas que seguem até as costas, formando o tradicional desenho nadador.\r\n\r\nA peça se destaca pela estampa floral tropical, que combina flores em tons de azul, amarelo e verde com folhagens, sobre uma base em tom rosa-claro com textura animal print. O resultado é um visual vibrante, feminino e cheio de personalidade.\r\n\r\nA modelagem nadador deixa os ombros e a região das escápulas mais livres, favorecendo a movimentação dos braços durante exercícios e atividades esportivas. O comprimento cropped acompanha a cintura, proporcionando um ajuste firme e confortável ao corpo.\r\n\r\nDestaques da peça:\r\n\r\nModelagem nadador;\r\nDecote arredondado;\r\nAlças largas;\r\nCostas esportivas que favorecem a liberdade dos movimentos;\r\nEstampa floral tropical exclusiva;\r\nCombinação de flores, folhagens e textura animal print;\r\nComprimento cropped;\r\nModelagem que acompanha o corpo;\r\nIdeal para academia, musculação, funcional, corrida e treinos diversos;\r\nUne conforto, praticidade e um visual marcante.\r\n\r\nDescrição comercial curta:\r\n\r\nTop Nadador Floral TURKISTA — movimento, conforto e muita cor. Com modelagem nadador e alças largas, oferece liberdade para você se movimentar durante o treino, enquanto a esta",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "floral",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "top-treino-flow.webp",
+            "alt": "Top treino Flow",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "preco": {
+      "valor": 50,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-treino-flow.webp",
+        "alt": "Top treino Flow",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "academia",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-14"
+  },
+  {
+    "id": "prod_essence01",
+    "slug": "top-turk-fit-essence",
+    "nome": "Top Turk Fit Essence",
+    "linha": "turk-fit",
+    "categoria": "top",
+    "descricaoCurta": "Top de sustentação média para treino, em tecido de secagem rápida.",
+    "descricaoCompleta": "",
+    "composicao": {
+      "tecido": "Lycra",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "Rosa Profundo",
+        "hex": "#C94E9C",
+        "imagens": [
+          {
+            "arquivo": "top-turk-fit-essence-1.webp",
+            "alt": "Top Turk Fit Essence",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "top-turk-fit-essence-2.webp",
+            "alt": "Top Turk Fit Essence",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "top-turk-fit-essence-3.webp",
+            "alt": "Top Turk Fit Essence",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "P"
+    ],
+    "medidas": {},
+    "preco": {
+      "valor": 60,
+      "parcelamento": "2x sem juros"
+    },
+    "imagens": [
+      {
+        "arquivo": "top-turk-fit-essence-1.webp",
+        "alt": "Top Turk Fit Essence",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-turk-fit-essence-2.webp",
+        "alt": "Top Turk Fit Essence",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "top-turk-fit-essence-3.webp",
+        "alt": "Top Turk Fit Essence",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "turk-fit",
+      "treino",
+      "top"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-02"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinha-segredo-estamp",
+    "nome": "Xuxinha Segredo Estamp",
+    "linha": "turk-fit",
+    "categoria": "acessório de cabelo",
+    "descricaoCurta": "Xuxinha Segredo — Praticidade que acompanha você",
+    "descricaoCompleta": "A Xuxinha Segredo é o acessório perfeito para quem gosta de praticidade, segurança e liberdade durante a rotina. Além de prender o cabelo com estilo, ela possui um compartimento discreto e funcional, ideal para guardar pequenos itens essenciais, como dinheiro, cartões e chaves.\r\nPerfeita para caminhadas, corridas, academia, treinos e atividades ao ar livre, ela permite que você leve o necessário sem precisar carregar bolsa ou pochete.\r\nDestaques:\r\n✨ Xuxinha de cabelo com compartimento secreto\r\n🔑 Espaço para guardar chaves\r\n💵 Ideal para dinheiro e pequenos objetos\r\n🏃‍♀️ Perfeita para caminhada, corrida e academia\r\n🎒 Dispensa o uso de bolsa durante o treino\r\n💖 Prática, discreta e funcional\r\n🔒 Mantém seus pequenos pertences sempre por perto\r\nXuxinha Segredo: seu cabelo preso e seus essenciais sempre com você.\r\n\r\n",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "xuxinha-segredo-estamp-1.webp",
+            "alt": "Xuxinha Segredo Estamp",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinha-segredo-estamp-2.webp",
+            "alt": "Xuxinha Segredo Estamp",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinha-segredo-estamp-3.webp",
+            "alt": "Xuxinha Segredo Estamp",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinha-segredo-estamp-1.webp",
+        "alt": "Xuxinha Segredo Estamp",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-estamp-2.webp",
+        "alt": "Xuxinha Segredo Estamp",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-estamp-3.webp",
+        "alt": "Xuxinha Segredo Estamp",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinha-segredo-mix",
+    "nome": "Xuxinha segredo mix",
+    "linha": "turk-fit",
+    "categoria": "acessório de cabelo",
+    "descricaoCurta": "Xuxinha Segredo — Praticidade que acompanha você",
+    "descricaoCompleta": "A Xuxinha Segredo é o acessório perfeito para quem gosta de praticidade, segurança e liberdade durante a rotina. Além de prender o cabelo com estilo, ela possui um compartimento discreto e funcional, ideal para guardar pequenos itens essenciais, como dinheiro, cartões e chaves.\r\nPerfeita para caminhadas, corridas, academia, treinos e atividades ao ar livre, ela permite que você leve o necessário sem precisar carregar bolsa ou pochete.\r\nDestaques:\r\n✨ Xuxinha de cabelo com compartimento secreto\r\n🔑 Espaço para guardar chaves\r\n💵 Ideal para dinheiro e pequenos objetos\r\n🏃‍♀️ Perfeita para caminhada, corrida e academia\r\n🎒 Dispensa o uso de bolsa durante o treino\r\n💖 Prática, discreta e funcional\r\n🔒 Mantém seus pequenos pertences sempre por perto\r\nXuxinha Segredo: seu cabelo preso e seus essenciais sempre com você.\r\n\r\n",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorida",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "xuxinha-segredo-mix-1.webp",
+            "alt": "Xuxinha segredo mix",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinha-segredo-mix-2.webp",
+            "alt": "Xuxinha segredo mix",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinha-segredo-mix-3.webp",
+            "alt": "Xuxinha segredo mix",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinha-segredo-mix-4.webp",
+            "alt": "Xuxinha segredo mix",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinha-segredo-mix-1.webp",
+        "alt": "Xuxinha segredo mix",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-mix-2.webp",
+        "alt": "Xuxinha segredo mix",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-mix-3.webp",
+        "alt": "Xuxinha segredo mix",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-mix-4.webp",
+        "alt": "Xuxinha segredo mix",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinha-segredo-rosa",
+    "nome": "Xuxinha segredo rosa",
+    "linha": "turk-fit",
+    "categoria": "acessório de cabelo",
+    "descricaoCurta": "A Xuxinha Segredo é o acessório perfeito para quem gosta de praticidade, segurança e liberdade durante a rotina.",
+    "descricaoCompleta": "Além de prender o cabelo com estilo, ela possui um compartimento discreto e funcional, ideal para guardar pequenos itens essenciais, como dinheiro, cartões e chaves.\r\n\r\nPerfeita para caminhadas, corridas, academia, treinos e atividades ao ar livre, ela permite que você leve o necessário sem precisar carregar bolsa ou pochete.\r\n\r\nDestaques:\r\n\r\n✨ Xuxinha de cabelo com compartimento secreto\r\n🔑 Espaço para guardar chaves\r\n💵 Ideal para dinheiro e pequenos objetos\r\n🏃‍♀️ Perfeita para caminhada, corrida e academia\r\n🎒 Dispensa o uso de bolsa durante o treino\r\n💖 Prática, discreta e funcional\r\n🔒 Mantém seus pequenos pertences sempre por perto\r\n\r\nXuxinha Segredo: seu cabelo preso e seus essenciais sempre com você.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "xuxinha-segredo-rosa-1.webp",
+            "alt": "Xuxinha segredo rosa",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinha-segredo-rosa-2.webp",
+            "alt": "Xuxinha segredo rosa",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinha-segredo-rosa-3.webp",
+            "alt": "Xuxinha segredo rosa",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 15,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinha-segredo-rosa-1.webp",
+        "alt": "Xuxinha segredo rosa",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-rosa-2.webp",
+        "alt": "Xuxinha segredo rosa",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinha-segredo-rosa-3.webp",
+        "alt": "Xuxinha segredo rosa",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "exclusivo"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinhas-coloridas-diversas",
+    "nome": "Xuxinhas coloridas diversas",
+    "linha": "turk-fit",
+    "categoria": "acessório de cabelo",
+    "descricaoCurta": "Praticidade sem destruir com seu visual.",
+    "descricaoCompleta": "Temos várias estampas e tamanhos. Consulte se ainda há o modelo que deseja.",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "coloridas",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "xuxinhas-coloridas-diversas-1.webp",
+            "alt": "Xuxinhas coloridas diversas - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-diversas-2.webp",
+            "alt": "Xuxinhas coloridas diversas - foto 2",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-diversas-3.webp",
+            "alt": "Xuxinhas coloridas diversas - foto 3",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-diversas-4.webp",
+            "alt": "Xuxinhas coloridas diversas - foto 4",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-diversas-5.webp",
+            "alt": "Xuxinhas coloridas diversas - foto 5",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 10,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-1.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-2.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 2",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-3.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 3",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-4.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 4",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-diversas-5.webp",
+        "alt": "Xuxinhas coloridas diversas - foto 5",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  },
+  {
+    "id": "prod_xuxinhas",
+    "slug": "xuxinhas-coloridas",
+    "nome": "Xuxinhas coloridas",
+    "linha": "turk-fit",
+    "categoria": "acessório de cabelo",
+    "descricaoCurta": "Praticidade sem destruir com seu visual.",
+    "descricaoCompleta": "Temos várias estampas e tamanhos. Consulte se ainda há o modelo que deseja. ",
+    "composicao": {
+      "tecido": "PREENCHER — confirmar com a marca",
+      "protecaoUV": null,
+      "paisDeFabricacao": "Brasil"
+    },
+    "cores": [
+      {
+        "nome": "colorido",
+        "hex": "#F279C8",
+        "imagens": [
+          {
+            "arquivo": "xuxinhas-coloridas-1.webp",
+            "alt": "Xuxinhas coloridas - foto 1",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-2.webp",
+            "alt": "Xuxinhas coloridas - foto 2",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-3.webp",
+            "alt": "Xuxinhas coloridas - foto 3",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-4.webp",
+            "alt": "Xuxinhas coloridas - foto 4",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-5.webp",
+            "alt": "Xuxinhas coloridas - foto 5",
+            "proporcao": "3:4"
+          },
+          {
+            "arquivo": "xuxinhas-coloridas-6.webp",
+            "alt": "Xuxinhas coloridas - foto 6",
+            "proporcao": "3:4"
+          }
+        ]
+      }
+    ],
+    "tamanhos": [
+      "M"
+    ],
+    "preco": {
+      "valor": 10,
+      "parcelamento": ""
+    },
+    "imagens": [
+      {
+        "arquivo": "xuxinhas-coloridas-1.webp",
+        "alt": "Xuxinhas coloridas - foto 1",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-2.webp",
+        "alt": "Xuxinhas coloridas - foto 2",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-3.webp",
+        "alt": "Xuxinhas coloridas - foto 3",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-4.webp",
+        "alt": "Xuxinhas coloridas - foto 4",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-5.webp",
+        "alt": "Xuxinhas coloridas - foto 5",
+        "proporcao": "3:4"
+      },
+      {
+        "arquivo": "xuxinhas-coloridas-6.webp",
+        "alt": "Xuxinhas coloridas - foto 6",
+        "proporcao": "3:4"
+      }
+    ],
+    "badges": [
+      "ultimas-unidades"
+    ],
+    "tags": [
+      "xuxinha"
+    ],
+    "status": "publicado",
+    "dataCriacao": "2026-08-18"
+  }
+]

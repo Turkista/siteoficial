@@ -1,0 +1,60 @@
+{
+  "id": "prod_maiopass",
+  "slug": "maio-passarela",
+  "nome": "Maiô Passarela",
+  "linha": "praia",
+  "categoria": "maiô",
+  "descricaoCurta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico.",
+  "descricaoCompleta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico, com a parte superior em formato assimétrico e decote profundo. Possui recortes estratégicos na cintura e nas laterais do abdômen, criando efeito de peça vazada. A parte inferior tem modelagem cavada, com acabamento ajustado ao corpo.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "preto e azul ",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-passarela-1.webp",
+          "alt": "Maiô Passarela - foto 1",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "maio-passarela-2.webp",
+          "alt": "Maiô Passarela - foto 2",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 390,
+    "parcelamento": "5x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-passarela-1.webp",
+      "alt": "Maiô Passarela - foto 1",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "maio-passarela-2.webp",
+      "alt": "Maiô Passarela - foto 2",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

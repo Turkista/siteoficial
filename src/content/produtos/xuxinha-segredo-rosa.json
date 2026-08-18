@@ -1,0 +1,69 @@
+{
+  "id": "prod_xuxinhas",
+  "slug": "xuxinha-segredo-rosa",
+  "nome": "Xuxinha segredo rosa",
+  "linha": "turk-fit",
+  "categoria": "acessório de cabelo",
+  "descricaoCurta": "A Xuxinha Segredo é o acessório perfeito para quem gosta de praticidade, segurança e liberdade durante a rotina.",
+  "descricaoCompleta": "Além de prender o cabelo com estilo, ela possui um compartimento discreto e funcional, ideal para guardar pequenos itens essenciais, como dinheiro, cartões e chaves.\r\n\r\nPerfeita para caminhadas, corridas, academia, treinos e atividades ao ar livre, ela permite que você leve o necessário sem precisar carregar bolsa ou pochete.\r\n\r\nDestaques:\r\n\r\n✨ Xuxinha de cabelo com compartimento secreto\r\n🔑 Espaço para guardar chaves\r\n💵 Ideal para dinheiro e pequenos objetos\r\n🏃‍♀️ Perfeita para caminhada, corrida e academia\r\n🎒 Dispensa o uso de bolsa durante o treino\r\n💖 Prática, discreta e funcional\r\n🔒 Mantém seus pequenos pertences sempre por perto\r\n\r\nXuxinha Segredo: seu cabelo preso e seus essenciais sempre com você.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "colorido",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "xuxinha-segredo-rosa-1.webp",
+          "alt": "Xuxinha segredo rosa",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinha-segredo-rosa-2.webp",
+          "alt": "Xuxinha segredo rosa",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "xuxinha-segredo-rosa-3.webp",
+          "alt": "Xuxinha segredo rosa",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 15,
+    "parcelamento": ""
+  },
+  "imagens": [
+    {
+      "arquivo": "xuxinha-segredo-rosa-1.webp",
+      "alt": "Xuxinha segredo rosa",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinha-segredo-rosa-2.webp",
+      "alt": "Xuxinha segredo rosa",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "xuxinha-segredo-rosa-3.webp",
+      "alt": "Xuxinha segredo rosa",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo"
+  ],
+  "tags": [
+    "xuxinha"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

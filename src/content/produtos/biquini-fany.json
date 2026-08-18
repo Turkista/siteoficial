@@ -1,0 +1,60 @@
+{
+  "id": "prod_biquinif",
+  "slug": "biquini-fany",
+  "nome": "Biquíni Fany",
+  "linha": "praia",
+  "categoria": "Biquíni",
+  "descricaoCurta": "Conjunto em malha de textura agradável, estilo tomara que segure. Amarração frontal. Calcinha com cós largo. ",
+  "descricaoCompleta": "",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Rosa",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-fany-1.webp",
+          "alt": "Biquíni Fany",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-fany-2.webp",
+          "alt": "Biquíni Fany",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 190,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-fany-1.webp",
+      "alt": "Biquíni Fany",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-fany-2.webp",
+      "alt": "Biquíni Fany",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

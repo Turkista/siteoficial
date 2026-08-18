@@ -1,0 +1,49 @@
+{
+  "id": "prod_conjunto",
+  "slug": "conjunto-maro",
+  "nome": "Conjunto Maro",
+  "linha": "turk-fit",
+  "categoria": "Conjunto ",
+  "descricaoCurta": "Conjunto Fitness Top + Calça - Desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+  "descricaoCompleta": "O top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com modelagem que valoriza a silhueta, proporcionando firmeza, conforto e liberdade de movimento durante o treino.\r\n\r\nCom costuras reforçadas e design que valoriza as curvas, o conjunto proporciona um caimento impecável e um efeito visual de bumbum mais empinado e definido.\r\n\r\n✨ Destaques:\r\n\r\nTop com compressão e ótima sustentação\r\nCalça com modelagem que valoriza as curvas\r\nCosturas reforçadas\r\nEfeito visual de bumbum empinado\r\nIdeal para corrida, academia e treinos de alto impacto\r\nConforto, segurança e liberdade de movimento",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Rosa Fúcsia ",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "conjunto-maro.webp",
+          "alt": "Conjunto Maro",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 220,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-maro.webp",
+      "alt": "Conjunto Maro",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "conjunto de academia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-12"
+}

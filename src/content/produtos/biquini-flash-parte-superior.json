@@ -1,0 +1,60 @@
+{
+  "id": "prod_biquinif",
+  "slug": "biquini-flash-parte-superior",
+  "nome": "Biquíni Flash - Parte superior",
+  "linha": "praia",
+  "categoria": "Biquíni",
+  "descricaoCurta": "Um biquíni sofisticado e marcante, criado para quem busca glamour, personalidade e brilho à beira-mar.",
+  "descricaoCompleta": "O top possui bojo estruturado, garantindo um caimento firme e elegante, com modelagem frente única e alças pretas para amarração no pescoço. O destaque fica por conta do acabamento inteiramente revestido de lantejoulas em tons de preto e dourado, que refletem a luz e criam um efeito luminoso sofisticado.\r\n\r\nOs detalhes dourados em formato floral nas laterais do top acrescentam um toque exclusivo à peça, enquanto a faixa preta inferior proporciona um acabamento elegante e maior definição à modelagem.\r\n\r\nUma peça statement, perfeita para transformar um look de praia em uma produção sofisticada e inesquecível.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "marrom estampado com dourado",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-flash-parte-superior-1.webp",
+          "alt": "Biquíni Flash - Parte superior",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-flash-parte-superior-2.webp",
+          "alt": "Biquíni Flash - Parte superior",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "PP"
+  ],
+  "preco": {
+    "valor": 90,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-flash-parte-superior-1.webp",
+      "alt": "Biquíni Flash - Parte superior",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-flash-parte-superior-2.webp",
+      "alt": "Biquíni Flash - Parte superior",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "exclusivo",
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

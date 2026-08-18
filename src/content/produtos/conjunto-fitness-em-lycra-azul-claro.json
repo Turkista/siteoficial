@@ -1,0 +1,49 @@
+{
+  "id": "prod_conjunto",
+  "slug": "conjunto-fitness-em-lycra-azul-claro",
+  "nome": "Conjunto Fitness em Lycra Azul Claro",
+  "linha": "turk-fit",
+  "categoria": "Linha Academia",
+  "descricaoCurta": "Treine com conforto, segurança e muito estilo. Este conjunto fitness em lycra azul claro foi desenvolvido para oferecer alto desempenho durante os exercícios, ",
+  "descricaoCompleta": "Conjunto Fitness em Lycra Azul Claro\r\n\r\nTreine com conforto, segurança e muito estilo. Este conjunto fitness em lycra azul claro foi desenvolvido para oferecer alto desempenho durante os exercícios, combinando uma modelagem moderna com excelente sustentação.\r\n\r\nO top possui alta compressão na região das mamas, proporcionando firmeza e reduzindo o impacto durante atividades de maior intensidade. A legging de cintura alta oferece ajuste perfeito ao corpo, valorizando a silhueta sem comprometer a liberdade de movimentos.\r\n\r\nDestaques do produto:\r\n💙 Conjunto composto por top e legging.\r\n✨ Confeccionado em lycra premium com toque macio e excelente elasticidade.\r\n💪 Alta compressão para maior estabilidade e conforto durante os treinos.\r\n🏃 Excelente sustentação no busto, ideal para exercícios aeróbicos e de impacto moderado.\r\n👖 Legging de cintura alta que modela o corpo e proporciona ajuste seguro.\r\n🧵 Costuras reforçadas para maior durabilidade.\r\n🚫 Não transparente, oferecendo total segurança em qualquer movimento.\r\n🌬️ Tecido respirável, confortável e de secagem rápida.\r\nIndicação de uso\r\n\r\nPerfeito para corrida, caminhada, academia, spinning, funcional, dança, treino aeróbico, pilates e atividades do dia a dia.\r\n\r\nUm conjunto pensado para mulheres que buscam desempenho, sustentação e conforto, sem abrir mão de um visual elegante e moderno.",
+  "composicao": {
+    "tecido": "Lycra",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "azul clarinho",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "conjunto-fitness-em-lycra-azul-claro.webp",
+          "alt": "Conjunto Fitness em Lycra Azul Claro",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "G"
+  ],
+  "preco": {
+    "valor": 220,
+    "parcelamento": "3x sem juros = 73 reais"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-fitness-em-lycra-azul-claro.webp",
+      "alt": "Conjunto Fitness em Lycra Azul Claro",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "legging"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-06"
+}

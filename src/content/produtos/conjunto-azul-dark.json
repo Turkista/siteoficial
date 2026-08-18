@@ -1,0 +1,69 @@
+{
+  "id": "prod_conjunto",
+  "slug": "conjunto-azul-dark",
+  "nome": "Conjunto Azul Dark",
+  "linha": "turk-fit",
+  "categoria": "Conjunto ",
+  "descricaoCurta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas.",
+  "descricaoCompleta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas. Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto.\r\n\r\nConfeccionado em tecido liso, com toque acetinado, que combina conforto, elasticidade e um acabamento sofisticado para você treinar com liberdade e estilo.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Azul escuro cintilante",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "conjunto-azul-dark-1.webp",
+          "alt": "Conjunto Azul Dark",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-azul-dark-2.webp",
+          "alt": "Conjunto Azul Dark",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "conjunto-azul-dark-3.webp",
+          "alt": "Conjunto Azul Dark",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 120,
+    "parcelamento": "2 x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-azul-dark-1.webp",
+      "alt": "Conjunto Azul Dark",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-azul-dark-2.webp",
+      "alt": "Conjunto Azul Dark",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "conjunto-azul-dark-3.webp",
+      "alt": "Conjunto Azul Dark",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "conjunto de top e short"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-12"
+}

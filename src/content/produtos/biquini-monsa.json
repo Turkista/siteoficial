@@ -1,0 +1,50 @@
+{
+  "id": "prod_biquinim",
+  "slug": "biquini-monsa",
+  "nome": "Biquíni Monsa",
+  "linha": "praia",
+  "categoria": "Biquíni parte superior",
+  "descricaoCurta": "Parte superior em estilo patch work. Texturizado em linhas e parte preta lisa com leve cintilante. ",
+  "descricaoCompleta": "",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "prata e preto",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "biquini-monsa.webp",
+          "alt": "Biquíni Monsa",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "PP"
+  ],
+  "preco": {
+    "valor": 55,
+    "parcelamento": "2x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "biquini-monsa.webp",
+      "alt": "Biquíni Monsa",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "biquíni",
+    "praia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-15"
+}

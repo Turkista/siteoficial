@@ -1,0 +1,49 @@
+{
+  "id": "prod_conjunto",
+  "slug": "conjunto-lila-perfomance",
+  "nome": "Conjunto Lila Perfomance",
+  "linha": "turk-fit",
+  "categoria": "Conjunto ",
+  "descricaoCurta": "Conjunto Fitness Top + Calça com Bolsos Laterais.  Para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+  "descricaoCompleta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com bolsos faca laterais, unindo praticidade e funcionalidade para levar pequenos itens durante o treino.\r\n\r\nCom costuras reforçadas e modelagem que valoriza a silhueta, o conjunto proporciona um caimento firme e confortável, ajudando a destacar as curvas e criando um efeito visual de bumbum mais empinado e definido.\r\n\r\n✨ Destaques:\r\n\r\nTop com compressão e ótima sustentação\r\nCalça com bolsos faca laterais\r\nCosturas reforçadas\r\nModelagem que valoriza as curvas\r\nEfeito visual de bumbum empinado\r\nIdeal para corrida, academia e treinos de alto impacto\r\nConforto, segurança e liberdade de movimento",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "Roxo",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "conjunto-lila-perfomance.webp",
+          "alt": "Conjunto Lila Perfomance",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 220,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "conjunto-lila-perfomance.webp",
+      "alt": "Conjunto Lila Perfomance",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "conjunto de academia"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-12"
+}

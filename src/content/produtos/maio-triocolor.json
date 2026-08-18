@@ -1,0 +1,49 @@
+{
+  "id": "prod_maiotrio",
+  "slug": "maio-triocolor",
+  "nome": "Maiô TrioColor",
+  "linha": "praia",
+  "categoria": "maiô",
+  "descricaoCurta": "Maiô de design moderno e marcante, com modelagem que combina diferentes blocos de cores em um efeito patchwork sofisticado.",
+  "descricaoCompleta": "Maiô de design moderno e marcante, com modelagem que combina diferentes blocos de cores em um efeito patchwork sofisticado. O tecido é texturizado e possui uma sensação macia e aveludada, proporcionando um toque agradável e confortável sobre a pele.\r\n\r\nA combinação de cores valoriza a silhueta e traz um visual contemporâneo, perfeito para quem busca uma peça diferenciada para momentos na praia, no surf ou em atividades ao ar livre. Uma peça que une estilo, conforto e personalidade em um único design.",
+  "composicao": {
+    "tecido": "PREENCHER — confirmar com a marca",
+    "protecaoUV": null,
+    "paisDeFabricacao": "Brasil"
+  },
+  "cores": [
+    {
+      "nome": "branco, vermelho e preto",
+      "hex": "#F279C8",
+      "imagens": [
+        {
+          "arquivo": "maio-triocolor.webp",
+          "alt": "Maiô TrioColor",
+          "proporcao": "3:4"
+        }
+      ]
+    }
+  ],
+  "tamanhos": [
+    "M"
+  ],
+  "preco": {
+    "valor": 190,
+    "parcelamento": "3x sem juros"
+  },
+  "imagens": [
+    {
+      "arquivo": "maio-triocolor.webp",
+      "alt": "Maiô TrioColor",
+      "proporcao": "3:4"
+    }
+  ],
+  "badges": [
+    "ultimas-unidades"
+  ],
+  "tags": [
+    "maiô"
+  ],
+  "status": "publicado",
+  "dataCriacao": "2026-08-17"
+}

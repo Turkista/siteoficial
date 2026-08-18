@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Artigos — Turkista</title>
+<style>
+  :root {
+    --rosa: #F279C8;
+    --rosa-profundo: #C94E9C;
+    --grafite: #0C1014;
+    --cinza: #6B6B6B;
+    --borda: #E4E4E4;
+    --fundo: #FAFAFA;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--grafite);
+    margin: 0;
+    padding: 32px 16px 80px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  header { margin-bottom: 12px; }
+  header h1 { font-size: 24px; margin: 0 0 4px; }
+  header p { color: var(--cinza); margin: 0; font-size: 14px; }
+  .abas { display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid var(--borda); }
+  .abas a { padding: 10px 16px; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--cinza); border-bottom: 2px solid transparent; }
+  .abas a.ativa { color: var(--rosa-profundo); border-bottom-color: var(--rosa-profundo); }
+  form { background: #fff; border: 1px solid var(--borda); border-radius: 12px; padding: 28px; }
+  fieldset { border: none; border-top: 1px solid var(--borda); padding: 20px 0 4px; margin: 0 0 8px; }
+  fieldset:first-of-type { border-top: none; padding-top: 0; }
+  legend { font-weight: 600; font-size: 13px; color: var(--rosa-profundo); text-transform: uppercase; letter-spacing: 0.04em; padding: 0; margin-bottom: 12px; }
+  label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; margin-top: 14px; }
+  label:first-child { margin-top: 0; }
+  .ajuda { font-weight: 400; color: var(--cinza); font-size: 12px; display: block; margin-top: 2px; }
+  input[type="text"], select, textarea {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--borda); border-radius: 8px;
+    font-size: 14px; font-family: inherit; background: #fff;
+  }
+  textarea { resize: vertical; min-height: 70px; }
+  textarea#corpo { min-height: 260px; font-family: "SF Mono", Consolas, monospace; font-size: 13px; line-height: 1.6; }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--rosa); outline-offset: 1px; border-color: var(--rosa); }
+  input[type="file"] { width: 100%; padding: 10px; border: 1px dashed var(--borda); border-radius: 8px; background: var(--fundo); font-size: 13px; }
+  #preview { margin-top: 10px; }
+  #preview img { width: 140px; height: 90px; object-fit: cover; border-radius: 6px; border: 1px solid var(--borda); }
+  button { width: 100%; background: var(--rosa-profundo); color: #fff; border: none; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 24px; }
+  button:hover { background: var(--rosa); }
+  button:disabled { opacity: 0.6; cursor: wait; }
+  #mensagem { margin-top: 16px; padding: 12px 14px; border-radius: 8px; font-size: 14px; display: none; }
+  #mensagem.sucesso { display: block; background: #E9F9EE; color: #1C6B3B; }
+  #mensagem.erro { display: block; background: #FDECEC; color: #A3312A; }
+  #mensagem.aviso { display: block; background: #FFF6E5; color: #8A5A00; }
+  #lista-artigos { margin-top: 32px; }
+  #lista-artigos h2 { font-size: 16px; margin-bottom: 10px; }
+  .busca-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .busca-lista input[type="text"],
+  .busca-lista input[type="date"],
+  .busca-lista select {
+    padding: 9px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #fff;
+  }
+  .busca-lista input[type="text"] { flex: 1 1 220px; }
+  .busca-lista select { flex: 0 1 180px; }
+  .busca-lista input[type="date"] { flex: 0 1 150px; }
+  .busca-lista input:focus, .busca-lista select:focus {
+    outline: 2px solid var(--rosa);
+    outline-offset: 1px;
+    border-color: var(--rosa);
+  }
+  .busca-lista__periodo { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--cinza); flex: 1 1 320px; }
+  .busca-lista__limpar {
+    width: auto;
+    margin: 0;
+    background: transparent;
+    border: 1px solid var(--borda);
+    color: var(--cinza);
+    padding: 9px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .busca-lista__limpar:hover { background: var(--fundo); }
+  #contagem-artigos { font-size: 12px; color: var(--cinza); margin: 0 0 14px; }
+  .item { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; background: #fff; border: 1px solid var(--borda); border-radius: 8px; margin-bottom: 6px; font-size: 13px; }
+  .item .status { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: var(--fundo); color: var(--cinza); flex-shrink: 0; }
+  .item__info { min-width: 0; flex: 1; }
+  .item__acoes { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .botao-editar {
+    background: #fff; color: var(--rosa-profundo); border: 1px solid var(--rosa-profundo);
+    padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;
+  }
+  .botao-editar:hover { background: #FFF0F8; }
+  #aviso-edicao {
+    display: none; align-items: center; justify-content: space-between; gap: 12px;
+    background: #FFF0F8; border: 1px solid var(--rosa); border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 16px; font-size: 13px; font-weight: 600; color: var(--rosa-profundo);
+  }
+  #aviso-edicao.ativo { display: flex; }
+  #cancelar-edicao {
+    width: auto; margin: 0; background: transparent; border: 1px solid var(--rosa-profundo);
+    color: var(--rosa-profundo); padding: 6px 12px; font-size: 12px;
+  }
+  #cancelar-edicao:hover { background: #fff; }
+  #capa-atual { margin-bottom: 10px; display: none; align-items: center; gap: 10px; font-size: 12px; color: var(--cinza); }
+  #capa-atual.ativo { display: flex; }
+  #capa-atual img { width: 100px; height: 64px; object-fit: cover; border-radius: 6px; border: 1px solid var(--borda); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Painel Turkista</h1>
+    <p>Escreva um artigo novo para a Revista Turkista. A página é gerada sozinha, com o mesmo visual dos artigos que já existem.</p>
+  </header>
+
+  <nav class="abas">
+    <a href="index.html">Produtos</a>
+    <a href="artigos.html" class="ativa">Artigos do Blog</a>
+    <a href="fotos.html">Fotos do Site</a>
+  </nav>
+
+  <div id="aviso-edicao">
+    <span id="aviso-edicao-texto">Editando um artigo já cadastrado</span>
+    <button type="button" id="cancelar-edicao">Cancelar edição</button>
+  </div>
+
+  <form id="form-artigo">
+    <fieldset>
+      <legend>Identificação</legend>
+
+      <label for="titulo">Título do artigo *
+        <span class="ajuda" id="ajuda-titulo-slug"></span>
+      </label>
+      <input type="text" id="titulo" name="titulo" placeholder="Ex.: Como escolher o biquíni ideal para o seu corpo" required>
+
+      <label for="categoria">Categoria *</label>
+      <select id="categoria" name="categoria" required>
+        <option value="">Selecione</option>
+        <option value="guia-de-cuidados">Guia de Cuidados</option>
+        <option value="tecido-tecnologia">Tecido &amp; Tecnologia</option>
+        <option value="estilo">Estilo</option>
+        <option value="treino-performance">Treino &amp; Performance</option>
+        <option value="bastidores">Bastidores</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Resumo</legend>
+      <label for="resumo">Resumo curto
+        <span class="ajuda">Aparece no card da grade do Blog. Até 200 caracteres.</span>
+      </label>
+      <textarea id="resumo" name="resumo" maxlength="200" rows="2" required></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Texto do artigo</legend>
+      <label for="corpo">Corpo do artigo *
+        <span class="ajuda">
+          Separe os parágrafos com uma linha em branco entre eles.<br>
+          Pra criar um subtítulo, comece a linha com <code>## </code> (ex.: <code>## Como lavar</code>).<br>
+          Pra criar um destaque/citação, comece a linha com <code>&gt; </code>.
+        </span>
+      </label>
+      <textarea id="corpo" name="corpo" placeholder="Escreva o primeiro parágrafo aqui.&#10;&#10;Pule uma linha para começar outro parágrafo.&#10;&#10;## Um subtítulo, se precisar&#10;&#10;Mais um parágrafo depois do subtítulo." required></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Foto de capa <span id="obrigatoria-capa">*</span></legend>
+      <div id="capa-atual">
+        <img id="capa-atual-img" src="" alt="Capa atual">
+        <span>Capa atual — escolha um arquivo abaixo só se quiser trocá-la.</span>
+      </div>
+      <label for="capa" id="rotulo-capa">Escolha a foto de capa do artigo
+        <span class="ajuda">Convertida para .webp e salva automaticamente em assets/blog/</span>
+      </label>
+      <input type="file" id="capa" name="capa" accept="image/*" required>
+      <div id="preview"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Publicação</legend>
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="rascunho" selected>Rascunho (não aparece no Blog ainda)</option>
+        <option value="publicado">Publicado</option>
+      </select>
+    </fieldset>
+
+    <button type="submit" id="botao-salvar">Salvar artigo</button>
+    <div id="mensagem"></div>
+  </form>
+
+  <div id="lista-artigos">
+    <h2>Artigos já cadastrados no painel</h2>
+    <div class="busca-lista">
+      <input type="text" id="busca-artigo" placeholder="Buscar por título...">
+      <select id="busca-categoria-artigo">
+        <option value="">Todas as categorias</option>
+        <option value="guia-de-cuidados">Guia de Cuidados</option>
+        <option value="tecido-tecnologia">Tecido &amp; Tecnologia</option>
+        <option value="estilo">Estilo</option>
+        <option value="treino-performance">Treino &amp; Performance</option>
+        <option value="bastidores">Bastidores</option>
+      </select>
+    </div>
+    <div class="busca-lista">
+      <span class="busca-lista__periodo">
+        Período (data de criação):
+        <input type="date" id="busca-data-de">
+        até
+        <input type="date" id="busca-data-ate">
+      </span>
+      <button type="button" class="busca-lista__limpar" id="limpar-busca-artigo">Limpar filtros</button>
+    </div>
+    <p id="contagem-artigos"></p>
+    <div id="lista"></div>
+  </div>
+</div>
+
+<script>
+const form = document.getElementById("form-artigo");
+const mensagem = document.getElementById("mensagem");
+const botao = document.getElementById("botao-salvar");
+const inputCapa = document.getElementById("capa");
+const preview = document.getElementById("preview");
+const rotuloCapa = document.getElementById("rotulo-capa");
+const obrigatoriaCapa = document.getElementById("obrigatoria-capa");
+const capaAtualDiv = document.getElementById("capa-atual");
+const capaAtualImg = document.getElementById("capa-atual-img");
+const avisoEdicao = document.getElementById("aviso-edicao");
+const avisoEdicaoTexto = document.getElementById("aviso-edicao-texto");
+const botaoCancelarEdicao = document.getElementById("cancelar-edicao");
+const ajudaTituloSlug = document.getElementById("ajuda-titulo-slug");
+
+// null = modo "criar artigo novo". Preenchido = editando o artigo deste
+// slug (a URL do artigo fica travada mesmo que o título mude).
+let edicao = null; // { slug }
+
+inputCapa.addEventListener("change", () => {
+  preview.innerHTML = "";
+  if (inputCapa.files[0]) {
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(inputCapa.files[0]);
+    preview.appendChild(img);
+  }
+});
+
+function mostrarMensagem(texto, tipo) {
+  mensagem.textContent = texto;
+  mensagem.className = tipo;
+}
+
+// Cache local de todos os artigos carregados da API — busca, categoria
+// e período filtram essa cópia sem precisar ir ao servidor de novo.
+let todosOsArtigos = [];
+const inputBuscaArtigo = document.getElementById("busca-artigo");
+const selectBuscaCategoriaArtigo = document.getElementById("busca-categoria-artigo");
+const inputBuscaDataDe = document.getElementById("busca-data-de");
+const inputBuscaDataAte = document.getElementById("busca-data-ate");
+const botaoLimparBuscaArtigo = document.getElementById("limpar-busca-artigo");
+const contagemArtigos = document.getElementById("contagem-artigos");
+
+function normalizarTexto(texto) {
+  return (texto || "").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+function renderizarListaArtigos(artigos) {
+  const lista = document.getElementById("lista");
+
+  if (todosOsArtigos.length === 0) {
+    lista.innerHTML = '<p style="color:#6B6B6B;font-size:13px;">Nenhum artigo cadastrado no painel ainda (os 9 artigos originais da Revista Turkista não aparecem aqui — foram escritos direto no site).</p>';
+    contagemArtigos.textContent = "";
+    return;
+  }
+  if (artigos.length === 0) {
+    lista.innerHTML = '<p style="color:#6B6B6B;font-size:13px;">Nenhum artigo encontrado com esses filtros.</p>';
+    contagemArtigos.textContent = "";
+    return;
+  }
+
+  const semFiltro = todosOsArtigos.length === artigos.length;
+  contagemArtigos.textContent = semFiltro
+    ? `${artigos.length} artigo${artigos.length === 1 ? "" : "s"} no total`
+    : `${artigos.length} de ${todosOsArtigos.length} artigos`;
+
+  lista.innerHTML = artigos.map(a => `
+    <div class="item">
+      <span class="item__info"><strong>${a.titulo}</strong>${a.dataCriacao ? ` <span style="color:var(--cinza);font-weight:400;">— ${a.dataCriacao.split("-").reverse().join("/")}</span>` : ""}</span>
+      <span class="item__acoes">
+        <span class="status">${a.status}</span>
+        <button type="button" class="botao-editar" data-slug="${a.slug}">Editar</button>
+      </span>
+    </div>
+  `).join("");
+  lista.querySelectorAll(".botao-editar").forEach((btn) => {
+    btn.addEventListener("click", () => entrarEmModoEdicao(btn.getAttribute("data-slug")));
+  });
+}
+
+function aplicarFiltroArtigos() {
+  const termo = normalizarTexto(inputBuscaArtigo.value.trim());
+  const categoria = selectBuscaCategoriaArtigo.value;
+  const dataDe = inputBuscaDataDe.value; // "YYYY-MM-DD" ou ""
+  const dataAte = inputBuscaDataAte.value;
+
+  const filtrados = todosOsArtigos.filter((a) => {
+    const bateTermo = !termo || normalizarTexto(a.titulo).includes(termo);
+    const bateCategoria = !categoria || a.categoria === categoria;
+    const bateDataDe = !dataDe || (a.dataCriacao && a.dataCriacao >= dataDe);
+    const bateDataAte = !dataAte || (a.dataCriacao && a.dataCriacao <= dataAte);
+    return bateTermo && bateCategoria && bateDataDe && bateDataAte;
+  });
+
+  renderizarListaArtigos(filtrados);
+}
+
+inputBuscaArtigo.addEventListener("input", aplicarFiltroArtigos);
+selectBuscaCategoriaArtigo.addEventListener("change", aplicarFiltroArtigos);
+inputBuscaDataDe.addEventListener("change", aplicarFiltroArtigos);
+inputBuscaDataAte.addEventListener("change", aplicarFiltroArtigos);
+botaoLimparBuscaArtigo.addEventListener("click", () => {
+  inputBuscaArtigo.value = "";
+  selectBuscaCategoriaArtigo.value = "";
+  inputBuscaDataDe.value = "";
+  inputBuscaDataAte.value = "";
+  aplicarFiltroArtigos();
+});
+
+async function carregarLista() {
+  const lista = document.getElementById("lista");
+  try {
+    const resp = await fetch("/api/artigos");
+    todosOsArtigos = await resp.json();
+    aplicarFiltroArtigos();
+  } catch (e) {
+    lista.innerHTML = '<p style="color:#A3312A;font-size:13px;">Não foi possível carregar a lista.</p>';
+  }
+}
+
+async function entrarEmModoEdicao(slug) {
+  try {
+    const resp = await fetch(`/api/artigos/${slug}`);
+    if (!resp.ok) throw new Error("não encontrado");
+    const artigo = await resp.json();
+
+    edicao = { slug };
+    form.titulo.value = artigo.titulo || "";
+    form.categoria.value = artigo.categoria || "";
+    form.resumo.value = artigo.resumo || "";
+    form.corpo.value = artigo.corpo || "";
+    form.status.value = artigo.status || "rascunho";
+
+    if (artigo.capa?.arquivo) {
+      capaAtualImg.src = `/site/assets/blog/${artigo.capa.arquivo}`;
+      capaAtualDiv.classList.add("ativo");
+    }
+    inputCapa.required = false;
+    obrigatoriaCapa.style.display = "none";
+    rotuloCapa.firstChild.textContent = "Trocar a foto de capa (opcional)";
+    ajudaTituloSlug.textContent = "Trocar o título não muda o endereço da página do artigo.";
+    avisoEdicaoTexto.textContent = `Editando: ${artigo.titulo}`;
+    avisoEdicao.classList.add("ativo");
+    botao.textContent = "Salvar alterações";
+    preview.innerHTML = "";
+    inputCapa.value = "";
+    mensagem.className = "";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } catch (e) {
+    mostrarMensagem("✗ Não foi possível carregar esse artigo para edição.", "erro");
+  }
+}
+
+function sairDoModoEdicao() {
+  edicao = null;
+  form.reset();
+  preview.innerHTML = "";
+  capaAtualDiv.classList.remove("ativo");
+  inputCapa.required = true;
+  obrigatoriaCapa.style.display = "";
+  rotuloCapa.firstChild.textContent = "Escolha a foto de capa do artigo";
+  ajudaTituloSlug.textContent = "";
+  avisoEdicao.classList.remove("ativo");
+  botao.textContent = "Salvar artigo";
+  mensagem.className = "";
+}
+
+botaoCancelarEdicao.addEventListener("click", sairDoModoEdicao);
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  botao.disabled = true;
+  botao.textContent = edicao ? "Salvando alterações..." : "Salvando...";
+  mensagem.className = "";
+
+  const dados = new FormData(form);
+  if (edicao) {
+    // No modo edição o campo de arquivo se chama "capa" no formulário,
+    // mas a API espera "novaCapa" (pra deixar claro que é opcional).
+    const arquivo = inputCapa.files[0];
+    dados.delete("capa");
+    if (arquivo) dados.append("novaCapa", arquivo);
+  }
+
+  try {
+    const resp = edicao
+      ? await fetch(`/api/artigos/${edicao.slug}`, { method: "PUT", body: dados })
+      : await fetch("/api/artigos", { method: "POST", body: dados });
+    const resultado = await resp.json();
+
+    if (resp.ok && !resultado.aviso) {
+      mostrarMensagem(`✓ ${resultado.mensagem} (${resultado.slug})`, "sucesso");
+      sairDoModoEdicao();
+      carregarLista();
+    } else if (resultado.aviso) {
+      mostrarMensagem(`⚠ ${resultado.aviso}`, "aviso");
+      if (edicao) sairDoModoEdicao();
+      carregarLista();
+    } else {
+      mostrarMensagem(`✗ ${resultado.erro || "Erro ao salvar."}`, "erro");
+    }
+  } catch (erro) {
+    mostrarMensagem("✗ Não foi possível conectar ao painel. Verifique se o servidor está rodando.", "erro");
+  } finally {
+    botao.disabled = false;
+    botao.textContent = edicao ? "Salvar alterações" : "Salvar artigo";
+  }
+});
+
+carregarLista();
+</script>
+</body>
+</html>
