@@ -7,6 +7,7 @@
 (function () {
   if (!window.Carrinho) return;
   var C = window.Carrinho;
+  var FRETE_GRATIS_MINIMO = 100;
 
   function escapar(texto) {
     var div = document.createElement('div');
@@ -58,6 +59,10 @@
         '<h2>Seu carrinho</h2>' +
         '<button class="carrinho-gaveta__fechar" data-carrinho-fechar aria-label="Fechar carrinho">&times;</button>' +
       '</div>' +
+      '<div class="carrinho-frete" data-carrinho-frete>' +
+        '<p class="carrinho-frete__texto" data-carrinho-frete-texto></p>' +
+        '<div class="carrinho-frete__barra"><div class="carrinho-frete__preenchimento" data-carrinho-frete-preenchimento></div></div>' +
+      '</div>' +
       '<div class="carrinho-gaveta__lista" data-carrinho-lista></div>' +
       '<div class="carrinho-gaveta__rodape" data-carrinho-rodape>' +
         '<div class="carrinho-gaveta__total">' +
@@ -73,6 +78,35 @@
   }
 
   // ------------------------------------------------------------
+  // Barra de progresso do frete grátis (Sul/Sudeste)
+  // ------------------------------------------------------------
+  function atualizarFrete(itens) {
+    var freteEl = document.querySelector('[data-carrinho-frete]');
+    var textoEl = document.querySelector('[data-carrinho-frete-texto]');
+    var preenchimentoEl = document.querySelector('[data-carrinho-frete-preenchimento]');
+    if (!freteEl || !textoEl || !preenchimentoEl) return;
+
+    if (itens.length === 0) {
+      freteEl.hidden = true;
+      return;
+    }
+    freteEl.hidden = false;
+
+    var total = C.calcularTotalValor(itens);
+    var progresso = Math.min(100, (total / FRETE_GRATIS_MINIMO) * 100);
+    preenchimentoEl.style.width = progresso + '%';
+
+    if (total >= FRETE_GRATIS_MINIMO) {
+      freteEl.classList.add('carrinho-frete--completo');
+      textoEl.textContent = '🎉 Você garantiu frete grátis! (Sul e Sudeste)';
+    } else {
+      freteEl.classList.remove('carrinho-frete--completo');
+      var falta = C.formatarMoeda(FRETE_GRATIS_MINIMO - total);
+      textoEl.textContent = 'Faltam ' + falta + ' para o frete grátis (Sul e Sudeste)';
+    }
+  }
+
+  // ------------------------------------------------------------
   // Renderização
   // ------------------------------------------------------------
   function renderizar() {
@@ -84,6 +118,8 @@
       contagemEl.textContent = totalItens;
       contagemEl.hidden = totalItens === 0;
     }
+
+    atualizarFrete(itens);
 
     var listaEl = document.querySelector('[data-carrinho-lista]');
     var rodapeEl = document.querySelector('[data-carrinho-rodape]');
