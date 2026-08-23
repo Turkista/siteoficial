@@ -1,0 +1,36 @@
+/* ===================== LETREIRO DE FRETE GRÁTIS (somente Home) ===================== */
+:root{--altura-letreiro:34px}
+
+.letreiro{position:fixed;top:0;left:0;right:0;z-index:110;height:var(--altura-letreiro);background:linear-gradient(90deg,var(--cor-rosa-profundo),var(--cor-rosa-turkista));display:flex;align-items:center;overflow:hidden;white-space:nowrap;box-shadow:0 1px 0 rgba(0,0,0,0.08)}
+
+.letreiro__trilha{display:flex;align-items:center;width:max-content;animation:letreiro-rolagem 24s linear infinite}
+
+.letreiro:hover .letreiro__trilha,
+.letreiro:focus-within .letreiro__trilha{animation-play-state:paused}
+
+.letreiro__item{display:inline-flex;align-items:center;gap:.55rem;padding-inline:2rem;font-family:var(--fonte-texto);font-size:.75rem;font-weight:var(--peso-semibold);letter-spacing:.05em;text-transform:uppercase;color:var(--cor-preto-grafite);flex-shrink:0}
+
+.letreiro__item svg{width:14px;height:14px;flex-shrink:0}
+
+@keyframes letreiro-rolagem{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .letreiro__trilha{animation:none;justify-content:center;width:100%}
+  .letreiro__trilha .letreiro__item:nth-child(n+5){display:none}
+}
+
+@media (min-width:768px){
+  .letreiro{--altura-letreiro:38px}
+  .letreiro__item{font-size:.8125rem}
+}
+
+/* Empurra o header fixo e o hero para baixo, apenas nas páginas com letreiro */
+body.tem-letreiro .cabecalho{top:var(--altura-letreiro)}
+body.tem-letreiro .hero{padding-top:calc(68px + var(--altura-letreiro))}
+
+@media (min-width:768px){
+  body.tem-letreiro .cabecalho{top:var(--altura-letreiro)}
+}
