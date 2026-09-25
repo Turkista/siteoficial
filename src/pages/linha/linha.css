@@ -1,0 +1,13 @@
+.acordeao-faq{max-width:760px}.acordeao-faq__item{border-bottom:1px solid rgba(12,16,20,0.1)}.acordeao-faq__pergunta{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:var(--esp-4);padding:var(--esp-5) 0;font-family:var(--fonte-titulo);font-size:1.0625rem;font-weight:var(--peso-medio);color:var(--cor-preto-grafite)}.acordeao-faq__pergunta::-webkit-details-marker{display:none}.acordeao-faq__pergunta:hover{color:var(--cor-rosa-profundo)}.acordeao-faq__icone{flex-shrink:0;width:20px;height:20px;position:relative}.acordeao-faq__icone::before,.acordeao-faq__icone::after{content:"";position:absolute;background:currentColor;top:50%;left:50%;transform:translate(-50%,-50%)}.acordeao-faq__icone::before{width:14px;height:2px}.acordeao-faq__icone::after{width:2px;height:14px;transition:transform var(--transicao-rapida)}.acordeao-faq__item[open] .acordeao-faq__icone::after{transform:translate(-50%,-50%) rotate(90deg) scaleX(0)}.acordeao-faq__resposta{padding:0 0 var(--esp-5);color:rgba(12,16,20,0.68);max-width:62ch}.acordeao-faq__resposta p{color:inherit}.acordeao-faq__resposta a{color:var(--cor-rosa-acessivel);font-weight:var(--peso-semibold)}
+.linha-hero{max-width:720px}
+.linha-nav{display:flex;flex-wrap:wrap;gap:var(--esp-2);margin-bottom:var(--esp-7)}
+.linha-nav a{padding:.5rem 1rem;border:1px solid rgba(12,16,20,0.15);border-radius:999px;font-size:var(--tam-legenda);font-weight:var(--peso-medio);color:var(--cor-preto-grafite)}
+.linha-nav a:hover{border-color:var(--cor-rosa-profundo);color:var(--cor-rosa-profundo)}
+.linha-secao{margin-bottom:var(--esp-8);scroll-margin-top:calc(68px + var(--esp-5))}
+.linha-secao h2{font-size:1.5rem;margin-bottom:var(--esp-5);color:var(--cor-preto-grafite)}
+.linha-faq{margin-bottom:var(--esp-8)}
+.linha-faq h2,.linha-leia h2{font-size:1.5rem;margin-bottom:var(--esp-4);color:var(--cor-preto-grafite)}
+.linha-faq__mais{margin-top:var(--esp-4)}
+.linha-faq__mais a,.linha-leia a{color:var(--cor-rosa-acessivel);font-weight:var(--peso-semibold)}
+.linha-leia ul{margin:0 0 var(--esp-4);padding-left:var(--esp-5);line-height:1.8}
+.linha-outras{color:rgba(12,16,20,0.68)}
