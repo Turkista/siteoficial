@@ -1,15 +1,20 @@
 User-agent: *
 Allow: /
 
-# Rotas reservadas (Etapa 15 — Prontidão para E-commerce do Plano Mestre).
-# Ainda não existem no site, mas ficam bloqueadas de antemão para que,
-# quando o carrinho/checkout for construído, nenhum motor de busca chegue
-# a indexar uma etapa transacional de compra.
+# Rotas reservadas para o e-commerce (carrinho/checkout ainda não existem):
+# bloqueadas de antemão para que nenhuma etapa transacional seja indexada.
 Disallow: /carrinho/
 Disallow: /checkout/
 
-# Página legal — já tem noindex no <meta name="robots">, reforçado aqui.
-Disallow: /politica-de-privacidade.html
+# Ferramentas internas que vão junto no repositório: não são conteúdo do site.
+# (/src/ NÃO é bloqueado: o catálogo carrega os JSON de lá e o Google precisa
+# renderizar a página.)
+Disallow: /painel-produtos/
+Disallow: /scripts/
+Disallow: /docs/
 
-# Sitemap — domínio www.turkista.com.br já está no ar.
+# politica-de-privacidade.html tem <meta robots="noindex">. Ela NÃO pode ser
+# bloqueada aqui: se o robots.txt impedir o acesso, o Google não lê o noindex
+# e pode indexar a URL sem conteúdo.
+
 Sitemap: https://www.turkista.com.br/sitemap.xml
