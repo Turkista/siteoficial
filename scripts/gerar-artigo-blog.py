@@ -160,6 +160,9 @@ def gerar_pagina(artigo, relacionados):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/public/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/public/favicon/apple-touch-icon.png">
 <title>{esc(titulo)} — Revista Turkista</title>
 <meta name="description" content="{esc(resumo)}">
 <link rel="canonical" href="https://www.turkista.com.br/blog/{slug}.html">
@@ -200,9 +203,9 @@ def gerar_pagina(artigo, relacionados):
   <div class="container cabecalho__linha">
     <a href="../index.html" class="cabecalho__logo">TURK<span>ISTA</span></a>
     <nav class="cabecalho__nav-desktop" aria-label="Navegação principal">
-      <a href="../catalogo.html#praia">Praia</a>
-      <a href="../catalogo.html#surf">Surf</a>
-      <a href="../catalogo.html#turk-fit">Turk Fit</a>
+      <a href="../praia.html">Praia</a>
+      <a href="../surf.html">Surf</a>
+      <a href="../turk-fit.html">Turk Fit</a>
       <a href="../blog.html" aria-current="page">Blog</a>
       <a href="../sobre-a-marca.html">Sobre a Marca</a>
       <a href="../como-cuidar-da-peca.html">Guia de Cuidados</a>
@@ -220,9 +223,9 @@ def gerar_pagina(artigo, relacionados):
 <nav id="menu-mobile" class="menu-mobile" data-menu-mobile aria-label="Menu mobile">
   <button class="menu-mobile__fechar" data-menu-fechar aria-label="Fechar menu">&times;</button>
   <ul class="menu-mobile__lista">
-    <li><a href="../catalogo.html#praia">Praia</a></li>
-    <li><a href="../catalogo.html#surf">Surf</a></li>
-    <li><a href="../catalogo.html#turk-fit">Turk Fit</a></li>
+    <li><a href="../praia.html">Praia</a></li>
+    <li><a href="../surf.html">Surf</a></li>
+    <li><a href="../turk-fit.html">Turk Fit</a></li>
     <li><a href="../blog.html" aria-current="page">Blog</a></li>
     <li><a href="../sobre-a-marca.html">Sobre a Marca</a></li>
     <li><a href="../contato.html">Contato</a></li>
@@ -285,16 +288,16 @@ def gerar_pagina(artigo, relacionados):
       <p>Roupas de praia, surf e academia, feitas à mão, com tecido pensado para o movimento de cada corpo. Araruama, Região dos Lagos — RJ.</p>
       <div class="rodape__redes">
         <a href="https://instagram.com/turkista.com.br" target="_blank" rel="noopener" aria-label="Instagram Turkista">IG</a>
-        <a href="https://instagram.com/turkfit.com.br" target="_blank" rel="noopener" aria-label="Instagram Turk Fit">TF</a>
+        <a href="https://instagram.com/turkfitness.com.br" target="_blank" rel="noopener" aria-label="Instagram Turk Fit">TF</a>
         <a href="https://wa.me/{WHATSAPP_NUMERO}" target="_blank" rel="noopener" aria-label="WhatsApp Turkista">WA</a>
       </div>
     </div>
     <div class="rodape__coluna">
       <h3>Linhas</h3>
       <ul>
-        <li><a href="../catalogo.html#praia">Praia</a></li>
-        <li><a href="../catalogo.html#surf">Surf</a></li>
-        <li><a href="../catalogo.html#turk-fit">Turk Fit</a></li>
+        <li><a href="../praia.html">Praia</a></li>
+        <li><a href="../surf.html">Surf</a></li>
+        <li><a href="../turk-fit.html">Turk Fit</a></li>
       </ul>
     </div>
     <div class="rodape__coluna">

@@ -11,11 +11,26 @@ mesmo padrão já usado nos 10 artigos do blog (Adendo 4) — quando o
 catálogo real crescer (Etapa 4), roda-se este script de novo para
 qualquer produto novo, sem editar HTML manualmente peça por peça.
 
+Além das fichas, este script também regenera o sitemap.xml (todas as
+fichas publicadas, com <lastmod> e imagens) — ver gerar_sitemap().
+
+SEO das fichas (ver docs/seo-implementacao.md):
+- título e meta description montados a partir dos dados (com override
+  opcional pelos campos "seoTitulo" / "seoDescricao" do JSON do produto);
+- JSON-LD Product completo (sku, disponibilidade, política de troca) +
+  BreadcrumbList com URLs canônicas;
+- texto exclusivo nas fichas sem descrição própria ou com descrição repetida;
+- bloco de entrega/troca/conserto (fatos das páginas de política do site);
+- produtos relacionados rotativos (distribuem links internos);
+- fichas não publicadas saem com noindex e fora do sitemap.
+
 Uso:
     python3 scripts/gerar-ficha-produto.py
 """
+import importlib.util
 import json
 import re
+import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -33,6 +48,123 @@ NOMES_BADGE = {
     "ultimas-unidades": "Últimas unidades",
     "reposicao": "Reposição",
 }
+
+
+NOME_MARCA = "Turkista"
+URL_POLITICA_TROCA = f"{BASE_URL}/politica-de-troca-e-reembolso.html"
+URL_POLITICA_ENVIO = f"{BASE_URL}/politica-de-envio-e-prazo-de-entrega.html"
+
+# Ângulo de busca do título por linha (o nome do produto já traz o tipo).
+LINHA_SEO = {"praia": "Moda Praia", "surf": "Moda Surf", "turk-fit": "Moda Fitness"}
+
+# Tipos de peça íntima: a política de troca só aceita defeito de fabricação.
+TIPOS_INTIMOS = {"Maiô", "Maiô de surf", "Biquíni", "Top de biquíni", "Sunquíni"}
+
+
+def _norm(s):
+    return (s or "").strip().lower()
+
+
+def tipo_produto(produto):
+    """Termo de busca da peça (ex.: 'Maiô de surf', 'Conjunto fitness').
+
+    As categorias cadastradas no painel vêm com caixa e grafia
+    inconsistentes ('maiô', 'Maiô', 'Biquini', 'Linha Academia'); aqui elas
+    viram um rótulo único, usado em título, alt de imagem e schema."""
+    nome = _norm(produto.get("nome"))
+    cat = _norm(produto.get("categoria"))
+    linha = produto.get("linha")
+    if "xuxinha" in nome or "acessório" in cat:
+        return "Xuxinha de cabelo"
+    if "sunqu" in nome or "sunqu" in cat:
+        return "Sunquíni"
+    if "parte superior" in nome or "parte superior" in cat or nome.startswith("top de biqu"):
+        return "Top de biquíni"
+    if "conjunto" in nome or cat == "conjunto":
+        return "Conjunto fitness"
+    if "legging" in nome or "legging" in cat:
+        return "Legging fitness"
+    if "calça" in nome:
+        return "Calça fitness"
+    if "cropped" in nome or "cropped" in cat or cat == "blusa":
+        return "Cropped de surf" if linha == "surf" else "Cropped"
+    if cat.startswith("biqu"):
+        return "Biquíni"
+    if cat.startswith("mai"):
+        return "Maiô de surf" if linha == "surf" else "Maiô"
+    if cat == "top":
+        return "Top fitness" if linha == "turk-fit" else "Top"
+    return (produto.get("categoria") or "Peça").strip().capitalize()
+
+
+def eh_intimo(produto):
+    return tipo_produto(produto) in TIPOS_INTIMOS
+
+
+def esta_publicado(produto):
+    return produto.get("status") == "publicado"
+
+
+def cor_principal(produto):
+    cores = produto.get("cores") or []
+    return (cores[0].get("nome") or "").strip() if cores else ""
+
+
+def preco_formatado(valor):
+    return f"R$ {valor:.2f}".replace(".", ",")
+
+
+def disponibilidade(produto):
+    if produto.get("status") == "descontinuado":
+        return "https://schema.org/Discontinued"
+    if "ultimas-unidades" in (produto.get("badges") or []):
+        return "https://schema.org/LimitedAvailability"
+    return "https://schema.org/InStock"
+
+
+def _tamanho_webp(caminho):
+    """Largura x altura de um .webp lendo só o cabeçalho (sem depender de
+    Pillow, que pode não estar instalado no computador de quem roda o painel)."""
+    try:
+        with open(caminho, "rb") as f:
+            d = f.read(32)
+    except OSError:
+        return None
+    if d[:4] != b"RIFF" or d[8:12] != b"WEBP":
+        return None
+    tipo = d[12:16]
+    if tipo == b"VP8X":
+        return 1 + int.from_bytes(d[24:27], "little"), 1 + int.from_bytes(d[27:30], "little")
+    if tipo == b"VP8L":
+        bits = int.from_bytes(d[21:25], "little")
+        return (bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1
+    if tipo == b"VP8 ":
+        return int.from_bytes(d[26:28], "little") & 0x3FFF, int.from_bytes(d[28:30], "little") & 0x3FFF
+    return None
+
+
+def dimensoes_imagem(arquivo):
+    return _tamanho_webp(RAIZ / "assets" / "produtos" / arquivo)
+
+
+def atributos_dimensao(arquivo):
+    """width/height reservam o espaço da foto antes de ela carregar
+    (evita salto de layout — métrica CLS do Core Web Vitals)."""
+    dim = dimensoes_imagem(arquivo)
+    return f' width="{dim[0]}" height="{dim[1]}"' if dim else ""
+
+
+def alt_imagem(produto, indice, total):
+    """Alt descritivo: nome + tipo (se o nome ainda não diz) + cor + marca."""
+    extras = []
+    tipo = tipo_produto(produto)
+    if tipo.lower() not in _norm(produto["nome"]):
+        extras.append(tipo.lower())
+    cor = cor_principal(produto)
+    if cor and cor.lower() not in _norm(produto["nome"]):
+        extras.append(cor.lower())
+    alt = produto["nome"].strip() + (", " + " ".join(extras) if extras else "") + f" – {NOME_MARCA}"
+    return f"{alt} (foto {indice + 1})" if total > 1 else alt
 
 
 def esc(s: str) -> str:
@@ -61,14 +193,17 @@ def gerar_galeria(produto):
     return imagens
 
 
-def gerar_miniaturas_html(imagens):
+def gerar_miniaturas_html(produto, imagens):
     if len(imagens) <= 1:
         return ""
     itens = []
     for i, img in enumerate(imagens):
         current = "true" if i == 0 else "false"
-        itens.append(f'''      <button type="button" class="ficha-produto__miniatura" data-miniatura aria-current="{current}" aria-label="Ver foto {i + 1} de {esc_attr(produto_nome_global)}">
-        <img src="../assets/produtos/{img['arquivo']}" alt="" loading="lazy" onerror="this.style.display='none'">
+        # O alt da miniatura é copiado para a foto principal quando ela é
+        # trocada (ficha-produto.js) — por isso precisa ser descritivo.
+        alt = esc(alt_imagem(produto, i, len(imagens)))
+        itens.append(f'''      <button type="button" class="ficha-produto__miniatura" data-miniatura aria-current="{current}" aria-label="Ver foto {i + 1} de {esc_attr(produto['nome'])}">
+        <img src="../assets/produtos/{img['arquivo']}" alt="{alt}"{atributos_dimensao(img['arquivo'])} loading="lazy" decoding="async" onerror="this.style.display='none'">
       </button>''')
     return f'''
     <div class="ficha-produto__miniaturas" data-miniaturas>
@@ -180,7 +315,46 @@ def gerar_ficha_tecnica_html(produto):
     </div>'''
 
 
-def gerar_descricao_completa_html(produto):
+def _normalizar_texto(t):
+    return re.sub(r"\s+", " ", (t or "")).strip().lower()
+
+
+def descricao_repetida(produto, todos_produtos):
+    """True se a descrição completa está vazia ou é idêntica à de outra ficha
+    (texto repetido entre páginas não ajuda nenhuma delas a ranquear)."""
+    texto = _normalizar_texto(produto.get("descricaoCompleta"))
+    if not texto:
+        return True
+    return sum(1 for p in todos_produtos if _normalizar_texto(p.get("descricaoCompleta")) == texto) > 1
+
+
+def paragrafo_exclusivo(produto):
+    """Parágrafo factual, único por peça, montado só com dados cadastrados
+    (nome, linha, tipo, cor, tamanhos, preço). Nada é inventado."""
+    linha = NOMES_LINHA.get(produto["linha"], produto["linha"])
+    tamanhos = produto.get("tamanhos") or []
+    partes = [
+        f"{produto['nome'].strip()} é uma peça da linha {linha} da Turkista, fabricada em Araruama (RJ), "
+        f"na Região dos Lagos, em pequenas quantidades. Categoria: {tipo_produto(produto).lower()}."
+    ]
+    cor = cor_principal(produto)
+    if cor:
+        partes.append(f"Cor: {cor.lower()}.")
+    if tamanhos:
+        plural = len(tamanhos) > 1
+        partes.append(
+            f"Tamanho{'s' if plural else ''} disponíve{'is' if plural else 'l'}: {', '.join(tamanhos)}."
+        )
+    preco = produto.get("preco") or {}
+    if preco.get("valor"):
+        p = f"Valor: {preco_formatado(preco['valor'])}"
+        if preco.get("parcelamento"):
+            p += f" ({preco['parcelamento']})"
+        partes.append(p + ".")
+    return " ".join(partes)
+
+
+def gerar_descricao_completa_html(produto, repetida=False):
     """Descrição completa (campo do painel) — Etapa 5.1.
 
     Campo de texto livre digitado no painel: pode vir com parágrafos
@@ -192,7 +366,7 @@ def gerar_descricao_completa_html(produto):
     (sem título vazio, sem caixa em branco no site).
     """
     texto = (produto.get("descricaoCompleta") or "").strip()
-    if not texto:
+    if not texto and not repetida:
         return ""
 
     texto = texto.replace("\r\n", "\n").replace("\r", "\n")
@@ -212,6 +386,10 @@ def gerar_descricao_completa_html(produto):
         else:
             partes.append(f"<p>{'<br>'.join(esc(l) for l in linhas)}</p>")
 
+    if repetida:
+        # Texto exclusivo da peça antes do texto (vazio ou compartilhado).
+        partes.insert(0, f"<p>{esc(paragrafo_exclusivo(produto))}</p>")
+
     if not partes:
         return ""
 
@@ -222,6 +400,31 @@ def gerar_descricao_completa_html(produto):
     </div>'''
 
 
+def gerar_servicos_html(produto):
+    """Entrega, troca e conserto — só fatos já publicados nas páginas de
+    política, no FAQ e no letreiro do site. Se a política mudar, mude aqui."""
+    if eh_intimo(produto):
+        troca = (
+            "Troca ou devolução em até 7 dias corridos após o recebimento. Biquínis e maiôs são aceitos "
+            "somente em caso de defeito de fabricação, lacrados e sem sinais de uso."
+        )
+    else:
+        troca = "Troca ou devolução em até 7 dias corridos após o recebimento, conforme o art. 49 do CDC."
+    return f'''
+    <section class="ficha-produto__servicos" aria-labelledby="titulo-servicos">
+      <h2 id="titulo-servicos">Entrega, troca e cuidados</h2>
+      <dl>
+        <dt>Envio</dt>
+        <dd>Pelos Correios, para todo o Brasil, a partir de Araruama (RJ). O pedido é despachado em 1 a 3 dias úteis após a confirmação do pagamento. Frete grátis acima de R$ 100 para Sul e Sudeste.</dd>
+        <dt>Troca</dt>
+        <dd>{troca}</dd>
+        <dt>Conserto</dt>
+        <dd>Se a costura soltar um ponto com o uso normal, a Turkista conserta.</dd>
+      </dl>
+      <p><a href="../politica-de-envio-e-prazo-de-entrega.html">Política de envio</a> · <a href="../politica-de-troca-e-reembolso.html">Troca e reembolso</a> · <a href="../como-cuidar-da-peca.html">Como cuidar da peça</a> · <a href="../faq.html">Perguntas frequentes</a></p>
+    </section>'''
+
+
 def limpar_texto_para_html(texto):
     """Colapsa quebras de linha em espaço e remove espaços duplicados —
     pra usar texto de descrição (que tem \\r\\n) dentro de um atributo
@@ -230,72 +433,160 @@ def limpar_texto_para_html(texto):
     return re.sub(r"\s+", " ", texto).strip()
 
 
+def _sem_ponto_final(t):
+    return (t or "").rstrip(" .;:,")
+
+
+def _cortar(texto, limite):
+    """Corta em fronteira de vírgula ou palavra, sem reticências."""
+    if len(texto) <= limite:
+        return texto
+    corte = texto[:limite]
+    virgula = corte.rfind(", ")
+    if virgula >= limite * 0.6:
+        corte = corte[:virgula]
+    elif " " in corte:
+        corte = corte[: corte.rfind(" ")]
+    return corte.rstrip(" ,;:-–—")
+
+
+def primeiro_paragrafo(produto):
+    """Primeiro parágrafo corrido da descrição completa (ignora subtítulo
+    'Destaques:' e listas de tópicos, que ficam sem pontuação ao virar texto)."""
+    bruto = (produto.get("descricaoCompleta") or "").replace("\r\n", "\n").replace("\r", "\n")
+    for bloco in re.split(r"\n\s*\n", bruto):
+        linhas = [l.strip() for l in bloco.split("\n") if l.strip()]
+        if not linhas or len(linhas) > 1 or linhas[0].endswith(":") or len(linhas[0]) < 40:
+            continue
+        return limpar_texto_para_html(linhas[0])
+    return ""
+
+
 def montar_titulo(produto):
-    """Título da aba/SERP. Mantém "Nome — Turkista" enquanto couber em
-    ~60 caracteres (limite prático antes do Google cortar no resultado
-    de busca); para nomes de produto já longos, usa só o nome, sem
-    sufixo, em vez de estourar o limite."""
-    nome = produto["nome"]
-    sufixo = " — Turkista"
-    if len(nome) + len(sufixo) <= 60:
-        return f"{nome}{sufixo}"
+    """Título da aba/SERP (limite prático ~60 caracteres antes do corte).
+
+    Formato: "Nome – Moda Praia | Turkista". O nome traz o tipo da peça; o
+    ângulo (Moda Praia / Moda Surf / Moda Fitness) traz o termo de busca da
+    linha. Se estourar 60, cai para "Nome | Turkista". Para ajustar uma
+    peça à mão, preencha "seoTitulo" no JSON do produto."""
+    if produto.get("seoTitulo"):
+        return produto["seoTitulo"].strip()
+    nome = produto["nome"].strip()
+    angulo = "Acessório de cabelo" if tipo_produto(produto) == "Xuxinha de cabelo" else LINHA_SEO.get(produto["linha"], "")
+    candidatos = [f"{nome} – {angulo} | {NOME_MARCA}"] if angulo else []
+    candidatos += [f"{nome} | {NOME_MARCA}", nome]
+    for c in candidatos:
+        if len(c) <= 60:
+            return c
     return nome
 
 
 def montar_meta_descricao(produto):
-    """Meta description limpa (sem quebra de linha crua) e num tamanho
-    saudável pro SERP (~155-160 caracteres). Quando a descrição curta
-    do painel é curta demais pra ser útil como meta description,
-    complementa com o início da descrição completa — sem inventar
-    texto novo, só reaproveitando o que já foi escrito no painel."""
-    base = limpar_texto_para_html(produto.get("descricaoCurta", ""))
-    if len(base) < 70:
-        completa = limpar_texto_para_html(produto.get("descricaoCompleta", ""))
-        if len(completa) > len(base):
-            base = completa
+    """Meta description de até ~158 caracteres, só com fatos cadastrados:
+    nome + descrição curta, preço/parcelamento e o selo de fabricação própria.
+    Override manual: campo "seoDescricao" do JSON."""
+    if produto.get("seoDescricao"):
+        return limpar_texto_para_html(produto["seoDescricao"])
+    limite = 158
+    nome = produto["nome"].strip()
+    curta = _sem_ponto_final(limpar_texto_para_html(produto.get("descricaoCurta", "")))
+    if len(curta) < 50:
+        frase = re.split(r"(?<=[.!?])\s", primeiro_paragrafo(produto))[0] if primeiro_paragrafo(produto) else ""
+        if frase:
+            curta = f"{curta}. {_sem_ponto_final(frase)}" if curta else _sem_ponto_final(frase)
+    cabeca = curta if _norm(nome) in _norm(curta) else f"{nome} — {curta}"
 
-    if len(base) > 157:
-        corte = base[:157].rsplit(" ", 1)[0]
-        base = f"{corte}..."
-    return base
+    fins = []
+    preco = produto.get("preco") or {}
+    if preco.get("valor"):
+        p = preco_formatado(preco["valor"])
+        if preco.get("parcelamento"):
+            p += f" ({preco['parcelamento']})"
+        fins.append(p)
+    completo = fins + ["Fabricação própria em Araruama, RJ"]
+
+    def comprimento(cab, f):
+        return len(". ".join([cab] + f)) + 1
+
+    for f in (completo, fins):
+        if comprimento(cabeca, f) <= limite:
+            return ". ".join([cabeca] + f) + "."
+    reserva = sum(len(x) + 2 for x in fins) + 1
+    return ". ".join([_cortar(cabeca, limite - reserva)] + fins) + "."
+
+
+def descricao_schema(produto):
+    curta = limpar_texto_para_html(produto.get("descricaoCurta", ""))
+    if len(curta) >= 100:
+        return curta
+    paragrafo = primeiro_paragrafo(produto)
+    if not paragrafo:
+        return curta
+    return _cortar(f"{_sem_ponto_final(curta)}. {paragrafo}" if curta else paragrafo, 500)
+
+
+def gerar_politica_troca_schema():
+    return {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "BR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 7,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "merchantReturnLink": URL_POLITICA_TROCA,
+    }
 
 
 def gerar_json_ld(produto, imagens, url):
     imagens_url = [f"{BASE_URL}/assets/produtos/{img['arquivo']}" for img in imagens]
+    tipo = tipo_produto(produto)
     produto_data = {
         "@context": "https://schema.org",
         "@type": "Product",
+        "@id": f"{url}#produto",
         "name": produto["nome"],
-        "description": limpar_texto_para_html(produto.get("descricaoCurta", "")),
+        "description": descricao_schema(produto),
+        "sku": produto["id"],
+        "category": tipo,
         "image": imagens_url,
-        "brand": {"@type": "Brand", "name": "Turkista"},
+        "brand": {"@type": "Brand", "name": NOME_MARCA},
         "url": url,
+        "mainEntityOfPage": url,
     }
     cores = produto.get("cores", [])
     if cores:
-        produto_data["color"] = [c["nome"] for c in cores]
+        produto_data["color"] = [c["nome"].strip() for c in cores]
+    if produto.get("tamanhos"):
+        produto_data["size"] = produto["tamanhos"]
+    tecido = (produto.get("composicao") or {}).get("tecido", "")
+    if tecido and not tecido.startswith("PREENCHER"):
+        produto_data["material"] = tecido
     preco = produto.get("preco")
     if preco and preco.get("valor"):
-        produto_data["offers"] = {
+        oferta = {
             "@type": "Offer",
-            "priceCurrency": "BRL",
-            "price": str(preco["valor"]),
-            "availability": "https://schema.org/InStock"
-            if produto.get("status") == "publicado"
-            else "https://schema.org/PreOrder",
             "url": url,
+            "priceCurrency": "BRL",
+            "price": f"{preco['valor']:.2f}",
+            "availability": disponibilidade(produto),
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": {"@type": "Organization", "@id": f"{BASE_URL}/#organizacao", "name": NOME_MARCA},
         }
+        # Política de troca só para peças não íntimas: em biquíni/maiô a troca
+        # é apenas por defeito, e o schema não tem como expressar isso sem
+        # prometer mais do que a política oferece.
+        if not eh_intimo(produto):
+            oferta["hasMerchantReturnPolicy"] = gerar_politica_troca_schema()
+        produto_data["offers"] = oferta
 
-    # Breadcrumb estruturado — segue o mesmo caminho do breadcrumb visual
-    # da página (Home / Linha / Produto), pra habilitar o rich result de
-    # navegação no resultado de busca do Google.
+    # Breadcrumb estruturado — mesmo caminho do breadcrumb visual da página
+    # (Home / Linha / Produto). Home usa a URL canônica "/" (não index.html).
     nome_linha = NOMES_LINHA.get(produto["linha"], produto["linha"])
     breadcrumb_data = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE_URL}/index.html"},
-            {"@type": "ListItem", "position": 2, "name": nome_linha, "item": f"{BASE_URL}/index.html#{produto['linha']}"},
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": nome_linha, "item": f"{BASE_URL}/{produto['linha']}.html"},
             {"@type": "ListItem", "position": 3, "name": produto["nome"], "item": url},
         ],
     }
@@ -308,14 +599,27 @@ def gerar_json_ld(produto, imagens, url):
 
 
 def gerar_relacionados_html(produto, todos_produtos):
-    relacionados = [p for p in todos_produtos if p["linha"] == produto["linha"] and p["slug"] != produto["slug"]]
+    """Até 4 peças da mesma linha, priorizando o mesmo tipo (maiô com maiô).
+    A ordem gira conforme a posição da peça no catálogo, então cada ficha
+    linka para peças diferentes e os links internos se distribuem — antes,
+    todas as fichas da linha apontavam para as mesmas 3 peças."""
+    tipo = tipo_produto(produto)
+    slugs = [p["slug"] for p in todos_produtos]
+    pos = slugs.index(produto["slug"])
+    candidatos = [
+        p for p in todos_produtos
+        if p["linha"] == produto["linha"] and p["slug"] != produto["slug"] and esta_publicado(p)
+    ]
+    candidatos.sort(key=lambda p: (0 if tipo_produto(p) == tipo else 1, (slugs.index(p["slug"]) - pos) % len(slugs)))
+    relacionados = candidatos[:4]
     if not relacionados:
         return ""
+    nome_linha = NOMES_LINHA.get(produto["linha"], produto["linha"])
     cards = []
-    for p in relacionados[:3]:
-        img = (p.get("imagens") or [{}])[0]
-        arquivo = img.get("arquivo", "")
-        alt = img.get("alt", p["nome"])
+    for p in relacionados:
+        img = gerar_galeria(p)[0]
+        arquivo = img["arquivo"]
+        alt = esc(alt_imagem(p, 0, 1))
         badge_html = ""
         if p.get("badges"):
             badge_html = f'<span class="card-produto__badge">{NOMES_BADGE.get(p["badges"][0], p["badges"][0])}</span>'
@@ -323,7 +627,7 @@ def gerar_relacionados_html(produto, todos_produtos):
         preco_rel_html = ""
         botao_rel_html = ""
         if preco_rel and preco_rel.get("valor"):
-            valor_fmt = f"R$ {preco_rel['valor']:.2f}".replace(".", ",")
+            valor_fmt = preco_formatado(preco_rel["valor"])
             preco_rel_html = f'<p class="card-produto__preco">{valor_fmt}</p>'
             botao_rel_html = (
                 f'<button class="card-produto__adicionar" data-adicionar-carrinho'
@@ -334,7 +638,7 @@ def gerar_relacionados_html(produto, todos_produtos):
           <a href="{p['slug']}.html" class="card-produto__link-completo">
             <div class="card-produto__imagem">
               {badge_html}
-              <img src="../assets/produtos/{arquivo}" alt="{esc_attr(alt)}" loading="lazy" onerror="this.style.display='none'">
+              <img src="../assets/produtos/{arquivo}" alt="{alt}"{atributos_dimensao(arquivo)} loading="lazy" decoding="async" onerror="this.style.display='none'">
             </div>
             <h3 class="card-produto__nome">{esc(p['nome'])}</h3>
             {preco_rel_html}
@@ -349,11 +653,12 @@ def gerar_relacionados_html(produto, todos_produtos):
     <div class="container">
       <div class="cabecalho-secao cabecalho-secao--centro">
         <span class="eyebrow">Combina com essa</span>
-        <h2>Outras peças da linha {NOMES_LINHA.get(produto['linha'], produto['linha'])}</h2>
+        <h2>Outras peças da linha {nome_linha}</h2>
       </div>
       <div class="grade-produtos">
 {chr(10).join(cards)}
       </div>
+      <p style="text-align:center;margin-top:var(--esp-6)"><a href="../{produto['linha']}.html">Ver todas as peças da linha {nome_linha}</a></p>
     </div>
   </section>'''
 
@@ -363,8 +668,13 @@ TEMPLATE = """<!doctype html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/public/favicon/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/public/favicon/apple-touch-icon.png">
+<meta name="theme-color" content="#0C1014">
 <title>{titulo}</title>
 <meta name="description" content="{descricao_meta}">
+{robots_meta}
 <link rel="canonical" href="{url}">
 <link rel="preload" as="image" href="../assets/produtos/{imagem_capa}" fetchpriority="high">
 <meta property="og:type" content="product">
@@ -374,10 +684,12 @@ TEMPLATE = """<!doctype html>
 <meta property="og:description" content="{descricao_meta}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{imagem_capa_url}">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:alt" content="{imagem_capa_alt}">
+{og_extra}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{titulo}">
 <meta name="twitter:description" content="{descricao_meta}">
 <meta name="twitter:image" content="{imagem_capa_url}">
+<meta name="twitter:image:alt" content="{imagem_capa_alt}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -399,11 +711,11 @@ TEMPLATE = """<!doctype html>
 
 <header class="cabecalho">
   <div class="container cabecalho__linha">
-    <a href="../index.html" class="cabecalho__logo">TURK<span>ISTA</span></a>
+    <a href="/" class="cabecalho__logo">TURK<span>ISTA</span></a>
     <nav class="cabecalho__nav-desktop" aria-label="Navegação principal">
-      <a href="../index.html#praia">Praia</a>
-      <a href="../index.html#surf">Surf</a>
-      <a href="../index.html#turk-fit">Turk Fit</a>
+      <a href="../praia.html">Praia</a>
+      <a href="../surf.html">Surf</a>
+      <a href="../turk-fit.html">Turk Fit</a>
       <a href="../blog.html">Blog</a>
       <a href="../sobre-a-marca.html">Sobre a Marca</a>
       <a href="../como-cuidar-da-peca.html">Guia de Cuidados</a>
@@ -421,9 +733,9 @@ TEMPLATE = """<!doctype html>
 <nav id="menu-mobile" class="menu-mobile" data-menu-mobile aria-label="Menu mobile">
   <button class="menu-mobile__fechar" data-menu-fechar aria-label="Fechar menu">&times;</button>
   <ul class="menu-mobile__lista">
-    <li><a href="../index.html#praia">Praia</a></li>
-    <li><a href="../index.html#surf">Surf</a></li>
-    <li><a href="../index.html#turk-fit">Turk Fit</a></li>
+    <li><a href="../praia.html">Praia</a></li>
+    <li><a href="../surf.html">Surf</a></li>
+    <li><a href="../turk-fit.html">Turk Fit</a></li>
     <li><a href="../blog.html">Blog</a></li>
     <li><a href="../sobre-a-marca.html">Sobre a Marca</a></li>
     <li><a href="../contato.html">Contato</a></li>
@@ -435,14 +747,14 @@ TEMPLATE = """<!doctype html>
   <section class="ficha-produto">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../index.html#{linha}">{nome_linha}</a><span aria-hidden="true">/</span><span aria-current="page">{nome}</span>
+        <a href="/">Home</a><span aria-hidden="true">/</span><a href="../{linha}.html">{nome_linha}</a><span aria-hidden="true">/</span><span aria-current="page">{nome}</span>
       </nav>
 
       <div class="ficha-produto__grade">
 
         <div class="ficha-produto__galeria">
           <div class="ficha-produto__imagem-principal" data-imagem-principal>
-            <img src="../assets/produtos/{imagem_capa}" alt="{imagem_capa_alt}" fetchpriority="high" onerror="this.style.display='none'">
+            <img src="../assets/produtos/{imagem_capa}" alt="{imagem_capa_alt}"{imagem_capa_dims} fetchpriority="high" decoding="async" onerror="this.style.display='none'">
           </div>{miniaturas_html}
         </div>
 
@@ -468,6 +780,7 @@ TEMPLATE = """<!doctype html>
       </div>
 
       {descricao_completa_html}
+{servicos_html}
     </div>
   </section>
 {relacionados_html}
@@ -480,16 +793,16 @@ TEMPLATE = """<!doctype html>
       <p>Roupas de praia, surf e academia, feitas à mão, com tecido pensado para o movimento de cada corpo. Araruama, Região dos Lagos — RJ.</p>
       <div class="rodape__redes">
         <a href="https://instagram.com/turkista.com.br" target="_blank" rel="noopener" aria-label="Instagram Turkista">IG</a>
-        <a href="https://instagram.com/turkfit.com.br" target="_blank" rel="noopener" aria-label="Instagram Turk Fit">TF</a>
+        <a href="https://instagram.com/turkfitness.com.br" target="_blank" rel="noopener" aria-label="Instagram Turk Fit">TF</a>
         <a href="https://wa.me/{whatsapp_numero}" target="_blank" rel="noopener" aria-label="WhatsApp Turkista">WA</a>
       </div>
     </div>
     <div class="rodape__coluna">
       <h3>Linhas</h3>
       <ul>
-        <li><a href="../index.html#praia">Praia</a></li>
-        <li><a href="../index.html#surf">Surf</a></li>
-        <li><a href="../index.html#turk-fit">Turk Fit</a></li>
+        <li><a href="../praia.html">Praia</a></li>
+        <li><a href="../surf.html">Surf</a></li>
+        <li><a href="../turk-fit.html">Turk Fit</a></li>
       </ul>
     </div>
     <div class="rodape__coluna">
@@ -533,17 +846,38 @@ TEMPLATE = """<!doctype html>
 
 
 def gerar_pagina(produto, todos_produtos):
-    global produto_nome_global
-    produto_nome_global = produto["nome"]
-
     url = f"{BASE_URL}/produto/{produto['slug']}.html"
     imagens = gerar_galeria(produto)
     imagem_capa = imagens[0]["arquivo"]
-    imagem_capa_alt = esc_attr(imagens[0].get("alt", produto["nome"]))
+    imagem_capa_alt = esc(alt_imagem(produto, 0, len(imagens)))
     imagem_capa_url = f"{BASE_URL}/assets/produtos/{imagem_capa}"
 
     titulo = montar_titulo(produto)
-    descricao_meta = esc_attr(montar_meta_descricao(produto))
+    descricao_meta = esc(montar_meta_descricao(produto))
+
+    publicado = esta_publicado(produto)
+    robots_meta = (
+        '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">'
+        if publicado
+        else '<meta name="robots" content="noindex, follow">'
+    )
+    dim_capa = dimensoes_imagem(imagem_capa)
+    og_extra = ""
+    if dim_capa:
+        og_extra += (
+            f'<meta property="og:image:width" content="{dim_capa[0]}">\n'
+            f'<meta property="og:image:height" content="{dim_capa[1]}">\n'
+        )
+    preco_og = produto.get("preco") or {}
+    if preco_og.get("valor"):
+        og_extra += (
+            f'<meta property="product:price:amount" content="{preco_og["valor"]:.2f}">\n'
+            f'<meta property="product:price:currency" content="BRL">\n'
+        )
+    og_extra += (
+        f'<meta property="product:brand" content="{NOME_MARCA}">\n'
+        f'<meta property="product:availability" content="{"in stock" if publicado else "discontinued"}">\n'
+    )
 
     whatsapp_texto = (
         f"Oi! Vi o {produto['nome']} no site da Turkista e queria saber mais "
@@ -563,7 +897,7 @@ def gerar_pagina(produto, todos_produtos):
         nome=esc(produto["nome"]),
         imagem_capa=imagem_capa,
         imagem_capa_alt=imagem_capa_alt,
-        miniaturas_html=gerar_miniaturas_html(imagens),
+        miniaturas_html=gerar_miniaturas_html(produto, imagens),
         categoria=esc(produto.get("categoria", "")),
         badges_html=gerar_badges_html(produto),
         descricao_curta=esc(produto.get("descricaoCurta", "")),
@@ -574,11 +908,66 @@ def gerar_pagina(produto, todos_produtos):
         whatsapp_numero=WHATSAPP_NUMERO,
         whatsapp_texto=whatsapp_texto_url,
         ficha_tecnica_html=gerar_ficha_tecnica_html(produto),
-        descricao_completa_html=gerar_descricao_completa_html(produto),
+        descricao_completa_html=gerar_descricao_completa_html(produto, descricao_repetida(produto, todos_produtos)),
+        servicos_html=gerar_servicos_html(produto),
+        robots_meta=robots_meta,
+        og_extra=og_extra,
+        imagem_capa_dims=atributos_dimensao(imagem_capa),
         relacionados_html=gerar_relacionados_html(produto, todos_produtos),
         json_ld=gerar_json_ld(produto, imagens, url),
     )
     return html
+
+
+CABECALHO_SITEMAP = '''<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Gerado por scripts/gerar-ficha-produto.py — as URLs de produto são
+  refeitas a cada execução a partir de src/content/produtos/*.json
+  (só status "publicado"). As demais URLs (páginas institucionais, blog)
+  são preservadas como estão. Não edite as entradas /produto/ à mão.
+  politica-de-privacidade.html fica de fora de propósito (noindex).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+'''
+
+
+def gerar_sitemap(produtos):
+    caminho = RAIZ / "sitemap.xml"
+    existente = caminho.read_text(encoding="utf-8") if caminho.exists() else ""
+    fixas = [b for b in re.findall(r"<url>.*?</url>", existente, re.S) if "/produto/" not in b]
+    # páginas de categoria (geradas por gerar-pagina-linha.py): garante que estão no sitemap
+    for chave in ("praia", "surf", "turk-fit"):
+        if f"/{chave}.html</loc>" not in existente and (RAIZ / f"{chave}.html").exists():
+            fixas.insert(2, f"<url>\n    <loc>{BASE_URL}/{chave}.html</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>")
+
+    entradas = []
+    for p in sorted(produtos, key=lambda x: x["slug"]):
+        if not esta_publicado(p):
+            continue
+        url = f"{BASE_URL}/produto/{p['slug']}.html"
+        linhas = [f"    <loc>{url}</loc>"]
+        data = p.get("dataAtualizacao") or p.get("dataCriacao")
+        if data:
+            linhas.append(f"    <lastmod>{data}</lastmod>")
+        for img in gerar_galeria(p):
+            linhas.append(f"    <image:image><image:loc>{BASE_URL}/assets/produtos/{img['arquivo']}</image:loc></image:image>")
+        entradas.append("  <url>\n" + "\n".join(linhas) + "\n  </url>")
+
+    corpo = "\n".join(["  " + f.strip() for f in fixas] + entradas)
+    caminho.write_text(CABECALHO_SITEMAP + corpo + "\n</urlset>\n", encoding="utf-8")
+    return len(entradas)
+
+
+def gerar_paginas_de_linha(produtos):
+    """Regera praia.html / surf.html / turk-fit.html junto com as fichas, para
+    a lista de produtos de cada linha nunca ficar defasada."""
+    caminho = RAIZ / "scripts" / "gerar-pagina-linha.py"
+    if not caminho.exists():
+        return 0
+    spec = importlib.util.spec_from_file_location("gerar_pagina_linha", caminho)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.gerar_todas(produtos, sys.modules[__name__])
 
 
 def main():
@@ -595,7 +984,10 @@ def main():
         destino.write_text(html, encoding="utf-8")
         print(f"Gerado: {destino.relative_to(RAIZ)}")
 
+    gerar_paginas_de_linha(produtos)
+    n_sitemap = gerar_sitemap(produtos)
     print(f"\n{len(produtos)} fichas de produto geradas em produto/.")
+    print(f"sitemap.xml atualizado: {n_sitemap} fichas publicadas.")
 
 
 if __name__ == "__main__":
