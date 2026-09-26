@@ -120,6 +120,7 @@ function remote() {
 
 function push(branchName) {
   const branch = branchName || run(["branch", "--show-current"]);
+  if (branch === "main") throw new Error("O CMS não pode enviar commits diretamente para a branch main.");
   if (!hasRemote()) throw new Error("O remote origin não está configurado neste projeto.");
   if (!/^[a-zA-Z0-9._/-]{1,80}$/.test(branch)) throw new Error("Nome de branch inválido.");
   const remotes = remote();
