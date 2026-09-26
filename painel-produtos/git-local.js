@@ -54,7 +54,36 @@ function ensureBranch(branchName) {
 function commit(message) {
   if (!message || message.trim().length < 3) throw new Error("A mensagem do commit é obrigatória.");
   if (!run(["status", "--porcelain"])) return { committed: false, mensagem: "Não há alterações para commit." };
-  run(["add", "-A"]);
+  const permitidos = [
+    "src/content/produtos/",
+    "src/content/artigos/",
+    "assets/produtos/",
+    "assets/blog/",
+    "assets/hero/",
+    "assets/linhas/",
+    "assets/sobre/",
+    "produto/",
+    "blog/",
+    "sitemap.xml",
+  ];
+
+  const linhas = run(["status", "--porcelain"]).split("\n").filter(Boolean);
+  const foraDoCMS = linhas.filter(linha => {
+    const caminho = linha.slice(3).replace(/^"|"$/g, "");
+    return !permitidos.some(prefixo => caminho === prefixo || caminho.startsWith(prefixo));
+  });
+
+  if (foraDoCMS.length) {
+    throw new Error(
+      "Existem alterações fora do conteúdo administrado pelo CMS. Revise o Git manualmente antes de publicar: " +
+      foraDoCMS.join(" | ")
+    );
+  }
+
+  run(["add", "--", ...permitidos]);
+  if (!run(["diff", "--cached", "--name-only"])) {
+    return { committed: false, mensagem: "Não há alterações de conteúdo para commit." };
+  }
   run(["commit", "-m", message.trim()]);
   return { committed: true, commit: run(["rev-parse", "--short", "HEAD"]), mensagem: "Commit criado com sucesso." };
 }
