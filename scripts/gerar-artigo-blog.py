@@ -16,6 +16,8 @@ artigo novo é salvo pelo painel local. Também pode ser rodado à mão:
 
 import json
 import re
+import sys
+from cms_gerados import marcar, limpar_gerados
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -23,21 +25,9 @@ CONTEUDO_DIR = RAIZ / "src" / "content" / "artigos"
 SAIDA_DIR = RAIZ / "blog"
 WHATSAPP_NUMERO = "5521992197518"
 
-# Os 9 artigos originais da Revista Turkista não são gerados por script
-# (foram escritos à mão antes do painel existir), mas entram no "banco" de
-# artigos conhecidos aqui só para poder aparecer nas sugestões de
-# "Continue lendo" dos artigos novos gerados por este script.
-ARTIGOS_ORIGINAIS = [
-    {"slug": "cuidados-biquini", "titulo": "Como cuidar do seu biquíni e fazer durar muito mais", "categoria": "guia-de-cuidados", "categoriaLabel": "Guia de Cuidados", "resumo": "Dicas práticas para conservar a cor, a elasticidade e o caimento das peças."},
-    {"slug": "tecido-certo", "titulo": "O tecido certo faz toda a diferença", "categoria": "tecido-tecnologia", "categoriaLabel": "Tecido & Tecnologia", "resumo": "Entenda por que escolhemos cada tecido para um tipo de movimento."},
-    {"slug": "moda-praia-ano-inteiro", "titulo": "Moda praia o ano inteiro: como usar além do verão", "categoria": "estilo", "categoriaLabel": "Estilo", "resumo": "Peças versáteis que acompanham você em qualquer estação do ano."},
-    {"slug": "biquini-ou-top", "titulo": "Biquíni ou top esportivo? Entenda as diferenças", "categoria": "treino-performance", "categoriaLabel": "Treino & Performance", "resumo": "Quando usar cada um e como escolher o ideal para o seu treino."},
-    {"slug": "atelie-peca-pronta", "titulo": "Do ateliê à peça pronta", "categoria": "bastidores", "categoriaLabel": "Bastidores", "resumo": "Um olhar por trás de cada etapa até a peça chegar até você."},
-    {"slug": "lavagem-secagem", "titulo": "Lavagem, secagem e armazenamento corretos", "categoria": "guia-de-cuidados", "categoriaLabel": "Guia de Cuidados", "resumo": "O passo a passo certo pra sua peça durar muito mais tempo."},
-    {"slug": "fabricacao-propria", "titulo": "Fabricação própria: por que fazemos assim", "categoria": "bastidores", "categoriaLabel": "Bastidores", "resumo": "Por que a Turkista escolheu fabricar cada peça internamente."},
-    {"slug": "pecas-movimento", "titulo": "Peças que te acompanham em cada movimento", "categoria": "treino-performance", "categoriaLabel": "Treino & Performance", "resumo": "Sustentação onde o corpo precisa, liberdade onde o treino pede."},
-    {"slug": "cores-tom-de-pele", "titulo": "Cores que valorizam seu tom de pele", "categoria": "estilo", "categoriaLabel": "Estilo", "resumo": "Um guia rápido para escolher a cor certa da próxima peça Turkista."},
-]
+# Metadados dos artigos legados ficam fora do código do gerador.
+ARQUIVO_LEGADO = RAIZ / "config" / "blog-legado.json"
+ARTIGOS_ORIGINAIS = json.loads(ARQUIVO_LEGADO.read_text(encoding="utf-8")) if ARQUIVO_LEGADO.exists() else []
 
 CATEGORIA_LABEL = {
     "guia-de-cuidados": "Guia de Cuidados",
@@ -360,14 +350,20 @@ def main():
         if a.get("status") == "publicado"
     ]
 
-    for artigo in artigos_novos:
+    publicados = [a for a in artigos_novos if a.get("status") == "publicado"]
+
+    for artigo in publicados:
         relacionados = escolher_relacionados(artigo, pool_relacionados)
         html = gerar_pagina(artigo, relacionados)
         destino = SAIDA_DIR / f"{artigo['slug']}.html"
-        destino.write_text(html, encoding="utf-8")
+        destino.write_text(marcar(html, "artigo"), encoding="utf-8")
         print(f"  gerado: blog/{artigo['slug']}.html")
 
-    print(f"\n{len(artigos_novos)} artigo(s) do painel processado(s).")
+    removidos = limpar_gerados(SAIDA_DIR, "artigo", [a["slug"] for a in publicados])
+    if removidos:
+        print("Removidos: " + ", ".join(removidos))
+
+    print(f"\n{len(publicados)} artigo(s) publicado(s) processado(s).")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,11 @@
+[
+  {"slug":"cuidados-biquini","titulo":"Como cuidar do seu biquíni e fazer durar muito mais","categoria":"guia-de-cuidados","categoriaLabel":"Guia de Cuidados","resumo":"Dicas práticas para conservar a cor, a elasticidade e o caimento das peças."},
+  {"slug":"tecido-certo","titulo":"O tecido certo faz toda a diferença","categoria":"tecido-tecnologia","categoriaLabel":"Tecido & Tecnologia","resumo":"Entenda por que escolhemos cada tecido para um tipo de movimento."},
+  {"slug":"moda-praia-ano-inteiro","titulo":"Moda praia o ano inteiro: como usar além do verão","categoria":"estilo","categoriaLabel":"Estilo","resumo":"Peças versáteis que acompanham você em qualquer estação do ano."},
+  {"slug":"biquini-ou-top","titulo":"Biquíni ou top esportivo? Entenda as diferenças","categoria":"treino-performance","categoriaLabel":"Treino & Performance","resumo":"Quando usar cada um e como escolher o ideal para o seu treino."},
+  {"slug":"atelie-peca-pronta","titulo":"Do ateliê à peça pronta","categoria":"bastidores","categoriaLabel":"Bastidores","resumo":"Um olhar por trás de cada etapa até a peça chegar até você."},
+  {"slug":"lavagem-secagem","titulo":"Lavagem, secagem e armazenamento corretos","categoria":"guia-de-cuidados","categoriaLabel":"Guia de Cuidados","resumo":"O passo a passo certo pra sua peça durar muito mais tempo."},
+  {"slug":"fabricacao-propria","titulo":"Fabricação própria: por que fazemos assim","categoria":"bastidores","categoriaLabel":"Bastidores","resumo":"Por que a Turkista escolheu fabricar cada peça internamente."},
+  {"slug":"pecas-movimento","titulo":"Peças que te acompanham em cada movimento","categoria":"treino-performance","categoriaLabel":"Treino & Performance","resumo":"Sustentação onde o corpo precisa, liberdade onde o treino pede."},
+  {"slug":"cores-tom-de-pele","titulo":"Cores que valorizam seu tom de pele","categoria":"estilo","categoriaLabel":"Estilo","resumo":"Um guia rápido para escolher a cor certa da próxima peça Turkista."}
+]

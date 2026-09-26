@@ -17,6 +17,7 @@ const fs = require("fs");
 const path = require("path");
 const Ajv = require("ajv");
 const { spawnSync } = require("child_process");
+const gitLocal = require("./git-local");
 
 const app = express();
 const PORTA = 3000;
@@ -66,12 +67,70 @@ app.use(express.static(path.join(__dirname, "public")));
 // disco (file://) — abrindo por aqui (http://localhost:3000/site/...) o
 // fetch funciona normalmente e o catálogo real aparece na pré-visualização.
 app.use("/site", express.static(RAIZ_PROJETO));
+
+function reescreverCaminhosPreview(html) {
+  return html.replace(/(href|src|action)=(["'])\/(?!\/)/g, '$1=$2/preview/');
+}
+
+function servirPreviewArquivo(caminhoRelativo, res) {
+  const rel = caminhoRelativo.replace(/\\/g, "/").replace(/^\/+/, "");
+  if (!rel || rel.includes("\0") || rel.split("/").includes("..")) {
+    return res.status(400).send("Caminho de preview inválido.");
+  }
+
+  const partes = rel.split("/");
+  const bloqueadas = new Set([".git", ".github", "painel-produtos", "scripts", "config"]);
+  if (partes.some((parte) => bloqueadas.has(parte))) {
+    return res.status(403).send("Arquivo não disponível na pré-visualização.");
+  }
+
+  const absoluto = path.resolve(RAIZ_PROJETO, ...partes);
+  const raizNormalizada = path.resolve(RAIZ_PROJETO) + path.sep;
+  if (!absoluto.startsWith(raizNormalizada)) {
+    return res.status(403).send("Caminho de preview inválido.");
+  }
+
+  if (!fs.existsSync(absoluto) || !fs.statSync(absoluto).isFile()) {
+    return res.status(404).send("Arquivo não encontrado no projeto.");
+  }
+
+  const extensao = path.extname(absoluto).toLowerCase();
+  if (extensao === ".html") {
+    const html = fs.readFileSync(absoluto, "utf-8");
+    return res.type("html").send(reescreverCaminhosPreview(html));
+  }
+
+  return res.sendFile(absoluto);
+}
+
+app.get("/preview", (req, res) => servirPreviewArquivo("index.html", res));
+app.get("/preview/*", (req, res) => servirPreviewArquivo(req.params[0], res));
 app.use(express.json());
-const upload = multer({ storage: multer.memoryStorage() });
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 8 * 1024 * 1024, files: 12 },
+  fileFilter: (req, file, cb) => {
+    const permitidos = new Set(["image/jpeg", "image/png", "image/webp"]);
+    if (!permitidos.has(file.mimetype)) {
+      return cb(new Error("Formato de imagem não permitido. Use JPG, PNG ou WebP."));
+    }
+    cb(null, true);
+  }
+});
 
 // ---------------------------------------------------------------
 // Utilitários gerais
 // ---------------------------------------------------------------
+
+function validarImagemProcessada(buffer, nome = "imagem") {
+  if (!buffer || buffer.length < 100) throw new Error("Arquivo de imagem vazio ou inválido.");
+  const assinatura = buffer.subarray(0, 12).toString("hex");
+  const assinaturas = ["89504e470d0a1a0a", "ffd8ff", "52494646"];
+  if (!assinaturas.some(s => assinatura.startsWith(s))) {
+    throw new Error("O conteúdo enviado não corresponde a uma imagem válida.");
+  }
+  return true;
+}
 
 function gerarSlug(texto) {
   return texto
@@ -88,6 +147,17 @@ function gerarSlug(texto) {
 function gerarId(prefixo, slug) {
   const sufixo = slug.replace(/-/g, "").slice(0, 8).padEnd(6, "0");
   return `${prefixo}_${sufixo}`;
+}
+
+function validarSlugParametro(slug) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    throw new Error("Slug inválido.");
+  }
+  return slug;
+}
+
+function validarArquivosUpload(arquivos) {
+  for (const arquivo of arquivos) validarImagemProcessada(arquivo.buffer, arquivo.originalname);
 }
 
 // Reconstrói o index.json de uma pasta de conteúdo (produtos ou artigos) —
@@ -133,17 +203,10 @@ function rodarGerador(caminhoScript) {
 
 // Acrescenta uma URL nova ao sitemap.xml, se ainda não existir. Só é
 // chamado para itens com status "publicado" — rascunhos não entram no SEO.
-function adicionarAoSitemap(caminhoRelativo) {
-  if (!fs.existsSync(CAMINHO_SITEMAP)) return;
-  const conteudo = fs.readFileSync(CAMINHO_SITEMAP, "utf-8");
-  const url = `https://www.turkista.com.br/${caminhoRelativo}`;
-  if (conteudo.includes(`<loc>${url}</loc>`)) return; // já existe
-
-  const novaEntrada = `  <url>\n    <loc>${url}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n</urlset>`;
-  const atualizado = conteudo.replace(/<\/urlset>\s*$/, novaEntrada);
-  fs.writeFileSync(CAMINHO_SITEMAP, atualizado, "utf-8");
+function atualizarSitemapDeterministico() {
+  const script = path.join(RAIZ_PROJETO, "scripts", "gerar-sitemap.py");
+  return rodarGerador(script);
 }
-
 function validarComSchema(caminhoSchema, objeto) {
   const ajv = new Ajv({ allErrors: true, strict: false });
   const schema = JSON.parse(fs.readFileSync(caminhoSchema, "utf-8"));
@@ -154,6 +217,129 @@ function validarComSchema(caminhoSchema, objeto) {
 // Garante que os manifestos já existem assim que o painel sobe.
 regenerarManifesto(PRODUTOS);
 regenerarManifesto(ARTIGOS);
+
+// ---------------------------------------------------------------
+// GIT / CMS
+// ---------------------------------------------------------------
+
+app.get("/api/git/status", (req, res) => {
+  try { res.json(gitLocal.status()); }
+  catch (erro) { res.status(500).json({ erro: "Não foi possível ler o estado do Git.", detalhes: erro.message }); }
+});
+
+app.post("/api/cms/validate", (req, res) => {
+  try {
+    const script = path.join(RAIZ_PROJETO, "scripts", "validar-conteudo.py");
+    const resultado = rodarGerador(script);
+    if (resultado.ok) return res.json({ valido: true, mensagem: "Conteúdo válido." });
+    return res.status(422).json({ valido: false, mensagem: "A validação encontrou problemas.", detalhes: resultado.motivo });
+  } catch (erro) {
+    return res.status(500).json({ valido: false, erro: erro.message });
+  }
+});
+
+app.post("/api/cms/prepare-publication", (req, res) => {
+  try {
+    const estadoGit = gitLocal.status();
+    if (estadoGit.branch === "main") {
+      return res.status(409).json({ pronto: false, mensagem: "O CMS não prepara publicação diretamente na branch main. Ative uma branch de trabalho." });
+    }
+    const validacao = rodarGerador(path.join(RAIZ_PROJETO, "scripts", "validar-conteudo.py"));
+    if (!validacao.ok) {
+      return res.status(422).json({ pronto: false, mensagem: "A validação do conteúdo falhou." });
+    }
+    regenerarManifesto(PRODUTOS);
+    regenerarManifesto(ARTIGOS);
+    if (!rodarGerador(path.join(RAIZ_PROJETO, "scripts", "gerar-ficha-produto.py")).ok) {
+      throw new Error("A geração das páginas de produto falhou.");
+    }
+    if (!rodarGerador(path.join(RAIZ_PROJETO, "scripts", "gerar-artigo-blog.py")).ok) {
+      throw new Error("A geração das páginas de artigo falhou.");
+    }
+    if (!atualizarSitemapDeterministico().ok) {
+      throw new Error("A geração do sitemap falhou.");
+    }
+    const estadoFinal = gitLocal.status();
+    return res.json({ pronto: true, branch: estadoFinal.branch, arquivosAlterados: estadoFinal.arquivosAlterados, mensagem: "Projeto validado e artefatos regenerados." });
+  } catch (erro) {
+    return res.status(500).json({ pronto: false, erro: erro.message });
+  }
+});
+
+app.get("/api/git/diff", (req, res) => {
+  try { res.json(gitLocal.diff()); }
+  catch (erro) { res.status(500).json({ erro: "Não foi possível obter o diff.", detalhes: erro.message }); }
+});
+
+app.get("/api/git/log", (req, res) => {
+  try { res.json(gitLocal.log(req.query.limit)); }
+  catch (erro) { res.status(500).json({ erro: "Não foi possível ler o histórico.", detalhes: erro.message }); }
+});
+
+app.post("/api/git/branch", (req, res) => {
+  try {
+    const nome = String(req.body.nome || "").trim();
+    const branch = gitLocal.ensureBranch(nome);
+    res.json({ mensagem: "Branch ativa.", branch });
+  } catch (erro) {
+    res.status(400).json({ erro: erro.message });
+  }
+});
+
+app.get("/api/github/auth", (req, res) => {
+  try {
+    res.json(gitLocal.githubAuth());
+  } catch (erro) {
+    res.status(500).json({ instalado: false, autenticado: false, mensagem: erro.message });
+  }
+});
+
+app.post("/api/github/pr", (req, res) => {
+  try {
+    const status = gitLocal.status();
+    if (status.branch === "main") return res.status(409).json({ erro: "Ative uma branch de trabalho antes de criar o PR." });
+    if (status.alterado) return res.status(409).json({ erro: "Existem alterações não commitadas. Crie o commit antes do PR." });
+    if (!status.upstream) return res.status(409).json({ erro: 'A branch ainda não foi enviada ao GitHub. Use "Enviar para GitHub" antes de criar o PR.' });
+    const resultado = gitLocal.pullRequest(
+      status.branch,
+      req.body.titulo || "CMS: atualização do site",
+      req.body.corpo || "Alterações preparadas pelo CMS local."
+    );
+    res.json(resultado);
+  } catch (erro) {
+    res.status(400).json({ erro: erro.message });
+  }
+});
+
+app.get("/api/git/remote", (req, res) => {
+  try {
+    res.json({ remotes: gitLocal.remote() });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/git/push", (req, res) => {
+  try {
+    const status = gitLocal.status();
+    if (status.alterado) {
+      return res.status(409).json({ erro: "Existem alterações não commitadas. Crie o commit antes do push." });
+    }
+    const resultado = gitLocal.push(status.branch);
+    res.json(resultado);
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/git/commit", (req, res) => {
+  try {
+    const resultado = gitLocal.commit(req.body.mensagem);
+    res.json(resultado);
+  } catch (erro) {
+    res.status(400).json({ erro: "Não foi possível criar o commit.", detalhes: erro.message });
+  }
+});
 
 // ---------------------------------------------------------------
 // PRODUTOS
@@ -171,7 +357,8 @@ app.get("/api/produtos", (req, res) => {
 // Devolve o cadastro completo de um produto (usado pra preencher o
 // formulário de edição com o que já está salvo).
 app.get("/api/produtos/:slug", (req, res) => {
-  const arquivo = path.join(PRODUTOS.pastaJSON, `${req.params.slug}.json`);
+  const slug = validarSlugParametro(req.params.slug);
+  const arquivo = path.join(PRODUTOS.pastaJSON, `${slug}.json`);
   if (!fs.existsSync(arquivo)) return res.status(404).json({ erro: "Produto não encontrado." });
   res.json(JSON.parse(fs.readFileSync(arquivo, "utf-8")));
 });
@@ -179,6 +366,7 @@ app.get("/api/produtos/:slug", (req, res) => {
 app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
   try {
     const corpo = req.body;
+    if (req.file) validarArquivosUpload([req.file]);
     const nome = (corpo.nome || "").trim();
     if (!nome) return res.status(400).json({ erro: "Nome do produto é obrigatório." });
 
@@ -190,6 +378,7 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
     }
 
     const arquivos = req.files || [];
+    validarArquivosUpload(arquivos);
     if (arquivos.length === 0) return res.status(400).json({ erro: "Envie pelo menos uma foto do produto." });
 
     const imagens = [];
@@ -228,16 +417,13 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
     };
 
     const { valido, erros } = validarComSchema(PRODUTOS.schema, produto);
+    if (!valido) return res.status(422).json({ erro: "Produto rejeitado pela validação do schema.", detalhes: erros });
     fs.writeFileSync(arquivoDestino, JSON.stringify(produto, null, 2), "utf-8");
     regenerarManifesto(PRODUTOS);
     const resultadoFicha = rodarGerador(PRODUTOS.gerador);
 
-    if (!valido) {
-      return res.status(200).json({ aviso: "Produto salvo, mas com pendências no schema — revise antes de publicar.", detalhes: erros, slug });
-    }
-
     if (produto.status === "publicado") {
-      adicionarAoSitemap(`${PRODUTOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico();
     }
 
     let mensagem = "Produto salvo com sucesso!";
@@ -266,13 +452,14 @@ const CAMPOS_EDICAO_PRODUTO = [
 
 app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req, res) => {
   try {
-    const slug = req.params.slug;
+    const slug = validarSlugParametro(req.params.slug);
     const arquivoDestino = path.join(PRODUTOS.pastaJSON, `${slug}.json`);
     if (!fs.existsSync(arquivoDestino)) return res.status(404).json({ erro: "Produto não encontrado." });
 
     const produtoAntigo = JSON.parse(fs.readFileSync(arquivoDestino, "utf-8"));
     const corpo = req.body;
     const arquivos = req.files || {};
+    validarArquivosUpload(Object.values(arquivos).flat());
 
     const nome = (corpo.nome || "").trim();
     if (!nome) return res.status(400).json({ erro: "Nome do produto é obrigatório." });
@@ -353,16 +540,13 @@ app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req,
     };
 
     const { valido, erros } = validarComSchema(PRODUTOS.schema, produto);
+    if (!valido) return res.status(422).json({ erro: "Produto rejeitado pela validação do schema.", detalhes: erros, slug });
     fs.writeFileSync(arquivoDestino, JSON.stringify(produto, null, 2), "utf-8");
     regenerarManifesto(PRODUTOS);
     const resultadoFicha = rodarGerador(PRODUTOS.gerador);
 
-    if (!valido) {
-      return res.status(200).json({ aviso: "Produto atualizado, mas com pendências no schema — revise antes de publicar.", detalhes: erros, slug });
-    }
-
     if (produto.status === "publicado") {
-      adicionarAoSitemap(`${PRODUTOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico();
     }
 
     let mensagem = "Produto atualizado com sucesso!";
@@ -391,7 +575,8 @@ app.get("/api/artigos", (req, res) => {
 // Devolve o cadastro completo de um artigo (pra preencher o formulário
 // de edição com o que já está salvo).
 app.get("/api/artigos/:slug", (req, res) => {
-  const arquivo = path.join(ARTIGOS.pastaJSON, `${req.params.slug}.json`);
+  const slug = validarSlugParametro(req.params.slug);
+  const arquivo = path.join(ARTIGOS.pastaJSON, `${slug}.json`);
   if (!fs.existsSync(arquivo)) return res.status(404).json({ erro: "Artigo não encontrado." });
   res.json(JSON.parse(fs.readFileSync(arquivo, "utf-8")));
 });
@@ -399,6 +584,7 @@ app.get("/api/artigos/:slug", (req, res) => {
 app.post("/api/artigos", upload.single("capa"), async (req, res) => {
   try {
     const corpo = req.body;
+    if (req.file) validarArquivosUpload([req.file]);
     const titulo = (corpo.titulo || "").trim();
     const textoCorpo = (corpo.corpo || "").trim();
     if (!titulo) return res.status(400).json({ erro: "Título do artigo é obrigatório." });
@@ -431,16 +617,13 @@ app.post("/api/artigos", upload.single("capa"), async (req, res) => {
     };
 
     const { valido, erros } = validarComSchema(ARTIGOS.schema, artigo);
+    if (!valido) return res.status(422).json({ erro: "Artigo rejeitado pela validação do schema.", detalhes: erros });
     fs.writeFileSync(arquivoDestino, JSON.stringify(artigo, null, 2), "utf-8");
     regenerarManifesto(ARTIGOS);
     const resultadoPagina = rodarGerador(ARTIGOS.gerador);
 
-    if (!valido) {
-      return res.status(200).json({ aviso: "Artigo salvo, mas com pendências no schema — revise antes de publicar.", detalhes: erros, slug });
-    }
-
     if (artigo.status === "publicado") {
-      adicionarAoSitemap(`${ARTIGOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico();
     }
 
     let mensagem = "Artigo salvo com sucesso!";
@@ -462,12 +645,13 @@ app.post("/api/artigos", upload.single("capa"), async (req, res) => {
 // enviada, senão mantém a atual.
 app.put("/api/artigos/:slug", upload.single("novaCapa"), async (req, res) => {
   try {
-    const slug = req.params.slug;
+    const slug = validarSlugParametro(req.params.slug);
     const arquivoDestino = path.join(ARTIGOS.pastaJSON, `${slug}.json`);
     if (!fs.existsSync(arquivoDestino)) return res.status(404).json({ erro: "Artigo não encontrado." });
 
     const artigoAntigo = JSON.parse(fs.readFileSync(arquivoDestino, "utf-8"));
     const corpo = req.body;
+    if (req.file) validarArquivosUpload([req.file]);
     const titulo = (corpo.titulo || "").trim();
     const textoCorpo = (corpo.corpo || "").trim();
     if (!titulo) return res.status(400).json({ erro: "Título do artigo é obrigatório." });
@@ -498,16 +682,13 @@ app.put("/api/artigos/:slug", upload.single("novaCapa"), async (req, res) => {
     };
 
     const { valido, erros } = validarComSchema(ARTIGOS.schema, artigo);
+    if (!valido) return res.status(422).json({ erro: "Artigo rejeitado pela validação do schema.", detalhes: erros, slug });
     fs.writeFileSync(arquivoDestino, JSON.stringify(artigo, null, 2), "utf-8");
     regenerarManifesto(ARTIGOS);
     const resultadoPagina = rodarGerador(ARTIGOS.gerador);
 
-    if (!valido) {
-      return res.status(200).json({ aviso: "Artigo atualizado, mas com pendências no schema — revise antes de publicar.", detalhes: erros, slug });
-    }
-
     if (artigo.status === "publicado") {
-      adicionarAoSitemap(`${ARTIGOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico();
     }
 
     let mensagem = "Artigo atualizado com sucesso!";
@@ -583,7 +764,7 @@ app.post("/api/fotos-institucionais", upload.single("foto"), async (req, res) =>
   }
 });
 
-app.listen(PORTA, () => {
+app.listen(PORTA, "127.0.0.1", () => {
   console.log("");
   console.log("=================================================");
   console.log("  Painel Turkista rodando!");

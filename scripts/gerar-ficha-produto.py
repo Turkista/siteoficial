@@ -11,9 +11,6 @@ mesmo padrão já usado nos 10 artigos do blog (Adendo 4) — quando o
 catálogo real crescer (Etapa 4), roda-se este script de novo para
 qualquer produto novo, sem editar HTML manualmente peça por peça.
 
-Além das fichas, este script também regenera o sitemap.xml (todas as
-fichas publicadas, com <lastmod> e imagens) — ver gerar_sitemap().
-
 SEO das fichas (ver docs/seo-implementacao.md):
 - título e meta description montados a partir dos dados (com override
   opcional pelos campos "seoTitulo" / "seoDescricao" do JSON do produto);
@@ -31,6 +28,7 @@ import importlib.util
 import json
 import re
 import sys
+from cms_gerados import marcar, limpar_gerados
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -919,45 +917,6 @@ def gerar_pagina(produto, todos_produtos):
     return html
 
 
-CABECALHO_SITEMAP = '''<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Gerado por scripts/gerar-ficha-produto.py — as URLs de produto são
-  refeitas a cada execução a partir de src/content/produtos/*.json
-  (só status "publicado"). As demais URLs (páginas institucionais, blog)
-  são preservadas como estão. Não edite as entradas /produto/ à mão.
-  politica-de-privacidade.html fica de fora de propósito (noindex).
--->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-'''
-
-
-def gerar_sitemap(produtos):
-    caminho = RAIZ / "sitemap.xml"
-    existente = caminho.read_text(encoding="utf-8") if caminho.exists() else ""
-    fixas = [b for b in re.findall(r"<url>.*?</url>", existente, re.S) if "/produto/" not in b]
-    # páginas de categoria (geradas por gerar-pagina-linha.py): garante que estão no sitemap
-    for chave in ("praia", "surf", "turk-fit"):
-        if f"/{chave}.html</loc>" not in existente and (RAIZ / f"{chave}.html").exists():
-            fixas.insert(2, f"<url>\n    <loc>{BASE_URL}/{chave}.html</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>")
-
-    entradas = []
-    for p in sorted(produtos, key=lambda x: x["slug"]):
-        if not esta_publicado(p):
-            continue
-        url = f"{BASE_URL}/produto/{p['slug']}.html"
-        linhas = [f"    <loc>{url}</loc>"]
-        data = p.get("dataAtualizacao") or p.get("dataCriacao")
-        if data:
-            linhas.append(f"    <lastmod>{data}</lastmod>")
-        for img in gerar_galeria(p):
-            linhas.append(f"    <image:image><image:loc>{BASE_URL}/assets/produtos/{img['arquivo']}</image:loc></image:image>")
-        entradas.append("  <url>\n" + "\n".join(linhas) + "\n  </url>")
-
-    corpo = "\n".join(["  " + f.strip() for f in fixas] + entradas)
-    caminho.write_text(CABECALHO_SITEMAP + corpo + "\n</urlset>\n", encoding="utf-8")
-    return len(entradas)
-
-
 def gerar_paginas_de_linha(produtos):
     """Regera praia.html / surf.html / turk-fit.html junto com as fichas, para
     a lista de produtos de cada linha nunca ficar defasada."""
@@ -978,16 +937,20 @@ def main():
     arquivos = sorted(p for p in CONTEUDO_DIR.glob("*.json") if p.name != "index.json")
     produtos = [json.loads(p.read_text(encoding="utf-8")) for p in arquivos]
 
-    for produto in produtos:
-        html = gerar_pagina(produto, produtos)
+    publicados = [p for p in produtos if esta_publicado(p)]
+
+    for produto in publicados:
+        html = gerar_pagina(produto, publicados)
         destino = SAIDA_DIR / f"{produto['slug']}.html"
-        destino.write_text(html, encoding="utf-8")
+        destino.write_text(marcar(html, "produto"), encoding="utf-8")
         print(f"Gerado: {destino.relative_to(RAIZ)}")
 
-    gerar_paginas_de_linha(produtos)
-    n_sitemap = gerar_sitemap(produtos)
-    print(f"\n{len(produtos)} fichas de produto geradas em produto/.")
-    print(f"sitemap.xml atualizado: {n_sitemap} fichas publicadas.")
+    removidos = limpar_gerados(SAIDA_DIR, "produto", [p["slug"] for p in publicados])
+    if removidos:
+        print("Removidos: " + ", ".join(removidos))
+
+    gerar_paginas_de_linha(publicados)
+    print(f"\n{len(publicados)} ficha(s) de produto publicada(s) gerada(s).")
 
 
 if __name__ == "__main__":
