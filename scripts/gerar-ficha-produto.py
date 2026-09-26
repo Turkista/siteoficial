@@ -914,6 +914,7 @@ def gerar_pagina(produto, todos_produtos):
         relacionados_html=gerar_relacionados_html(produto, todos_produtos),
         json_ld=gerar_json_ld(produto, imagens, url),
     )
+    html = "\n".join(linha.rstrip() for linha in html.splitlines()) + "\n"
     return html
 
 
@@ -942,7 +943,7 @@ def main():
     for produto in publicados:
         html = gerar_pagina(produto, publicados)
         destino = SAIDA_DIR / f"{produto['slug']}.html"
-        destino.write_text(marcar(html, "produto"), encoding="utf-8")
+        destino.write_text(marcar(html, "produto"), encoding="utf-8", newline="\n")
         print(f"Gerado: {destino.relative_to(RAIZ)}")
 
     removidos = limpar_gerados(SAIDA_DIR, "produto", [p["slug"] for p in publicados])
