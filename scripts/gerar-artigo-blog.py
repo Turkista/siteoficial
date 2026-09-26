@@ -81,6 +81,28 @@ def calcular_tempo_leitura(corpo_texto):
     return f"{minutos} min de leitura"
 
 
+def meta_description_seo(resumo, corpo_texto, limite=160):
+    """Monta a meta description usando apenas texto já presente no artigo."""
+    resumo = " ".join((resumo or "").split()).strip()
+    if len(resumo) >= 120:
+        return resumo[:limite].rstrip(" ,;:-")
+
+    primeiro_paragrafo = re.split(r"\n\s*\n", (corpo_texto or "").strip(), maxsplit=1)[0]
+    primeiro_paragrafo = re.sub(r"^##\s+", "", primeiro_paragrafo)
+    primeiro_paragrafo = " ".join(primeiro_paragrafo.split()).strip()
+
+    if primeiro_paragrafo and primeiro_paragrafo.lower() != resumo.lower():
+        combinado = f"{resumo} {primeiro_paragrafo}".strip()
+    else:
+        combinado = resumo
+
+    if len(combinado) <= limite:
+        return combinado
+
+    corte = combinado[:limite].rsplit(" ", 1)[0].rstrip(" ,;:-.")
+    return f"{corte}."
+
+
 def escolher_relacionados(artigo, todos):
     """3 relacionados: prioriza mesma categoria, completa com os demais."""
     outros = [a for a in todos if a["slug"] != artigo["slug"]]
@@ -91,9 +113,10 @@ def escolher_relacionados(artigo, todos):
 
 def card_relacionado_html(art):
     label = art.get("categoriaLabel") or CATEGORIA_LABEL.get(art["categoria"], art["categoria"])
+    alt = art.get("capaAlt") or art.get("titulo") or "Imagem do artigo"
     return f'''        <a href="{esc_attr_url(art['slug'])}.html" class="card-artigo" data-categoria-artigo="{esc(art['categoria'])}">
           <div class="card-artigo__imagem">
-            <img src="../assets/blog/{esc_attr_url(art['slug'])}.webp" alt="" loading="lazy" onerror="this.style.display='none'">
+            <img src="../assets/blog/{esc_attr_url(art['slug'])}.webp" alt="{esc(alt)}" loading="lazy" onerror="this.style.display='none'">
           </div>
           <span class="card-artigo__categoria">{esc(label)}</span>
           <h3 class="card-artigo__titulo">{esc(art['titulo'])}</h3>
@@ -108,8 +131,11 @@ def gerar_pagina(artigo, relacionados):
     titulo = artigo["titulo"]
     categoria_label = CATEGORIA_LABEL.get(artigo["categoria"], artigo["categoria"])
     resumo = artigo["resumo"]
+    meta_description = meta_description_seo(resumo, artigo.get("corpo", ""))
     slug = artigo["slug"]
-    capa_arquivo = artigo["capa"]["arquivo"]
+    capa = artigo["capa"]
+    capa_arquivo = capa["arquivo"]
+    capa_alt = capa.get("alt") or titulo
     tempo_leitura = artigo.get("tempoLeitura") or calcular_tempo_leitura(artigo["corpo"])
     corpo_html = corpo_para_html(artigo["corpo"])
     relacionados_html = "\n".join(card_relacionado_html(a) for a in relacionados)
@@ -117,21 +143,26 @@ def gerar_pagina(artigo, relacionados):
     url_artigo = f"https://www.turkista.com.br/blog/{slug}.html"
     imagem_capa_url = f"https://www.turkista.com.br/assets/blog/{capa_arquivo}"
 
-    # datePublished só entra se o artigo tiver dataCriacao real vinda do
-    # painel — nunca inventamos data de publicação.
+    # Datas vêm do conteúdo. Quando dataAtualizacao não existe, usamos
+    # dataCriacao como fallback para o artigo recém-publicado.
     data_criacao = artigo.get("dataCriacao")
-    campo_data = f',\n  "datePublished": "{esc(data_criacao)}"' if data_criacao else ""
+    data_atualizacao = artigo.get("dataAtualizacao") or data_criacao
+    campos_data = ""
+    if data_criacao:
+        campos_data += f',\n  "datePublished": "{esc(data_criacao)}"'
+    if data_atualizacao:
+        campos_data += f',\n  "dateModified": "{esc(data_atualizacao)}"'
 
     json_ld = f'''{{
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "{esc(titulo)}",
-  "description": "{esc(resumo)}",
+  "description": "{esc(meta_description)}",
   "image": "{imagem_capa_url}",
   "articleSection": "{esc(categoria_label)}",
   "author": {{ "@type": "Organization", "name": "Turkista" }},
   "publisher": {{ "@type": "Organization", "name": "Turkista" }},
-  "mainEntityOfPage": {{ "@type": "WebPage", "@id": "{url_artigo}" }}{campo_data}
+  "mainEntityOfPage": {{ "@type": "WebPage", "@id": "{url_artigo}" }}{campos_data}
 }}
 </script>
 <script type="application/ld+json">
@@ -154,20 +185,22 @@ def gerar_pagina(artigo, relacionados):
 <link rel="icon" href="/public/favicon/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/public/favicon/apple-touch-icon.png">
 <title>{esc(titulo)} — Revista Turkista</title>
-<meta name="description" content="{esc(resumo)}">
+<meta name="description" content="{esc(meta_description)}">
 <link rel="canonical" href="https://www.turkista.com.br/blog/{slug}.html">
 <link rel="preload" as="image" href="../assets/blog/{capa_arquivo}" fetchpriority="high">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Turkista">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="{esc(titulo)} — Revista Turkista">
-<meta property="og:description" content="{esc(resumo)}">
+<meta property="og:description" content="{esc(meta_description)}">
 <meta property="og:url" content="https://www.turkista.com.br/blog/{slug}.html">
 <meta property="og:image" content="https://www.turkista.com.br/assets/blog/{capa_arquivo}">
 <meta property="article:section" content="{esc(categoria_label)}">
+{f'<meta property="article:published_time" content="{esc(data_criacao)}">' if data_criacao else ''}
+{f'<meta property="article:modified_time" content="{esc(data_atualizacao)}">' if data_atualizacao else ''}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{esc(titulo)} — Revista Turkista">
-<meta name="twitter:description" content="{esc(resumo)}">
+<meta name="twitter:description" content="{esc(meta_description)}">
 <meta name="twitter:image" content="https://www.turkista.com.br/assets/blog/{capa_arquivo}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,7 +275,7 @@ def gerar_pagina(artigo, relacionados):
   <section class="secao" style="padding-top:var(--esp-6)">
     <div class="container">
       <div class="artigo-imagem">
-        <img src="../assets/blog/{capa_arquivo}" alt="" loading="eager" fetchpriority="high" onerror="this.style.display='none'">
+        <img src="../assets/blog/{capa_arquivo}" alt="{esc(capa_alt)}" loading="eager" fetchpriority="high" onerror="this.style.display='none'">
       </div>
 
       <div class="artigo-corpo">
@@ -345,6 +378,7 @@ def main():
             "categoria": a["categoria"],
             "categoriaLabel": CATEGORIA_LABEL.get(a["categoria"], a["categoria"]),
             "resumo": a["resumo"],
+            "capaAlt": a.get("capa", {}).get("alt") or a["titulo"],
         }
         for a in artigos_novos
         if a.get("status") == "publicado"
@@ -355,8 +389,9 @@ def main():
     for artigo in publicados:
         relacionados = escolher_relacionados(artigo, pool_relacionados)
         html = gerar_pagina(artigo, relacionados)
+        html = "\n".join(linha.rstrip() for linha in html.splitlines()) + "\n"
         destino = SAIDA_DIR / f"{artigo['slug']}.html"
-        destino.write_text(marcar(html, "artigo"), encoding="utf-8")
+        destino.write_text(marcar(html, "artigo"), encoding="utf-8", newline="\n")
         print(f"  gerado: blog/{artigo['slug']}.html")
 
     removidos = limpar_gerados(SAIDA_DIR, "artigo", [a["slug"] for a in publicados])
