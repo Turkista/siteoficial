@@ -97,4 +97,17 @@ function log(limit = 10) {
   });
 }
 
-module.exports = { status, diff, ensureBranch, commit, log };
+function remote() {
+  return run(["remote", "-v"]).split("\n").filter(Boolean);
+}
+
+function push(branchName) {
+  const branch = branchName || run(["branch", "--show-current"]);
+  if (!/^[a-zA-Z0-9._/-]{1,80}$/.test(branch)) throw new Error("Nome de branch inválido.");
+  const remotes = remote();
+  if (!remotes.length) throw new Error("Nenhum remote Git configurado.");
+  run(["push", "-u", "origin", branch]);
+  return { pushed: true, branch, remote: "origin" };
+}
+
+module.exports = { status, diff, ensureBranch, commit, log, remote, push };
