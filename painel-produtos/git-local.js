@@ -98,6 +98,55 @@ function commit(message) {
   return { committed: true, commit: run(["rev-parse", "--short", "HEAD"]), mensagem: "Commit criado com sucesso." };
 }
 
+
+
+function runGh(args, options = {}) {
+  const result = spawnSync("gh", args, {
+    cwd: ROOT,
+    encoding: "utf-8",
+    windowsHide: true,
+    ...options,
+  });
+  if (result.error) throw new Error(result.error.message);
+  if (result.status !== 0) throw new Error((result.stderr || result.stdout || "GitHub CLI retornou erro.").trim());
+  return (result.stdout || "").trim();
+}
+
+function githubAuth() {
+  try {
+    const output = runGh(["auth", "status", "--active", "--hostname", "github.com"]);
+    return { instalado: true, autenticado: true, mensagem: output || "GitHub autenticado." };
+  } catch (erro) {
+    const mensagem = erro.message || "";
+    const instalado = !/ENOENT|não é reconhecido|not found/i.test(mensagem);
+    return {
+      instalado,
+      autenticado: false,
+      mensagem: instalado
+        ? "GitHub CLI instalado, mas não há uma autenticação ativa."
+        : "GitHub CLI não está instalado ou não está disponível no PATH.",
+    };
+  }
+}
+
+function pullRequest(branchName, title, body) {
+  const branch = branchName || run(["branch", "--show-current"]);
+  if (branch === "main") throw new Error("O CMS não pode criar PR a partir da branch main.");
+  if (!/^[a-zA-Z0-9._/-]{1,80}$/.test(branch)) throw new Error("Nome de branch inválido.");
+  const auth = githubAuth();
+  if (!auth.autenticado) throw new Error(auth.mensagem);
+  if (!hasRemote()) throw new Error("O remote origin não está configurado neste projeto.");
+  const url = runGh([
+    "pr", "create",
+    "--base", "main",
+    "--head", branch,
+    "--title", String(title || "CMS: atualização do site").trim(),
+    "--body", String(body || "Alterações preparadas pelo CMS local.").trim(),
+    "--draft",
+  ]);
+  return { criado: true, branch, url };
+}
+
 function log(limit = 10) {
   const safeLimit = Math.max(1, Math.min(Number(limit) || 10, 50));
   const output = run(["log", "-" + safeLimit, "--pretty=format:%h|%ad|%an|%s", "--date=short"]);
@@ -131,4 +180,4 @@ function push(branchName) {
   return { pushed: true, branch, remote: "origin" };
 }
 
-module.exports = { status, diff, ensureBranch, commit, log, remote, hasRemote, push };
+module.exports = { status, diff, ensureBranch, commit, log, remote, hasRemote, push, githubAuth, pullRequest };
