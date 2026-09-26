@@ -149,6 +149,17 @@ function gerarId(prefixo, slug) {
   return `${prefixo}_${sufixo}`;
 }
 
+function validarSlugParametro(slug) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    throw new Error("Slug inválido.");
+  }
+  return slug;
+}
+
+function validarArquivosUpload(arquivos) {
+  for (const arquivo of arquivos) validarImagemProcessada(arquivo.buffer, arquivo.originalname);
+}
+
 // Reconstrói o index.json de uma pasta de conteúdo (produtos ou artigos) —
 // é este arquivo que o site lê no navegador pra montar os cards sozinho.
 function regenerarManifesto(config) {
@@ -321,7 +332,8 @@ app.get("/api/produtos", (req, res) => {
 // Devolve o cadastro completo de um produto (usado pra preencher o
 // formulário de edição com o que já está salvo).
 app.get("/api/produtos/:slug", (req, res) => {
-  const arquivo = path.join(PRODUTOS.pastaJSON, `${req.params.slug}.json`);
+  const slug = validarSlugParametro(req.params.slug);
+  const arquivo = path.join(PRODUTOS.pastaJSON, `${slug}.json`);
   if (!fs.existsSync(arquivo)) return res.status(404).json({ erro: "Produto não encontrado." });
   res.json(JSON.parse(fs.readFileSync(arquivo, "utf-8")));
 });
@@ -329,6 +341,7 @@ app.get("/api/produtos/:slug", (req, res) => {
 app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
   try {
     const corpo = req.body;
+    if (req.file) validarArquivosUpload([req.file]);
     const nome = (corpo.nome || "").trim();
     if (!nome) return res.status(400).json({ erro: "Nome do produto é obrigatório." });
 
@@ -340,6 +353,7 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
     }
 
     const arquivos = req.files || [];
+    validarArquivosUpload(arquivos);
     if (arquivos.length === 0) return res.status(400).json({ erro: "Envie pelo menos uma foto do produto." });
 
     const imagens = [];
@@ -413,13 +427,14 @@ const CAMPOS_EDICAO_PRODUTO = [
 
 app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req, res) => {
   try {
-    const slug = req.params.slug;
+    const slug = validarSlugParametro(req.params.slug);
     const arquivoDestino = path.join(PRODUTOS.pastaJSON, `${slug}.json`);
     if (!fs.existsSync(arquivoDestino)) return res.status(404).json({ erro: "Produto não encontrado." });
 
     const produtoAntigo = JSON.parse(fs.readFileSync(arquivoDestino, "utf-8"));
     const corpo = req.body;
     const arquivos = req.files || {};
+    validarArquivosUpload(Object.values(arquivos).flat());
 
     const nome = (corpo.nome || "").trim();
     if (!nome) return res.status(400).json({ erro: "Nome do produto é obrigatório." });
@@ -535,7 +550,8 @@ app.get("/api/artigos", (req, res) => {
 // Devolve o cadastro completo de um artigo (pra preencher o formulário
 // de edição com o que já está salvo).
 app.get("/api/artigos/:slug", (req, res) => {
-  const arquivo = path.join(ARTIGOS.pastaJSON, `${req.params.slug}.json`);
+  const slug = validarSlugParametro(req.params.slug);
+  const arquivo = path.join(ARTIGOS.pastaJSON, `${slug}.json`);
   if (!fs.existsSync(arquivo)) return res.status(404).json({ erro: "Artigo não encontrado." });
   res.json(JSON.parse(fs.readFileSync(arquivo, "utf-8")));
 });
@@ -543,6 +559,7 @@ app.get("/api/artigos/:slug", (req, res) => {
 app.post("/api/artigos", upload.single("capa"), async (req, res) => {
   try {
     const corpo = req.body;
+    if (req.file) validarArquivosUpload([req.file]);
     const titulo = (corpo.titulo || "").trim();
     const textoCorpo = (corpo.corpo || "").trim();
     if (!titulo) return res.status(400).json({ erro: "Título do artigo é obrigatório." });
@@ -603,12 +620,13 @@ app.post("/api/artigos", upload.single("capa"), async (req, res) => {
 // enviada, senão mantém a atual.
 app.put("/api/artigos/:slug", upload.single("novaCapa"), async (req, res) => {
   try {
-    const slug = req.params.slug;
+    const slug = validarSlugParametro(req.params.slug);
     const arquivoDestino = path.join(ARTIGOS.pastaJSON, `${slug}.json`);
     if (!fs.existsSync(arquivoDestino)) return res.status(404).json({ erro: "Artigo não encontrado." });
 
     const artigoAntigo = JSON.parse(fs.readFileSync(arquivoDestino, "utf-8"));
     const corpo = req.body;
+    if (req.file) validarArquivosUpload([req.file]);
     const titulo = (corpo.titulo || "").trim();
     const textoCorpo = (corpo.corpo || "").trim();
     if (!titulo) return res.status(400).json({ erro: "Título do artigo é obrigatório." });
