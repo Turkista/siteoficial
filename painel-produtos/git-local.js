@@ -62,6 +62,7 @@ function commit(message) {
     "assets/hero/",
     "assets/linhas/",
     "assets/sobre/",
+    "config/blog-legado.json",
     "produto/",
     "blog/",
     "sitemap.xml",
