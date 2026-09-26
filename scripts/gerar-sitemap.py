@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://www.turkista.com.br"
 OUT = ROOT / "sitemap.xml"
 EXCLUIDAS = {"politica-de-privacidade.html", "404.html"}
+BLOG_LEGADO = ROOT / "config" / "blog-legado.json"
 
 def add_url(parent, path, lastmod=None, priority="0.8"):
     url = SubElement(parent, "url")
@@ -32,6 +33,11 @@ def main():
         if data.get("status") == "publicado":
             add_url(root, f"produto/{data['slug']}.html",
                     data.get("dataAtualizacao") or data.get("dataCriacao"), "0.6")
+
+    if BLOG_LEGADO.exists():
+        for data in json.loads(BLOG_LEGADO.read_text(encoding="utf-8")):
+            if data.get("slug"):
+                add_url(root, f"blog/{data['slug']}.html", priority="0.6")
 
     artigos = ROOT / "src" / "content" / "artigos"
     for path in sorted(artigos.glob("*.json")):
