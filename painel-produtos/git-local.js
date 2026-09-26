@@ -1,4 +1,3 @@
-const fs = require("fs");
 const { spawnSync } = require("child_process");
 
 const ROOT = require("path").resolve(__dirname, "..");
@@ -45,6 +44,9 @@ function ensureBranch(branchName) {
   const current = run(["branch", "--show-current"]);
   if (branchName === "main") throw new Error("A branch main é protegida para publicação. O CMS trabalha em uma branch de trabalho.");
   if (current === branchName) return current;
+  if (run(["status", "--porcelain"])) {
+    throw new Error("Existem alterações não commitadas. Finalize ou descarte as alterações antes de trocar de branch.");
+  }
   let exists = false;
   try { run(["show-ref", "--verify", "refs/heads/" + branchName]); exists = true; } catch {}
   if (exists) run(["switch", branchName]);
