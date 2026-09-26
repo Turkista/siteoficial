@@ -17,6 +17,7 @@ const fs = require("fs");
 const path = require("path");
 const Ajv = require("ajv");
 const { spawnSync } = require("child_process");
+const gitLocal = require("./git-local");
 
 const app = express();
 const PORTA = 3000;
@@ -154,6 +155,44 @@ function validarComSchema(caminhoSchema, objeto) {
 // Garante que os manifestos já existem assim que o painel sobe.
 regenerarManifesto(PRODUTOS);
 regenerarManifesto(ARTIGOS);
+
+// ---------------------------------------------------------------
+// GIT / CMS
+// ---------------------------------------------------------------
+
+app.get("/api/git/status", (req, res) => {
+  try { res.json(gitLocal.status()); }
+  catch (erro) { res.status(500).json({ erro: "Não foi possível ler o estado do Git.", detalhes: erro.message }); }
+});
+
+app.get("/api/git/diff", (req, res) => {
+  try { res.json(gitLocal.diff()); }
+  catch (erro) { res.status(500).json({ erro: "Não foi possível obter o diff.", detalhes: erro.message }); }
+});
+
+app.get("/api/git/log", (req, res) => {
+  try { res.json(gitLocal.log(req.query.limit)); }
+  catch (erro) { res.status(500).json({ erro: "Não foi possível ler o histórico.", detalhes: erro.message }); }
+});
+
+app.post("/api/git/branch", (req, res) => {
+  try {
+    const nome = String(req.body.nome || "").trim();
+    const branch = gitLocal.ensureBranch(nome);
+    res.json({ mensagem: "Branch ativa.", branch });
+  } catch (erro) {
+    res.status(400).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/git/commit", (req, res) => {
+  try {
+    const resultado = gitLocal.commit(req.body.mensagem);
+    res.json(resultado);
+  } catch (erro) {
+    res.status(400).json({ erro: "Não foi possível criar o commit.", detalhes: erro.message });
+  }
+});
 
 // ---------------------------------------------------------------
 // PRODUTOS
@@ -583,7 +622,7 @@ app.post("/api/fotos-institucionais", upload.single("foto"), async (req, res) =>
   }
 });
 
-app.listen(PORTA, () => {
+app.listen(PORTA, "127.0.0.1", () => {
   console.log("");
   console.log("=================================================");
   console.log("  Painel Turkista rodando!");
