@@ -191,6 +191,10 @@ app.post("/api/cms/validate", (req, res) => {
 
 app.post("/api/cms/prepare-publication", (req, res) => {
   try {
+    const estadoGit = gitLocal.status();
+    if (estadoGit.branch === "main") {
+      return res.status(409).json({ pronto: false, mensagem: "O CMS não prepara publicação diretamente na branch main. Ative uma branch de trabalho." });
+    }
     const validacao = rodarGerador(path.join(RAIZ_PROJETO, "scripts", "validar-conteudo.py"));
     if (validacao !== true) {
       return res.status(422).json({ pronto: false, mensagem: "A validação do conteúdo falhou." });
@@ -206,7 +210,8 @@ app.post("/api/cms/prepare-publication", (req, res) => {
     if (atualizarSitemapDeterministico() !== true) {
       throw new Error("A geração do sitemap falhou.");
     }
-    return res.json({ pronto: true, mensagem: "Projeto validado e artefatos regenerados." });
+    const estadoFinal = gitLocal.status();
+    return res.json({ pronto: true, branch: estadoFinal.branch, arquivosAlterados: estadoFinal.arquivosAlterados, mensagem: "Projeto validado e artefatos regenerados." });
   } catch (erro) {
     return res.status(500).json({ pronto: false, erro: erro.message });
   }
