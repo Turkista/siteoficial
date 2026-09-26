@@ -43,6 +43,7 @@ function diff() {
 function ensureBranch(branchName) {
   if (!/^[a-zA-Z0-9._/-]{1,80}$/.test(branchName)) throw new Error("Nome de branch inválido.");
   const current = run(["branch", "--show-current"]);
+  if (branchName === "main") throw new Error("A branch main é protegida para publicação. O CMS trabalha em uma branch de trabalho.");
   if (current === branchName) return current;
   let exists = false;
   try { run(["show-ref", "--verify", "refs/heads/" + branchName]); exists = true; } catch {}
