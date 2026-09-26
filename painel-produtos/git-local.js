@@ -97,12 +97,22 @@ function log(limit = 10) {
   });
 }
 
+
+function hasRemote() {
+  try {
+    return Boolean(run(["remote", "get-url", "origin"]));
+  } catch {
+    return false;
+  }
+}
+
 function remote() {
   return run(["remote", "-v"]).split("\n").filter(Boolean);
 }
 
 function push(branchName) {
   const branch = branchName || run(["branch", "--show-current"]);
+  if (!hasRemote()) throw new Error("O remote origin não está configurado neste projeto.");
   if (!/^[a-zA-Z0-9._/-]{1,80}$/.test(branch)) throw new Error("Nome de branch inválido.");
   const remotes = remote();
   if (!remotes.length) throw new Error("Nenhum remote Git configurado.");
@@ -110,4 +120,4 @@ function push(branchName) {
   return { pushed: true, branch, remote: "origin" };
 }
 
-module.exports = { status, diff, ensureBranch, commit, log, remote, push };
+module.exports = { status, diff, ensureBranch, commit, log, remote, hasRemote, push };
