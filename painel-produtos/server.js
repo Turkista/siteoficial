@@ -260,16 +260,13 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
     };
 
     const { valido, erros } = validarComSchema(PRODUTOS.schema, produto);
+    if (!valido) return res.status(422).json({ erro: "Produto rejeitado pela validação do schema.", detalhes: erros });
     fs.writeFileSync(arquivoDestino, JSON.stringify(produto, null, 2), "utf-8");
     regenerarManifesto(PRODUTOS);
     const resultadoFicha = rodarGerador(PRODUTOS.gerador);
 
-    if (!valido) {
-      return res.status(200).json({ aviso: "Produto salvo, mas com pendências no schema — revise antes de publicar.", detalhes: erros, slug });
-    }
-
     if (produto.status === "publicado") {
-      atualizarSitemapDeterministico(`${PRODUTOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico();
     }
 
     let mensagem = "Produto salvo com sucesso!";
@@ -385,16 +382,13 @@ app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req,
     };
 
     const { valido, erros } = validarComSchema(PRODUTOS.schema, produto);
+    if (!valido) return res.status(422).json({ erro: "Produto rejeitado pela validação do schema.", detalhes: erros, slug });
     fs.writeFileSync(arquivoDestino, JSON.stringify(produto, null, 2), "utf-8");
     regenerarManifesto(PRODUTOS);
     const resultadoFicha = rodarGerador(PRODUTOS.gerador);
 
-    if (!valido) {
-      return res.status(200).json({ aviso: "Produto atualizado, mas com pendências no schema — revise antes de publicar.", detalhes: erros, slug });
-    }
-
     if (produto.status === "publicado") {
-      atualizarSitemapDeterministico(`${PRODUTOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico();
     }
 
     let mensagem = "Produto atualizado com sucesso!";
@@ -463,16 +457,13 @@ app.post("/api/artigos", upload.single("capa"), async (req, res) => {
     };
 
     const { valido, erros } = validarComSchema(ARTIGOS.schema, artigo);
+    if (!valido) return res.status(422).json({ erro: "Artigo rejeitado pela validação do schema.", detalhes: erros });
     fs.writeFileSync(arquivoDestino, JSON.stringify(artigo, null, 2), "utf-8");
     regenerarManifesto(ARTIGOS);
     const resultadoPagina = rodarGerador(ARTIGOS.gerador);
 
-    if (!valido) {
-      return res.status(200).json({ aviso: "Artigo salvo, mas com pendências no schema — revise antes de publicar.", detalhes: erros, slug });
-    }
-
     if (artigo.status === "publicado") {
-      atualizarSitemapDeterministico(`${ARTIGOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico();
     }
 
     let mensagem = "Artigo salvo com sucesso!";
@@ -530,16 +521,13 @@ app.put("/api/artigos/:slug", upload.single("novaCapa"), async (req, res) => {
     };
 
     const { valido, erros } = validarComSchema(ARTIGOS.schema, artigo);
+    if (!valido) return res.status(422).json({ erro: "Artigo rejeitado pela validação do schema.", detalhes: erros, slug });
     fs.writeFileSync(arquivoDestino, JSON.stringify(artigo, null, 2), "utf-8");
     regenerarManifesto(ARTIGOS);
     const resultadoPagina = rodarGerador(ARTIGOS.gerador);
 
-    if (!valido) {
-      return res.status(200).json({ aviso: "Artigo atualizado, mas com pendências no schema — revise antes de publicar.", detalhes: erros, slug });
-    }
-
     if (artigo.status === "publicado") {
-      atualizarSitemapDeterministico(`${ARTIGOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico();
     }
 
     let mensagem = "Artigo atualizado com sucesso!";
