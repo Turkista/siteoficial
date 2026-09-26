@@ -10,7 +10,10 @@ OUT = ROOT / "sitemap.xml"
 EXCLUIDAS = {"politica-de-privacidade.html", "404.html"}
 BLOG_LEGADO = ROOT / "config" / "blog-legado.json"
 
-def add_url(parent, path, lastmod=None, priority="0.8"):
+def add_url(parent, path, seen, lastmod=None, priority="0.8"):
+    if path in seen:
+        return
+    seen.add(path)
     url = SubElement(parent, "url")
     SubElement(url, "loc").text = f"{BASE}/{path}"
     if lastmod:
@@ -20,10 +23,11 @@ def add_url(parent, path, lastmod=None, priority="0.8"):
 
 def main():
     root = Element("urlset", {"xmlns": "http://www.sitemaps.org/schemas/sitemap/0.9"})
+    seen = set()
 
     for html in sorted(ROOT.glob("*.html")):
         if html.name not in EXCLUIDAS:
-            add_url(root, html.name)
+            add_url(root, html.name, seen)
 
     produtos = ROOT / "src" / "content" / "produtos"
     for path in sorted(produtos.glob("*.json")):
@@ -31,13 +35,13 @@ def main():
             continue
         data = json.loads(path.read_text(encoding="utf-8"))
         if data.get("status") == "publicado":
-            add_url(root, f"produto/{data['slug']}.html",
+            add_url(root, f"produto/{data['slug']}.html", seen,
                     data.get("dataAtualizacao") or data.get("dataCriacao"), "0.6")
 
     if BLOG_LEGADO.exists():
         for data in json.loads(BLOG_LEGADO.read_text(encoding="utf-8")):
             if data.get("slug"):
-                add_url(root, f"blog/{data['slug']}.html", priority="0.6")
+                add_url(root, f"blog/{data['slug']}.html", seen, priority="0.6")
 
     artigos = ROOT / "src" / "content" / "artigos"
     for path in sorted(artigos.glob("*.json")):
@@ -45,7 +49,7 @@ def main():
             continue
         data = json.loads(path.read_text(encoding="utf-8"))
         if data.get("status") == "publicado":
-            add_url(root, f"blog/{data['slug']}.html",
+            add_url(root, f"blog/{data['slug']}.html", seen,
                     data.get("dataAtualizacao") or data.get("dataCriacao"), "0.6")
 
     indent(root, space="  ")
