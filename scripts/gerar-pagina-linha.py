@@ -21,6 +21,7 @@ import importlib.util
 import json
 import re
 import sys
+from cms_gerados import marcar
 import unicodedata
 from pathlib import Path
 
@@ -449,7 +450,7 @@ def gerar_todas(produtos, ficha=None):
         if not resultado:
             continue
         html, n = resultado
-        (RAIZ / f"{chave}.html").write_text(html, encoding="utf-8")
+        (RAIZ / f"{chave}.html").write_text(marcar(html, "linha"), encoding="utf-8")
         print(f"Gerado: {chave}.html ({n} produtos)")
         total += 1
     return total
