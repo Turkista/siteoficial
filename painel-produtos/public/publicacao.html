@@ -23,7 +23,7 @@ function mostrarPreviews(arquivos){
   const box=document.getElementById("previewLinks");
   const links=["<a href='/preview/index.html' target='_blank' rel='noopener'>Abrir Home local</a>"];
   for(const arquivo of arquivos||[]){
-    if(!/^(produto|blog)\\/.+\\.html$/i.test(arquivo) && !/^[a-z0-9-]+\\.html$/i.test(arquivo)) continue;
+    if(!/^(produto|blog)\/.+\.html$/i.test(arquivo) && !/^[a-z0-9-]+\.html$/i.test(arquivo)) continue;
     links.push("<a href='/preview/"+arquivo.replace(/'/g,"%27")+"' target='_blank' rel='noopener'>Pré-visualizar "+arquivo+"</a>");
   }
   box.innerHTML=links.join("");
