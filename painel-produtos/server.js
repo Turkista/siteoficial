@@ -299,7 +299,7 @@ app.post("/api/github/pr", (req, res) => {
     const status = gitLocal.status();
     if (status.branch === "main") return res.status(409).json({ erro: "Ative uma branch de trabalho antes de criar o PR." });
     if (status.alterado) return res.status(409).json({ erro: "Existem alterações não commitadas. Crie o commit antes do PR." });
-    if (!status.upstream) return res.status(409).json({ erro: "A branch ainda não foi enviada ao GitHub. Use "Enviar para GitHub" antes de criar o PR." });
+    if (!status.upstream) return res.status(409).json({ erro: 'A branch ainda não foi enviada ao GitHub. Use "Enviar para GitHub" antes de criar o PR.' });
     const resultado = gitLocal.pullRequest(
       status.branch,
       req.body.titulo || "CMS: atualização do site",
