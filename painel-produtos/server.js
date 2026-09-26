@@ -158,6 +158,40 @@ app.get("/api/git/status", (req, res) => {
   catch (erro) { res.status(500).json({ erro: "Não foi possível ler o estado do Git.", detalhes: erro.message }); }
 });
 
+app.post("/api/cms/validate", (req, res) => {
+  try {
+    const script = path.join(RAIZ_PROJETO, "scripts", "validar-conteudo.py");
+    const resultado = rodarGerador(script);
+    if (resultado === true) return res.json({ valido: true, mensagem: "Conteúdo válido." });
+    return res.status(422).json({ valido: false, mensagem: "A validação encontrou problemas." });
+  } catch (erro) {
+    return res.status(500).json({ valido: false, erro: erro.message });
+  }
+});
+
+app.post("/api/cms/prepare-publication", (req, res) => {
+  try {
+    const validacao = rodarGerador(path.join(RAIZ_PROJETO, "scripts", "validar-conteudo.py"));
+    if (validacao !== true) {
+      return res.status(422).json({ pronto: false, mensagem: "A validação do conteúdo falhou." });
+    }
+    regenerarManifesto(PRODUTOS);
+    regenerarManifesto(ARTIGOS);
+    if (rodarGerador(path.join(RAIZ_PROJETO, "scripts", "gerar-ficha-produto.py")) !== true) {
+      throw new Error("A geração das páginas de produto falhou.");
+    }
+    if (rodarGerador(path.join(RAIZ_PROJETO, "scripts", "gerar-artigo-blog.py")) !== true) {
+      throw new Error("A geração das páginas de artigo falhou.");
+    }
+    if (atualizarSitemapDeterministico() !== true) {
+      throw new Error("A geração do sitemap falhou.");
+    }
+    return res.json({ pronto: true, mensagem: "Projeto validado e artefatos regenerados." });
+  } catch (erro) {
+    return res.status(500).json({ pronto: false, erro: erro.message });
+  }
+});
+
 app.get("/api/git/diff", (req, res) => {
   try { res.json(gitLocal.diff()); }
   catch (erro) { res.status(500).json({ erro: "Não foi possível obter o diff.", detalhes: erro.message }); }
