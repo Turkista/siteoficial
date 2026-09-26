@@ -67,6 +67,44 @@ app.use(express.static(path.join(__dirname, "public")));
 // disco (file://) — abrindo por aqui (http://localhost:3000/site/...) o
 // fetch funciona normalmente e o catálogo real aparece na pré-visualização.
 app.use("/site", express.static(RAIZ_PROJETO));
+
+function reescreverCaminhosPreview(html) {
+  return html.replace(/(href|src|action)=(["'])\/(?!\/)/g, '$1=$2/preview/');
+}
+
+function servirPreviewArquivo(caminhoRelativo, res) {
+  const rel = caminhoRelativo.replace(/\\/g, "/").replace(/^\/+/, "");
+  if (!rel || rel.includes("\0") || rel.split("/").includes("..")) {
+    return res.status(400).send("Caminho de preview inválido.");
+  }
+
+  const partes = rel.split("/");
+  const bloqueadas = new Set([".git", ".github", "painel-produtos", "scripts", "config"]);
+  if (partes.some((parte) => bloqueadas.has(parte))) {
+    return res.status(403).send("Arquivo não disponível na pré-visualização.");
+  }
+
+  const absoluto = path.resolve(RAIZ_PROJETO, ...partes);
+  const raizNormalizada = path.resolve(RAIZ_PROJETO) + path.sep;
+  if (!absoluto.startsWith(raizNormalizada)) {
+    return res.status(403).send("Caminho de preview inválido.");
+  }
+
+  if (!fs.existsSync(absoluto) || !fs.statSync(absoluto).isFile()) {
+    return res.status(404).send("Arquivo não encontrado no projeto.");
+  }
+
+  const extensao = path.extname(absoluto).toLowerCase();
+  if (extensao === ".html") {
+    const html = fs.readFileSync(absoluto, "utf-8");
+    return res.type("html").send(reescreverCaminhosPreview(html));
+  }
+
+  return res.sendFile(absoluto);
+}
+
+app.get("/preview", (req, res) => servirPreviewArquivo("index.html", res));
+app.get("/preview/*", (req, res) => servirPreviewArquivo(req.params[0], res));
 app.use(express.json());
 const upload = multer({
   storage: multer.memoryStorage(),
