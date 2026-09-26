@@ -52,6 +52,7 @@ function ensureBranch(branchName) {
 }
 
 function commit(message) {
+  if (run(["branch", "--show-current"]) === "main") throw new Error("O CMS não pode criar commits diretamente na branch main. Use cms-foundation ou outra branch de trabalho.");
   if (!message || message.trim().length < 3) throw new Error("A mensagem do commit é obrigatória.");
   if (!run(["status", "--porcelain"])) return { committed: false, mensagem: "Não há alterações para commit." };
   const permitidos = [
@@ -66,6 +67,9 @@ function commit(message) {
     "produto/",
     "blog/",
     "sitemap.xml",
+    "praia.html",
+    "surf.html",
+    "turk-fit.html",
   ];
 
   const linhas = run(["status", "--porcelain"]).split("\n").filter(Boolean);
@@ -81,7 +85,9 @@ function commit(message) {
     );
   }
 
+  run(["diff", "--check"]);
   run(["add", "--", ...permitidos]);
+  run(["diff", "--cached", "--check"]);
   if (!run(["diff", "--cached", "--name-only"])) {
     return { committed: false, mensagem: "Não há alterações de conteúdo para commit." };
   }
