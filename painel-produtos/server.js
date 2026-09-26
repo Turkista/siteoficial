@@ -68,11 +68,31 @@ app.use(express.static(path.join(__dirname, "public")));
 // fetch funciona normalmente e o catálogo real aparece na pré-visualização.
 app.use("/site", express.static(RAIZ_PROJETO));
 app.use(express.json());
-const upload = multer({ storage: multer.memoryStorage() });
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 8 * 1024 * 1024, files: 12 },
+  fileFilter: (req, file, cb) => {
+    const permitidos = new Set(["image/jpeg", "image/png", "image/webp"]);
+    if (!permitidos.has(file.mimetype)) {
+      return cb(new Error("Formato de imagem não permitido. Use JPG, PNG ou WebP."));
+    }
+    cb(null, true);
+  }
+});
 
 // ---------------------------------------------------------------
 // Utilitários gerais
 // ---------------------------------------------------------------
+
+function validarImagemProcessada(buffer, nome = "imagem") {
+  if (!buffer || buffer.length < 100) throw new Error("Arquivo de imagem vazio ou inválido.");
+  const assinatura = buffer.subarray(0, 12).toString("hex");
+  const assinaturas = ["89504e470d0a1a0a", "ffd8ff", "52494646"];
+  if (!assinaturas.some(s => assinatura.startsWith(s))) {
+    throw new Error("O conteúdo enviado não corresponde a uma imagem válida.");
+  }
+  return true;
+}
 
 function gerarSlug(texto) {
   return texto
