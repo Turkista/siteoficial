@@ -1,0 +1,37 @@
+name: Build estático
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - cms-foundation
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar validador
+        run: python -m pip install -r scripts/requirements.txt
+      - name: Validar fontes
+        run: python scripts/validar-conteudo.py
+      - name: Gerar fichas de produto
+        run: python scripts/gerar-ficha-produto.py
+      - name: Gerar artigos
+        run: python scripts/gerar-artigo-blog.py
+      - name: Gerar sitemap determinístico
+        run: python scripts/gerar-sitemap.py
+      - name: Verificar arquivos gerados
+        run: |
+          test -d produto
+          test -d blog
+          test -f sitemap.xml
