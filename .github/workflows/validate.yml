@@ -1,0 +1,28 @@
+name: Validar conteúdo
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - cms-foundation
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar validador
+        run: python -m pip install -r scripts/requirements.txt
+      - name: Validar conteúdo
+        run: python scripts/validar-conteudo.py
+      - name: Verificar sintaxe Python
+        run: python -m compileall -q scripts
