@@ -936,16 +936,16 @@ def main():
     arquivos = sorted(p for p in CONTEUDO_DIR.glob("*.json") if p.name != "index.json")
     produtos = [json.loads(p.read_text(encoding="utf-8")) for p in arquivos]
 
-    for produto in produtos:
-        html = gerar_pagina(produto, produtos)
+    publicados = [p for p in produtos if esta_publicado(p)]
+
+    for produto in publicados:
+        html = gerar_pagina(produto, publicados)
         destino = SAIDA_DIR / f"{produto['slug']}.html"
         destino.write_text(html, encoding="utf-8")
         print(f"Gerado: {destino.relative_to(RAIZ)}")
 
-    gerar_paginas_de_linha(produtos)
-    n_sitemap = gerar_sitemap(produtos)
-    print(f"\n{len(produtos)} fichas de produto geradas em produto/.")
-    print(f"sitemap.xml atualizado: {n_sitemap} fichas publicadas.")
+    gerar_paginas_de_linha(publicados)
+    print(f"\n{len(publicados)} ficha(s) de produto publicada(s) gerada(s).")
 
 
 if __name__ == "__main__":
