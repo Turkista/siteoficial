@@ -28,6 +28,7 @@ import importlib.util
 import json
 import re
 import sys
+from cms_gerados import marcar, limpar_gerados
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -941,8 +942,12 @@ def main():
     for produto in publicados:
         html = gerar_pagina(produto, publicados)
         destino = SAIDA_DIR / f"{produto['slug']}.html"
-        destino.write_text(html, encoding="utf-8")
+        destino.write_text(marcar(html, "produto"), encoding="utf-8")
         print(f"Gerado: {destino.relative_to(RAIZ)}")
+
+    removidos = limpar_gerados(SAIDA_DIR, "produto", [p["slug"] for p in publicados])
+    if removidos:
+        print("Removidos: " + ", ".join(removidos))
 
     gerar_paginas_de_linha(publicados)
     print(f"\n{len(publicados)} ficha(s) de produto publicada(s) gerada(s).")
