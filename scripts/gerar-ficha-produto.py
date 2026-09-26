@@ -29,7 +29,6 @@ import json
 import re
 import sys
 from cms_gerados import marcar, limpar_gerados
-from cms_gerados import marcar, limpar_gerados
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
