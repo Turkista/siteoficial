@@ -949,10 +949,6 @@ def main():
     if removidos:
         print("Removidos: " + ", ".join(removidos))
 
-    removidos = limpar_gerados(SAIDA_DIR, "produto", [p["slug"] for p in publicados])
-    if removidos:
-        print("Removidos: " + ", ".join(removidos))
-
     gerar_paginas_de_linha(publicados)
     print(f"\n{len(publicados)} ficha(s) de produto publicada(s) gerada(s).")
 
