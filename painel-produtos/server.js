@@ -220,8 +220,8 @@ app.post("/api/cms/validate", (req, res) => {
   try {
     const script = path.join(RAIZ_PROJETO, "scripts", "validar-conteudo.py");
     const resultado = rodarGerador(script);
-    if (resultado === true) return res.json({ valido: true, mensagem: "Conteúdo válido." });
-    return res.status(422).json({ valido: false, mensagem: "A validação encontrou problemas." });
+    if (resultado.ok) return res.json({ valido: true, mensagem: "Conteúdo válido." });
+    return res.status(422).json({ valido: false, mensagem: "A validação encontrou problemas.", detalhes: resultado.motivo });
   } catch (erro) {
     return res.status(500).json({ valido: false, erro: erro.message });
   }
@@ -234,18 +234,18 @@ app.post("/api/cms/prepare-publication", (req, res) => {
       return res.status(409).json({ pronto: false, mensagem: "O CMS não prepara publicação diretamente na branch main. Ative uma branch de trabalho." });
     }
     const validacao = rodarGerador(path.join(RAIZ_PROJETO, "scripts", "validar-conteudo.py"));
-    if (validacao !== true) {
+    if (!validacao.ok) {
       return res.status(422).json({ pronto: false, mensagem: "A validação do conteúdo falhou." });
     }
     regenerarManifesto(PRODUTOS);
     regenerarManifesto(ARTIGOS);
-    if (rodarGerador(path.join(RAIZ_PROJETO, "scripts", "gerar-ficha-produto.py")) !== true) {
+    if (!rodarGerador(path.join(RAIZ_PROJETO, "scripts", "gerar-ficha-produto.py")).ok) {
       throw new Error("A geração das páginas de produto falhou.");
     }
-    if (rodarGerador(path.join(RAIZ_PROJETO, "scripts", "gerar-artigo-blog.py")) !== true) {
+    if (!rodarGerador(path.join(RAIZ_PROJETO, "scripts", "gerar-artigo-blog.py")).ok) {
       throw new Error("A geração das páginas de artigo falhou.");
     }
-    if (atualizarSitemapDeterministico() !== true) {
+    if (!atualizarSitemapDeterministico().ok) {
       throw new Error("A geração do sitemap falhou.");
     }
     const estadoFinal = gitLocal.status();
