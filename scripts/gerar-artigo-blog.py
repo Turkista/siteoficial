@@ -16,6 +16,8 @@ artigo novo é salvo pelo painel local. Também pode ser rodado à mão:
 
 import json
 import re
+import sys
+from cms_gerados import marcar, limpar_gerados
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -354,8 +356,12 @@ def main():
         relacionados = escolher_relacionados(artigo, pool_relacionados)
         html = gerar_pagina(artigo, relacionados)
         destino = SAIDA_DIR / f"{artigo['slug']}.html"
-        destino.write_text(html, encoding="utf-8")
+        destino.write_text(marcar(html, "artigo"), encoding="utf-8")
         print(f"  gerado: blog/{artigo['slug']}.html")
+
+    removidos = limpar_gerados(SAIDA_DIR, "artigo", [a["slug"] for a in publicados])
+    if removidos:
+        print("Removidos: " + ", ".join(removidos))
 
     print(f"\n{len(publicados)} artigo(s) publicado(s) processado(s).")
 
