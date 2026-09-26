@@ -134,17 +134,10 @@ function rodarGerador(caminhoScript) {
 
 // Acrescenta uma URL nova ao sitemap.xml, se ainda não existir. Só é
 // chamado para itens com status "publicado" — rascunhos não entram no SEO.
-function adicionarAoSitemap(caminhoRelativo) {
-  if (!fs.existsSync(CAMINHO_SITEMAP)) return;
-  const conteudo = fs.readFileSync(CAMINHO_SITEMAP, "utf-8");
-  const url = `https://www.turkista.com.br/${caminhoRelativo}`;
-  if (conteudo.includes(`<loc>${url}</loc>`)) return; // já existe
-
-  const novaEntrada = `  <url>\n    <loc>${url}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n</urlset>`;
-  const atualizado = conteudo.replace(/<\/urlset>\s*$/, novaEntrada);
-  fs.writeFileSync(CAMINHO_SITEMAP, atualizado, "utf-8");
+function atualizarSitemapDeterministico() {
+  const script = path.join(RAIZ_PROJETO, "scripts", "gerar-sitemap.py");
+  return rodarGerador(script);
 }
-
 function validarComSchema(caminhoSchema, objeto) {
   const ajv = new Ajv({ allErrors: true, strict: false });
   const schema = JSON.parse(fs.readFileSync(caminhoSchema, "utf-8"));
@@ -276,7 +269,7 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
     }
 
     if (produto.status === "publicado") {
-      adicionarAoSitemap(`${PRODUTOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico(`${PRODUTOS.paginaSlugPrefixo}${slug}.html`);
     }
 
     let mensagem = "Produto salvo com sucesso!";
@@ -401,7 +394,7 @@ app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req,
     }
 
     if (produto.status === "publicado") {
-      adicionarAoSitemap(`${PRODUTOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico(`${PRODUTOS.paginaSlugPrefixo}${slug}.html`);
     }
 
     let mensagem = "Produto atualizado com sucesso!";
@@ -479,7 +472,7 @@ app.post("/api/artigos", upload.single("capa"), async (req, res) => {
     }
 
     if (artigo.status === "publicado") {
-      adicionarAoSitemap(`${ARTIGOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico(`${ARTIGOS.paginaSlugPrefixo}${slug}.html`);
     }
 
     let mensagem = "Artigo salvo com sucesso!";
@@ -546,7 +539,7 @@ app.put("/api/artigos/:slug", upload.single("novaCapa"), async (req, res) => {
     }
 
     if (artigo.status === "publicado") {
-      adicionarAoSitemap(`${ARTIGOS.paginaSlugPrefixo}${slug}.html`);
+      atualizarSitemapDeterministico(`${ARTIGOS.paginaSlugPrefixo}${slug}.html`);
     }
 
     let mensagem = "Artigo atualizado com sucesso!";
