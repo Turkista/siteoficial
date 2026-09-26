@@ -348,14 +348,16 @@ def main():
         if a.get("status") == "publicado"
     ]
 
-    for artigo in artigos_novos:
+    publicados = [a for a in artigos_novos if a.get("status") == "publicado"]
+
+    for artigo in publicados:
         relacionados = escolher_relacionados(artigo, pool_relacionados)
         html = gerar_pagina(artigo, relacionados)
         destino = SAIDA_DIR / f"{artigo['slug']}.html"
         destino.write_text(html, encoding="utf-8")
         print(f"  gerado: blog/{artigo['slug']}.html")
 
-    print(f"\n{len(artigos_novos)} artigo(s) do painel processado(s).")
+    print(f"\n{len(publicados)} artigo(s) publicado(s) processado(s).")
 
 
 if __name__ == "__main__":
