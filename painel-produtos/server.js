@@ -286,6 +286,31 @@ app.post("/api/git/branch", (req, res) => {
   }
 });
 
+app.get("/api/github/auth", (req, res) => {
+  try {
+    res.json(gitLocal.githubAuth());
+  } catch (erro) {
+    res.status(500).json({ instalado: false, autenticado: false, mensagem: erro.message });
+  }
+});
+
+app.post("/api/github/pr", (req, res) => {
+  try {
+    const status = gitLocal.status();
+    if (status.branch === "main") return res.status(409).json({ erro: "Ative uma branch de trabalho antes de criar o PR." });
+    if (status.alterado) return res.status(409).json({ erro: "Existem alterações não commitadas. Crie o commit antes do PR." });
+    if (status.aFrente < 1) return res.status(409).json({ erro: "A branch ainda não possui commits enviados ao GitHub." });
+    const resultado = gitLocal.pullRequest(
+      status.branch,
+      req.body.titulo || "CMS: atualização do site",
+      req.body.corpo || "Alterações preparadas pelo CMS local."
+    );
+    res.json(resultado);
+  } catch (erro) {
+    res.status(400).json({ erro: erro.message });
+  }
+});
+
 app.get("/api/git/remote", (req, res) => {
   try {
     res.json({ remotes: gitLocal.remote() });
