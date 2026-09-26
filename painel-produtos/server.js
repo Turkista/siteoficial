@@ -232,6 +232,27 @@ app.post("/api/git/branch", (req, res) => {
   }
 });
 
+app.get("/api/git/remote", (req, res) => {
+  try {
+    res.json({ remotes: gitLocal.remote() });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/git/push", (req, res) => {
+  try {
+    const status = gitLocal.status();
+    if (status.alterado) {
+      return res.status(409).json({ erro: "Existem alterações não commitadas. Crie o commit antes do push." });
+    }
+    const resultado = gitLocal.push(status.branch);
+    res.json(resultado);
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
 app.post("/api/git/commit", (req, res) => {
   try {
     const resultado = gitLocal.commit(req.body.mensagem);
