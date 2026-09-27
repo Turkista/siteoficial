@@ -23,8 +23,30 @@ function salvarJson(caminho, valor) {
   fs.writeFileSync(caminho, JSON.stringify(valor, null, 2), "utf8");
 }
 
-function config() {
+function configArquivo() {
   return lerJson(CONFIG_PATH);
+}
+
+/*
+ * Em produção (Render), as credenciais ficam nas Environment Variables.
+ * O arquivo local continua sendo aceito para desenvolvimento local.
+ *
+ * Prioridade:
+ *   1. Environment Variables
+ *   2. painel-produtos/secrets/tiktok-oauth.json
+ */
+function config() {
+  const arquivo = configArquivo() || {};
+
+  return {
+    client_key: String(process.env.TIKTOK_CLIENT_KEY || arquivo.client_key || "").trim(),
+    client_secret: String(process.env.TIKTOK_CLIENT_SECRET || arquivo.client_secret || "").trim(),
+    redirect_uri: String(
+      process.env.TIKTOK_REDIRECT_URI ||
+      arquivo.redirect_uri ||
+      "https://turkista-api.onrender.com/api/tiktok/oauth/callback"
+    ).trim(),
+  };
 }
 
 function token() {
@@ -33,7 +55,7 @@ function token() {
 
 function estaConfigurado() {
   const c = config();
-  return Boolean(c?.client_key && c?.client_secret && c?.redirect_uri);
+  return Boolean(c.client_key && c.client_secret && c.redirect_uri);
 }
 
 function criarState() {
@@ -51,37 +73,47 @@ function validarState(state) {
 
 function urlAutorizacao() {
   if (!estaConfigurado()) {
-    throw new Error("TikTok OAuth ainda não está configurado. Crie painel-produtos/secrets/tiktok-oauth.json.");
+    throw new Error(
+      "TikTok OAuth ainda não está configurado. Defina TIKTOK_CLIENT_KEY e TIKTOK_CLIENT_SECRET no ambiente ou configure painel-produtos/secrets/tiktok-oauth.json."
+    );
   }
+
   const c = config();
   const state = criarState();
+
   const params = new URLSearchParams({
-    client_key: String(c.client_key),
+    client_key: c.client_key,
     response_type: "code",
     scope: SCOPES.join(","),
-    redirect_uri: String(c.redirect_uri),
+    redirect_uri: c.redirect_uri,
     state,
   });
+
   return { url: AUTHORIZE_URL + "?" + params.toString(), state };
 }
 
 async function trocarCodigoPorToken(code) {
   const c = config();
+
   const resposta = await fetch(TOKEN_URL, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
-      client_key: String(c.client_key),
-      client_secret: String(c.client_secret),
+      client_key: c.client_key,
+      client_secret: c.client_secret,
       code: String(code),
       grant_type: "authorization_code",
-      redirect_uri: String(c.redirect_uri),
+      redirect_uri: c.redirect_uri,
     }),
   });
 
   const texto = await resposta.text();
   let dados;
-  try { dados = JSON.parse(texto); } catch { dados = { raw: texto }; }
+  try {
+    dados = JSON.parse(texto);
+  } catch {
+    dados = { raw: texto };
+  }
 
   if (!resposta.ok || dados.error) {
     throw new Error("TikTok recusou o token: " + JSON.stringify(dados));
@@ -93,7 +125,9 @@ async function trocarCodigoPorToken(code) {
     refresh_token: dados.refresh_token,
     open_id: dados.open_id || null,
     scope: dados.scope || SCOPES.join(","),
-    expires_at: dados.expires_in ? agora + Number(dados.expires_in) * 1000 : null,
+    expires_at: dados.expires_in
+      ? agora + Number(dados.expires_in) * 1000
+      : null,
     refresh_token_expires_at: dados.refresh_expires_in
       ? agora + Number(dados.refresh_expires_in) * 1000
       : null,
@@ -108,14 +142,15 @@ async function trocarCodigoPorToken(code) {
 async function atualizarToken() {
   const atual = token();
   const c = config();
+
   if (!atual?.refresh_token || !estaConfigurado()) return null;
 
   const resposta = await fetch(TOKEN_URL, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
-      client_key: String(c.client_key),
-      client_secret: String(c.client_secret),
+      client_key: c.client_key,
+      client_secret: c.client_secret,
       grant_type: "refresh_token",
       refresh_token: String(atual.refresh_token),
     }),
@@ -123,7 +158,11 @@ async function atualizarToken() {
 
   const texto = await resposta.text();
   let dados;
-  try { dados = JSON.parse(texto); } catch { dados = { raw: texto }; }
+  try {
+    dados = JSON.parse(texto);
+  } catch {
+    dados = { raw: texto };
+  }
 
   if (!resposta.ok || dados.error) {
     throw new Error("TikTok recusou a renovação do token: " + JSON.stringify(dados));
@@ -135,7 +174,9 @@ async function atualizarToken() {
     access_token: dados.access_token,
     refresh_token: dados.refresh_token || atual.refresh_token,
     scope: dados.scope || atual.scope,
-    expires_at: dados.expires_in ? agora + Number(dados.expires_in) * 1000 : atual.expires_at,
+    expires_at: dados.expires_in
+      ? agora + Number(dados.expires_in) * 1000
+      : atual.expires_at,
     refresh_token_expires_at: dados.refresh_expires_in
       ? agora + Number(dados.refresh_expires_in) * 1000
       : atual.refresh_token_expires_at,
@@ -148,16 +189,22 @@ async function atualizarToken() {
 
 async function tokenValido() {
   let t = token();
+
   if (!t?.access_token) return null;
+
   if (t.expires_at && Date.now() >= Number(t.expires_at) - 5 * 60 * 1000) {
     t = await atualizarToken();
   }
+
   return t;
 }
 
 async function api(pathname, options = {}) {
   const t = await tokenValido();
-  if (!t?.access_token) throw new Error("TikTok não está conectado.");
+
+  if (!t?.access_token) {
+    throw new Error("TikTok não está conectado.");
+  }
 
   const resposta = await fetch(API_URL + pathname, {
     ...options,
@@ -170,34 +217,48 @@ async function api(pathname, options = {}) {
 
   const texto = await resposta.text();
   let dados;
-  try { dados = JSON.parse(texto); } catch { dados = { raw: texto }; }
 
-  if (!resposta.ok || dados.error?.code && dados.error.code !== "ok") {
-    const erro = new Error("TikTok API " + resposta.status + ": " + JSON.stringify(dados));
+  try {
+    dados = JSON.parse(texto);
+  } catch {
+    dados = { raw: texto };
+  }
+
+  if (!resposta.ok || (dados.error?.code && dados.error.code !== "ok")) {
+    const erro = new Error(
+      "TikTok API " + resposta.status + ": " + JSON.stringify(dados)
+    );
     erro.status = resposta.status;
     erro.dados = dados;
     throw erro;
   }
+
   return dados;
 }
 
 function status() {
   const c = config();
   const t = token();
+
   return {
     configurado: estaConfigurado(),
-    clientKey: c?.client_key ? String(c.client_key) : null,
-    redirectUri: c?.redirect_uri || null,
+    clientKey: c.client_key ? c.client_key : null,
+    redirectUri: c.redirect_uri || null,
     conectado: Boolean(t?.access_token),
     openId: t?.open_id || null,
     scopes: t?.scope || SCOPES.join(","),
     conectadoEm: t?.connected_at || null,
-    expiraEm: t?.expires_at ? new Date(Number(t.expires_at)).toISOString() : null,
+    expiraEm: t?.expires_at
+      ? new Date(Number(t.expires_at)).toISOString()
+      : null,
   };
 }
 
 function desconectar() {
-  if (fs.existsSync(TOKEN_PATH)) fs.unlinkSync(TOKEN_PATH);
+  if (fs.existsSync(TOKEN_PATH)) {
+    fs.unlinkSync(TOKEN_PATH);
+  }
+
   return status();
 }
 
