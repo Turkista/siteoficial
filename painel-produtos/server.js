@@ -109,6 +109,32 @@ function servirPreviewArquivo(caminhoRelativo, res) {
 app.get("/preview", (req, res) => servirPreviewArquivo("index.html", res));
 app.get("/preview/*", (req, res) => servirPreviewArquivo(req.params[0], res));
 app.use(express.json());
+
+const CANAIS_PUBLICACAO_PADRAO = Object.freeze({
+  site: true,
+  googleMerchant: true,
+  pinterest: false,
+  tiktok: false,
+});
+
+function lerCanaisPublicacao(valor, existentes = {}) {
+  let recebidos = {};
+  try {
+    if (valor) recebidos = typeof valor === "string" ? JSON.parse(valor) : valor;
+  } catch {
+    throw new Error("Configuração de canais de publicação inválida.");
+  }
+  return {
+    ...CANAIS_PUBLICACAO_PADRAO,
+    ...existentes,
+    ...recebidos,
+    site: recebidos.site !== undefined ? Boolean(recebidos.site) : (existentes.site !== undefined ? Boolean(existentes.site) : CANAIS_PUBLICACAO_PADRAO.site),
+    googleMerchant: recebidos.googleMerchant !== undefined ? Boolean(recebidos.googleMerchant) : (existentes.googleMerchant !== undefined ? Boolean(existentes.googleMerchant) : CANAIS_PUBLICACAO_PADRAO.googleMerchant),
+    pinterest: recebidos.pinterest !== undefined ? Boolean(recebidos.pinterest) : (existentes.pinterest !== undefined ? Boolean(existentes.pinterest) : CANAIS_PUBLICACAO_PADRAO.pinterest),
+    tiktok: recebidos.tiktok !== undefined ? Boolean(recebidos.tiktok) : (existentes.tiktok !== undefined ? Boolean(existentes.tiktok) : CANAIS_PUBLICACAO_PADRAO.tiktok),
+  };
+}
+
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 8 * 1024 * 1024, files: 12 },
@@ -416,6 +442,7 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
       badges,
       tags,
       status: corpo.status || "rascunho",
+      canaisPublicacao: lerCanaisPublicacao(corpo.canaisPublicacao),
       dataCriacao: new Date().toISOString().slice(0, 10),
     });
 
@@ -539,6 +566,7 @@ app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req,
       badges,
       tags,
       status: corpo.status || produtoAntigo.status || "rascunho",
+      canaisPublicacao: lerCanaisPublicacao(corpo.canaisPublicacao, produtoAntigo.canaisPublicacao),
       // id, slug e dataCriacao originais são preservados via spread acima.
     });
 
