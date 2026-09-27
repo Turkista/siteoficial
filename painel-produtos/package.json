@@ -5,7 +5,9 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "normalizar:catalogo": "node ../scripts/normalizar-catalogo.js",
+    "auditar:catalogo": "node ../scripts/auditar-catalogo.js"
   },
   "dependencies": {
     "express": "^4.19.2",
