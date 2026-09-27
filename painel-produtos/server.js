@@ -25,7 +25,7 @@ const tiktokOAuth = require("./integrations/tiktok-oauth");
 const tiktokPublicacao = require("./integrations/tiktok-publicacao");
 
 const app = express();
-const PORTA = 3000;
+const PORTA = Number(process.env.PORT || 3000);
 
 const RAIZ_PROJETO = path.join(__dirname, ".."); // pasta turkista-showroom
 const CAMINHO_SITEMAP = path.join(RAIZ_PROJETO, "sitemap.xml");
@@ -1011,7 +1011,7 @@ app.get("/api/tiktok/status/:publishId", async (req, res) => {
   }
 });
 
-app.listen(PORTA, "127.0.0.1", () => {
+app.listen(PORTA, "0.0.0.0", () => {
   console.log("");
   console.log("=================================================");
   console.log("  Painel Turkista rodando!");
