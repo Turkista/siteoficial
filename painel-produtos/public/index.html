@@ -151,6 +151,27 @@
   #mensagem.sucesso { display: block; background: #E9F9EE; color: #1C6B3B; }
   #mensagem.erro { display: block; background: #FDECEC; color: #A3312A; }
   #mensagem.aviso { display: block; background: #FFF6E5; color: #8A5A00; }
+  .canais-publicacao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .canal-publicacao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 11px 12px;
+    background: #fff;
+    cursor: pointer;
+  }
+  .canal-publicacao input { width: auto; margin: 0; }
+  .canal-publicacao__texto { display: flex; flex-direction: column; gap: 2px; }
+  .canal-publicacao__nome { font-size: 13px; font-weight: 600; }
+  .canal-publicacao__ajuda { font-size: 11px; color: var(--cinza); font-weight: 400; }
+  @media (max-width: 560px) { .canais-publicacao { grid-template-columns: 1fr; } }
   #lista-produtos {
     margin-top: 32px;
   }
@@ -451,6 +472,16 @@
         <option value="esgotado">Esgotado</option>
         <option value="descontinuado">Descontinuado</option>
       </select>
+
+      <label>Canais de publicação
+        <span class="ajuda">Define onde este produto poderá ser publicado automaticamente. O status acima continua controlando a presença no site.</span>
+      </label>
+      <div class="canais-publicacao">
+        <label class="canal-publicacao"><input type="checkbox" id="canalSite" name="canalSite" value="true" checked><span class="canal-publicacao__texto"><span class="canal-publicacao__nome">Site</span><span class="canal-publicacao__ajuda">Catálogo e ficha do produto</span></span></label>
+        <label class="canal-publicacao"><input type="checkbox" id="canalGoogleMerchant" name="canalGoogleMerchant" value="true" checked><span class="canal-publicacao__texto"><span class="canal-publicacao__nome">Google Merchant</span><span class="canal-publicacao__ajuda">Feed/API do catálogo</span></span></label>
+        <label class="canal-publicacao"><input type="checkbox" id="canalPinterest" name="canalPinterest" value="true"><span class="canal-publicacao__texto"><span class="canal-publicacao__nome">Pinterest</span><span class="canal-publicacao__ajuda">Pins do produto</span></span></label>
+        <label class="canal-publicacao"><input type="checkbox" id="canalTikTok" name="canalTikTok" value="true"><span class="canal-publicacao__texto"><span class="canal-publicacao__nome">TikTok</span><span class="canal-publicacao__ajuda">Conteúdo ligado ao produto</span></span></label>
+      </div>
     </fieldset>
 
     <button type="submit" id="botao-salvar">Salvar produto</button>
@@ -607,6 +638,11 @@ function preencherFormulario(p) {
   });
   form.tags.value = (p.tags || []).join(", ");
   form.status.value = p.status || "rascunho";
+  const canais = p.canaisPublicacao || {};
+  document.getElementById("canalSite").checked = canais.site !== false;
+  document.getElementById("canalGoogleMerchant").checked = canais.googleMerchant !== false;
+  document.getElementById("canalPinterest").checked = canais.pinterest === true;
+  document.getElementById("canalTikTok").checked = canais.tiktok === true;
 }
 
 // Cria a lista visual de fotos já cadastradas, cada uma com opção de
@@ -673,6 +709,10 @@ async function entrarEmModoEdicao(slug) {
 function sairDoModoEdicao() {
   edicao = null;
   form.reset();
+  document.getElementById("canalSite").checked = true;
+  document.getElementById("canalGoogleMerchant").checked = true;
+  document.getElementById("canalPinterest").checked = false;
+  document.getElementById("canalTikTok").checked = false;
   preview.innerHTML = "";
   fotosExistentesDiv.innerHTML = "";
   rotuloFotos.firstChild.textContent = "Escolha até 6 fotos";
@@ -683,6 +723,16 @@ function sairDoModoEdicao() {
 }
 
 botaoCancelarEdicao.addEventListener("click", sairDoModoEdicao);
+
+function canaisPublicacaoDoForm(canaisExistentes = {}) {
+  return {
+    site: document.getElementById("canalSite").checked,
+    googleMerchant: document.getElementById("canalGoogleMerchant").checked,
+    pinterest: document.getElementById("canalPinterest").checked,
+    tiktok: document.getElementById("canalTikTok").checked,
+  };
+}
+
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -703,6 +753,7 @@ form.addEventListener("submit", async (e) => {
     if (edicao) {
       const dados = new FormData(form);
       dados.delete("fotos"); // não usado no modo edição
+      dados.append("canaisPublicacao", JSON.stringify(canaisPublicacaoDoForm()));
 
       const fotosFinais = [];
       let algumaFotoRestou = false;
@@ -732,6 +783,7 @@ form.addEventListener("submit", async (e) => {
       resp = await fetch(`/api/produtos/${edicao.slug}`, { method: "PUT", body: dados });
     } else {
       const dados = new FormData(form);
+      dados.append("canaisPublicacao", JSON.stringify(canaisPublicacaoDoForm()));
       resp = await fetch("/api/produtos", { method: "POST", body: dados });
     }
 
