@@ -20,6 +20,7 @@ const { spawnSync } = require("child_process");
 const gitLocal = require("./git-local");
 const { normalizarProduto } = require("./catalogo-normalizacao");
 const pinterestOAuth = require("./integrations/pinterest-oauth");
+const pinterestPublicacao = require("./integrations/pinterest-publicacao");
 
 const app = express();
 const PORTA = 3000;
@@ -818,6 +819,76 @@ app.get("/api/pinterest/user", async (req, res) => {
     res.json(dados);
   } catch (erro) {
     res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+// ---------------------------------------------------------------
+ // PINTEREST / BOARDS / PINS
+ // ---------------------------------------------------------------
+
+app.get("/api/pinterest/boards", async (req, res) => {
+  try {
+    const boards = await pinterestPublicacao.listarBoards();
+    res.json({ items: boards });
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+app.post("/api/pinterest/boards", async (req, res) => {
+  try {
+    const nome = String(req.body?.name || "").trim();
+    const descricao = String(req.body?.description || "").trim();
+    if (!nome) return res.status(400).json({ erro: "O nome do Board é obrigatório." });
+    const board = await pinterestPublicacao.criarBoard({ name: nome, description: descricao });
+    res.status(201).json(board);
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+app.get("/api/pinterest/produtos", (req, res) => {
+  try {
+    const produtos = pinterestPublicacao.listarProdutos().map(p => ({
+      id: p.id,
+      slug: p.slug,
+      nome: p.nome,
+      descricaoCurta: p.descricaoCurta || "",
+      descricaoCompleta: p.descricaoCompleta || "",
+      status: p.status,
+      imagem: pinterestPublicacao.imagemPrincipal(p),
+      link: pinterestPublicacao.urlProduto(p),
+    }));
+    res.json({ items: produtos });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.get("/api/pinterest/publicacoes", (req, res) => {
+  try {
+    res.json({ items: pinterestPublicacao.historico() });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/pinterest/pins", async (req, res) => {
+  try {
+    const resultado = await pinterestPublicacao.publicarPin({
+      slug: req.body?.slug,
+      boardId: req.body?.boardId,
+      title: req.body?.title,
+      description: req.body?.description,
+      link: req.body?.link,
+    });
+    res.status(201).json(resultado);
+  } catch (erro) {
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      publicacao: erro.publicacao || null,
+      detalhes: erro.dados || null,
+    });
   }
 });
 
