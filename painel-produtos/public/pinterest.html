@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central Pinterest — Turkista</title>
+<style>
+  :root{--rosa:#F279C8;--rosa-profundo:#C94E9C;--grafite:#0C1014;--cinza:#6B6B6B;--borda:#E4E4E4;--fundo:#FAFAFA}
+  *{box-sizing:border-box}body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fundo);color:var(--grafite);margin:0;padding:32px 16px 80px}
+  .container{max-width:760px;margin:0 auto}.topo{margin-bottom:22px}.topo h1{margin:0 0 5px;font-size:24px}.topo p{margin:0;color:var(--cinza);font-size:14px}
+  .card{background:#fff;border:1px solid var(--borda);border-radius:12px;padding:24px;margin-bottom:16px}.card h2{font-size:16px;margin:0 0 10px}
+  .status{display:flex;align-items:center;gap:10px;font-size:14px;margin:12px 0 18px}.bolinha{width:10px;height:10px;border-radius:50%;background:#aaa}.bolinha.ok{background:#2e9b62}
+  button{border:0;border-radius:8px;background:var(--rosa-profundo);color:#fff;padding:11px 16px;font-weight:600;cursor:pointer}
+  button.sec{background:#fff;color:var(--rosa-profundo);border:1px solid var(--rosa-profundo)}button:disabled{opacity:.5;cursor:not-allowed}
+  .acoes{display:flex;gap:10px;flex-wrap:wrap}.mensagem{font-size:13px;margin-top:14px;white-space:pre-wrap}.ajuda{font-size:12px;color:var(--cinza);line-height:1.55}
+  code{background:#f4f4f4;padding:2px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="topo">
+    <h1>Central Pinterest</h1>
+    <p>Conecte a conta da Turkista para preparar Pins, Boards e métricas no painel.</p>
+  </div>
+
+  <div class="card">
+    <h2>Conexão</h2>
+    <div id="status" class="status"><span class="bolinha"></span><span>Carregando...</span></div>
+    <div class="acoes">
+      <button id="conectar" type="button">Conectar Pinterest</button>
+      <button id="desconectar" type="button" class="sec">Desconectar</button>
+    </div>
+    <div id="mensagem" class="mensagem"></div>
+  </div>
+
+  <div class="card">
+    <h2>Próxima etapa</h2>
+    <p class="ajuda">
+      Depois da conexão, esta Central será ampliada para listar Boards, criar Pins a partir
+      dos produtos do catálogo e registrar a publicação por produto. Os vídeos do TikTok
+      continuarão separados desta área.
+    </p>
+  </div>
+</div>
+<script>
+const statusEl=document.getElementById("status");
+const mensagem=document.getElementById("mensagem");
+const conectar=document.getElementById("conectar");
+const desconectar=document.getElementById("desconectar");
+
+async function carregarStatus(){
+  try{
+    const r=await fetch("/api/pinterest/status");
+    const d=await r.json();
+    const bolinha=statusEl.querySelector(".bolinha");
+    const texto=statusEl.querySelector("span:last-child");
+    if(!d.configurado){
+      bolinha.className="bolinha";
+      texto.textContent="OAuth ainda não configurado";
+      conectar.disabled=true;
+      return;
+    }
+    conectar.disabled=false;
+    if(d.conectado){
+      bolinha.className="bolinha ok";
+      texto.textContent="Pinterest conectado" + (d.expiraEm ? " · token até "+new Date(d.expiraEm).toLocaleString("pt-BR") : "");
+      desconectar.disabled=false;
+    }else{
+      bolinha.className="bolinha";
+      texto.textContent="Pinterest pronto para conectar";
+      desconectar.disabled=true;
+    }
+  }catch(e){
+    statusEl.querySelector("span:last-child").textContent="Não foi possível consultar o status.";
+  }
+}
+
+conectar.addEventListener("click",()=>{window.location.href="/api/pinterest/oauth/start";});
+desconectar.addEventListener("click",async()=>{
+  if(!confirm("Desconectar a conta Pinterest deste painel?")) return;
+  const r=await fetch("/api/pinterest/disconnect",{method:"POST"});
+  const d=await r.json();
+  mensagem.textContent=d.mensagem||"Conta desconectada.";
+  carregarStatus();
+});
+carregarStatus();
+</script>
+</body>
+</html>
