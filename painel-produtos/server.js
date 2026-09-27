@@ -19,6 +19,7 @@ const Ajv = require("ajv");
 const { spawnSync } = require("child_process");
 const gitLocal = require("./git-local");
 const { normalizarProduto } = require("./catalogo-normalizacao");
+const pinterestOAuth = require("./integrations/pinterest-oauth");
 
 const app = express();
 const PORTA = 3000;
@@ -762,6 +763,61 @@ app.post("/api/fotos-institucionais", upload.single("foto"), async (req, res) =>
   } catch (erro) {
     console.error(erro);
     res.status(500).json({ erro: "Erro interno ao salvar a foto.", detalhes: erro.message });
+  }
+});
+
+
+// ---------------------------------------------------------------
+// PINTEREST / OAUTH
+// ---------------------------------------------------------------
+
+app.get("/api/pinterest/status", (req, res) => {
+  try { res.json(pinterestOAuth.status()); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/pinterest/oauth/start", (req, res) => {
+  try {
+    const { url } = pinterestOAuth.urlAutorizacao();
+    res.redirect(url);
+  } catch (erro) {
+    res.status(409).send("Pinterest OAuth não configurado. " + erro.message);
+  }
+});
+
+app.get("/api/pinterest/oauth/callback", async (req, res) => {
+  try {
+    if (req.query.error) {
+      return res.status(400).send("Pinterest OAuth cancelado ou recusado: " + String(req.query.error));
+    }
+    if (!pinterestOAuth.validarState(req.query.state)) {
+      return res.status(400).send("Estado OAuth inválido ou expirado. Inicie a conexão novamente pelo painel.");
+    }
+    if (!req.query.code) {
+      return res.status(400).send("Pinterest não retornou o código de autorização.");
+    }
+    await pinterestOAuth.trocarCodigoPorToken(req.query.code);
+    res.redirect("/pinterest.html?conectado=1");
+  } catch (erro) {
+    console.error("Pinterest OAuth:", erro);
+    res.status(500).send("Não foi possível concluir a conexão com o Pinterest. " + erro.message);
+  }
+});
+
+app.post("/api/pinterest/disconnect", (req, res) => {
+  try {
+    res.json({ ok: true, ...pinterestOAuth.desconectar(), mensagem: "Conta Pinterest desconectada deste painel." });
+  } catch (erro) {
+    res.status(500).json({ ok: false, erro: erro.message });
+  }
+});
+
+app.get("/api/pinterest/user", async (req, res) => {
+  try {
+    const dados = await pinterestOAuth.api("/user_account");
+    res.json(dados);
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
   }
 });
 
