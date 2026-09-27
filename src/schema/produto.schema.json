@@ -228,6 +228,28 @@
       ],
       "default": "rascunho"
     },
+    "canaisPublicacao": {
+      "type": "object",
+      "description": "Preferências de publicação por canal. Guarda apenas a intenção do produto em cada canal; credenciais, tokens, histórico e métricas ficam fora do cadastro do produto.",
+      "properties": {
+        "site": {
+          "type": "boolean",
+          "default": true
+        },
+        "googleMerchant": {
+          "type": "boolean",
+          "default": true
+        },
+        "pinterest": {
+          "type": "boolean",
+          "default": false
+        },
+        "tiktok": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
     "dataCriacao": {
       "type": "string",
       "format": "date",
