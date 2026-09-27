@@ -18,6 +18,7 @@ const path = require("path");
 const Ajv = require("ajv");
 const { spawnSync } = require("child_process");
 const gitLocal = require("./git-local");
+const { normalizarProduto } = require("./catalogo-normalizacao");
 
 const app = express();
 const PORTA = 3000;
@@ -395,7 +396,7 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
     if (!Array.isArray(badges)) badges = [badges];
     const tags = (corpo.tags || "").split(",").map((t) => t.trim()).filter(Boolean);
 
-    const produto = {
+    const produto = normalizarProduto({
       id, slug, nome,
       linha: corpo.linha,
       categoria: corpo.categoria,
@@ -414,7 +415,7 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
       tags,
       status: corpo.status || "rascunho",
       dataCriacao: new Date().toISOString().slice(0, 10),
-    };
+    });
 
     const { valido, erros } = validarComSchema(PRODUTOS.schema, produto);
     if (!valido) return res.status(422).json({ erro: "Produto rejeitado pela validação do schema.", detalhes: erros });
@@ -517,7 +518,7 @@ app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req,
     if (!Array.isArray(badges)) badges = [badges];
     const tags = (corpo.tags || "").split(",").map((t) => t.trim()).filter(Boolean);
 
-    const produto = {
+    const produto = normalizarProduto({
       ...produtoAntigo,
       nome,
       linha: corpo.linha,
@@ -537,7 +538,7 @@ app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req,
       tags,
       status: corpo.status || produtoAntigo.status || "rascunho",
       // id, slug e dataCriacao originais são preservados via spread acima.
-    };
+    });
 
     const { valido, erros } = validarComSchema(PRODUTOS.schema, produto);
     if (!valido) return res.status(422).json({ erro: "Produto rejeitado pela validação do schema.", detalhes: erros, slug });
