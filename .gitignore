@@ -24,3 +24,6 @@ dist/
 *.local
 .env
 .env.local
+
+# Credenciais locais — nunca versionar
+painel-produtos/secrets/
