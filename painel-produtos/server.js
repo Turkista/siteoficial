@@ -149,6 +149,19 @@ const upload = multer({
   }
 });
 
+
+const videoUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 50 * 1024 * 1024, files: 1 },
+  fileFilter: (req, file, cb) => {
+    const permitidos = new Set(["video/mp4", "video/quicktime", "video/webm"]);
+    if (!permitidos.has(file.mimetype)) {
+      return cb(new Error("Formato de vídeo não permitido. Use MP4, MOV ou WebM."));
+    }
+    cb(null, true);
+  }
+});
+
 // ---------------------------------------------------------------
 // Utilitários gerais
 // ---------------------------------------------------------------
