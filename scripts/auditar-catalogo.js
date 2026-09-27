@@ -30,7 +30,8 @@ async function main() {
       report.produtosInvalidos.push({ file, motivo: "id, slug, nome ou preço inválido/ausente" });
     }
 
-    for (const imagem of produto.imagens || []) {
+    const todasImagens = [...(produto.imagens || []), ...(produto.cores || []).flatMap(c => c.imagens || [])];
+    for (const imagem of todasImagens) {
       const nome = imagem && imagem.arquivo;
       if (!nome) continue;
       report.imagens.referencias++;
@@ -63,6 +64,13 @@ async function main() {
       }
     }
   }
+
+  const referenciadas = new Set();
+  for (const file of files) {
+    const p = normalizarProduto(JSON.parse(fs.readFileSync(path.join(PRODUCTS, file), "utf8")));
+    for (const imagem of [...(p.imagens || []), ...(p.cores || []).flatMap(c => c.imagens || [])]) if (imagem?.arquivo) referenciadas.add(imagem.arquivo);
+  }
+  report.imagens.naoReferenciadas = [...assets].filter(a => a !== "README.md" && !referenciadas.has(a));
 
   console.log(JSON.stringify(report, null, 2));
 }
