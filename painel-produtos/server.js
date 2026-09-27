@@ -1,4 +1,4 @@
-// Painel local — Turkista
+// \n\nPainel local — Turkista
 //
 // Um único servidor Node local com três funções:
 // 1. Cadastro de PRODUTOS (aba "Produtos") — gera .json + ficha de produto
@@ -21,6 +21,8 @@ const gitLocal = require("./git-local");
 const { normalizarProduto } = require("./catalogo-normalizacao");
 const pinterestOAuth = require("./integrations/pinterest-oauth");
 const pinterestPublicacao = require("./integrations/pinterest-publicacao");
+const tiktokOAuth = require("./integrations/tiktok-oauth");
+const tiktokPublicacao = require("./integrations/tiktok-publicacao");
 
 const app = express();
 const PORTA = 3000;
@@ -917,6 +919,82 @@ app.post("/api/pinterest/pins", async (req, res) => {
       publicacao: erro.publicacao || null,
       detalhes: erro.dados || null,
     });
+  }
+});
+
+// ---------------------------------------------------------------
+// TIKTOK / OAUTH + CONTENT POSTING API
+// ---------------------------------------------------------------
+
+app.get("/api/tiktok/status", (req, res) => {
+  try { res.json(tiktokOAuth.status()); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/tiktok/oauth/start", (req, res) => {
+  try {
+    const { url } = tiktokOAuth.urlAutorizacao();
+    res.redirect(url);
+  } catch (erro) {
+    res.status(409).send("TikTok OAuth não configurado. " + erro.message);
+  }
+});
+
+app.get("/api/tiktok/oauth/callback", async (req, res) => {
+  try {
+    if (req.query.error) {
+      return res.status(400).send("TikTok OAuth cancelado ou recusado: " + String(req.query.error_description || req.query.error));
+    }
+    if (!tiktokOAuth.validarState(req.query.state)) {
+      return res.status(400).send("Estado OAuth inválido ou expirado. Inicie a conexão novamente pelo painel.");
+    }
+    if (!req.query.code) {
+      return res.status(400).send("TikTok não retornou o código de autorização.");
+    }
+    await tiktokOAuth.trocarCodigoPorToken(req.query.code);
+    res.redirect("/tiktok.html?conectado=1");
+  } catch (erro) {
+    console.error("TikTok OAuth:", erro);
+    res.status(500).send("Não foi possível concluir a conexão com o TikTok. " + erro.message);
+  }
+});
+
+app.post("/api/tiktok/disconnect", (req, res) => {
+  try {
+    res.json({ ok: true, ...tiktokOAuth.desconectar(), mensagem: "Conta TikTok desconectada deste painel." });
+  } catch (erro) {
+    res.status(500).json({ ok: false, erro: erro.message });
+  }
+});
+
+app.get("/api/tiktok/publicacoes", (req, res) => {
+  try { res.json({ items: tiktokPublicacao.historico() }); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.post("/api/tiktok/upload", videoUpload.single("video"), async (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ erro: "Selecione um vídeo." });
+    const resultado = await tiktokPublicacao.iniciarUploadVideo({
+      buffer: req.file.buffer,
+      mimetype: req.file.mimetype,
+    });
+    res.status(201).json(resultado);
+  } catch (erro) {
+    console.error("TikTok upload:", erro);
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      detalhes: erro.dados || null,
+    });
+  }
+});
+
+app.get("/api/tiktok/status/:publishId", async (req, res) => {
+  try {
+    const resultado = await tiktokPublicacao.consultarStatus(req.params.publishId);
+    res.json(resultado);
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
   }
 });
 
