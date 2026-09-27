@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Gerado por scripts/gerar-ficha-produto.py — as URLs de produto são
-  refeitas a cada execução a partir de src/content/produtos/*.json
-  (só status "publicado"). As demais URLs (páginas institucionais, blog)
-  são preservadas como estão. Não edite as entradas /produto/ à mão.
-  politica-de-privacidade.html fica de fora de propósito (noindex).
+  Gerado por scripts/gerar-sitemap.py.
+  As URLs de produto são refeitas a partir de src/content/produtos/*.json
+  (somente status "publicado"). URLs institucionais e artigos legados
+  existentes no sitemap são preservados.
+  politica-de-privacidade.html e 404.html ficam fora de propósito.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>

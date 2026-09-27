@@ -1,0 +1,76 @@
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências
+        run: python -m pip install -r scripts/requirements.txt
+
+      - name: Validar conteúdo
+        run: python scripts/validar-conteudo.py
+
+      - name: Gerar fichas de produto
+        run: python scripts/gerar-ficha-produto.py
+
+      - name: Gerar artigos
+        run: python scripts/gerar-artigo-blog.py
+
+      - name: Gerar sitemap
+        run: python scripts/gerar-sitemap.py
+
+      - name: Montar artefato público
+        run: |
+          rm -rf _site
+          mkdir -p _site
+
+          rsync -a             --exclude='.git/'             --exclude='.github/'             --exclude='painel-produtos/'             --exclude='scripts/'             --exclude='config/'             --exclude='docs/'             --exclude='src/content/'             --exclude='src/schema/'             --exclude='_site/'             ./ _site/
+
+          test -f _site/index.html
+          test -f _site/CNAME
+          test -f _site/sitemap.xml
+          test -d _site/assets
+          test -d _site/produto
+          test -d _site/blog
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload do artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -23,6 +23,7 @@
     },
     "tempoLeitura": { "type": "string" },
     "status": { "type": "string", "enum": ["rascunho", "publicado"] },
-    "dataCriacao": { "type": "string" }
+    "dataCriacao": { "type": "string" },
+    "dataAtualizacao": { "type": "string" }
   }
 }
