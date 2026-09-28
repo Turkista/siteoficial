@@ -1119,6 +1119,30 @@ app.post("/api/desempenho/instagram/sincronizar", async (req, res) => {
 });
 
 // ---------------------------------------------------------------
+// STATUS DO GOOGLE MERCHANT
+// ---------------------------------------------------------------
+app.get("/api/desempenho/google-merchant/config", (req, res) => {
+  try {
+    const config = googleMerchant.getConfig();
+    let credencialDisponivel = false;
+    try {
+      googleMerchant.getCredentialPath();
+      credencialDisponivel = true;
+    } catch (erro) {}
+
+    res.json({
+      ok: true,
+      accountId: config.accountId,
+      dataSourceId: config.dataSourceId,
+      siteBaseUrl: config.siteBaseUrl,
+      credencialDisponivel
+    });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+// ---------------------------------------------------------------
 // ANÁLISE DE DESEMPENHO
 // ---------------------------------------------------------------
 app.get("/api/desempenho/google-merchant", async (req, res) => {
