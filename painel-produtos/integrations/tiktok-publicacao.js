@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const tiktokOAuth = require("./tiktok-oauth");
+const desempenho = require("./desempenho");
 
 const HISTORICO_DIR = path.join(__dirname, "..", "secrets");
 const HISTORICO_PATH = path.join(HISTORICO_DIR, "tiktok-publicacoes.json");
@@ -63,6 +64,22 @@ async function iniciarUploadVideo({ buffer, mimetype }) {
   };
   const historico = lerHistorico();
   historico.unshift(registro);
+  salvarHistorico(historico);
+
+  const central = desempenho.registrarPublicacao({
+    produto_id: null,
+    slug: null,
+    canal: "tiktok",
+    external_id: publishId,
+    status: "enviado_para_rascunho",
+    data: registro.enviado_em,
+    metadados: {
+      publish_id: publishId,
+      origem: "tiktok_inbox_video"
+    }
+  });
+  registro.publicacao_id = central.id;
+  historico[0] = registro;
   salvarHistorico(historico);
 
   return registro;
