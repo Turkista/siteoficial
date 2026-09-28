@@ -66,10 +66,30 @@ async function carregarStatus(){
   if(d.conectado){b.className="bolinha ok";t.textContent="TikTok conectado"+(d.expiraEm?" · token até "+new Date(d.expiraEm).toLocaleString("pt-BR"):"")}
   else{b.className="bolinha";t.textContent=d.configurado?"TikTok pronto para conectar":"OAuth aguardando Client Secret"}
 }
+function textoStatusTikTok(status, failReason){
+  const mapa={PROCESSING_UPLOAD:"Processando upload no TikTok",PROCESSING_DOWNLOAD:"Processando download no TikTok",SEND_TO_USER_INBOX:"✓ Rascunho enviado para a caixa de entrada do TikTok",PUBLISH_COMPLETE:"✓ Conteúdo concluído/publicado pelo fluxo do TikTok",FAILED:"✗ Falha no TikTok"};
+  let texto=mapa[status]||status||"Status ainda não disponível";
+  if(failReason) texto+=" · "+failReason;
+  return texto;
+}
+async function consultarStatusEnvio(publishId){
+  try{const d=await jsonFetch("/api/tiktok/status/"+encodeURIComponent(publishId));return {status:d.data?.status||null,failReason:d.data?.fail_reason||null};}
+  catch(e){return {status:null,failReason:null};}
+}
+async function atualizarStatusHistorico(){
+  const itens=[...document.querySelectorAll("[data-publish-id]")];
+  for(const item of itens){
+    const resultado=await consultarStatusEnvio(item.dataset.publishId);
+    const alvo=item.querySelector(".status-envio");
+    if(resultado.status){alvo.textContent=textoStatusTikTok(resultado.status,resultado.failReason);alvo.className="status-envio "+(resultado.status==="FAILED"?"erro":resultado.status==="SEND_TO_USER_INBOX"||resultado.status==="PUBLISH_COMPLETE"?"sucesso":"aviso");}
+  }
+}
 async function carregarHistorico(){
   const d=await jsonFetch("/api/tiktok/publicacoes"),itens=d.items||[];
-  $("historico").innerHTML=itens.length?itens.map(x=>`<div class="item"><strong>${x.publish_id}</strong><small>${new Date(x.enviado_em).toLocaleString("pt-BR")} · ${x.status}</small></div>`).join(""):'<p class="ajuda">Nenhum envio registrado.</p>';
+  $("historico").innerHTML=itens.length?itens.map(x=>`<div class="item" data-publish-id="${x.publish_id}"><strong>${x.publish_id}</strong><small>${new Date(x.enviado_em).toLocaleString("pt-BR")} · <span class="status-envio aviso">Consultando status no TikTok...</span></small></div>`).join(""):'<p class="ajuda">Nenhum envio registrado.</p>';
+  if(itens.length) await atualizarStatusHistorico();
 }
+
 $("conectar").onclick=()=>location.href="/api/tiktok/oauth/start";
 $("desconectar").onclick=async()=>{if(!confirm("Desconectar a conta TikTok deste painel?"))return;try{await jsonFetch("/api/tiktok/disconnect",{method:"POST"});msg("Conta TikTok desconectada.",true);carregarStatus()}catch(e){msg(e.message)}};
 $("recarregar").onclick=()=>{carregarStatus();carregarHistorico()};
