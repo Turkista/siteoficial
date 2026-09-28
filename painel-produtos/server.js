@@ -23,6 +23,7 @@ const pinterestOAuth = require("./integrations/pinterest-oauth");
 const pinterestPublicacao = require("./integrations/pinterest-publicacao");
 const tiktokOAuth = require("./integrations/tiktok-oauth");
 const tiktokPublicacao = require("./integrations/tiktok-publicacao");
+const desempenho = require("./integrations/desempenho");
 
 const app = express();
 const PORTA = Number(process.env.PORT || 3000);
@@ -1008,6 +1009,55 @@ app.get("/api/tiktok/status/:publishId", async (req, res) => {
     res.json(resultado);
   } catch (erro) {
     res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+// ---------------------------------------------------------------
+// ANÁLISE DE DESEMPENHO
+// ---------------------------------------------------------------
+app.get("/api/desempenho/resumo", (req, res) => {
+  try { res.json(desempenho.resumo()); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/desempenho/publicacoes", (req, res) => {
+  try {
+    res.json({ items: desempenho.listarPublicacoes({
+      canal: req.query.canal,
+      produto_id: req.query.produto_id,
+      slug: req.query.slug
+    }) });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.get("/api/desempenho/metricas", (req, res) => {
+  try {
+    res.json({ items: desempenho.listarMetricas({
+      canal: req.query.canal,
+      produto_id: req.query.produto_id,
+      slug: req.query.slug,
+      metrica: req.query.metrica
+    }) });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/desempenho/publicacoes", (req, res) => {
+  try {
+    res.status(201).json(desempenho.registrarPublicacao(req.body || {}));
+  } catch (erro) {
+    res.status(400).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/desempenho/metricas", (req, res) => {
+  try {
+    res.status(201).json(desempenho.registrarMetrica(req.body || {}));
+  } catch (erro) {
+    res.status(400).json({ erro: erro.message });
   }
 });
 
