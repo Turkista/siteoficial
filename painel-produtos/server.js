@@ -1030,6 +1030,129 @@ app.get("/api/desempenho/google-merchant", async (req, res) => {
   }
 });
 
+app.post("/api/desempenho/google-merchant/sincronizar", async (req, res) => {
+  try {
+    const inicio = String(req.body?.inicio || "").trim();
+    const fim = String(req.body?.fim || "").trim();
+    if (!inicio || !fim) {
+      return res.status(400).json({ erro: "Informe inicio e fim no formato YYYY-MM-DD." });
+    }
+
+    const resultado = await googleMerchant.buscarDesempenhoProdutos({ inicio, fim });
+    const linhas = Array.isArray(resultado?.results) ? resultado.results : [];
+    const arquivos = fs.readdirSync(PRODUTOS.pastaJSON)
+      .filter((f) => f.endsWith(".json") && f !== "index.json");
+
+    const produtos = arquivos.map((f) => {
+      const produto = JSON.parse(fs.readFileSync(path.join(PRODUTOS.pastaJSON, f), "utf-8"));
+      return { ...produto, _arquivo: f };
+    });
+
+    const porOfferId = new Map();
+    for (const produto of produtos) {
+      if (produto.id) porOfferId.set(String(produto.id), produto);
+    }
+
+    const metricas = ["impressions", "clicks", "click_through_rate", "conversions", "conversion_rate"];
+    let metricasNovas = 0;
+    let publicacoesNovas = 0;
+    let linhasComProduto = 0;
+
+    for (const linha of linhas) {
+      const view = linha?.productPerformanceView || linha?.product_performance_view || {};
+      const offerId = String(view.offerId || view.offer_id || "").trim();
+      const produto = porOfferId.get(offerId);
+      if (!offerId || !produto) continue;
+
+      linhasComProduto++;
+      const dataObj = view.date || {};
+      const data = dataObj.year
+        ? new Date(Date.UTC(Number(dataObj.year), Number(dataObj.month || 1) - 1, Number(dataObj.day || 1))).toISOString()
+        : new Date().toISOString();
+      const canalMarketing = String(view.marketingMethod || view.marketing_method || "UNKNOWN").toLowerCase();
+
+      const publicacaoExistente = desempenho.listarPublicacoes({
+        produto_id: produto.id,
+        canal: "googleMerchant"
+      }).some((p) => p.external_id === offerId + ":" + canalMarketing);
+
+      if (!publicacaoExistente) {
+        desempenho.registrarPublicacao({
+          produto_id: produto.id,
+          slug: produto.slug,
+          canal: "googleMerchant",
+          external_id: offerId + ":" + canalMarketing,
+          status: "ativo",
+          data,
+          metadados: {
+            marketing_method: canalMarketing,
+            inicio,
+            fim
+          }
+        });
+        publicacoesNovas++;
+      }
+
+      for (const nomeMetrica of metricas) {
+        const valorBruto = view[nomeMetrica] ?? view[
+          nomeMetrica.replace(/_([a-z])/g, (_, letra) => letra.toUpperCase())
+        ];
+        if (valorBruto === undefined || valorBruto === null) continue;
+
+        const valor = Number(valorBruto);
+        if (!Number.isFinite(valor)) continue;
+
+        const duplicada = desempenho.listarMetricas({
+          produto_id: produto.id,
+          canal: "googleMerchant",
+          metrica: nomeMetrica
+        }).some((m) =>
+          m.data === data &&
+          Number(m.valor) === valor &&
+          m.metadados?.marketing_method === canalMarketing
+        );
+
+        if (!duplicada) {
+          desempenho.registrarMetrica({
+            publicacao_id: offerId + ":" + canalMarketing,
+            produto_id: produto.id,
+            slug: produto.slug,
+            canal: "googleMerchant",
+            metrica: nomeMetrica,
+            valor,
+            unidade: nomeMetrica.includes("rate") ? "percentual" : "numero",
+            data,
+            origem: "google_merchant_api",
+            metadados: {
+              offer_id: offerId,
+              marketing_method: canalMarketing,
+              inicio,
+              fim,
+              titulo: view.title || null
+            }
+          });
+          metricasNovas++;
+        }
+      }
+    }
+
+    res.json({
+      ok: true,
+      periodo: { inicio, fim },
+      linhas_recebidas: linhas.length,
+      linhas_com_produto: linhasComProduto,
+      publicacoes_novas: publicacoesNovas,
+      metricas_novas: metricasNovas
+    });
+  } catch (erro) {
+    console.error("Google Merchant sincronização:", erro);
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      detalhes: erro.response?.data || erro.dados || null
+    });
+  }
+});
+
 app.get("/api/desempenho/resumo", (req, res) => {
   try { res.json(desempenho.resumo()); }
   catch (erro) { res.status(500).json({ erro: erro.message }); }
