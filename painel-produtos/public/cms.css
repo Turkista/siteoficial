@@ -1,0 +1,129 @@
+/* Turkista CMS — navegação e acabamento visual compartilhados */
+:root{
+  --cms-rosa:#F279C8;
+  --cms-rosa2:#C94E9C;
+  --cms-grafite:#0C1014;
+  --cms-cinza:#6B6B6B;
+  --cms-borda:#E8E3E7;
+  --cms-fundo:#F8F7F8;
+  --cms-card:#FFFFFF;
+  --cms-sombra:0 10px 30px rgba(12,16,20,.06);
+}
+body{
+  background:
+    radial-gradient(circle at top right, rgba(242,121,200,.08), transparent 30%),
+    var(--cms-fundo) !important;
+}
+.cms-nav{
+  display:flex !important;
+  align-items:center;
+  gap:6px !important;
+  flex-wrap:wrap;
+  margin:0 0 26px !important;
+  padding:8px !important;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--cms-borda);
+  border-radius:14px;
+  box-shadow:var(--cms-sombra);
+}
+.cms-nav__brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 12px;
+  margin-right:4px;
+  color:var(--cms-grafite) !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  letter-spacing:.08em;
+  text-decoration:none !important;
+  white-space:nowrap;
+}
+.cms-nav__brand::before{
+  content:"T";
+  display:grid;
+  place-items:center;
+  width:24px;
+  height:24px;
+  border-radius:8px;
+  background:linear-gradient(135deg,var(--cms-rosa2),var(--cms-rosa));
+  color:#fff;
+  font-size:12px;
+  letter-spacing:0;
+}
+.cms-nav__group{
+  display:flex;
+  align-items:center;
+  gap:3px;
+  flex-wrap:wrap;
+}
+.cms-nav__label{
+  padding:0 7px;
+  color:#9A9499;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.cms-nav a.cms-nav__link{
+  display:inline-flex !important;
+  align-items:center;
+  gap:6px;
+  padding:9px 11px !important;
+  border:0 !important;
+  border-radius:9px !important;
+  background:transparent !important;
+  color:#625C61 !important;
+  font-size:12px !important;
+  font-weight:650 !important;
+  text-decoration:none !important;
+  white-space:nowrap;
+  transition:background .15s ease,color .15s ease,transform .15s ease;
+}
+.cms-nav a.cms-nav__link:hover{
+  background:#FFF0F8 !important;
+  color:var(--cms-rosa2) !important;
+  transform:translateY(-1px);
+}
+.cms-nav a.cms-nav__link.ativa{
+  background:linear-gradient(135deg,#FFF0F8,#FDE5F4) !important;
+  color:var(--cms-rosa2) !important;
+  box-shadow:inset 0 0 0 1px rgba(201,78,156,.12);
+}
+.cms-nav__divider{
+  width:1px;
+  height:24px;
+  background:var(--cms-borda);
+  margin:0 5px;
+}
+.cms-page-title{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+}
+.cms-kicker{
+  display:inline-block;
+  margin-bottom:7px;
+  color:var(--cms-rosa2);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.cms-page-title h1{letter-spacing:-.02em;}
+.cms-card{
+  background:var(--cms-card);
+  border:1px solid var(--cms-borda);
+  border-radius:16px;
+  box-shadow:var(--cms-sombra);
+}
+@media(max-width:760px){
+  .cms-nav{padding:6px !important;}
+  .cms-nav__brand{width:100%;margin-bottom:2px;}
+  .cms-nav__divider{display:none;}
+  .cms-nav__label{display:none;}
+  .cms-nav__group{width:100%;}
+  .cms-nav a.cms-nav__link{flex:1 1 auto;justify-content:center;}
+  .cms-page-title{display:block;}
+}
