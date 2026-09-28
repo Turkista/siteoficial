@@ -24,6 +24,7 @@ const pinterestPublicacao = require("./integrations/pinterest-publicacao");
 const tiktokOAuth = require("./integrations/tiktok-oauth");
 const tiktokPublicacao = require("./integrations/tiktok-publicacao");
 const desempenho = require("./integrations/desempenho");
+const googleMerchant = require("./integrations/google-merchant");
 
 const app = express();
 const PORTA = Number(process.env.PORT || 3000);
@@ -1015,6 +1016,20 @@ app.get("/api/tiktok/status/:publishId", async (req, res) => {
 // ---------------------------------------------------------------
 // ANÁLISE DE DESEMPENHO
 // ---------------------------------------------------------------
+app.get("/api/desempenho/google-merchant", async (req, res) => {
+  try {
+    const inicio = String(req.query.inicio || "").trim();
+    const fim = String(req.query.fim || "").trim();
+    const resultado = await googleMerchant.buscarDesempenhoProdutos({ inicio, fim });
+    res.json(resultado);
+  } catch (erro) {
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      detalhes: erro.response?.data || erro.dados || null
+    });
+  }
+});
+
 app.get("/api/desempenho/resumo", (req, res) => {
   try { res.json(desempenho.resumo()); }
   catch (erro) { res.status(500).json({ erro: erro.message }); }
