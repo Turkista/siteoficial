@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise de Desempenho — Turkista</title>
+<style>
+:root{--rosa:#F279C8;--rosa2:#C94E9C;--grafite:#0C1014;--cinza:#6B6B6B;--borda:#E4E4E4;--fundo:#FAFAFA;--verde:#2D8A55}
+*{box-sizing:border-box}body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fundo);color:var(--grafite);margin:0;padding:32px 16px 80px}.container{max-width:1100px;margin:auto}header{margin-bottom:20px}h1{font-size:26px;margin:0 0 5px}header p{color:var(--cinza);margin:0;font-size:14px}.abas{display:flex;gap:8px;margin-bottom:24px;border-bottom:1px solid var(--borda);overflow:auto}.abas a{padding:10px 16px;text-decoration:none;font-size:14px;font-weight:600;color:var(--cinza);border-bottom:2px solid transparent;white-space:nowrap}.abas a.ativa{color:var(--rosa2);border-bottom-color:var(--rosa2)}.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap}.periodo{display:flex;gap:8px;align-items:center}select,button{font:inherit}select{padding:9px 12px;border:1px solid var(--borda);border-radius:8px;background:#fff}button{border:1px solid var(--borda);background:#fff;color:var(--rosa2);padding:9px 14px;border-radius:8px;font-weight:600;cursor:pointer}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.card,.painel{background:#fff;border:1px solid var(--borda);border-radius:12px}.card{padding:18px}.rotulo{font-size:12px;color:var(--cinza);margin-bottom:8px}.valor{font-size:27px;font-weight:700}.sub{font-size:11px;color:var(--cinza);margin-top:5px}.grid{display:grid;grid-template-columns:1.35fr .85fr;gap:18px;margin-bottom:18px}.painel{padding:20px}.painel h2{font-size:16px;margin:0 0 4px}.desc{font-size:12px;color:var(--cinza);margin:0 0 18px}.canal{margin:16px 0}.canal-topo{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px}.barra{height:10px;background:#F1F1F1;border-radius:99px;overflow:hidden}.barra span{display:block;height:100%;background:var(--rosa2);border-radius:99px}.info{font-size:11px;color:var(--cinza);margin-top:5px}.status{display:grid;gap:10px}.status-item{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--borda);border-radius:9px;padding:11px 12px;font-size:13px}.badge{font-size:11px;padding:4px 8px;border-radius:99px;background:#F5F5F5;color:var(--cinza)}.ok{background:#E9F9EE;color:var(--verde)}.produtos{display:grid;gap:8px}.produto{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:11px 12px;border:1px solid var(--borda);border-radius:9px;font-size:13px}.produto small{color:var(--cinza);font-size:11px}.aviso{background:#FFF6E5;border:1px solid #F1D79B;color:#795400;border-radius:10px;padding:12px 14px;font-size:12px;margin-top:18px}.erro{display:none;background:#FDECEC;color:#A3312A;border-radius:10px;padding:12px;margin-bottom:18px}@media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}@media(max-width:520px){.cards{grid-template-columns:1fr}.produto{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header><h1>Análise de Desempenho</h1><p>Visão central do catálogo e das publicações da Turkista. Métricas externas serão conectadas por canal.</p></header>
+<nav class="abas">
+<a href="index.html">Produtos</a><a href="artigos.html">Artigos do Blog</a><a href="fotos.html">Fotos do Site</a><a href="/publicacao.html">Publicação</a><a href="/pinterest.html">Pinterest</a><a href="/tiktok.html">TikTok</a><a href="/desempenho.html" class="ativa">Análise de Desempenho</a>
+</nav>
+<div class="toolbar"><div class="periodo"><label for="periodo" style="font-size:12px;color:var(--cinza)">Período</label><select id="periodo"><option value="30">Últimos 30 dias</option><option value="7">Últimos 7 dias</option><option value="90">Últimos 90 dias</option><option value="todos">Todo o histórico</option></select><button id="atualizar">Atualizar</button></div><span id="atualizado" style="font-size:12px;color:var(--cinza)">Carregando...</span></div>
+<div class="erro" id="erro"></div>
+<section class="cards">
+<div class="card"><div class="rotulo">Produtos cadastrados</div><div class="valor" id="total">—</div><div class="sub">Catálogo atual</div></div>
+<div class="card"><div class="rotulo">Produtos publicados</div><div class="valor" id="publicados">—</div><div class="sub">Status publicado</div></div>
+<div class="card"><div class="rotulo">Publicações Pinterest</div><div class="valor" id="pins">—</div><div class="sub">Registros no painel</div></div>
+<div class="card"><div class="rotulo">Envios TikTok</div><div class="valor" id="videos">—</div><div class="sub">Vídeos enviados</div></div>
+</section>
+<div class="grid">
+<section class="painel"><h2>Presença por canal</h2><p class="desc">Produtos habilitados para cada canal no cadastro.</p><div id="canais"></div></section>
+<section class="painel"><h2>Integrações</h2><p class="desc">Estado da estrutura disponível no painel.</p><div class="status" id="status"></div></section>
+</div>
+<section class="painel"><h2>Produtos do catálogo</h2><p class="desc">Base para cruzar produtos, canais e métricas reais.</p><div class="produtos" id="lista"></div></section>
+<div class="aviso"><strong>Próxima camada:</strong> conectar métricas reais de Google Merchant, Pinterest, TikTok e site a esta estrutura. Nenhuma métrica externa é estimada nesta primeira versão.</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);let produtos=[],pins=[],videos=[];
+function periodo(data,dias){if(dias==="todos")return true;if(!data)return false;return new Date(data).getTime()>=Date.now()-Number(dias)*86400000}
+function render(){const d=$("periodo").value,p=pins.filter(x=>periodo(x.criado_em||x.publicado_em||x.created_at,d)),v=videos.filter(x=>periodo(x.enviado_em||x.criado_em,d));$("total").textContent=produtos.length;$("publicados").textContent=produtos.filter(x=>x.status==="publicado").length;$("pins").textContent=p.length;$("videos").textContent=v.length;
+const canais=[["Site","site"],["Google Merchant","googleMerchant"],["Pinterest","pinterest"],["TikTok","tiktok"]],max=Math.max(produtos.length,1);
+$("canais").innerHTML=canais.map(([n,k])=>{const q=produtos.filter(x=>x.canaisPublicacao?.[k]===true).length;const pc=Math.round(q/max*100);return '<div class="canal"><div class="canal-topo"><strong>'+n+'</strong><span>'+q+' produto'+(q===1?'':'s')+'</span></div><div class="barra"><span style="width:'+pc+'%"></span></div><div class="info">'+pc+'% do catálogo habilitado</div></div>'}).join("");
+$("status").innerHTML=[["Site",true,"Catálogo interno"],["Google Merchant",produtos.some(x=>x.canaisPublicacao?.googleMerchant===true), "Canal no cadastro"],["Pinterest",true,pins.length+" publicação(ões) registradas"],["TikTok",true,videos.length+" envio(s) registrado(s)"]].map(x=>'<div class="status-item"><span><strong>'+x[0]+'</strong><br><small style="color:var(--cinza)">'+x[2]+'</small></span><span class="badge '+(x[1]?'ok':'')+'">'+(x[1]?'Estruturado':'Não habilitado')+'</span></div>').join("");
+$("lista").innerHTML=produtos.length?produtos.slice().sort((a,b)=>(a.nome||"").localeCompare(b.nome||"","pt-BR")).map(x=>{const n=Object.values(x.canaisPublicacao||{}).filter(Boolean).length;return '<div class="produto"><div><strong>'+(x.nome||"Sem nome")+'</strong><br><small>'+(x.categoria||"Sem categoria")+' · '+(x.linha||"Sem linha")+'</small></div><span class="badge">'+(x.status||"rascunho")+'</span><span class="badge">'+n+' canal(is)</span></div>'}).join(""):'<div style="padding:24px;text-align:center;color:var(--cinza)">Nenhum produto cadastrado.</div>';$("atualizado").textContent="Atualizado em "+new Date().toLocaleString("pt-BR")}
+async function carregar(){try{const r=await Promise.all([fetch("/api/produtos"),fetch("/api/pinterest/publicacoes"),fetch("/api/tiktok/publicacoes")]);if(!r[0].ok)throw Error("Não foi possível carregar os produtos.");produtos=await r[0].json();pins=r[1].ok?(await r[1].json()).items||[]:[];videos=r[2].ok?(await r[2].json()).items||[]:[];render();$("erro").style.display="none"}catch(e){$("erro").textContent=e.message;$("erro").style.display="block"}}
+$("periodo").onchange=render;$("atualizar").onclick=carregar;carregar();
+</script>
+</body></html>
