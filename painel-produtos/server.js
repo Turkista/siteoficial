@@ -23,6 +23,8 @@ const pinterestOAuth = require("./integrations/pinterest-oauth");
 const pinterestPublicacao = require("./integrations/pinterest-publicacao");
 const tiktokOAuth = require("./integrations/tiktok-oauth");
 const tiktokPublicacao = require("./integrations/tiktok-publicacao");
+const instagramOAuth = require("./integrations/instagram-oauth");
+const instagramPublicacao = require("./integrations/instagram-publicacao");
 const desempenho = require("./integrations/desempenho");
 const googleMerchant = require("./integrations/google-merchant");
 
@@ -1009,6 +1011,109 @@ app.get("/api/tiktok/status/:publishId", async (req, res) => {
     const resultado = await tiktokPublicacao.consultarStatus(req.params.publishId);
     res.json(resultado);
   } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+// ---------------------------------------------------------------
+// INSTAGRAM / OAUTH + CONTENT PUBLISHING
+// ---------------------------------------------------------------
+
+app.get("/api/instagram/status", (req, res) => {
+  try { res.json(instagramOAuth.status()); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/instagram/oauth/start", (req, res) => {
+  try {
+    const { url } = instagramOAuth.urlAutorizacao();
+    res.redirect(url);
+  } catch (erro) {
+    res.status(409).send("Instagram OAuth não configurado. " + erro.message);
+  }
+});
+
+app.get("/api/instagram/oauth/callback", async (req, res) => {
+  try {
+    if (req.query.error) {
+      return res.status(400).send("Instagram OAuth cancelado ou recusado: " + String(req.query.error_description || req.query.error));
+    }
+    if (!instagramOAuth.validarState(req.query.state)) {
+      return res.status(400).send("Estado OAuth inválido ou expirado. Inicie a conexão novamente pelo painel.");
+    }
+    if (!req.query.code) {
+      return res.status(400).send("Instagram não retornou o código de autorização.");
+    }
+    await instagramOAuth.trocarCodigoPorToken(req.query.code);
+    res.redirect("/instagram.html?conectado=1");
+  } catch (erro) {
+    console.error("Instagram OAuth:", erro);
+    res.status(500).send("Não foi possível concluir a conexão com o Instagram. " + erro.message);
+  }
+});
+
+app.post("/api/instagram/disconnect", (req, res) => {
+  try { res.json({ ok: true, ...instagramOAuth.desconectar() }); }
+  catch (erro) { res.status(500).json({ ok: false, erro: erro.message }); }
+});
+
+app.get("/api/instagram/user", async (req, res) => {
+  try {
+    res.json(await instagramOAuth.api("/me?fields=id,user_id,username,name,account_type,profile_picture_url"));
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+app.get("/api/instagram/produtos", (req, res) => {
+  try {
+    res.json({
+      items: instagramPublicacao.listarProdutos().map(p => ({
+        id: p.id,
+        slug: p.slug,
+        nome: p.nome,
+        descricaoCurta: p.descricaoCurta || "",
+        status: p.status,
+        imagem: instagramPublicacao.imagemPrincipal(p),
+        link: instagramPublicacao.urlProduto(p),
+      }))
+    });
+  } catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/instagram/publicacoes", (req, res) => {
+  try { res.json({ items: instagramPublicacao.historico() }); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.post("/api/instagram/publicar", async (req, res) => {
+  try {
+    const resultado = await instagramPublicacao.publicarMidia({
+      slug: req.body?.slug,
+      mediaUrl: req.body?.mediaUrl,
+      tipo: req.body?.tipo || "imagem",
+      caption: req.body?.caption,
+      altText: req.body?.altText,
+    });
+    res.status(201).json(resultado);
+  } catch (erro) {
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      publicacao: erro.publicacao || null,
+      detalhes: erro.dados || null,
+    });
+  }
+});
+
+app.get("/api/instagram/midias", async (req, res) => {
+  try { res.json(await instagramPublicacao.listarMidias({ limit: req.query.limit || 50 })); }
+  catch (erro) { res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null }); }
+});
+
+app.post("/api/desempenho/instagram/sincronizar", async (req, res) => {
+  try { res.json(await instagramPublicacao.sincronizarMetricas()); }
+  catch (erro) {
+    console.error("Instagram sincronização:", erro);
     res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
   }
 });
