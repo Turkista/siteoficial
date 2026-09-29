@@ -208,6 +208,64 @@
   }
 
   // ------------------------------------------------------------
+  // Eventos GA4 — ecommerce e WhatsApp
+  // ------------------------------------------------------------
+  function registrarAddToCart(item, quantidade) {
+    if (typeof window.gtag !== 'function') return;
+
+    var preco = typeof item.precoUnit === 'number' ? item.precoUnit : null;
+    var itemGa4 = {
+      item_id: item.slug,
+      item_name: item.nome,
+      quantity: quantidade
+    };
+
+    if (item.linha) itemGa4.item_category = item.linha;
+    if (item.tamanho || item.cor) {
+      itemGa4.item_variant = [item.tamanho, item.cor].filter(Boolean).join(' / ');
+    }
+    if (preco !== null) itemGa4.price = preco;
+
+    var dados = {
+      currency: 'BRL',
+      items: [itemGa4]
+    };
+
+    if (preco !== null) dados.value = preco * quantidade;
+
+    window.gtag('event', 'add_to_cart', dados);
+  }
+
+  function registrarWhatsappCarrinho() {
+    if (typeof window.gtag !== 'function') return;
+
+    var itens = C.obterCarrinho();
+    var dados = {
+      origem: 'carrinho',
+      currency: 'BRL'
+    };
+
+    var total = C.calcularTotalValor(itens);
+    if (total > 0) dados.value = total;
+
+    dados.items = itens.map(function (item) {
+      var itemGa4 = {
+        item_id: item.slug,
+        item_name: item.nome,
+        quantity: item.qtd
+      };
+      if (item.linha) itemGa4.item_category = item.linha;
+      if (item.tamanho || item.cor) {
+        itemGa4.item_variant = [item.tamanho, item.cor].filter(Boolean).join(' / ');
+      }
+      if (typeof item.precoUnit === 'number') itemGa4.price = item.precoUnit;
+      return itemGa4;
+    });
+
+    window.gtag('event', 'whatsapp_click', dados);
+  }
+
+  // ------------------------------------------------------------
   // Eventos (delegação — funciona em cards renderizados dinamicamente)
   // ------------------------------------------------------------
   function ligarEventos() {
@@ -221,7 +279,9 @@
         var item = lerItemDoBotao(botaoAdicionar);
         if (!item.slug || !item.nome) return;
         var qtdAttr = botaoAdicionar.getAttribute('data-quantidade');
-        C.adicionarItem(item, qtdAttr ? parseInt(qtdAttr, 10) : 1);
+        var quantidade = qtdAttr ? parseInt(qtdAttr, 10) : 1;
+        C.adicionarItem(item, quantidade);
+        registrarAddToCart(item, quantidade);
         pulsarIcone();
         return;
       }
@@ -236,6 +296,11 @@
       }
       if (evento.target.closest('[data-carrinho-limpar]')) {
         if (confirm('Esvaziar o carrinho?')) C.limparCarrinho();
+        return;
+      }
+
+      if (evento.target.closest('[data-carrinho-finalizar]')) {
+        registrarWhatsappCarrinho();
         return;
       }
 

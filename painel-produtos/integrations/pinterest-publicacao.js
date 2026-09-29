@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const pinterestOAuth = require("./pinterest-oauth");
+const desempenho = require("./desempenho");
 
 const RAIZ_PROJETO = path.join(__dirname, "..", "..");
 const PRODUTOS_DIR = path.join(RAIZ_PROJETO, "src", "content", "produtos");
@@ -104,7 +105,23 @@ async function publicarPin({ slug, boardId, title, description, link }) {
     publicado_em: new Date().toISOString(),
   });
   salvarHistorico(historico);
-  return { pin, publicacao: historico[historico.length - 1] };
+  const publicacao = historico[historico.length - 1];
+  const central = desempenho.registrarPublicacao({
+    produto_id: produto.id,
+    slug: produto.slug,
+    canal: "pinterest",
+    external_id: pin.id || null,
+    status: "publicado",
+    data: publicacao.publicado_em,
+    metadados: {
+      board_id: String(boardId),
+      pin_url: publicacao.pin_url || null
+    }
+  });
+  publicacao.publicacao_id = central.id;
+  historico[historico.length - 1] = publicacao;
+  salvarHistorico(historico);
+  return { pin, publicacao };
 }
 
 function historico() {

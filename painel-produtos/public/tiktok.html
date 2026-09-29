@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central TikTok — Turkista</title>
+<style>
+:root{--rosa:#F279C8;--rosa-profundo:#C94E9C;--grafite:#0C1014;--cinza:#6B6B6B;--borda:#E4E4E4;--fundo:#FAFAFA;--verde:#2e9b62}
+*{box-sizing:border-box}body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--fundo);color:var(--grafite);margin:0;padding:32px 16px 80px}
+.container{max-width:900px;margin:0 auto}.topo{margin-bottom:22px}.topo h1{margin:0 0 5px;font-size:24px}.topo p{margin:0;color:var(--cinza);font-size:14px}
+.abas{display:flex;gap:8px;border-bottom:1px solid var(--borda);margin-bottom:18px;flex-wrap:wrap}.abas a{padding:10px 14px;text-decoration:none;color:var(--cinza);font-size:13px;font-weight:600}.abas a.ativa{color:var(--rosa-profundo);border-bottom:2px solid var(--rosa-profundo)}
+.card{background:#fff;border:1px solid var(--borda);border-radius:12px;padding:20px;margin-bottom:16px}.card h2{font-size:16px;margin:0 0 12px}.card h3{font-size:14px;margin:18px 0 8px}
+.status{display:flex;align-items:center;gap:10px;font-size:14px;margin:10px 0 16px}.bolinha{width:10px;height:10px;border-radius:50%;background:#aaa}.bolinha.ok{background:var(--verde)}
+.acoes{display:flex;gap:8px;flex-wrap:wrap}button{border:0;border-radius:8px;background:var(--rosa-profundo);color:#fff;padding:10px 14px;font-weight:600;cursor:pointer}button.sec{background:#fff;color:var(--rosa-profundo);border:1px solid var(--rosa-profundo)}button:disabled{opacity:.5;cursor:not-allowed}
+input[type=file]{width:100%;padding:10px;border:1px dashed var(--borda);border-radius:8px;background:var(--fundo);font:inherit}label{display:block;font-size:12px;font-weight:600;margin:12px 0 5px}.ajuda{font-size:12px;color:var(--cinza);line-height:1.5}.mensagem{font-size:13px;margin-top:12px;white-space:pre-wrap}.erro{color:#A3312A}.sucesso{color:#1C6B3B}.aviso{color:#8A5A00}
+.historico{display:grid;gap:8px}.item{border:1px solid var(--borda);border-radius:8px;padding:10px 12px;font-size:13px}.item small{display:block;color:var(--cinza);margin-top:4px}
+.info{background:#FFF8FC;border:1px solid #F4D5E8;border-radius:10px;padding:12px;font-size:12px;line-height:1.6;color:#5f3150}
+</style>
+<link rel="stylesheet" href="/cms.css">
+</head>
+<body>
+<div class="container">
+  <div class="topo">
+    <h1>Central TikTok</h1>
+    <p>Autorização da conta e envio de vídeos para rascunho no TikTok.</p>
+  </div>
+  <nav class="cms-nav" aria-label="Navegação do CMS"><a class="cms-nav__brand" href="/index.html">TURKISTA CMS</a><span class="cms-nav__divider" aria-hidden="true"></span><div class="cms-nav__group"><span class="cms-nav__label">Conteúdo</span><a class="cms-nav__link" href="/index.html">Produtos</a><a class="cms-nav__link" href="/artigos.html">Artigos</a><a class="cms-nav__link" href="/fotos.html">Fotos</a></div><span class="cms-nav__divider" aria-hidden="true"></span><div class="cms-nav__group"><span class="cms-nav__label">Publicação</span><a class="cms-nav__link" href="/publicacao.html">Publicação</a><a class="cms-nav__link" href="/pinterest.html">Pinterest</a><a class="cms-nav__link ativa" href="/tiktok.html">TikTok</a><a class="cms-nav__link" href="/instagram.html">Instagram</a></div><span class="cms-nav__divider" aria-hidden="true"></span><div class="cms-nav__group"><span class="cms-nav__label">Análise</span><a class="cms-nav__link" href="/desempenho.html">Desempenho</a></div></nav>
+
+  <div class="card">
+    <h2>Conexão</h2>
+    <div id="status" class="status"><span class="bolinha"></span><span>Carregando...</span></div>
+    <div class="acoes"><button id="conectar">Conectar TikTok</button><button id="desconectar" class="sec">Desconectar</button><button id="recarregar" class="sec">Atualizar</button></div>
+    <div id="mensagem" class="mensagem"></div>
+  </div>
+
+  <div class="card">
+    <h2>Enviar vídeo para rascunho</h2>
+    <div class="info">
+      Este primeiro fluxo usa o <strong>Content Posting API + video.upload</strong>.
+      O vídeo é enviado à conta TikTok autorizada e fica disponível para o usuário continuar a edição e publicação no aplicativo TikTok.
+    </div>
+    <label for="video">Vídeo</label>
+    <input id="video" type="file" accept="video/mp4,video/quicktime,video/webm">
+    <span class="ajuda">Nesta primeira fase, use um vídeo MP4, MOV ou WebM. O CMS enviará o arquivo diretamente para o TikTok.</span>
+    <button id="enviar">Enviar para TikTok</button>
+    <div id="uploadMensagem" class="mensagem"></div>
+  </div>
+
+  <div class="card">
+    <h2>Histórico de envios</h2>
+    <div id="historico" class="historico"><p class="ajuda">Nenhum envio registrado.</p></div>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+async function jsonFetch(url,options){const r=await fetch(url,options);let d={};try{d=await r.json()}catch{}if(!r.ok)throw new Error(d.erro||"Erro na operação.");return d}
+function msg(t,ok=false){$("mensagem").textContent=t;$("mensagem").className="mensagem "+(ok?"sucesso":"erro")}
+function uploadMsg(t,ok=false){$("uploadMensagem").textContent=t;$("uploadMensagem").className="mensagem "+(ok?"sucesso":"erro")}
+async function carregarStatus(){
+  const d=await jsonFetch("/api/tiktok/status");
+  const b=$("status").querySelector(".bolinha"),t=$("status").querySelector("span:last-child");
+  $("conectar").disabled=!d.configurado;
+  $("desconectar").disabled=!d.conectado;
+  if(d.conectado){b.className="bolinha ok";t.textContent="TikTok conectado"+(d.expiraEm?" · token até "+new Date(d.expiraEm).toLocaleString("pt-BR"):"")}
+  else{b.className="bolinha";t.textContent=d.configurado?"TikTok pronto para conectar":"OAuth aguardando Client Secret"}
+}
+function textoStatusTikTok(status, failReason){
+  const mapa={PROCESSING_UPLOAD:"Processando upload no TikTok",PROCESSING_DOWNLOAD:"Processando download no TikTok",SEND_TO_USER_INBOX:"✓ Rascunho enviado para a caixa de entrada do TikTok",PUBLISH_COMPLETE:"✓ Conteúdo concluído/publicado pelo fluxo do TikTok",FAILED:"✗ Falha no TikTok"};
+  let texto=mapa[status]||status||"Status ainda não disponível";
+  if(failReason) texto+=" · "+failReason;
+  return texto;
+}
+async function consultarStatusEnvio(publishId){
+  try{const d=await jsonFetch("/api/tiktok/status/"+encodeURIComponent(publishId));return {status:d.data?.status||null,failReason:d.data?.fail_reason||null};}
+  catch(e){return {status:null,failReason:null};}
+}
+async function atualizarStatusHistorico(){
+  const itens=[...document.querySelectorAll("[data-publish-id]")];
+  for(const item of itens){
+    const resultado=await consultarStatusEnvio(item.dataset.publishId);
+    const alvo=item.querySelector(".status-envio");
+    if(resultado.status){alvo.textContent=textoStatusTikTok(resultado.status,resultado.failReason);alvo.className="status-envio "+(resultado.status==="FAILED"?"erro":resultado.status==="SEND_TO_USER_INBOX"||resultado.status==="PUBLISH_COMPLETE"?"sucesso":"aviso");}
+  }
+}
+async function carregarHistorico(){
+  const d=await jsonFetch("/api/tiktok/publicacoes"),itens=d.items||[];
+  $("historico").innerHTML=itens.length?itens.map(x=>`<div class="item" data-publish-id="${x.publish_id}"><strong>${x.publish_id}</strong><small>${new Date(x.enviado_em).toLocaleString("pt-BR")} · <span class="status-envio aviso">Consultando status no TikTok...</span></small></div>`).join(""):'<p class="ajuda">Nenhum envio registrado.</p>';
+  if(itens.length) await atualizarStatusHistorico();
+}
+
+$("conectar").onclick=()=>location.href="/api/tiktok/oauth/start";
+$("desconectar").onclick=async()=>{if(!confirm("Desconectar a conta TikTok deste painel?"))return;try{await jsonFetch("/api/tiktok/disconnect",{method:"POST"});msg("Conta TikTok desconectada.",true);carregarStatus()}catch(e){msg(e.message)}};
+$("recarregar").onclick=()=>{carregarStatus();carregarHistorico()};
+$("enviar").onclick=async()=>{
+  const arquivo=$("video").files[0];
+  if(!arquivo){uploadMsg("Selecione um vídeo.");return}
+  if(arquivo.size>50*1024*1024){uploadMsg("O vídeo deve ter no máximo 50 MB nesta primeira fase.");return}
+  const fd=new FormData();fd.append("video",arquivo);
+  $("enviar").disabled=true;uploadMsg("Enviando vídeo para o TikTok...");
+  try{const d=await fetch("/api/tiktok/upload",{method:"POST",body:fd});const j=await d.json();if(!d.ok)throw new Error(j.erro||"Falha no envio.");uploadMsg("✓ Vídeo enviado para o fluxo de rascunho do TikTok. Abra o TikTok e continue a edição/publicação.",true);$("video").value="";await carregarHistorico()}catch(e){uploadMsg("✗ "+e.message)}finally{$("enviar").disabled=false}
+};
+Promise.all([carregarStatus(),carregarHistorico()]).catch(e=>msg(e.message));
+</script>
+</body>
+</html>

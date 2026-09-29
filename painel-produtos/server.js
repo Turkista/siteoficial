@@ -1,4 +1,4 @@
-// Painel local — Turkista
+// \n\nPainel local — Turkista
 //
 // Um único servidor Node local com três funções:
 // 1. Cadastro de PRODUTOS (aba "Produtos") — gera .json + ficha de produto
@@ -21,9 +21,15 @@ const gitLocal = require("./git-local");
 const { normalizarProduto } = require("./catalogo-normalizacao");
 const pinterestOAuth = require("./integrations/pinterest-oauth");
 const pinterestPublicacao = require("./integrations/pinterest-publicacao");
+const tiktokOAuth = require("./integrations/tiktok-oauth");
+const tiktokPublicacao = require("./integrations/tiktok-publicacao");
+const instagramOAuth = require("./integrations/instagram-oauth");
+const instagramPublicacao = require("./integrations/instagram-publicacao");
+const desempenho = require("./integrations/desempenho");
+const googleMerchant = require("./integrations/google-merchant");
 
 const app = express();
-const PORTA = 3000;
+const PORTA = Number(process.env.PORT || 3000);
 
 const RAIZ_PROJETO = path.join(__dirname, ".."); // pasta turkista-showroom
 const CAMINHO_SITEMAP = path.join(RAIZ_PROJETO, "sitemap.xml");
@@ -142,6 +148,19 @@ const upload = multer({
     const permitidos = new Set(["image/jpeg", "image/png", "image/webp"]);
     if (!permitidos.has(file.mimetype)) {
       return cb(new Error("Formato de imagem não permitido. Use JPG, PNG ou WebP."));
+    }
+    cb(null, true);
+  }
+});
+
+
+const videoUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 50 * 1024 * 1024, files: 1 },
+  fileFilter: (req, file, cb) => {
+    const permitidos = new Set(["video/mp4", "video/quicktime", "video/webm"]);
+    if (!permitidos.has(file.mimetype)) {
+      return cb(new Error("Formato de vídeo não permitido. Use MP4, MOV ou WebM."));
     }
     cb(null, true);
   }
@@ -920,7 +939,481 @@ app.post("/api/pinterest/pins", async (req, res) => {
   }
 });
 
-app.listen(PORTA, "127.0.0.1", () => {
+// ---------------------------------------------------------------
+// TIKTOK / OAUTH + CONTENT POSTING API
+// ---------------------------------------------------------------
+
+app.get("/api/tiktok/status", (req, res) => {
+  try { res.json(tiktokOAuth.status()); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/tiktok/oauth/start", (req, res) => {
+  try {
+    const { url } = tiktokOAuth.urlAutorizacao();
+    res.redirect(url);
+  } catch (erro) {
+    res.status(409).send("TikTok OAuth não configurado. " + erro.message);
+  }
+});
+
+app.get("/api/tiktok/oauth/callback", async (req, res) => {
+  try {
+    if (req.query.error) {
+      return res.status(400).send("TikTok OAuth cancelado ou recusado: " + String(req.query.error_description || req.query.error));
+    }
+    if (!tiktokOAuth.validarState(req.query.state)) {
+      return res.status(400).send("Estado OAuth inválido ou expirado. Inicie a conexão novamente pelo painel.");
+    }
+    if (!req.query.code) {
+      return res.status(400).send("TikTok não retornou o código de autorização.");
+    }
+    await tiktokOAuth.trocarCodigoPorToken(req.query.code);
+    res.redirect("/tiktok.html?conectado=1");
+  } catch (erro) {
+    console.error("TikTok OAuth:", erro);
+    res.status(500).send("Não foi possível concluir a conexão com o TikTok. " + erro.message);
+  }
+});
+
+app.post("/api/tiktok/disconnect", (req, res) => {
+  try {
+    res.json({ ok: true, ...tiktokOAuth.desconectar(), mensagem: "Conta TikTok desconectada deste painel." });
+  } catch (erro) {
+    res.status(500).json({ ok: false, erro: erro.message });
+  }
+});
+
+app.get("/api/tiktok/publicacoes", (req, res) => {
+  try { res.json({ items: tiktokPublicacao.historico() }); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.post("/api/tiktok/upload", videoUpload.single("video"), async (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ erro: "Selecione um vídeo." });
+    const resultado = await tiktokPublicacao.iniciarUploadVideo({
+      buffer: req.file.buffer,
+      mimetype: req.file.mimetype,
+    });
+    res.status(201).json(resultado);
+  } catch (erro) {
+    console.error("TikTok upload:", erro);
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      detalhes: erro.dados || null,
+    });
+  }
+});
+
+app.get("/api/tiktok/status/:publishId", async (req, res) => {
+  try {
+    const resultado = await tiktokPublicacao.consultarStatus(req.params.publishId);
+    res.json(resultado);
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+// ---------------------------------------------------------------
+// INSTAGRAM / OAUTH + CONTENT PUBLISHING
+// ---------------------------------------------------------------
+
+app.get("/api/instagram/status", (req, res) => {
+  try { res.json(instagramOAuth.status()); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/instagram/oauth/start", (req, res) => {
+  try {
+    const { url } = instagramOAuth.urlAutorizacao();
+    res.redirect(url);
+  } catch (erro) {
+    res.status(409).send("Instagram OAuth não configurado. " + erro.message);
+  }
+});
+
+app.get("/api/instagram/oauth/callback", async (req, res) => {
+  try {
+    if (req.query.error) {
+      return res.status(400).send("Instagram OAuth cancelado ou recusado: " + String(req.query.error_description || req.query.error));
+    }
+    if (!instagramOAuth.validarState(req.query.state)) {
+      return res.status(400).send("Estado OAuth inválido ou expirado. Inicie a conexão novamente pelo painel.");
+    }
+    if (!req.query.code) {
+      return res.status(400).send("Instagram não retornou o código de autorização.");
+    }
+    await instagramOAuth.trocarCodigoPorToken(req.query.code);
+    res.redirect("/instagram.html?conectado=1");
+  } catch (erro) {
+    console.error("Instagram OAuth:", erro);
+    res.status(500).send("Não foi possível concluir a conexão com o Instagram. " + erro.message);
+  }
+});
+
+app.post("/api/instagram/disconnect", (req, res) => {
+  try { res.json({ ok: true, ...instagramOAuth.desconectar() }); }
+  catch (erro) { res.status(500).json({ ok: false, erro: erro.message }); }
+});
+
+app.get("/api/instagram/user", async (req, res) => {
+  try {
+    res.json(await instagramOAuth.api("/me?fields=id,user_id,username,name,account_type,profile_picture_url"));
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+app.get("/api/instagram/produtos", (req, res) => {
+  try {
+    res.json({
+      items: instagramPublicacao.listarProdutos().map(p => ({
+        id: p.id,
+        slug: p.slug,
+        nome: p.nome,
+        descricaoCurta: p.descricaoCurta || "",
+        status: p.status,
+        imagem: instagramPublicacao.imagemPrincipal(p),
+        link: instagramPublicacao.urlProduto(p),
+      }))
+    });
+  } catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/instagram/publicacoes", (req, res) => {
+  try { res.json({ items: instagramPublicacao.historico() }); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.post("/api/instagram/publicar", async (req, res) => {
+  try {
+    const resultado = await instagramPublicacao.publicarMidia({
+      slug: req.body?.slug,
+      mediaUrl: req.body?.mediaUrl,
+      tipo: req.body?.tipo || "imagem",
+      caption: req.body?.caption,
+      altText: req.body?.altText,
+    });
+    res.status(201).json(resultado);
+  } catch (erro) {
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      publicacao: erro.publicacao || null,
+      detalhes: erro.dados || null,
+    });
+  }
+});
+
+app.get("/api/instagram/midias", async (req, res) => {
+  try { res.json(await instagramPublicacao.listarMidias({ limit: req.query.limit || 50 })); }
+  catch (erro) { res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null }); }
+});
+
+app.post("/api/desempenho/instagram/sincronizar", async (req, res) => {
+  try { res.json(await instagramPublicacao.sincronizarMetricas()); }
+  catch (erro) {
+    console.error("Instagram sincronização:", erro);
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.dados || null });
+  }
+});
+
+// ---------------------------------------------------------------
+// STATUS DO GOOGLE MERCHANT
+// ---------------------------------------------------------------
+app.get("/api/desempenho/google-merchant/config", (req, res) => {
+  try {
+    const config = googleMerchant.getConfig();
+    let credencialDisponivel = false;
+    try {
+      googleMerchant.getCredentialPath();
+      credencialDisponivel = true;
+    } catch (erro) {}
+
+    res.json({
+      ok: true,
+      accountId: config.accountId,
+      dataSourceId: config.dataSourceId,
+      siteBaseUrl: config.siteBaseUrl,
+      credencialDisponivel
+    });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+// ---------------------------------------------------------------
+// ANÁLISE DE DESEMPENHO
+// ---------------------------------------------------------------
+app.get("/api/google-merchant/produtos", async (req, res) => {
+  try {
+    const resultado = await googleMerchant.listarProdutos({ limite: req.query.limite || 1000 });
+    const arquivos = fs.readdirSync(PRODUTOS.pastaJSON).filter((f) => f.endsWith(".json") && f !== "index.json");
+    const catalogo = arquivos.map((f) => {
+      const produto = JSON.parse(fs.readFileSync(path.join(PRODUTOS.pastaJSON, f), "utf-8"));
+      return { id: produto.id ? String(produto.id) : "", slug: produto.slug || "", nome: produto.nome || "", statusCms: produto.status || "" };
+    });
+    const porId = new Map(catalogo.filter(p => p.id).map(p => [p.id, p]));
+    const usados = new Set();
+    const itens = (resultado.products || []).map((produto) => {
+      const offerId = String(produto.offerId || "").trim();
+      const local = porId.get(offerId) || null;
+      if (local) usados.add(local.id);
+      const status = produto.productStatus || {};
+      const issues = Array.isArray(status.itemLevelIssues) ? status.itemLevelIssues : [];
+      const destinations = Array.isArray(status.destinationStatuses) ? status.destinationStatuses : [];
+      const temDestinoReprovado = destinations.some(d => Array.isArray(d.disapprovedCountries) && d.disapprovedCountries.length > 0);
+      const temDestinoPendente = destinations.some(d => Array.isArray(d.pendingCountries) && d.pendingCountries.length > 0);
+      const temDestinoAprovado = destinations.some(d => Array.isArray(d.approvedCountries) && d.approvedCountries.length > 0);
+      const temRevisaoInicial = issues.some(i => String(i.code || "").toLowerCase().startsWith("pending_initial_policy_review"));
+      const temProblemaReal = issues.some(i => {
+        const code = String(i.code || "").toLowerCase();
+        return !code.startsWith("pending_initial_policy_review");
+      });
+      const estado = temDestinoReprovado || issues.some(i => String(i.severity || "").toUpperCase() === "DISAPPROVED" && !String(i.code || "").toLowerCase().startsWith("pending_initial_policy_review"))
+        ? "reprovado"
+        : temDestinoPendente || temRevisaoInicial
+          ? "pendente"
+          : temProblemaReal
+            ? "problema"
+            : temDestinoAprovado
+              ? "aprovado"
+              : destinations.length
+                ? "processando"
+                : "sem_destino";
+      return {
+        name: produto.name || "", offerId,
+        titulo: produto.productAttributes?.title || produto.title || offerId || "Produto sem título",
+        link: produto.productAttributes?.link || produto.link || "",
+        imageLink: produto.productAttributes?.imageLink || produto.imageLink || "",
+        estado,
+        problemas: issues.map(i => ({ severity: i.severity || "", code: i.code || "", attribute: i.attribute || "", description: i.description || i.detail || "" })).slice(0, 5),
+        destinos: destinations.map(d => ({ reportingContext: d.reportingContext || "", approvedCountries: d.approvedCountries || [], pendingCountries: d.pendingCountries || [], disapprovedCountries: d.disapprovedCountries || [] })),
+        cms: local
+      };
+    });
+    for (const local of catalogo) {
+      if (!usados.has(local.id)) {
+        itens.push({ name: "", offerId: local.id, titulo: local.nome || local.id, link: local.slug ? "/produto/" + encodeURIComponent(local.slug) + ".html" : "", imageLink: "", estado: "nao_encontrado", problemas: [], destinos: [], cms: local });
+      }
+    }
+    const resumo = {
+      merchant: resultado.total || 0,
+      aprovados: itens.filter(p => p.estado === "aprovado").length,
+      pendentes: itens.filter(p => p.estado === "pendente" || p.estado === "processando").length,
+      problemas: itens.filter(p => p.estado === "problema" || p.estado === "reprovado").length,
+      naoEncontrados: itens.filter(p => p.estado === "nao_encontrado").length,
+      cms: catalogo.length
+    };
+    res.json({ ok: true, ...resumo, produtos: itens });
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.response?.data || erro.dados || null });
+  }
+});
+app.get("/api/desempenho/google-merchant", async (req, res) => {
+  try {
+    const inicio = String(req.query.inicio || "").trim();
+    const fim = String(req.query.fim || "").trim();
+    const resultado = await googleMerchant.buscarDesempenhoProdutos({ inicio, fim });
+    res.json(resultado);
+  } catch (erro) {
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      detalhes: erro.response?.data || erro.dados || null
+    });
+  }
+});
+
+app.post("/api/desempenho/google-merchant/sincronizar", async (req, res) => {
+  try {
+    const inicio = String(req.body?.inicio || "").trim();
+    const fim = String(req.body?.fim || "").trim();
+    if (!inicio || !fim) {
+      return res.status(400).json({ erro: "Informe inicio e fim no formato YYYY-MM-DD." });
+    }
+
+    const resultado = await googleMerchant.buscarDesempenhoProdutos({ inicio, fim });
+    const linhas = Array.isArray(resultado?.results) ? resultado.results : [];
+    const arquivos = fs.readdirSync(PRODUTOS.pastaJSON)
+      .filter((f) => f.endsWith(".json") && f !== "index.json");
+
+    const produtos = arquivos.map((f) => {
+      const produto = JSON.parse(fs.readFileSync(path.join(PRODUTOS.pastaJSON, f), "utf-8"));
+      return { ...produto, _arquivo: f };
+    });
+
+    const porOfferId = new Map();
+    for (const produto of produtos) {
+      if (produto.id) porOfferId.set(String(produto.id), produto);
+    }
+
+    const metricas = ["impressions", "clicks", "click_through_rate", "conversions", "conversion_rate"];
+    let metricasNovas = 0;
+    let publicacoesNovas = 0;
+    let linhasComProduto = 0;
+
+    for (const linha of linhas) {
+      const view = linha?.productPerformanceView || linha?.product_performance_view || {};
+      const offerId = String(view.offerId || view.offer_id || "").trim();
+      const produto = porOfferId.get(offerId);
+      if (!offerId || !produto) continue;
+
+      linhasComProduto++;
+      const dataObj = view.date || {};
+      const data = dataObj.year
+        ? new Date(Date.UTC(Number(dataObj.year), Number(dataObj.month || 1) - 1, Number(dataObj.day || 1))).toISOString()
+        : new Date().toISOString();
+      const canalMarketing = String(view.marketingMethod || view.marketing_method || "UNKNOWN").toLowerCase();
+
+      const publicacaoExistente = desempenho.listarPublicacoes({
+        produto_id: produto.id,
+        canal: "googleMerchant"
+      }).some((p) => p.external_id === offerId + ":" + canalMarketing);
+
+      if (!publicacaoExistente) {
+        desempenho.registrarPublicacao({
+          produto_id: produto.id,
+          slug: produto.slug,
+          canal: "googleMerchant",
+          external_id: offerId + ":" + canalMarketing,
+          status: "ativo",
+          data,
+          metadados: {
+            marketing_method: canalMarketing,
+            inicio,
+            fim
+          }
+        });
+        publicacoesNovas++;
+      }
+
+      for (const nomeMetrica of metricas) {
+        const valorBruto = view[nomeMetrica] ?? view[
+          nomeMetrica.replace(/_([a-z])/g, (_, letra) => letra.toUpperCase())
+        ];
+        if (valorBruto === undefined || valorBruto === null) continue;
+
+        const valor = Number(valorBruto);
+        if (!Number.isFinite(valor)) continue;
+
+        const duplicada = desempenho.listarMetricas({
+          produto_id: produto.id,
+          canal: "googleMerchant",
+          metrica: nomeMetrica
+        }).some((m) =>
+          m.data === data &&
+          Number(m.valor) === valor &&
+          m.metadados?.marketing_method === canalMarketing
+        );
+
+        if (!duplicada) {
+          desempenho.registrarMetrica({
+            publicacao_id: offerId + ":" + canalMarketing,
+            produto_id: produto.id,
+            slug: produto.slug,
+            canal: "googleMerchant",
+            metrica: nomeMetrica,
+            valor,
+            unidade: nomeMetrica.includes("rate") ? "percentual" : "numero",
+            data,
+            origem: "google_merchant_api",
+            metadados: {
+              offer_id: offerId,
+              marketing_method: canalMarketing,
+              inicio,
+              fim,
+              titulo: view.title || null
+            }
+          });
+          metricasNovas++;
+        }
+      }
+    }
+
+    res.json({
+      ok: true,
+      periodo: { inicio, fim },
+      linhas_recebidas: linhas.length,
+      linhas_com_produto: linhasComProduto,
+      publicacoes_novas: publicacoesNovas,
+      metricas_novas: metricasNovas
+    });
+  } catch (erro) {
+    console.error("Google Merchant sincronização:", erro);
+    res.status(erro.status || 500).json({
+      erro: erro.message,
+      detalhes: erro.response?.data || erro.dados || null
+    });
+  }
+});
+
+app.get("/api/desempenho/status-atual", async (req, res) => {
+  try {
+    const arquivos = fs.readdirSync(PRODUTOS.pastaJSON).filter((f) => f.endsWith(".json") && f !== "index.json");
+    let google = null;
+    try {
+      const resultado = await googleMerchant.listarProdutos({ limite: 1000 });
+      google = { total: resultado.total || 0 };
+    } catch (erro) {
+      google = { total: null, erro: erro.message };
+    }
+    res.json({
+      ok: true,
+      site: { total: arquivos.length },
+      googleMerchant: google
+    });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.get("/api/desempenho/resumo", (req, res) => {
+  try { res.json(desempenho.resumo()); }
+  catch (erro) { res.status(500).json({ erro: erro.message }); }
+});
+
+app.get("/api/desempenho/publicacoes", (req, res) => {
+  try {
+    res.json({ items: desempenho.listarPublicacoes({
+      canal: req.query.canal,
+      produto_id: req.query.produto_id,
+      slug: req.query.slug
+    }) });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.get("/api/desempenho/metricas", (req, res) => {
+  try {
+    res.json({ items: desempenho.listarMetricas({
+      canal: req.query.canal,
+      produto_id: req.query.produto_id,
+      slug: req.query.slug,
+      metrica: req.query.metrica
+    }) });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/desempenho/publicacoes", (req, res) => {
+  try {
+    res.status(201).json(desempenho.registrarPublicacao(req.body || {}));
+  } catch (erro) {
+    res.status(400).json({ erro: erro.message });
+  }
+});
+
+app.post("/api/desempenho/metricas", (req, res) => {
+  try {
+    res.status(201).json(desempenho.registrarMetrica(req.body || {}));
+  } catch (erro) {
+    res.status(400).json({ erro: erro.message });
+  }
+});
+
+app.listen(PORTA, "0.0.0.0", () => {
   console.log("");
   console.log("=================================================");
   console.log("  Painel Turkista rodando!");

@@ -1,0 +1,5 @@
+{
+  "client_key": "COLOCAR_AQUI_O_CLIENT_KEY_DO_TIKTOK",
+  "client_secret": "COLOCAR_AQUI_O_CLIENT_SECRET_DO_TIKTOK",
+  "redirect_uri": "https://www.turkista.com.br/api/tiktok/oauth/callback"
+}

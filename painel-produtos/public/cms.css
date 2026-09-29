@@ -1,0 +1,31 @@
+/* Turkista CMS — identidade visual e navegação compartilhada */
+:root{--cms-rosa:#F279C8;--cms-rosa2:#C94E9C;--cms-grafite:#0C1014;--cms-cinza:#6B6B6B;--cms-borda:#E8E3E7;--cms-fundo:#F6F5F7;--cms-card:#FFF;--cms-sidebar:#111318;--cms-sidebar-text:#B8BCC6;--cms-sidebar-muted:#737986;--cms-sombra:0 14px 36px rgba(12,16,20,.07)}
+*{box-sizing:border-box}
+body{background:radial-gradient(circle at 88% 0%,rgba(242,121,200,.10),transparent 28%),var(--cms-fundo)!important;color:var(--cms-grafite)}
+.cms-nav{position:fixed!important;z-index:1000;left:0;top:0;bottom:0;width:252px;margin:0!important;padding:22px 14px 18px!important;display:flex!important;flex-direction:column;align-items:stretch;gap:4px!important;flex-wrap:nowrap;background:linear-gradient(180deg,var(--cms-sidebar),#0D0F13);border:0!important;border-right:1px solid rgba(255,255,255,.06);border-radius:0!important;box-shadow:10px 0 35px rgba(0,0,0,.08)}
+.cms-nav__brand{display:flex;align-items:center;gap:11px;min-height:48px;padding:9px 11px;margin:0 4px 24px;color:#fff!important;font-size:13px!important;font-weight:800!important;letter-spacing:.10em;text-decoration:none!important;white-space:nowrap}
+.cms-nav__brand::before{content:"T";display:grid;place-items:center;width:32px;height:32px;flex:0 0 32px;border-radius:10px;background:linear-gradient(135deg,var(--cms-rosa2),var(--cms-rosa));color:#fff;font-size:14px;font-weight:900;letter-spacing:0;box-shadow:0 7px 18px rgba(201,78,156,.25)}
+.cms-nav__group{display:flex;flex-direction:column;align-items:stretch;gap:3px;flex-wrap:nowrap;margin-bottom:17px}
+.cms-nav__label{padding:0 11px 7px;color:var(--cms-sidebar-muted);font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.cms-nav a.cms-nav__link{position:relative;display:flex!important;align-items:center;gap:10px;min-height:40px;padding:9px 11px!important;border:0!important;border-radius:10px!important;background:transparent!important;color:var(--cms-sidebar-text)!important;font-size:12px!important;font-weight:650!important;text-decoration:none!important;white-space:nowrap;transition:background .16s ease,color .16s ease,transform .16s ease}
+.cms-nav a.cms-nav__link::before{content:"";width:7px;height:7px;flex:0 0 7px;border:1.5px solid currentColor;border-radius:2px;opacity:.65}
+.cms-nav a.cms-nav__link:hover{background:rgba(242,121,200,.08)!important;color:#fff!important;transform:translateX(2px)}
+.cms-nav a.cms-nav__link.ativa{background:linear-gradient(90deg,rgba(242,121,200,.19),rgba(242,121,200,.07))!important;color:#fff!important;box-shadow:inset 3px 0 0 var(--cms-rosa)}
+.cms-nav a.cms-nav__link.ativa::before{background:var(--cms-rosa);border-color:var(--cms-rosa);opacity:1;box-shadow:0 0 10px rgba(242,121,200,.55)}
+.cms-nav__divider{display:none}
+.cms-nav::after{content:"TURKISTA CMS  •  LOCAL";margin:auto 7px 2px;padding-top:15px;border-top:1px solid rgba(255,255,255,.07);color:#565C67;font-size:8px;font-weight:800;letter-spacing:.12em}
+body{padding-left:252px!important}
+.container{width:min(1180px,calc(100% - 48px));max-width:none!important;margin:0 auto!important;padding:30px 0 80px}
+header{margin-bottom:24px}
+header h1{letter-spacing:-.025em}
+.cms-page-title{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.cms-kicker{display:inline-block;margin-bottom:7px;color:var(--cms-rosa2);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.cms-page-title h1{letter-spacing:-.02em}
+.cms-card{background:var(--cms-card);border:1px solid var(--cms-borda);border-radius:16px;box-shadow:var(--cms-sombra)}
+form,.card,.painel,.secao,.bloco{border-radius:16px!important}
+button{transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+button:hover{transform:translateY(-1px)}
+input,select,textarea{transition:border-color .15s ease,box-shadow .15s ease}
+@media(max-width:900px){.cms-nav{width:218px}body{padding-left:218px!important}.container{width:min(100% - 32px,1180px)}}
+@media(max-width:700px){body{padding-left:0!important}.cms-nav{position:relative!important;left:auto;top:auto;bottom:auto;width:100%;min-height:auto;padding:10px!important;flex-direction:row;align-items:center;flex-wrap:wrap;border-right:0!important;border-bottom:1px solid rgba(0,0,0,.08);box-shadow:0 5px 20px rgba(0,0,0,.07)}.cms-nav__brand{width:auto;margin:0 8px 0 4px}.cms-nav__group{flex-direction:row;align-items:center;margin:0}.cms-nav__label{display:none}.cms-nav a.cms-nav__link{min-height:36px;padding:8px 9px!important}.cms-nav__divider{display:none}.cms-nav::after{display:none}.container{width:calc(100% - 24px);padding-top:22px}}
+@media(max-width:540px){.cms-nav{align-items:flex-start}.cms-nav__brand{width:100%;margin-bottom:5px}.cms-nav__group{width:100%;overflow-x:auto;scrollbar-width:none}.cms-nav__group::-webkit-scrollbar{display:none}.cms-nav a.cms-nav__link{flex:0 0 auto}.cms-page-title{display:block}}
