@@ -1,24 +1,18 @@
-#!/usr/bin/env python3
-"""Injeta a tag do Google Analytics 4 em todas as páginas HTML públicas.
+from pathlib import Path
+import sys
 
-A injeção acontece no artefato final do GitHub Pages, depois das páginas
-geradas pelo CMS, evitando manter a mesma tag duplicada em dezenas de
-arquivos estáticos.
-"""
+GA_ID = "G-1CYRSP6V63"
 
-from pathlib import Path\nimport sys
-
-MEASUREMENT_ID = "G-1CYRSP6V63"
-
-TAG = f"""<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={MEASUREMENT_ID}"></script>
+GA_TAG = f"""<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
 
-  gtag('config', '{MEASUREMENT_ID}');
-</script>"""
+  gtag('config', '{GA_ID}');
+</script>
+"""
 
 EXCLUDED_DIRS = {
     ".git",
@@ -31,33 +25,69 @@ EXCLUDED_DIRS = {
     "_site",
 }
 
-def deve_processar(path: Path) -> bool:
-    return path.suffix.lower() == ".html" and not any(part in EXCLUDED_DIRS for part in path.parts)
 
-def main():
+def deve_ignorar(path: Path, raiz: Path) -> bool:
+    try:
+        partes = path.relative_to(raiz).parts
+    except ValueError:
+        return True
+
+    return any(parte in EXCLUDED_DIRS for parte in partes)
+
+
+def injetar_analytics(raiz: Path) -> int:
     alterados = 0
-    ignorados = 0
 
-    for path in Path(".").rglob("*.html"):
-        if not deve_processar(path):
+    for arquivo in raiz.rglob("*.html"):
+        if deve_ignorar(arquivo, raiz):
             continue
 
-        texto = path.read_text(encoding="utf-8")
-        if MEASUREMENT_ID in texto:
-            ignorados += 1
+        try:
+            conteudo = arquivo.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
             continue
 
-        if "</head>" not in texto.lower():
-            print(f"[AVISO] </head> não encontrado: {path}")
+        if GA_ID in conteudo:
             continue
 
-        pos = texto.lower().find("</head>")
-        texto = texto[:pos] + TAG + "\n" + texto[pos:]
-        path.write_text(texto, encoding="utf-8")
+        if "</head>" not in conteudo.lower():
+            continue
+
+        posicao = conteudo.lower().find("</head>")
+
+        novo_conteudo = (
+            conteudo[:posicao]
+            + GA_TAG
+            + conteudo[posicao:]
+        )
+
+        arquivo.write_text(
+            novo_conteudo,
+            encoding="utf-8",
+            newline="\n",
+        )
+
         alterados += 1
-        print(f"[GA4] {path}")
+        print(f"Analytics inserido: {arquivo}")
 
-    print(f"Google Analytics: {alterados} página(s) atualizada(s), {ignorados} já possuíam a tag.")
+    return alterados
+
+
+def main() -> None:
+    if len(sys.argv) > 1:
+        raiz = Path(sys.argv[1]).resolve()
+    else:
+        raiz = Path(__file__).resolve().parent.parent
+
+    if not raiz.exists():
+        raise SystemExit(f"Diretório não encontrado: {raiz}")
+
+    print(f"Aplicando GA4 em: {raiz}")
+
+    alterados = injetar_analytics(raiz)
+
+    print(f"Concluído. Arquivos alterados: {alterados}")
+
 
 if __name__ == "__main__":
     main()
