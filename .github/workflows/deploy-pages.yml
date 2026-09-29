@@ -1,4 +1,4 @@
-name: Publicar no GitHub Pages
+﻿name: Publicar no GitHub Pages
 
 on:
   push:
@@ -27,10 +27,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Instalar dependências
+      - name: Instalar depend├¬ncias
         run: python -m pip install -r scripts/requirements.txt
 
-      - name: Validar conteúdo
+      - name: Validar conte├║do
         run: python scripts/validar-conteudo.py
 
       - name: Gerar fichas de produto
@@ -42,14 +42,26 @@ jobs:
       - name: Gerar sitemap
         run: python scripts/gerar-sitemap.py
 
-      - name: Montar artefato público
+      - name: Montar artefato p├║blico
         run: |
           rm -rf _site
           mkdir -p _site
 
-          rsync -a             --exclude='.git/'             --exclude='.github/'             --exclude='painel-produtos/'             --exclude='scripts/'             --exclude='config/'             --exclude='docs/'             --exclude='src/content/'             --exclude='src/schema/'             --exclude='_site/'             ./ _site/
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='painel-produtos/' \
+            --exclude='scripts/' \
+            --exclude='config/' \
+            --exclude='docs/' \
+            --exclude='src/content/' \
+            --exclude='src/schema/' \
+            --exclude='_site/' \
+            ./ _site/
 
-          python scripts/injetar-analytics.py _site\n\n          test -f _site/index.html
+          python scripts/injetar-analytics.py _site
+
+          test -f _site/index.html
           test -f _site/CNAME
           test -f _site/sitemap.xml
           test -d _site/assets

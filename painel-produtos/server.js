@@ -27,6 +27,7 @@ const instagramOAuth = require("./integrations/instagram-oauth");
 const instagramPublicacao = require("./integrations/instagram-publicacao");
 const desempenho = require("./integrations/desempenho");
 const googleMerchant = require("./integrations/google-merchant");
+const googleAnalytics = require("./integrations/google-analytics");
 
 const app = express();
 const PORTA = Number(process.env.PORT || 3000);
@@ -1347,6 +1348,32 @@ app.post("/api/desempenho/google-merchant/sincronizar", async (req, res) => {
   }
 });
 
+app.get("/api/desempenho/google-analytics", async (req, res) => {
+  try {
+    const periodo = String(req.query.periodo || "30").trim();
+
+    const periodosPermitidos = new Set(["7", "30", "90", "todos"]);
+
+    if (!periodosPermitidos.has(periodo)) {
+      return res.status(400).json({
+        ok: false,
+        erro: "Período inválido. Use 7, 30, 90 ou todos."
+      });
+    }
+
+    const resultado = await googleAnalytics.relatorioCompleto(periodo);
+
+    res.json(resultado);
+  } catch (erro) {
+    console.error("Google Analytics:", erro);
+
+    res.status(500).json({
+      ok: false,
+      erro: erro.message,
+      detalhes: erro.response?.data || erro.dados || null
+    });
+  }
+});
 app.get("/api/desempenho/status-atual", async (req, res) => {
   try {
     const arquivos = fs.readdirSync(PRODUTOS.pastaJSON).filter((f) => f.endsWith(".json") && f !== "index.json");

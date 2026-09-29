@@ -10,10 +10,11 @@
     "auditar:catalogo": "node ../scripts/auditar-catalogo.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "multer": "^1.4.5-lts.1",
-    "sharp": "^0.33.4",
+    "@google-analytics/data": "^7.2.1",
     "ajv": "^8.16.0",
-    "google-auth-library": "^9.14.2"
+    "express": "^4.19.2",
+    "google-auth-library": "^9.14.2",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.4"
   }
 }

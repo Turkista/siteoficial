@@ -21,6 +21,94 @@
 <div class="card"><div class="rotulo">Cliques</div><div class="valor" id="cliques">—</div><div class="sub">Métricas chamadas clicks</div></div>
 <div class="card"><div class="rotulo">Impressões / visualizações</div><div class="valor" id="views">—</div><div class="sub">Somente quando registradas</div></div>
 </section>
+<section class="painel" id="googleAnalyticsPainel">
+<h2>Site — Google Analytics 4</h2>
+<p class="desc">Dados reais de comportamento dos visitantes do site, separados do histórico de publicações e das métricas das plataformas.</p>
+
+<div class="cards">
+<div class="card">
+<div class="rotulo">Usuários</div>
+<div class="valor" id="gaUsuarios">—</div>
+<div class="sub">Usuários ativos no período</div>
+</div>
+
+<div class="card">
+<div class="rotulo">Sessões</div>
+<div class="valor" id="gaSessoes">—</div>
+<div class="sub">Sessões iniciadas</div>
+</div>
+
+<div class="card">
+<div class="rotulo">Visualizações</div>
+<div class="valor" id="gaVisualizacoes">—</div>
+<div class="sub">Visualizações de páginas</div>
+</div>
+
+<div class="card">
+<div class="rotulo">Eventos</div>
+<div class="valor" id="gaEventos">—</div>
+<div class="sub">Eventos registrados</div>
+</div>
+</div>
+
+<div class="grid">
+<section>
+<h2>Páginas mais acessadas</h2>
+<p class="desc">Páginas com maior número de visualizações no período.</p>
+
+<table class="tabela">
+<thead>
+<tr>
+<th>Página</th>
+<th>Visualizações</th>
+<th>Usuários</th>
+</tr>
+</thead>
+
+<tbody id="gaPaginas">
+<tr>
+<td colspan="3" style="color:var(--cinza)">
+Nenhuma visualização registrada no período.
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Origem do tráfego</h2>
+<p class="desc">Canais e origens que trouxeram visitantes ao site.</p>
+
+<table class="tabela">
+<thead>
+<tr>
+<th>Canal / origem</th>
+<th>Sessões</th>
+<th>Usuários</th>
+</tr>
+</thead>
+
+<tbody id="gaOrigens">
+<tr>
+<td colspan="3" style="color:var(--cinza)">
+Nenhuma origem registrada no período.
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
+
+<div class="aviso">
+<strong>Google Analytics 4:</strong>
+Cliques no WhatsApp:
+<strong id="gaWhatsapp">—</strong>
+&nbsp; | &nbsp;
+Propriedade:
+<strong id="gaProperty">—</strong>
+</div>
+
+</section>
 <div class="grid">
 <section class="painel"><h2>Status atual por canal</h2><p class="desc">Quantidade atualmente disponível no catálogo local e no Google Merchant.</p><div id="canais"></div></section>
 <section class="painel"><h2>Integrações</h2><p class="desc">Canais contemplados pela arquitetura.</p><div class="status" id="status"></div></section>
@@ -45,6 +133,122 @@ function render(){
  $("metricas").innerHTML=rows.length?rows.map(x=>'<tr><td>'+x.canal+'</td><td>'+x.metrica+'</td><td>'+fmt(x.valor)+'</td><td>'+x.origem+'</td></tr>').join(""):'<tr><td colspan="4" style="color:var(--cinza)">Nenhuma métrica registrada no período.</td></tr>';
  $("atualizado").textContent="Atualizado em "+new Date().toLocaleString("pt-BR");
 }
+function renderGoogleAnalytics(dados){
+ const r=dados?.resumo||{};
+
+ $("gaUsuarios").textContent=fmt(r.activeUsers);
+ $("gaSessoes").textContent=fmt(r.sessions);
+ $("gaVisualizacoes").textContent=fmt(r.screenPageViews);
+ $("gaEventos").textContent=fmt(r.eventCount);
+
+ $("gaWhatsapp").textContent=
+   fmt(dados?.whatsapp?.quantidade||0);
+
+ $("gaProperty").textContent=
+   dados?.propertyId||"—";
+
+ const paginas=
+   Array.isArray(dados?.paginas)
+   ? dados.paginas
+   : [];
+
+ $("gaPaginas").innerHTML=
+   paginas.length
+   ? paginas.map(x =>
+       '<tr>' +
+       '<td>' +
+       (x.path||"—") +
+(x.title
+  ? '<br><small style="color:var(--cinza)">' +
+    x.title +
+    '</small>'
+  : "") +
+'</td>' +
+'<td>' +
+fmt(x.views) +
+'</td>' +
+'<td>' +
+fmt(x.users) +
+'</td>' +
+       '</tr>'
+     ).join("")
+   : '<tr><td colspan="3" style="color:var(--cinza)">' +
+     'Nenhuma visualização registrada no período.' +
+     '</td></tr>';
+
+ const origens=
+   Array.isArray(dados?.origens)
+   ? dados.origens
+   : [];
+
+ $("gaOrigens").innerHTML=
+   origens.length
+   ? origens.map(x =>
+       '<tr>' +
+       '<td>' +
+(x.canal||"—") +
+'<br><small style="color:var(--cinza)">' +
+(x.origem||"—") +
+' / ' +
+(x.midia||"—") +
+'</small>' +
+'</td>' +
+'<td>' +
+fmt(x.sessions) +
+'</td>' +
+'<td>' +
+fmt(x.users) +
+'</td>' +
+       '</tr>'
+     ).join("")
+   : '<tr><td colspan="3" style="color:var(--cinza)">' +
+     'Nenhuma origem registrada no período.' +
+     '</td></tr>';
+}
+
+async function carregarGoogleAnalytics(){
+ try{
+  const periodoSelecionado=$("periodo").value;
+
+  const resposta=await fetch(
+    "/api/desempenho/google-analytics?periodo="+
+    encodeURIComponent(periodoSelecionado),
+    {cache:"no-store"}
+  );
+
+  const dados=await resposta.json();
+
+  if(!resposta.ok || !dados.ok){
+    throw Error(
+      dados.erro ||
+      "Não foi possível carregar os dados do Google Analytics."
+    );
+  }
+
+  renderGoogleAnalytics(dados);
+
+ }catch(e){
+
+  console.error("Google Analytics:",e);
+
+  $("gaUsuarios").textContent="—";
+  $("gaSessoes").textContent="—";
+  $("gaVisualizacoes").textContent="—";
+  $("gaEventos").textContent="—";
+  $("gaWhatsapp").textContent="—";
+  $("gaProperty").textContent="Erro";
+
+  $("gaPaginas").innerHTML=
+    '<tr><td colspan="3" style="color:#A3312A">' +
+    e.message +
+    '</td></tr>';
+
+  $("gaOrigens").innerHTML=
+    '<tr><td colspan="3" style="color:#A3312A">' +
+    'Não foi possível carregar as origens.' +
+    '</td></tr>';
+ }
+}
 async function carregar(){
  try{
   const [p,m,s]=await Promise.all([fetch("/api/desempenho/publicacoes"),fetch("/api/desempenho/metricas"),fetch("/api/desempenho/status-atual")]);
@@ -58,6 +262,6 @@ async function carregar(){
 }
 async function verificarGoogleMerchant(){try{const r=await fetch("/api/desempenho/google-merchant/config");if(!r.ok)throw Error();const d=await r.json();const item=[...$("status").querySelectorAll(".status-item")].find(x=>x.textContent.includes("Google Merchant"));if(item){const badge=item.querySelector(".badge");const small=item.querySelector("small");small.textContent="Conta "+d.accountId+" • Fonte "+d.dataSourceId;badge.textContent=d.credencialDisponivel?"Configurado":"Configuração local pendente";badge.className="badge "+(d.credencialDisponivel?"ok":"");}}catch(e){}}
 
-$("periodo").onchange=render;$("atualizar").onclick=carregar;carregar();verificarGoogleMerchant();
+$("periodo").onchange=()=>{render();carregarGoogleAnalytics()};$("atualizar").onclick=()=>{carregar();carregarGoogleAnalytics()};carregar();carregarGoogleAnalytics();verificarGoogleMerchant();
 </script>
 </body></html>
