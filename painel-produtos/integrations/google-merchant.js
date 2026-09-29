@@ -138,6 +138,36 @@ async function insertProductVariants(produto) {
 }
 
 
+async function listarProdutos({ limite = 1000 } = {}) {
+  const config = getConfig();
+  const produtos = [];
+  let pageToken = "";
+  let paginas = 0;
+  const pageSize = Math.min(Math.max(Number(limite) || 1000, 1), 1000);
+
+  do {
+    const url =
+      MERCHANT_API_BASE +
+      "/products/v1/accounts/" +
+      encodeURIComponent(config.accountId) +
+      "/products?pageSize=" +
+      pageSize +
+      (pageToken ? "&pageToken=" + encodeURIComponent(pageToken) : "");
+
+    const resposta = await request("GET", url);
+    if (Array.isArray(resposta?.products)) produtos.push(...resposta.products);
+
+    pageToken = resposta?.nextPageToken || "";
+    paginas += 1;
+  } while (pageToken && paginas < 100);
+
+  return {
+    products: produtos,
+    total: produtos.length,
+    paginas
+  };
+}
+
 async function searchPerformance({ query }) {
   const config = getConfig();
   if (!query || typeof query !== "string") {
@@ -161,4 +191,4 @@ async function buscarDesempenhoProdutos({ inicio, fim, limite = 1000 } = {}) {
   return searchPerformance({ query });
 }
 
-module.exports = { getCredentialPath, getDeveloperRegistration, registerGcp, getConfig, produtoParaMerchant, insertProduct, insertProductVariants, variantesDoProduto, searchPerformance, buscarDesempenhoProdutos };
+module.exports = { getCredentialPath, getDeveloperRegistration, registerGcp, getConfig, produtoParaMerchant, insertProduct, insertProductVariants, variantesDoProduto, listarProdutos, searchPerformance, buscarDesempenhoProdutos };
