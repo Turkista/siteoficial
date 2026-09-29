@@ -22,7 +22,7 @@
 <div class="card"><div class="rotulo">Impressões / visualizações</div><div class="valor" id="views">—</div><div class="sub">Somente quando registradas</div></div>
 </section>
 <div class="grid">
-<section class="painel"><h2>Publicações por canal</h2><p class="desc">Quantidade efetivamente registrada no histórico central.</p><div id="canais"></div></section>
+<section class="painel"><h2>Status atual por canal</h2><p class="desc">Quantidade atualmente disponível no catálogo local e no Google Merchant.</p><div id="canais"></div></section>
 <section class="painel"><h2>Integrações</h2><p class="desc">Canais contemplados pela arquitetura.</p><div class="status" id="status"></div></section>
 </div>
 <section class="painel"><h2>Métricas por canal</h2><p class="desc">Valores agregados do período. Métricas diferentes não são somadas entre si.</p><table class="tabela"><thead><tr><th>Canal</th><th>Métrica</th><th>Valor</th><th>Origem</th></tr></thead><tbody id="metricas"></tbody></table></section>
@@ -37,15 +37,25 @@ function render(){
  $("totalPublicacoes").textContent=pubs.length;$("totalMetricas").textContent=mets.length;
  $("cliques").textContent=fmt(mets.filter(x=>x.metrica==="clicks").reduce((s,x)=>s+Number(x.valor||0),0));
  $("views").textContent=fmt(mets.filter(x=>["impressions","views"].includes(x.metrica)).reduce((s,x)=>s+Number(x.valor||0),0));
- const cont={};pubs.forEach(x=>{const c=x.canal||"desconhecido";cont[c]=(cont[c]||0)+1});const canais=["site","googleMerchant","pinterest","tiktok","instagram"],max=Math.max(...canais.map(c=>cont[c]||0),1);
- $("canais").innerHTML=canais.map(c=>{const q=cont[c]||0,pc=Math.round(q/max*100),n={site:"Site",googleMerchant:"Google Merchant",pinterest:"Pinterest",tiktok:"TikTok",instagram:"Instagram"}[c];return '<div class="canal"><div class="canal-topo"><strong>'+n+'</strong><span>'+q+'</span></div><div class="barra"><span style="width:'+pc+'%"></span></div><div class="info">'+q+' publicação(ões) registradas</div></div>'}).join("");
+ const cont={site:window.statusAtual?.site?.total||0,googleMerchant:window.statusAtual?.googleMerchant?.total||0,pinterest:0,tiktok:0,instagram:0};const canais=["site","googleMerchant","pinterest","tiktok","instagram"],max=Math.max(...canais.map(c=>cont[c]||0),1);
+ $("canais").innerHTML=canais.map(c=>{const q=cont[c]||0,pc=Math.round(q/max*100),n={site:"Site",googleMerchant:"Google Merchant",pinterest:"Pinterest",tiktok:"TikTok",instagram:"Instagram"}[c];return '<div class="canal"><div class="canal-topo"><strong>'+n+'</strong><span>'+q+'</span></div><div class="barra"><span style="width:'+pc+'%"></span></div><div class="info">'+(c==="site"?q+" produto(s) no catálogo local":c==="googleMerchant"?(q+" produto(s) processados no Merchant"):"Histórico central: "+(pubs.filter(x=>x.canal===c).length)+" registro(s)")+'</div></div>'}).join("");
  $("status").innerHTML=[["Site","Catálogo local","Configurado"],["Google Merchant","Catálogo + métricas","Configurado"],["Pinterest","Publicação integrada","Configurado"],["TikTok","Upload integrado","Configurado"],["Instagram","OAuth, publicação e métricas","Configurado"]].map(x=>'<div class="status-item"><span><strong>'+x[0]+'</strong><br><small style="color:var(--cinza)">'+x[1]+'</small></span><span class="badge ok">'+x[2]+'</span></div>').join("");
  const a={};mets.forEach(m=>{const k=(m.canal||"desconhecido")+"|||"+(m.metrica||"desconhecida");if(!a[k])a[k]={canal:m.canal||"desconhecido",metrica:m.metrica||"desconhecida",valor:0,origem:m.origem||"api"};a[k].valor+=Number(m.valor||0)});
  const rows=Object.values(a).sort((x,y)=>(x.canal+x.metrica).localeCompare(y.canal+y.metrica,"pt-BR"));
  $("metricas").innerHTML=rows.length?rows.map(x=>'<tr><td>'+x.canal+'</td><td>'+x.metrica+'</td><td>'+fmt(x.valor)+'</td><td>'+x.origem+'</td></tr>').join(""):'<tr><td colspan="4" style="color:var(--cinza)">Nenhuma métrica registrada no período.</td></tr>';
  $("atualizado").textContent="Atualizado em "+new Date().toLocaleString("pt-BR");
 }
-async function carregar(){try{const [p,m]=await Promise.all([fetch("/api/desempenho/publicacoes"),fetch("/api/desempenho/metricas")]);if(!p.ok||!m.ok)throw Error("Não foi possível carregar a Central de Desempenho.");publicacoes=(await p.json()).items||[];metricas=(await m.json()).items||[];render();$("erro").style.display="none"}catch(e){$("erro").textContent=e.message;$("erro").style.display="block"}}
+async function carregar(){
+ try{
+  const [p,m,s]=await Promise.all([fetch("/api/desempenho/publicacoes"),fetch("/api/desempenho/metricas"),fetch("/api/desempenho/status-atual")]);
+  if(!p.ok||!m.ok||!s.ok)throw Error("Não foi possível carregar a Central de Desempenho.");
+  publicacoes=(await p.json()).items||[];metricas=(await m.json()).items||[];
+  const atual=await s.json();
+  window.statusAtual=atual;
+  render();
+  $("erro").style.display="none"
+ }catch(e){$("erro").textContent=e.message;$("erro").style.display="block"}
+}
 async function verificarGoogleMerchant(){try{const r=await fetch("/api/desempenho/google-merchant/config");if(!r.ok)throw Error();const d=await r.json();const item=[...$("status").querySelectorAll(".status-item")].find(x=>x.textContent.includes("Google Merchant"));if(item){const badge=item.querySelector(".badge");const small=item.querySelector("small");small.textContent="Conta "+d.accountId+" • Fonte "+d.dataSourceId;badge.textContent=d.credencialDisponivel?"Configurado":"Configuração local pendente";badge.className="badge "+(d.credencialDisponivel?"ok":"");}}catch(e){}}
 
 $("periodo").onchange=render;$("atualizar").onclick=carregar;carregar();verificarGoogleMerchant();
