@@ -60,6 +60,19 @@ jobs:
             ./ _site/
 
           python scripts/injetar-analytics.py _site
+          echo "===== DIAGNOSTICO GA4 ====="
+          echo "Quantidade de HTML no artefato:"
+          find _site -type f -name "*.html" | wc -l
+
+          echo "Quantidade de HTML contendo GA4:"
+          grep -RIl "G-1CYRSP6V63" _site --include="*.html" | wc -l || true
+
+          echo "Produto de teste:"
+          test -f _site/produto/biquini-nautic-parte-superior.html
+          grep -qi "</head>" _site/produto/biquini-nautic-parte-superior.html
+          grep -qi "G-1CYRSP6V63" _site/produto/biquini-nautic-parte-superior.html
+
+          echo "GA4 encontrado no produto de teste."
 
           test -f _site/index.html
           test -f _site/CNAME
