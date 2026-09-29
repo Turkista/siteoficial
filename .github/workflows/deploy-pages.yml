@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - fix-ga4-pages-artifact
+      - fix-ga4-product-pages
   workflow_dispatch:
 
 permissions:
