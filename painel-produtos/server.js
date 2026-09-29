@@ -1162,10 +1162,25 @@ app.get("/api/google-merchant/produtos", async (req, res) => {
       const status = produto.productStatus || {};
       const issues = Array.isArray(status.itemLevelIssues) ? status.itemLevelIssues : [];
       const destinations = Array.isArray(status.destinationStatuses) ? status.destinationStatuses : [];
-      const temReprovado = issues.some(i => String(i.severity || "").toUpperCase() === "DISAPPROVED");
-      const temPendente = issues.some(i => String(i.severity || "").toUpperCase() === "PENDING");
+      const temDestinoReprovado = destinations.some(d => Array.isArray(d.disapprovedCountries) && d.disapprovedCountries.length > 0);
+      const temDestinoPendente = destinations.some(d => Array.isArray(d.pendingCountries) && d.pendingCountries.length > 0);
       const temDestinoAprovado = destinations.some(d => Array.isArray(d.approvedCountries) && d.approvedCountries.length > 0);
-      const estado = temReprovado ? "reprovado" : temPendente ? "pendente" : issues.length ? "problema" : temDestinoAprovado ? "aprovado" : destinations.length ? "sem_destino" : "processando";
+      const temRevisaoInicial = issues.some(i => String(i.code || "").toLowerCase().startsWith("pending_initial_policy_review"));
+      const temProblemaReal = issues.some(i => {
+        const code = String(i.code || "").toLowerCase();
+        return !code.startsWith("pending_initial_policy_review");
+      });
+      const estado = temDestinoReprovado || issues.some(i => String(i.severity || "").toUpperCase() === "DISAPPROVED" && !String(i.code || "").toLowerCase().startsWith("pending_initial_policy_review"))
+        ? "reprovado"
+        : temDestinoPendente || temRevisaoInicial
+          ? "pendente"
+          : temProblemaReal
+            ? "problema"
+            : temDestinoAprovado
+              ? "aprovado"
+              : destinations.length
+                ? "processando"
+                : "sem_destino";
       return {
         name: produto.name || "", offerId,
         titulo: produto.productAttributes?.title || produto.title || offerId || "Produto sem título",
