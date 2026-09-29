@@ -33,6 +33,46 @@
     });
   }
 
+  // ------------------------------------------------------------
+  // Rastreamento GA4 do CTA de WhatsApp da ficha
+  // ------------------------------------------------------------
+  const ctaWhatsappProduto = document.querySelector('.ficha-produto__cta a[href*="wa.me"]');
+  if (ctaWhatsappProduto) {
+    ctaWhatsappProduto.addEventListener('click', () => {
+      if (typeof window.gtag !== 'function') return;
+
+      const titulo = document.querySelector('.ficha-produto__titulo');
+      const itemNome = titulo ? titulo.textContent.trim() : '';
+      const caminho = window.location.pathname.split('/').filter(Boolean);
+      const slug = caminho.length ? caminho[caminho.length - 1].replace(/\\.html$/i, '') : '';
+      const precoEl = document.querySelector('.ficha-produto__preco');
+      const precoTexto = precoEl ? precoEl.textContent.replace(/[^0-9,]/g, '').replace(',', '.') : '';
+      const preco = precoTexto ? parseFloat(precoTexto) : NaN;
+
+      const dados = {
+        origem: 'produto'
+      };
+
+      if (slug || itemNome) {
+        const item = {
+          item_id: slug,
+          item_name: itemNome,
+          quantity: 1
+        };
+        if (!slug) delete item.item_id;
+        if (!itemNome) delete item.item_name;
+        if (Number.isFinite(preco)) {
+          item.price = preco;
+          dados.currency = 'BRL';
+          dados.value = preco;
+        }
+        dados.items = [item];
+      }
+
+      window.gtag('event', 'whatsapp_click', dados);
+    });
+  }
+
   if (!imagemPrincipal) return;
 
   // ---------- Miniaturas ----------
