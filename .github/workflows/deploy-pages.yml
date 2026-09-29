@@ -49,7 +49,7 @@ jobs:
 
           rsync -a             --exclude='.git/'             --exclude='.github/'             --exclude='painel-produtos/'             --exclude='scripts/'             --exclude='config/'             --exclude='docs/'             --exclude='src/content/'             --exclude='src/schema/'             --exclude='_site/'             ./ _site/
 
-          test -f _site/index.html
+          python scripts/injetar-analytics.py _site\n\n          test -f _site/index.html
           test -f _site/CNAME
           test -f _site/sitemap.xml
           test -d _site/assets
