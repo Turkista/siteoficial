@@ -1347,6 +1347,26 @@ app.post("/api/desempenho/google-merchant/sincronizar", async (req, res) => {
   }
 });
 
+app.get("/api/desempenho/status-atual", async (req, res) => {
+  try {
+    const arquivos = fs.readdirSync(PRODUTOS.pastaJSON).filter((f) => f.endsWith(".json") && f !== "index.json");
+    let google = null;
+    try {
+      const resultado = await googleMerchant.listarProdutos({ limite: 1000 });
+      google = { total: resultado.total || 0 };
+    } catch (erro) {
+      google = { total: null, erro: erro.message };
+    }
+    res.json({
+      ok: true,
+      site: { total: arquivos.length },
+      googleMerchant: google
+    });
+  } catch (erro) {
+    res.status(500).json({ erro: erro.message });
+  }
+});
+
 app.get("/api/desempenho/resumo", (req, res) => {
   try { res.json(desempenho.resumo()); }
   catch (erro) { res.status(500).json({ erro: erro.message }); }
