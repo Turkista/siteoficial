@@ -1145,6 +1145,56 @@ app.get("/api/desempenho/google-merchant/config", (req, res) => {
 // ---------------------------------------------------------------
 // ANÁLISE DE DESEMPENHO
 // ---------------------------------------------------------------
+app.get("/api/google-merchant/produtos", async (req, res) => {
+  try {
+    const resultado = await googleMerchant.listarProdutos({ limite: req.query.limite || 1000 });
+    const arquivos = fs.readdirSync(PRODUTOS.pastaJSON).filter((f) => f.endsWith(".json") && f !== "index.json");
+    const catalogo = arquivos.map((f) => {
+      const produto = JSON.parse(fs.readFileSync(path.join(PRODUTOS.pastaJSON, f), "utf-8"));
+      return { id: produto.id ? String(produto.id) : "", slug: produto.slug || "", nome: produto.nome || "", statusCms: produto.status || "" };
+    });
+    const porId = new Map(catalogo.filter(p => p.id).map(p => [p.id, p]));
+    const usados = new Set();
+    const itens = (resultado.products || []).map((produto) => {
+      const offerId = String(produto.offerId || "").trim();
+      const local = porId.get(offerId) || null;
+      if (local) usados.add(local.id);
+      const status = produto.productStatus || {};
+      const issues = Array.isArray(status.itemLevelIssues) ? status.itemLevelIssues : [];
+      const destinations = Array.isArray(status.destinationStatuses) ? status.destinationStatuses : [];
+      const temReprovado = issues.some(i => String(i.severity || "").toUpperCase() === "DISAPPROVED");
+      const temPendente = issues.some(i => String(i.severity || "").toUpperCase() === "PENDING");
+      const temDestinoAprovado = destinations.some(d => Array.isArray(d.approvedCountries) && d.approvedCountries.length > 0);
+      const estado = temReprovado ? "reprovado" : temPendente ? "pendente" : issues.length ? "problema" : temDestinoAprovado ? "aprovado" : destinations.length ? "sem_destino" : "processando";
+      return {
+        name: produto.name || "", offerId,
+        titulo: produto.productAttributes?.title || produto.title || offerId || "Produto sem título",
+        link: produto.productAttributes?.link || produto.link || "",
+        imageLink: produto.productAttributes?.imageLink || produto.imageLink || "",
+        estado,
+        problemas: issues.map(i => ({ severity: i.severity || "", code: i.code || "", attribute: i.attribute || "", description: i.description || i.detail || "" })).slice(0, 5),
+        destinos: destinations.map(d => ({ reportingContext: d.reportingContext || "", approvedCountries: d.approvedCountries || [], pendingCountries: d.pendingCountries || [], disapprovedCountries: d.disapprovedCountries || [] })),
+        cms: local
+      };
+    });
+    for (const local of catalogo) {
+      if (!usados.has(local.id)) {
+        itens.push({ name: "", offerId: local.id, titulo: local.nome || local.id, link: local.slug ? "/produto/" + encodeURIComponent(local.slug) + ".html" : "", imageLink: "", estado: "nao_encontrado", problemas: [], destinos: [], cms: local });
+      }
+    }
+    const resumo = {
+      merchant: resultado.total || 0,
+      aprovados: itens.filter(p => p.estado === "aprovado").length,
+      pendentes: itens.filter(p => p.estado === "pendente" || p.estado === "processando").length,
+      problemas: itens.filter(p => p.estado === "problema" || p.estado === "reprovado").length,
+      naoEncontrados: itens.filter(p => p.estado === "nao_encontrado").length,
+      cms: catalogo.length
+    };
+    res.json({ ok: true, ...resumo, produtos: itens });
+  } catch (erro) {
+    res.status(erro.status || 500).json({ erro: erro.message, detalhes: erro.response?.data || erro.dados || null });
+  }
+});
 app.get("/api/desempenho/google-merchant", async (req, res) => {
   try {
     const inicio = String(req.query.inicio || "").trim();
