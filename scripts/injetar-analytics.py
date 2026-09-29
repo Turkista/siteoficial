@@ -6,7 +6,7 @@ geradas pelo CMS, evitando manter a mesma tag duplicada em dezenas de
 arquivos estáticos.
 """
 
-from pathlib import Path
+from pathlib import Path\nimport sys
 
 MEASUREMENT_ID = "G-1CYRSP6V63"
 
