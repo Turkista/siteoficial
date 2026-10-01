@@ -3,7 +3,7 @@
   "slug": "conjunto-de-treino-short-e-top-cintila",
   "nome": "Conjunto de treino Short e Top Cintila",
   "linha": "turk-fit",
-  "categoria": "Conjunto ",
+  "categoria": "Conjunto",
   "descricaoCurta": "Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto.",
   "descricaoCompleta": "Conjunto de short e top em roxo cintilante, com top nadador — alças largas e recorte cavado nas costas — e short de cós alto.\r\n\r\nPossui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto. Confeccionado em tecido liso, com toque acetinado.\r\n\r\nDestaques:\r\n\r\nCor roxo cintilante;\r\nTop nadador, com recorte cavado nas costas;\r\nShort de cós alto;\r\nAlta compressão;\r\nToque acetinado;",
   "composicao": {
@@ -46,5 +46,7 @@
     "short e top"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-12"
+  "dataCriacao": "2026-08-12",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

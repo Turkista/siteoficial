@@ -1,9 +1,12 @@
 const fs = require("fs");
 const path = require("path");
+
 const {
   getCredentialPath,
   getConfig,
   insertProduct,
+  insertProductVariants,
+  variantesDoProduto,
 } = require("../integrations/google-merchant");
 
 const RAIZ_PROJETO = path.join(__dirname, "..", "..");
@@ -11,10 +14,13 @@ const PASTA_PRODUTOS = path.join(RAIZ_PROJETO, "src", "content", "produtos");
 
 function carregarProduto(slug) {
   if (!slug) {
-    throw new Error("Informe o slug do produto. Ex.: node scripts/sincronizar-merchant.js biquini-aurora");
+    throw new Error(
+      "Informe o slug do produto. Ex.: node scripts/sincronizar-merchant.js biquini-aurora"
+    );
   }
 
   const arquivo = path.join(PASTA_PRODUTOS, `${slug}.json`);
+
   if (!fs.existsSync(arquivo)) {
     throw new Error(`Produto não encontrado: ${arquivo}`);
   }
@@ -42,29 +48,63 @@ async function main() {
 
   try {
     const produto = carregarProduto(slug);
+    const variantes = variantesDoProduto(produto);
 
     console.log(`Produto: ${produto.nome}`);
     console.log(`Slug: ${produto.slug}`);
     console.log(`Status: ${produto.status}`);
+    console.log(`Variantes: ${variantes.length}`);
     console.log("");
 
-    const result = await insertProduct(produto);
+    if (variantes.length > 1) {
+      console.log("Modo: sincronização por variantes");
+      console.log("");
 
-    console.log("========================================");
-    console.log("PRODUTO ENVIADO AO GOOGLE MERCHANT");
-    console.log("========================================");
+      variantes.forEach((variante, indice) => {
+        console.log(
+          `  ${indice + 1}. Tamanho: ${variante.tamanho} | Cor: ${variante.cor.nome}`
+        );
+      });
+
+      console.log("");
+
+      const result = await insertProductVariants(produto);
+
+      console.log("========================================");
+      console.log("VARIANTES ENVIADAS AO GOOGLE MERCHANT");
+      console.log("========================================");
+      console.log("");
+      console.log(JSON.stringify(result, null, 2));
+    } else {
+      console.log("Modo: produto único");
+      console.log("");
+
+      const result = await insertProduct(produto);
+
+      console.log("========================================");
+      console.log("PRODUTO ENVIADO AO GOOGLE MERCHANT");
+      console.log("========================================");
+      console.log("");
+      console.log(JSON.stringify(result, null, 2));
+    }
+
     console.log("");
-    console.log(JSON.stringify(result, null, 2));
-    console.log("");
-    console.log("A validação/processamento do produto pode levar alguns minutos.");
+    console.log(
+      "A validação/processamento dos produtos pode levar alguns minutos."
+    );
   } catch (error) {
     const status = error?.response?.status;
+
     console.error("");
-    console.error(`Falha na sincronização (HTTP ${status || "?"}): ${formatarErro(error)}`);
+    console.error(
+      `Falha na sincronização (HTTP ${status || "?"}): ${formatarErro(error)}`
+    );
     console.error("");
 
     if (error?.response?.data?.error) {
-      console.error(JSON.stringify(error.response.data.error, null, 2));
+      console.error(
+        JSON.stringify(error.response.data.error, null, 2)
+      );
     }
 
     process.exitCode = 1;

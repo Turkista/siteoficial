@@ -3,7 +3,7 @@
   "slug": "xuxinha-segredo-mix",
   "nome": "Xuxinha segredo mix",
   "linha": "turk-fit",
-  "categoria": "acessório de cabelo",
+  "categoria": "Acessório de Cabelo",
   "descricaoCurta": "Xuxinha Segredo — Praticidade que acompanha você",
   "descricaoCompleta": "Xuxinha Segredo feita com retalhos de tecido das próprias peças da Turkista — por isso cada unidade é praticamente única. Nesta, a estampa é abstrata, com mix de roxo, azul e rosa.\r\n\r\nMesmo tecido das roupas da marca, poliamida com elastano, o que dá mais elasticidade e durabilidade do que uma xuxinha comum de algodão.\r\n\r\nDestaques:\r\n\r\nFeita com retalhos das peças Turkista;\r\nEstampa abstrata em mix de cores;\r\nMesmo tecido das roupas da marca;\r\nTamanho M;",
   "composicao": {
@@ -75,5 +75,7 @@
     "xuxinha"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-18"
+  "dataCriacao": "2026-08-18",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

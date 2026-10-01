@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const sharp = require("sharp");
+const sharp = require("../painel-produtos/node_modules/sharp");
 const { normalizarProduto } = require("../painel-produtos/catalogo-normalizacao");
 
 const ROOT = path.join(__dirname, "..");

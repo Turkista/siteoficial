@@ -3,7 +3,7 @@
   "slug": "maio-passarela",
   "nome": "Maiô Passarela",
   "linha": "praia",
-  "categoria": "maiô",
+  "categoria": "Maiô",
   "descricaoCurta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico.",
   "descricaoCompleta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico, com a parte superior em formato assimétrico e decote profundo. Possui recortes estratégicos na cintura e nas laterais do abdômen, criando efeito de peça vazada. A parte inferior tem modelagem cavada, com acabamento ajustado ao corpo.",
   "composicao": {
@@ -56,5 +56,7 @@
     "maiô"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-17"
+  "dataCriacao": "2026-08-17",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }
