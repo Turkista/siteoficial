@@ -3,7 +3,7 @@
   "slug": "maio-hight",
   "nome": "Maiô High",
   "linha": "praia",
-  "categoria": "maiô",
+  "categoria": "Maiô",
   "descricaoCurta": "Modelagem recortada, combinando rosa neon/fúcsia na parte superior e verde-limão na parte inferior. ",
   "descricaoCompleta": "Modelagem recortada, combinando rosa neon/fúcsia na parte superior e verde-limão na parte inferior. O top possui decote arredondado e alças largas. Na região central do abdômen há recortes laterais amplos, deixando a cintura à mostra. As duas partes são conectadas por uma argola circular confeccionada em material que imita madeira, em tom natural amadeirado — não é uma peça metálica. A parte inferior possui modelagem cavada e cintura alta, com laterais largas.",
   "composicao": {
@@ -45,5 +45,7 @@
     "maiô"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-17"
+  "dataCriacao": "2026-08-17",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

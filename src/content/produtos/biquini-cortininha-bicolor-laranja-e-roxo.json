@@ -1,9 +1,9 @@
 {
-  "id": "prod_biquinicortininhabicolorlaranjaeroxo",
+  "id": "prod_biquinicortinhabicolorlaranjaeroxo",
   "slug": "biquini-cortininha-bicolor-laranja-e-roxo",
   "nome": "Biquíni Cortininha Bicolor — Laranja e Roxo",
   "linha": "praia",
-  "categoria": "Biquíni parte superior",
+  "categoria": "Biquíni Parte Superior",
   "descricaoCurta": "Biquíni cortininha bicolor que combina laranja vibrante e roxo intenso em uma composição moderna e cheia de personalidade. Dupla face. Venda da parte superior.",
   "descricaoCompleta": "Biquíni cortininha bicolor que combina laranja vibrante e roxo intenso em uma composição moderna e cheia de personalidade. O top possui modelagem triangular com regulagem por amarração no pescoço e nas costas, permitindo ajustar a peça ao corpo. \r\n\r\nDetalhes:\r\n\r\nTop modelo cortininha\r\nDuas cores contrastantes\r\nAmarração no pescoço e nas costas\r\nModelagem ajustável\r\nEstilo tropical e vibrante",
   "composicao": {
@@ -46,5 +46,7 @@
     "praia"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-15"
+  "dataCriacao": "2026-08-15",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

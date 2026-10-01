@@ -3,7 +3,7 @@
   "slug": "conjunto-maro",
   "nome": "Conjunto Maro",
   "linha": "turk-fit",
-  "categoria": "Conjunto ",
+  "categoria": "Conjunto",
   "descricaoCurta": "Conjunto Fitness Top + Calça - Desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
   "descricaoCompleta": "Conjunto em rosa fúcsia liso, com top de alças largas duplas que se cruzam nas costas e legging de cintura alta.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça acompanha o mesmo tom e tem modelagem que valoriza a silhueta, com liberdade de movimento para o treino.\r\n\r\nDestaques:\r\n\r\nCor rosa fúcsia;\r\nTop com alças largas cruzadas nas costas;\r\nLegging de cintura alta;\r\nCompressão e sustentação;\r\nIdeal para corrida, academia e treinos de alto impacto;",
   "composicao": {
@@ -45,5 +45,7 @@
     "conjunto de academia"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-12"
+  "dataCriacao": "2026-08-12",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

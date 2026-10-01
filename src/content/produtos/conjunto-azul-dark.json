@@ -3,7 +3,7 @@
   "slug": "conjunto-azul-dark",
   "nome": "Conjunto Azul Dark",
   "linha": "turk-fit",
-  "categoria": "Conjunto ",
+  "categoria": "Conjunto",
   "descricaoCurta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas.",
   "descricaoCompleta": "Conjunto de short e top em azul escuro cintilante, com top de alças largas e gola quadrada, e short de cós alto.\r\n\r\nTecido de alta compressão, que sustenta o busto e acompanha os movimentos com liberdade, além de respirável e confortável. O cós alto do short ajusta e dá suporte à cintura.\r\n\r\nDestaques:\r\n\r\nCor azul escuro cintilante;\r\nTop de alças largas, gola quadrada;\r\nShort de cós alto;\r\nAlta compressão;\r\nRespirável, ideal para treinos intensos;",
   "composicao": {
@@ -65,5 +65,7 @@
     "conjunto de top e short"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-12"
+  "dataCriacao": "2026-08-12",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

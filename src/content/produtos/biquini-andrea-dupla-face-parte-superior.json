@@ -3,7 +3,7 @@
   "slug": "biquini-andrea-dupla-face-parte-superior",
   "nome": "Biquíni Andrea dupla face - Parte superior",
   "linha": "praia",
-  "categoria": "Biquíni parte superior",
+  "categoria": "Biquíni Parte Superior",
   "descricaoCurta": "Parte superior disponível para venda, dupla face. Fácil secagem. Material de malha premium. Regula e pode usar dos dois lados. ",
   "descricaoCompleta": "Top triangular vendido como parte superior avulsa, com alças finas ajustáveis e nós decorativos que repetem a estampa.\r\n\r\nA malha é dupla face: a estampa roxa com detalhes dourados aparece nos dois lados do tecido, permitindo alternar o visual sem trocar de peça. Acabamento em malha premium, de secagem rápida.\r\n\r\nDestaques:\r\n\r\nTop triangular vendido avulso;\r\nAlças ajustáveis, com amarração no pescoço e nas costas;\r\nMalha dupla face, com estampa nos dois lados;\r\nSecagem rápida;",
   "composicao": {
@@ -56,5 +56,7 @@
     "praia"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-15"
+  "dataCriacao": "2026-08-15",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

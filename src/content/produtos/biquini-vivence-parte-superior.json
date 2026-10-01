@@ -3,7 +3,7 @@
   "slug": "biquini-vivence-parte-superior",
   "nome": "Biquíni Vivence - parte superior",
   "linha": "praia",
-  "categoria": "Biquíni parte superior",
+  "categoria": "Biquíni Parte Superior",
   "descricaoCurta": "Com bojo estruturado e de amarrar no pescoço e costas, com fivela não metálica. Tamanho 58. Ideal para uma forte sustentação e conforto. ",
   "descricaoCompleta": "Top de biquíni revestido em lantejoulas, em tom preto com reflexos dourados e bronze. Bojo estruturado, com fivela central que imita metal — não é uma peça metálica.\r\n\r\nModelo halter, com amarração no pescoço e alças reguláveis, para ajustar a sustentação. Peça no tamanho GG, equivalente ao tamanho 58.\r\n\r\nDestaques:\r\n\r\nRevestimento total em lantejoulas preto e dourado;\r\nBojo estruturado, com fivela central não metálica;\r\nAmarração regulável no pescoço;\r\nTamanho GG (58);",
   "composicao": {
@@ -48,5 +48,7 @@
     "sustentação"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-15"
+  "dataCriacao": "2026-08-15",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }
