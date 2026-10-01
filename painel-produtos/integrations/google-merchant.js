@@ -11,14 +11,41 @@ const SITE_BASE_URL = "https://www.turkista.com.br";
 
 function getCredentialPath() {
   const configured = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+
   if (configured) {
-    const p = path.isAbsolute(configured) ? configured : path.resolve(process.cwd(), configured);
-    if (!fs.existsSync(p)) throw new Error("GOOGLE_APPLICATION_CREDENTIALS não aponta para um arquivo existente.");
+    const p = path.isAbsolute(configured)
+      ? configured
+      : path.resolve(process.cwd(), configured);
+
+    if (!fs.existsSync(p)) {
+      throw new Error(
+        "GOOGLE_APPLICATION_CREDENTIALS não aponta para um arquivo existente."
+      );
+    }
+
     return p;
   }
+
   const dir = path.join(__dirname, "..", "secrets");
-  const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter(x => x.toLowerCase().endsWith(".json")) : [];
-  if (files.length !== 1) throw new Error("Configure GOOGLE_APPLICATION_CREDENTIALS ou deixe exatamente um JSON em painel-produtos/secrets.");
+
+  if (!fs.existsSync(dir)) {
+    throw new Error(
+      "A pasta painel-produtos/secrets não foi encontrada."
+    );
+  }
+
+  const files = fs
+    .readdirSync(dir)
+    .filter((x) =>
+      /^turkista-commerce-[^/\\]+\.json$/i.test(x)
+    );
+
+  if (files.length !== 1) {
+    throw new Error(
+      "Não foi encontrada exatamente uma credencial Google Merchant (turkista-commerce-*.json) em painel-produtos/secrets."
+    );
+  }
+
   return path.join(dir, files[0]);
 }
 

@@ -11,6 +11,7 @@ const TOKEN_URL = "https://open.tiktokapis.com/v2/oauth/token/";
 const API_URL = "https://open.tiktokapis.com/v2";
 
 const SCOPES = ["user.info.basic", "video.upload"];
+
 const estadosOAuth = new Map();
 
 function lerJson(caminho) {
@@ -27,24 +28,26 @@ function configArquivo() {
   return lerJson(CONFIG_PATH);
 }
 
-/*
- * Em produção (Render), as credenciais ficam nas Environment Variables.
- * O arquivo local continua sendo aceito para desenvolvimento local.
- *
- * Prioridade:
- *   1. Environment Variables
- *   2. painel-produtos/secrets/tiktok-oauth.json
- */
 function config() {
   const arquivo = configArquivo() || {};
 
   return {
-    client_key: String(process.env.TIKTOK_CLIENT_KEY || arquivo.client_key || "").trim(),
-    client_secret: String(process.env.TIKTOK_CLIENT_SECRET || arquivo.client_secret || "").trim(),
+    client_key: String(
+      process.env.TIKTOK_CLIENT_KEY ||
+      arquivo.client_key ||
+      ""
+    ).trim(),
+
+    client_secret: String(
+      process.env.TIKTOK_CLIENT_SECRET ||
+      arquivo.client_secret ||
+      ""
+    ).trim(),
+
     redirect_uri: String(
       process.env.TIKTOK_REDIRECT_URI ||
       arquivo.redirect_uri ||
-      "https://turkista-api.onrender.com/api/tiktok/oauth/callback"
+      "http://localhost:3000/api/tiktok/oauth/callback"
     ).trim(),
   };
 }
@@ -55,20 +58,57 @@ function token() {
 
 function estaConfigurado() {
   const c = config();
-  return Boolean(c.client_key && c.client_secret && c.redirect_uri);
+
+  return Boolean(
+    c.client_key &&
+    c.client_secret &&
+    c.redirect_uri
+  );
+}
+
+function criarCodeVerifier() {
+  return crypto
+    .randomBytes(64)
+    .toString("base64url");
+}
+
+function criarCodeChallenge(codeVerifier) {
+  return crypto
+    .createHash("sha256")
+    .update(codeVerifier)
+    .digest("base64url");
 }
 
 function criarState() {
   const state = crypto.randomBytes(32).toString("hex");
-  estadosOAuth.set(state, Date.now());
-  return state;
+
+  const codeVerifier = criarCodeVerifier();
+
+  estadosOAuth.set(state, {
+    criadoEm: Date.now(),
+    codeVerifier,
+  });
+
+  return {
+    state,
+    codeVerifier,
+  };
 }
 
 function validarState(state) {
-  if (!state || !estadosOAuth.has(state)) return false;
-  const criadoEm = estadosOAuth.get(state);
+  if (!state || !estadosOAuth.has(state)) {
+    return null;
+  }
+
+  const dados = estadosOAuth.get(state);
+
   estadosOAuth.delete(state);
-  return Date.now() - criadoEm < 10 * 60 * 1000;
+
+  if (Date.now() - dados.criadoEm >= 10 * 60 * 1000) {
+    return null;
+  }
+
+  return dados;
 }
 
 function urlAutorizacao() {
@@ -79,7 +119,10 @@ function urlAutorizacao() {
   }
 
   const c = config();
-  const state = criarState();
+
+  const { state, codeVerifier } = criarState();
+
+  const codeChallenge = criarCodeChallenge(codeVerifier);
 
   const params = new URLSearchParams({
     client_key: c.client_key,
@@ -87,67 +130,106 @@ function urlAutorizacao() {
     scope: SCOPES.join(","),
     redirect_uri: c.redirect_uri,
     state,
+    code_challenge: codeChallenge,
+    code_challenge_method: "S256",
   });
 
-  return { url: AUTHORIZE_URL + "?" + params.toString(), state };
+  return {
+    url: AUTHORIZE_URL + "?" + params.toString(),
+    state,
+  };
 }
 
-async function trocarCodigoPorToken(code) {
+async function trocarCodigoPorToken(code, codeVerifier) {
   const c = config();
+
+  if (!codeVerifier) {
+    throw new Error(
+      "TikTok OAuth não recebeu o code_verifier necessário para PKCE."
+    );
+  }
 
   const resposta = await fetch(TOKEN_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+
     body: new URLSearchParams({
       client_key: c.client_key,
       client_secret: c.client_secret,
       code: String(code),
       grant_type: "authorization_code",
       redirect_uri: c.redirect_uri,
+      code_verifier: codeVerifier,
     }),
   });
 
   const texto = await resposta.text();
+
   let dados;
+
   try {
     dados = JSON.parse(texto);
   } catch {
-    dados = { raw: texto };
+    dados = {
+      raw: texto,
+    };
   }
 
   if (!resposta.ok || dados.error) {
-    throw new Error("TikTok recusou o token: " + JSON.stringify(dados));
+    throw new Error(
+      "TikTok recusou o token: " +
+      JSON.stringify(dados)
+    );
   }
 
   const agora = Date.now();
+
   const salvo = {
     access_token: dados.access_token,
+
     refresh_token: dados.refresh_token,
+
     open_id: dados.open_id || null,
+
     scope: dados.scope || SCOPES.join(","),
+
     expires_at: dados.expires_in
       ? agora + Number(dados.expires_in) * 1000
       : null,
+
     refresh_token_expires_at: dados.refresh_expires_in
       ? agora + Number(dados.refresh_expires_in) * 1000
       : null,
+
     token_type: dados.token_type || "Bearer",
+
     connected_at: new Date(agora).toISOString(),
   };
 
   salvarJson(TOKEN_PATH, salvo);
+
   return salvo;
 }
 
 async function atualizarToken() {
   const atual = token();
+
   const c = config();
 
-  if (!atual?.refresh_token || !estaConfigurado()) return null;
+  if (!atual?.refresh_token || !estaConfigurado()) {
+    return null;
+  }
 
   const resposta = await fetch(TOKEN_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+
     body: new URLSearchParams({
       client_key: c.client_key,
       client_secret: c.client_secret,
@@ -157,42 +239,69 @@ async function atualizarToken() {
   });
 
   const texto = await resposta.text();
+
   let dados;
+
   try {
     dados = JSON.parse(texto);
   } catch {
-    dados = { raw: texto };
+    dados = {
+      raw: texto,
+    };
   }
 
   if (!resposta.ok || dados.error) {
-    throw new Error("TikTok recusou a renovação do token: " + JSON.stringify(dados));
+    throw new Error(
+      "TikTok recusou a renovação do token: " +
+      JSON.stringify(dados)
+    );
   }
 
   const agora = Date.now();
+
   const renovado = {
     ...atual,
+
     access_token: dados.access_token,
-    refresh_token: dados.refresh_token || atual.refresh_token,
-    scope: dados.scope || atual.scope,
+
+    refresh_token:
+      dados.refresh_token ||
+      atual.refresh_token,
+
+    scope:
+      dados.scope ||
+      atual.scope,
+
     expires_at: dados.expires_in
       ? agora + Number(dados.expires_in) * 1000
       : atual.expires_at,
-    refresh_token_expires_at: dados.refresh_expires_in
-      ? agora + Number(dados.refresh_expires_in) * 1000
-      : atual.refresh_token_expires_at,
-    refreshed_at: new Date(agora).toISOString(),
+
+    refresh_token_expires_at:
+      dados.refresh_expires_in
+        ? agora + Number(dados.refresh_expires_in) * 1000
+        : atual.refresh_token_expires_at,
+
+    refreshed_at:
+      new Date(agora).toISOString(),
   };
 
   salvarJson(TOKEN_PATH, renovado);
+
   return renovado;
 }
 
 async function tokenValido() {
   let t = token();
 
-  if (!t?.access_token) return null;
+  if (!t?.access_token) {
+    return null;
+  }
 
-  if (t.expires_at && Date.now() >= Number(t.expires_at) - 5 * 60 * 1000) {
+  if (
+    t.expires_at &&
+    Date.now() >=
+      Number(t.expires_at) - 5 * 60 * 1000
+  ) {
     t = await atualizarToken();
   }
 
@@ -203,33 +312,58 @@ async function api(pathname, options = {}) {
   const t = await tokenValido();
 
   if (!t?.access_token) {
-    throw new Error("TikTok não está conectado.");
+    throw new Error(
+      "TikTok não está conectado."
+    );
   }
 
-  const resposta = await fetch(API_URL + pathname, {
-    ...options,
-    headers: {
-      ...(options.headers || {}),
-      Authorization: "Bearer " + t.access_token,
-      "Content-Type": "application/json; charset=UTF-8",
-    },
-  });
+  const resposta = await fetch(
+    API_URL + pathname,
+    {
+      ...options,
+
+      headers: {
+        ...(options.headers || {}),
+
+        Authorization:
+          "Bearer " + t.access_token,
+
+        "Content-Type":
+          "application/json; charset=UTF-8",
+      },
+    }
+  );
 
   const texto = await resposta.text();
+
   let dados;
 
   try {
     dados = JSON.parse(texto);
   } catch {
-    dados = { raw: texto };
+    dados = {
+      raw: texto,
+    };
   }
 
-  if (!resposta.ok || (dados.error?.code && dados.error.code !== "ok")) {
+  if (
+    !resposta.ok ||
+    (
+      dados.error?.code &&
+      dados.error.code !== "ok"
+    )
+  ) {
     const erro = new Error(
-      "TikTok API " + resposta.status + ": " + JSON.stringify(dados)
+      "TikTok API " +
+      resposta.status +
+      ": " +
+      JSON.stringify(dados)
     );
+
     erro.status = resposta.status;
+
     erro.dados = dados;
+
     throw erro;
   }
 
@@ -238,19 +372,43 @@ async function api(pathname, options = {}) {
 
 function status() {
   const c = config();
+
   const t = token();
 
   return {
-    configurado: estaConfigurado(),
-    clientKey: c.client_key ? c.client_key : null,
-    redirectUri: c.redirect_uri || null,
-    conectado: Boolean(t?.access_token),
-    openId: t?.open_id || null,
-    scopes: t?.scope || SCOPES.join(","),
-    conectadoEm: t?.connected_at || null,
-    expiraEm: t?.expires_at
-      ? new Date(Number(t.expires_at)).toISOString()
-      : null,
+    configurado:
+      estaConfigurado(),
+
+    clientKey:
+      c.client_key
+        ? c.client_key
+        : null,
+
+    redirectUri:
+      c.redirect_uri ||
+      null,
+
+    conectado:
+      Boolean(t?.access_token),
+
+    openId:
+      t?.open_id ||
+      null,
+
+    scopes:
+      t?.scope ||
+      SCOPES.join(","),
+
+    conectadoEm:
+      t?.connected_at ||
+      null,
+
+    expiraEm:
+      t?.expires_at
+        ? new Date(
+            Number(t.expires_at)
+          ).toISOString()
+        : null,
   };
 }
 
