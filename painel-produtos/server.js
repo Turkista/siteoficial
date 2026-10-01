@@ -1,4 +1,4 @@
-// \n\nPainel local — Turkista
+// Painel local — Turkista
 //
 // Um único servidor Node local com três funções:
 // 1. Cadastro de PRODUTOS (aba "Produtos") — gera .json + ficha de produto
