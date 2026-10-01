@@ -7,7 +7,7 @@
 // 3. Envio de FOTOS INSTITUCIONAIS (aba "Fotos do Site") — hero da Home,
 //    fotos das 3 linhas, colagem "Sobre a Turkista" e capas do Blog
 //
-// Tudo roda 100% local — nÃ£o sobe nada pra internet, nÃ£o precisa de
+// Tudo roda 100% local — não sobe nada pra internet, não precisa de
 // internet depois de instalado (só na hora do "npm install").
 
 const express = require("express");
@@ -63,7 +63,7 @@ const SLOTS_FOTOS_INSTITUCIONAIS = [
   { chave: "linha-praia", pasta: "linhas", arquivo: "praia.webp", rotulo: "Card da linha Praia (Home)", descricao: "Foto do card \"Moda Praia\" na Home" },
   { chave: "linha-surf", pasta: "linhas", arquivo: "surf.webp", rotulo: "Card da linha Surf (Home)", descricao: "Foto do card \"Surf\" na Home" },
   { chave: "linha-turk-fit", pasta: "linhas", arquivo: "turk-fit.webp", rotulo: "Card da linha Turk Fit (Home)", descricao: "Foto do card \"Turk Fit\" na Home" },
-  { chave: "bastidores-1", pasta: "sobre", arquivo: "bastidores-1.webp", rotulo: "Colagem \"Sobre a Turkista\" — foto grande", descricao: "Foto grande Ã  esquerda da colagem, na Home" },
+  { chave: "bastidores-1", pasta: "sobre", arquivo: "bastidores-1.webp", rotulo: "Colagem \"Sobre a Turkista\" — foto grande", descricao: "Foto grande à esquerda da colagem, na Home" },
   { chave: "bastidores-2", pasta: "sobre", arquivo: "bastidores-2.webp", rotulo: "Colagem \"Sobre a Turkista\" — foto pequena (topo)", descricao: "Foto pequena superior direita da colagem, na Home" },
   { chave: "bastidores-3", pasta: "sobre", arquivo: "bastidores-3.webp", rotulo: "Colagem \"Sobre a Turkista\" — foto pequena (base)", descricao: "Foto pequena inferior direita da colagem, na Home" },
 ];
@@ -266,7 +266,7 @@ function validarArquivosUpload(arquivos) {
   for (const arquivo of arquivos) validarImagemProcessada(arquivo.buffer, arquivo.originalname);
 }
 
-// ReconstrÃ³i o index.json de uma pasta de conteÃºdo (produtos ou artigos) —
+// Reconstrói o index.json de uma pasta de conteúdo (produtos ou artigos) —
 // é este arquivo que o site lê no navegador pra montar os cards sozinho.
 function regenerarManifesto(config) {
   const arquivos = fs
@@ -281,7 +281,7 @@ function regenerarManifesto(config) {
 // Tenta "python3", "python" e "py" (o lançador oficial do Python no
 // Windows). Importante: no Windows, o comando "python" às vezes existe mas
 // é só o atalho falso da Microsoft Store (não erra ao rodar, só não faz
-// nada Ãºtil) — por isso continuamos tentando os prÃ³ximos comandos sempre
+// nada útil) — por isso continuamos tentando os próximos comandos sempre
 // que o resultado não for "sucesso real" (status 0), não só quando o
 // comando não existe de verdade.
 function rodarGerador(caminhoScript) {
@@ -291,24 +291,24 @@ function rodarGerador(caminhoScript) {
   for (const comando of ["python3", "python", "py"]) {
     const resultado = spawnSync(comando, [caminhoScript], { cwd: RAIZ_PROJETO, encoding: "utf-8" });
     if (resultado.error) {
-      continue; // comando nÃ£o existe de verdade — tenta o prÃ³ximo
+      continue; // comando não existe de verdade — tenta o próximo
     }
     if (resultado.status === 0) {
       return { ok: true }; // sucesso real
     }
     // Comando existe mas falhou (pode ser o atalho fake da Microsoft Store,
-    // pode ser erro real no script) — guarda o erro e tenta o prÃ³ximo
+    // pode ser erro real no script) — guarda o erro e tenta o próximo
     // comando antes de desistir.
     ultimoErro = resultado.stderr || `saiu com código ${resultado.status}`;
   }
 
-  console.warn(`Aviso: nÃ£o consegui gerar a pÃ¡gina automaticamente (${path.basename(caminhoScript)}). Ãšltimo erro: ${ultimoErro}`);
+  console.warn(`Aviso: não consegui gerar a página automaticamente (${path.basename(caminhoScript)}). Último erro: ${ultimoErro}`);
   console.warn(`Rode manualmente: py scripts/${path.basename(caminhoScript)}  (ou "python scripts/..." / "python3 scripts/...")`);
   return { ok: false, motivo: ultimoErro };
 }
 
 // Acrescenta uma URL nova ao sitemap.xml, se ainda não existir. Só é
-// chamado para itens com status "publicado" — rascunhos nÃ£o entram no SEO.
+// chamado para itens com status "publicado" — rascunhos não entram no SEO.
 function atualizarSitemapDeterministico() {
   const script = path.join(RAIZ_PROJETO, "scripts", "gerar-sitemap.py");
   return rodarGerador(script);
@@ -512,7 +512,7 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
         protecaoUV: null,
         paisDeFabricacao: corpo.paisDeFabricacao || "Brasil",
       },
-      cores: [{ nome: corpo.corNome || "Ãšnico", hex: corpo.corHex || "#F279C8", imagens }],
+      cores: [{ nome: corpo.corNome || "Único", hex: corpo.corHex || "#F279C8", imagens }],
       tamanhos,
       preco: corpo.preco ? { valor: parseFloat(corpo.preco), parcelamento: corpo.parcelamento || "" } : null,
       imagens,
@@ -536,8 +536,8 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
     let mensagem = "Produto salvo com sucesso!";
     mensagem += produto.status === "publicado"
       ? " Já vai aparecer no Catálogo e, se estiver entre os mais recentes, na Home também."
-      : " EstÃ¡ como rascunho — mude o status para \"Publicado\" quando quiser que ele apareÃ§a no site.";
-    if (!resultadoFicha.ok) mensagem += " (ficha de produto nÃ£o gerada automaticamente — rode: python scripts/gerar-ficha-produto.py — ou 'py scripts/gerar-ficha-produto.py' no Windows)";
+      : " Está como rascunho — mude o status para \"Publicado\" quando quiser que ele apareça no site.";
+    if (!resultadoFicha.ok) mensagem += " (ficha de produto não gerada automaticamente — rode: python scripts/gerar-ficha-produto.py — ou 'py scripts/gerar-ficha-produto.py' no Windows)";
 
     res.status(201).json({ mensagem, slug });
   } catch (erro) {
@@ -547,7 +547,7 @@ app.post("/api/produtos", upload.array("fotos", 6), async (req, res) => {
 });
 
 // Edita um produto já existente. O slug (e por consequência a URL da
-// ficha de produto, jÃ¡ indexada no Google se publicada) fica travado —
+// ficha de produto, já indexada no Google se publicada) fica travado —
 // mudar o "nome" só atualiza o texto exibido, não o endereço da página.
 // Cada foto já cadastrada pode ser mantida, trocada (campo
 // "substituto_<posição>") ou removida (via "fotosExistentes"); também dá
@@ -636,7 +636,7 @@ app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req,
         tecido: corpo.tecido || "PREENCHER — confirmar com a marca",
         paisDeFabricacao: corpo.paisDeFabricacao || "Brasil",
       },
-      cores: [{ nome: corpo.corNome || "Ãšnico", hex: corpo.corHex || "#F279C8", imagens }],
+      cores: [{ nome: corpo.corNome || "Único", hex: corpo.corHex || "#F279C8", imagens }],
       tamanhos,
       preco: corpo.preco ? { valor: parseFloat(corpo.preco), parcelamento: corpo.parcelamento || "" } : null,
       imagens,
@@ -658,7 +658,7 @@ app.put("/api/produtos/:slug", upload.fields(CAMPOS_EDICAO_PRODUTO), async (req,
     }
 
     let mensagem = "Produto atualizado com sucesso!";
-    if (!resultadoFicha.ok) mensagem += " (ficha de produto nÃ£o gerada automaticamente — rode: python scripts/gerar-ficha-produto.py — ou 'py scripts/gerar-ficha-produto.py' no Windows)";
+    if (!resultadoFicha.ok) mensagem += " (ficha de produto não gerada automaticamente — rode: python scripts/gerar-ficha-produto.py — ou 'py scripts/gerar-ficha-produto.py' no Windows)";
 
     res.status(200).json({ mensagem, slug });
   } catch (erro) {
@@ -737,8 +737,8 @@ app.post("/api/artigos", upload.single("capa"), async (req, res) => {
     let mensagem = "Artigo salvo com sucesso!";
     mensagem += artigo.status === "publicado"
       ? " Já vai aparecer na grade da Revista Turkista (blog.html)."
-      : " EstÃ¡ como rascunho — mude o status para \"Publicado\" quando quiser que ele apareÃ§a no Blog.";
-    if (!resultadoPagina.ok) mensagem += " (pÃ¡gina do artigo nÃ£o gerada automaticamente — rode: python scripts/gerar-artigo-blog.py — ou 'py scripts/gerar-artigo-blog.py' no Windows)";
+      : " Está como rascunho — mude o status para \"Publicado\" quando quiser que ele apareça no Blog.";
+    if (!resultadoPagina.ok) mensagem += " (página do artigo não gerada automaticamente — rode: python scripts/gerar-artigo-blog.py — ou 'py scripts/gerar-artigo-blog.py' no Windows)";
 
     res.status(201).json({ mensagem, slug });
   } catch (erro) {
@@ -747,7 +747,7 @@ app.post("/api/artigos", upload.single("capa"), async (req, res) => {
   }
 });
 
-// Edita um artigo jÃ¡ existente. Slug (URL do artigo) fica travado —
+// Edita um artigo já existente. Slug (URL do artigo) fica travado —
 // mudar o "título" só atualiza o texto exibido, não o endereço da
 // página. A foto de capa é opcional aqui: só troca se uma nova for
 // enviada, senão mantém a atual.
@@ -800,7 +800,7 @@ app.put("/api/artigos/:slug", upload.single("novaCapa"), async (req, res) => {
     }
 
     let mensagem = "Artigo atualizado com sucesso!";
-    if (!resultadoPagina.ok) mensagem += " (pÃ¡gina do artigo nÃ£o gerada automaticamente — rode: python scripts/gerar-artigo-blog.py — ou 'py scripts/gerar-artigo-blog.py' no Windows)";
+    if (!resultadoPagina.ok) mensagem += " (página do artigo não gerada automaticamente — rode: python scripts/gerar-artigo-blog.py — ou 'py scripts/gerar-artigo-blog.py' no Windows)";
 
     res.status(200).json({ mensagem, slug });
   } catch (erro) {
@@ -865,7 +865,7 @@ app.post("/api/fotos-institucionais", upload.single("foto"), async (req, res) =>
 
     await sharp(req.file.buffer).webp({ quality: 85 }).toFile(path.join(pastaDestino, slot.arquivo));
 
-    res.status(201).json({ mensagem: `Foto salva em assets/${slot.pasta}/${slot.arquivo} — jÃ¡ aparece no site.` });
+    res.status(201).json({ mensagem: `Foto salva em assets/${slot.pasta}/${slot.arquivo} — já aparece no site.` });
   } catch (erro) {
     console.error(erro);
     res.status(500).json({ erro: "Erro interno ao salvar a foto.", detalhes: erro.message });
