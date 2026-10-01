@@ -3,7 +3,7 @@
   "slug": "sunquini-bamboo",
   "nome": "Sunquíni Bamboo",
   "linha": "praia",
-  "categoria": "sunquíni",
+  "categoria": "Sunquíni",
   "descricaoCurta": "Sunquíni com fundo predominantemente verde, com estampa multicolorida. Cintura: cintura média/alta, com cós largo e elástico embutido.",
   "descricaoCompleta": "Fundo predominantemente verde, com estampa multicolorida.\r\nEstampa: padrão tropical/abstrato com elementos que lembram folhagens, bambus ou vegetação, em tons de verde, amarelo, preto e pequenos detalhes em vermelho e laranja.\r\nCintura: cintura média/alta, com cós largo e elástico embutido.\r\nModelagem: shorts curto, com pernas ajustadas, cobrindo parte superior das coxas.\r\nComprimento: termina aproximadamente no meio da parte superior das coxas.\r\nAcabamento: costuras aparentes e acabamento limpo nas barras.\r\nTecido: material de moda praia com aparência elástica, encorpada e confortável, adequado para uso na água.\r\nEstilo: esportivo, tropical e descontraído, oferecendo mais cobertura do que uma calcinha de biquíni tradicional.",
   "composicao": {
@@ -46,5 +46,7 @@
     "sunquíni"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-17"
+  "dataCriacao": "2026-08-17",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

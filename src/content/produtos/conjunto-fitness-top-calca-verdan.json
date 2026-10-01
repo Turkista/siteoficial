@@ -3,7 +3,7 @@
   "slug": "conjunto-fitness-top-calca-verdan",
   "nome": "Conjunto Fitness Top + Calça Verdan",
   "linha": "turk-fit",
-  "categoria": "Conjunto ",
+  "categoria": "Conjunto",
   "descricaoCurta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
   "descricaoCompleta": "Conjunto verde, com top cropped de alças finas e gola quadrada, e legging com textura em relevo tipo xadrez e bolsos laterais.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. Os bolsos da calça são um diferencial para levar celular ou chave durante a corrida ou o treino.\r\n\r\nDestaques:\r\n\r\nCor verde;\r\nTop cropped de alças finas e gola quadrada;\r\nLegging com textura em relevo;\r\nBolsos laterais na calça;\r\nCompressão e sustentação;",
   "composicao": {
@@ -46,5 +46,7 @@
     "treino"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-12"
+  "dataCriacao": "2026-08-12",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

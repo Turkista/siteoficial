@@ -3,7 +3,7 @@
   "slug": "conjunto-fitness-top-calca",
   "nome": "Conjunto Fitness Top + Calça",
   "linha": "turk-fit",
-  "categoria": "Conjunto ",
+  "categoria": "Conjunto",
   "descricaoCurta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
   "descricaoCompleta": "Conjunto em roxo profundo liso, com top nadador — alças largas e recorte cavado nas costas — e legging de cintura alta.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com modelagem que valoriza a silhueta, proporcionando firmeza, conforto e liberdade de movimento durante o treino.\r\n\r\nDestaques:\r\n\r\nCor roxo profundo;\r\nTop nadador, com recorte cavado nas costas;\r\nLegging de cintura alta;\r\nCompressão e sustentação;\r\nIdeal para corrida, academia e treinos de alto impacto;",
   "composicao": {
@@ -46,5 +46,7 @@
     "treino"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-12"
+  "dataCriacao": "2026-08-12",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

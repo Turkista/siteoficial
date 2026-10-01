@@ -3,7 +3,7 @@
   "slug": "biquini-aurora",
   "nome": "Biquíni Aurora",
   "linha": "praia",
-  "categoria": "biquíni",
+  "categoria": "Biquíni",
   "descricaoCurta": "Biquíni de amarração lateral em lycra de alto padrão, para o dia inteiro na praia.",
   "descricaoCompleta": "Biquíni de amarração lateral, em malha rosa com textura em relevo e alças brancas trançadas que contrastam com a cor da peça.\r\n\r\nO acabamento franzido nas bordas do top e a amarração lateral na calcinha permitem ajustar o caimento ao corpo. Uma peça para usar o dia inteiro, da praia à piscina.\r\n\r\nDestaques:\r\n\r\nMalha com textura em relevo;\r\nAlças e detalhes em branco;\r\nAmarração lateral ajustável;\r\nAcabamento franzido;",
   "composicao": {
@@ -19,6 +19,21 @@
         {
           "arquivo": "biquini-aurora.webp",
           "alt": "Biquíni Aurora na cor Rosa Turkista",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-aurora-1.webp",
+          "alt": "Biquíni Aurora na cor Rosa Turkista - vista 2",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-aurora-2.webp",
+          "alt": "Biquíni Aurora na cor Rosa Turkista - vista 3",
+          "proporcao": "3:4"
+        },
+        {
+          "arquivo": "biquini-aurora-3.webp",
+          "alt": "Biquíni Aurora na cor Rosa Turkista - vista 4",
           "proporcao": "3:4"
         }
       ]
@@ -39,6 +54,21 @@
       "arquivo": "biquini-aurora.webp",
       "alt": "Biquíni Aurora",
       "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-aurora-1.webp",
+      "alt": "Biquíni Aurora - vista 2",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-aurora-2.webp",
+      "alt": "Biquíni Aurora - vista 3",
+      "proporcao": "3:4"
+    },
+    {
+      "arquivo": "biquini-aurora-3.webp",
+      "alt": "Biquíni Aurora - vista 4",
+      "proporcao": "3:4"
     }
   ],
   "badges": [
@@ -50,5 +80,7 @@
     "biquíni"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-02"
+  "dataCriacao": "2026-08-02",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

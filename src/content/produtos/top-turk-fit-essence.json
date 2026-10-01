@@ -3,7 +3,7 @@
   "slug": "top-turk-fit-essence",
   "nome": "Top Turk Fit Essence",
   "linha": "turk-fit",
-  "categoria": "top",
+  "categoria": "Top",
   "descricaoCurta": "Top de sustentação média para treino, em tecido de secagem rápida.",
   "descricaoCompleta": "Top fitness com decote V e efeito de amarração cruzada na barra (estilo wrap), alças finas trançadas em cores que contrastam com o tecido rosa.\r\n\r\nSustentação média, indicada para caminhada, yoga e treinos de intensidade leve a moderada. Tecido de secagem rápida.\r\n\r\nDestaques:\r\n\r\nDecote V com barra cruzada, efeito wrap;\r\nAlças finas trançadas;\r\nSustentação média;\r\nSecagem rápida;",
   "composicao": {
@@ -68,5 +68,7 @@
     "top"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-02"
+  "dataCriacao": "2026-08-02",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

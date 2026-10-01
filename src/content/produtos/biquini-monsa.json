@@ -3,7 +3,7 @@
   "slug": "biquini-monsa",
   "nome": "Biquíni Monsa",
   "linha": "praia",
-  "categoria": "Biquíni parte superior",
+  "categoria": "Biquíni Parte Superior",
   "descricaoCurta": "Parte superior em estilo patch work. Texturizado em linhas e parte preta lisa com leve cintilante. ",
   "descricaoCompleta": "Top de biquíni em patchwork preto e prata, com desenho de linhas em V que se repete nos dois lados do bojo. A parte preta lisa tem leve brilho cintilante.\r\n\r\nModelo halter, com amarração no pescoço e nas costas e alças finas no mesmo tecido do top.\r\n\r\nDestaques:\r\n\r\nPatchwork preto e prata, em desenho de linhas;\r\nAcabamento preto com leve brilho;\r\nModelo halter, com amarração no pescoço e nas costas;\r\nTamanho PP;",
   "composicao": {
@@ -46,5 +46,7 @@
     "praia"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-15"
+  "dataCriacao": "2026-08-15",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }
