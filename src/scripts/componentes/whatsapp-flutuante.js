@@ -17,6 +17,16 @@
     }
   }
 
+  // ------------------------------------------------------------
+  // Rastreamento GA4 do WhatsApp flutuante
+  // ------------------------------------------------------------
+  botao.addEventListener('click', () => {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', 'whatsapp_click', {
+      origem: 'flutuante'
+    });
+  });
+
   window.addEventListener('scroll', alternarVisibilidade, { passive: true });
   alternarVisibilidade();
 })();

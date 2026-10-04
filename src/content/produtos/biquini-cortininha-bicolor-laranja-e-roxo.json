@@ -1,5 +1,5 @@
 {
-  "id": "prod_biquinicortininhabicolorlaranjaeroxo",
+  "id": "prod_biquinicortinhabicolorlaranjaeroxo",
   "slug": "biquini-cortininha-bicolor-laranja-e-roxo",
   "nome": "Biquíni Cortininha Bicolor — Laranja e Roxo",
   "linha": "praia",
@@ -46,5 +46,7 @@
     "praia"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-15"
+  "dataCriacao": "2026-08-15",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

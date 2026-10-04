@@ -1,0 +1,15 @@
+{
+  "id": "art_fabricacaopropria",
+  "slug": "fabricacao-propria",
+  "titulo": "Fabricação própria: por que fazemos assim",
+  "categoria": "bastidores",
+  "resumo": "Corte, costura e acabamento sob o mesmo teto — e o que isso muda na peça.",
+  "corpo": "Muita marca de moda praia terceiriza etapas da produção para dar conta de um volume maior. Na Turkista, fizemos a escolha oposta: manter corte, costura e acabamento sob o mesmo teto, mesmo que isso signifique produzir em quantidades menores.\n\nEssa decisão tem um motivo prático simples — controle de qualidade real, não apenas inspeção final. Quando quem corta o tecido é a mesma pessoa que vai costurar e finalizar a peça, pequenos ajustes acontecem naturalmente ao longo do processo, em vez de só serem percebidos (ou não) numa checagem no fim da linha.\n\nO resultado direto disso são peças exclusivas: como cada lote de tecido é limitado e cortado manualmente, o mesmo corte não se repete indefinidamente. Isso também é o que sustenta a política de conserto da marca — quem fez a peça sabe exatamente como refazer um ponto que soltou.\n\n> Controle total sobre corte, costura e acabamento não é sobre escala — é sobre qualidade que dá para sustentar no longo prazo.\n\nÉ esse mesmo compromisso que está por trás da nossa política: se soltar um ponto, a gente conserta.",
+  "capa": {
+    "arquivo": "fabricacao-propria.webp",
+    "alt": "Fabricação própria: por que fazemos assim"
+  },
+  "tempoLeitura": "4 min de leitura",
+  "status": "publicado",
+  "dataCriacao": "2026-08-18"
+}

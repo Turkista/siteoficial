@@ -61,6 +61,7 @@
   #mensagem-global.sucesso { display: block; background: #1C6B3B; color: #fff; }
   #mensagem-global.erro { display: block; background: #A3312A; color: #fff; }
 </style>
+<link rel="stylesheet" href="/cms.css">
 </head>
 <body>
 <div class="container">
@@ -69,11 +70,7 @@
     <p>Envie as fotos institucionais do site. Cada uma já sai com o nome certo, na pasta certa — é só escolher onde ela entra.</p>
   </header>
 
-  <nav class="abas">
-    <a href="index.html">Produtos</a>
-    <a href="artigos.html">Artigos do Blog</a>
-    <a href="fotos.html" class="ativa">Fotos do Site</a>
-  </nav>
+  <nav class="cms-nav" aria-label="Navegação do CMS"><a class="cms-nav__brand" href="/index.html">TURKISTA CMS</a><span class="cms-nav__divider" aria-hidden="true"></span><div class="cms-nav__group"><span class="cms-nav__label">Conteúdo</span><a class="cms-nav__link" href="/index.html">Produtos</a><a class="cms-nav__link" href="/artigos.html">Artigos</a><a class="cms-nav__link" href="/fotos.html">Fotos</a></div><span class="cms-nav__divider" aria-hidden="true"></span><div class="cms-nav__group"><span class="cms-nav__label">Publicação</span><a class="cms-nav__link" href="/publicacao.html">Publicação</a><a class="cms-nav__link" href="/pinterest.html">Pinterest</a><a class="cms-nav__link" href="/tiktok.html">TikTok</a><a class="cms-nav__link" href="/instagram.html">Instagram</a></div><span class="cms-nav__divider" aria-hidden="true"></span><div class="cms-nav__group"><span class="cms-nav__label">Análise</span><a class="cms-nav__link" href="/desempenho.html">Desempenho</a></div></nav>
 
   <div id="grupos"></div>
 </div>

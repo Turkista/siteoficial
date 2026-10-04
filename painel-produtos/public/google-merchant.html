@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Google Merchant — Turkista CMS</title>
+<link rel="stylesheet" href="/cms.css">
+<style>
+.gm-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin:26px 0 22px}
+.gm-head h1{font-size:30px;margin:0 0 6px;letter-spacing:-.03em}.gm-head p{margin:0;color:#737986;font-size:13px}
+.gm-actions{display:flex;gap:8px;flex-wrap:wrap}.gm-btn{border:1px solid #E8E3E7;background:#fff;border-radius:9px;padding:10px 14px;font:700 12px inherit;cursor:pointer}.gm-btn.primary{background:#C94E9C;color:#fff;border-color:#C94E9C}.gm-btn:disabled{opacity:.5;cursor:wait}
+.gm-connection{background:#fff;border:1px solid #E8E3E7;border-radius:14px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:16px}
+.gm-status{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:750}.dot{width:9px;height:9px;border-radius:50%;background:#B8BBC1}.dot.ok{background:#1C6B3B}.dot.warn{background:#8A5A00}.dot.err{background:#A3312A}.gm-config{display:flex;gap:18px;flex-wrap:wrap;color:#737986;font-size:11px}.gm-config b{color:#0C1014;font-size:12px;margin-left:4px}
+.gm-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}.gm-card{background:#fff;border:1px solid #E8E3E7;border-radius:14px;padding:16px}.gm-card span{display:block;color:#737986;font-size:10px;font-weight:750}.gm-card strong{display:block;font-size:25px;margin-top:9px;letter-spacing:-.03em}
+.gm-panel{background:#fff;border:1px solid #E8E3E7;border-radius:14px;padding:20px;margin-bottom:16px}.gm-panel h2{font-size:16px;margin:0 0 5px}.gm-panel>p{color:#737986;font-size:11px;margin:0 0 16px}
+.gm-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.gm-search{flex:1;min-width:220px;padding:10px 12px;border:1px solid #E8E3E7;border-radius:9px;font:inherit}.gm-filter{padding:10px;border:1px solid #E8E3E7;border-radius:9px;background:#fff;font:inherit}
+.gm-table-wrap{overflow:auto;border:1px solid #EEECEF;border-radius:11px}.gm-table{width:100%;border-collapse:collapse;min-width:850px}.gm-table th,.gm-table td{padding:11px 12px;border-bottom:1px solid #F0EDF0;text-align:left;font-size:11px;vertical-align:top}.gm-table th{background:#FAFAFB;color:#737986;font-size:10px;text-transform:uppercase;letter-spacing:.04em}.gm-table tr:last-child td{border-bottom:0}
+.gm-product{display:flex;align-items:center;gap:10px;min-width:250px}.gm-product img{width:42px;height:56px;object-fit:cover;border-radius:7px;background:#F4F2F4}.gm-product b{display:block;font-size:12px}.gm-product small{display:block;color:#737986;margin-top:3px}
+.badge{display:inline-flex;align-items:center;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:800;white-space:nowrap}.badge.ok{background:#E9F9EE;color:#1C6B3B}.badge.warn{background:#FFF4DD;color:#8A5A00}.badge.err{background:#FDECEC;color:#A3312A}.badge.muted{background:#F1F1F2;color:#5F6368}.badge.info{background:#EEEAFD;color:#59459B}
+.gm-issue{color:#A3312A;max-width:260px}.gm-issue strong{display:block;font-size:10px}.gm-issue span{display:block;margin-top:3px;color:#737986;line-height:1.4}.gm-empty{padding:25px;text-align:center;color:#737986;font-size:12px}
+.gm-msg{display:none;margin-top:12px;padding:11px 13px;border-radius:9px;font-size:12px}.gm-msg.show{display:block}.gm-msg.ok{background:#E9F9EE;color:#1C6B3B}.gm-msg.err{background:#FDECEC;color:#A3312A}
+@media(max-width:950px){.gm-grid{grid-template-columns:repeat(2,1fr)}.gm-connection{display:block}.gm-config{margin-top:12px}}
+@media(max-width:600px){.gm-head{display:block}.gm-actions{margin-top:14px}.gm-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="cms-nav" aria-label="Navegação do CMS">
+<a class="cms-nav__brand" href="/index.html">TURKISTA CMS</a><span class="cms-nav__divider"></span>
+<div class="cms-nav__group"><span class="cms-nav__label">Conteúdo</span><a class="cms-nav__link" href="/produtos.html">Produtos</a><a class="cms-nav__link" href="/artigos.html">Artigos</a><a class="cms-nav__link" href="/fotos.html">Fotos</a></div>
+<span class="cms-nav__divider"></span>
+<div class="cms-nav__group"><span class="cms-nav__label">Publicação</span><a class="cms-nav__link" href="/publicacao.html">Publicação</a><a class="cms-nav__link ativa" href="/google-merchant.html">Google Merchant</a><a class="cms-nav__link" href="/pinterest.html">Pinterest</a><a class="cms-nav__link" href="/tiktok.html">TikTok</a><a class="cms-nav__link" href="/instagram.html">Instagram</a></div>
+<span class="cms-nav__divider"></span>
+<div class="cms-nav__group"><span class="cms-nav__label">Análise</span><a class="cms-nav__link" href="/desempenho.html">Desempenho</a></div>
+</nav>
+
+<main class="container">
+<header class="gm-head">
+<div><span class="cms-kicker">PUBLICAÇÃO</span><h1>Google Merchant</h1><p>Catálogo processado, status dos produtos e problemas encontrados pelo Google.</p></div>
+<div class="gm-actions"><button class="gm-btn" id="atualizar" onclick="carregar()">Atualizar catálogo</button><a class="gm-btn" href="/desempenho.html">Ver desempenho</a></div>
+</header>
+
+<section class="gm-connection">
+<div class="gm-status" id="status"><span class="dot"></span><span>Verificando conexão…</span></div>
+<div class="gm-config" id="config">Carregando configuração…</div>
+</section>
+
+<section class="gm-grid">
+<div class="gm-card"><span>Produtos no Merchant</span><strong id="total">—</strong></div>
+<div class="gm-card"><span>Aprovados</span><strong id="aprovados">—</strong></div>
+<div class="gm-card"><span>Pendentes / processando</span><strong id="pendentes">—</strong></div>
+<div class="gm-card"><span>Com problemas</span><strong id="problemas">—</strong></div>
+<div class="gm-card"><span>No CMS e não encontrados</span><strong id="naoEncontrados">—</strong></div>
+</section>
+
+<section class="gm-panel">
+<h2>Catálogo do Google Merchant</h2>
+<p>A lista abaixo vem diretamente dos produtos processados pelo Merchant API. O CMS também mostra produtos locais que ainda não foram encontrados no catálogo do Google. O status detalhado fica dentro de cada produto.</p>
+<div class="gm-tools">
+<input id="busca" class="gm-search" type="search" placeholder="Pesquisar por produto ou ID da oferta…">
+<select id="filtro" class="gm-filter">
+<option value="todos">Todos</option><option value="aprovado">Aprovados</option><option value="pendente">Pendentes / processando</option><option value="problema">Com problemas</option><option value="nao_encontrado">Não encontrados</option>
+</select>
+</div>
+<div class="gm-table-wrap">
+<table class="gm-table">
+<thead><tr><th>Produto</th><th>Status</th><th>Oferta</th><th>Destinos</th><th>Problemas</th></tr></thead>
+<tbody id="tabela"><tr><td colspan="5" class="gm-empty">Carregando catálogo…</td></tr></tbody>
+</table>
+</div>
+<div id="msg" class="gm-msg"></div>
+</section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+let produtos=[];
+function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+function badge(estado){
+ const map={aprovado:["Aprovado","ok"],pendente:["Pendente","warn"],processando:["Processando","info"],problema:["Problema","err"],reprovado:["Reprovado","err"],nao_encontrado:["Não encontrado","muted"],sem_destino:["Sem destino","warn"]};
+ const x=map[estado]||["Indisponível","muted"];return '<span class="badge '+x[1]+'">'+x[0]+"</span>";
+}
+function render(){
+ const q=$("busca").value.trim().toLowerCase(), f=$("filtro").value;
+ const rows=produtos.filter(p=>{
+   const texto=(p.titulo+" "+p.offerId).toLowerCase();
+   const passaBusca=!q||texto.includes(q);
+   const passaFiltro=f==="todos"||(f==="pendente"?(p.estado==="pendente"||p.estado==="processando"):(f==="problema"?(p.estado==="problema"||p.estado==="reprovado"):p.estado===f));
+   return passaBusca&&passaFiltro;
+ });
+ $("tabela").innerHTML=rows.length?rows.map(p=>{
+   const destinos=(p.destinos||[]).map(d=>esc(d.reportingContext||"—")).join(", ")||"—";
+   const issue=p.problemas?.[0];
+   const problemas=issue?'<div class="gm-issue"><strong>'+esc(issue.code||issue.severity||"Problema")+'</strong><span>'+esc(issue.description||issue.attribute||"Verifique os detalhes no Merchant Center.")+'</span></div>':"—";
+   const img=p.imageLink?'<img src="'+esc(p.imageLink)+'" alt="">':'<div style="width:42px;height:56px;border-radius:7px;background:#F4F2F4"></div>';
+   return '<tr><td><div class="gm-product">'+img+'<div><b>'+esc(p.titulo)+'</b><small>'+(p.cms?.slug?esc(p.cms.slug):"Google Merchant")+'</small></div></div></td><td>'+badge(p.estado)+'</td><td>'+esc(p.offerId||"—")+'</td><td>'+destinos+'</td><td>'+problemas+'</td></tr>';
+ }).join(""):'<tr><td colspan="5" class="gm-empty">Nenhum produto corresponde ao filtro.</td></tr>';
+}
+function msg(t,ok){$("msg").textContent=t;$("msg").className="gm-msg show "+(ok?"ok":"err");}
+async function carregar(){
+ const b=$("atualizar");b.disabled=true;b.textContent="Atualizando…";
+ try{
+   const [cr,pr]=await Promise.all([fetch("/api/desempenho/google-merchant/config"),fetch("/api/google-merchant/produtos")]);
+   const cfg=await cr.json(), data=await pr.json();
+   if(!cr.ok)throw Error(cfg.erro||"Não foi possível ler a configuração.");
+   if(!pr.ok)throw Error(data.erro||"Não foi possível consultar o catálogo.");
+   $("status").innerHTML='<span class="dot '+(cfg.credencialDisponivel?"ok":"warn")+'"></span><span>'+(cfg.credencialDisponivel?"Conectado e pronto para consultar o Merchant":"Credencial local não encontrada")+'</span>';
+   $("config").innerHTML='<span>Conta <b>'+esc(cfg.accountId)+'</b></span><span>Fonte de dados <b>'+esc(cfg.dataSourceId)+'</b></span><span>Site <b>'+esc(cfg.siteBaseUrl)+'</b></span>';
+   produtos=data.produtos||[];
+   $("total").textContent=data.merchant??0;$("aprovados").textContent=data.aprovados??0;$("pendentes").textContent=data.pendentes??0;$("problemas").textContent=data.problemas??0;$("naoEncontrados").textContent=data.naoEncontrados??0;
+   render();msg(produtos.length+" produto(s) carregado(s) do catálogo e do CMS.",true);
+ }catch(e){$("status").innerHTML='<span class="dot err"></span><span>Erro ao consultar o Google Merchant</span>';$("tabela").innerHTML='<tr><td colspan="5" class="gm-empty">'+esc(e.message)+'</td></tr>';msg(e.message,false)}
+ finally{b.disabled=false;b.textContent="Atualizar catálogo";}
+}
+$("busca").addEventListener("input",render);$("filtro").addEventListener("change",render);carregar();
+</script>
+</body>
+</html>

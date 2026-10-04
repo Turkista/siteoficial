@@ -1,5 +1,5 @@
 {
-  "id": "prod_biquiniconsteladuplafacepartesuperior",
+  "id": "prod_biquiniconsteladuplafacesuperior",
   "slug": "biquini-constela-dupla-face-parte-superior",
   "nome": "Biquíni Constela dupla face - Parte superior",
   "linha": "praia",
@@ -57,5 +57,7 @@
     "praia"
   ],
   "status": "publicado",
-  "dataCriacao": "2026-08-15"
+  "dataCriacao": "2026-08-15",
+  "genero": "feminino",
+  "faixaEtaria": "15+"
 }

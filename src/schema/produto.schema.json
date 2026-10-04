@@ -15,7 +15,9 @@
     "cores",
     "tamanhos",
     "imagens",
-    "status"
+    "status",
+    "genero",
+    "faixaEtaria"
   ],
   "properties": {
     "id": {
@@ -226,6 +228,28 @@
       ],
       "default": "rascunho"
     },
+    "canaisPublicacao": {
+      "type": "object",
+      "description": "Preferências de publicação por canal. Guarda apenas a intenção do produto em cada canal; credenciais, tokens, histórico e métricas ficam fora do cadastro do produto.",
+      "properties": {
+        "site": {
+          "type": "boolean",
+          "default": true
+        },
+        "googleMerchant": {
+          "type": "boolean",
+          "default": true
+        },
+        "pinterest": {
+          "type": "boolean",
+          "default": false
+        },
+        "tiktok": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
     "dataCriacao": {
       "type": "string",
       "format": "date",
@@ -245,6 +269,20 @@
       "type": "string",
       "format": "date",
       "description": "Opcional. Data da última alteração relevante da ficha (preço, estoque, fotos). Vai para <lastmod> do sitemap; se ausente, usa dataCriacao."
+    },
+    "genero": {
+      "type": "string",
+      "enum": [
+        "feminino",
+        "masculino",
+        "unissex"
+      ],
+      "description": "Gênero-alvo do produto. O catálogo atual da Turkista usa feminino."
+    },
+    "faixaEtaria": {
+      "type": "string",
+      "pattern": "^\\d+\\+$",
+      "description": "Faixa etária mínima declarada. O catálogo atual usa 15+, mapeado para ADULT na Merchant API."
     }
   },
   "definitions": {

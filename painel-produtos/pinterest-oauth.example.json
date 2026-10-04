@@ -1,0 +1,5 @@
+{
+  "client_id": "1616478",
+  "client_secret": "COLOCAR_AQUI_O_CLIENT_SECRET_DO_PINTEREST",
+  "redirect_uri": "http://localhost:3000/api/pinterest/oauth/callback"
+}

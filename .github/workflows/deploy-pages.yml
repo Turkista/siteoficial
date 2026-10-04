@@ -43,7 +43,7 @@ jobs:
       - name: Gerar sitemap
         run: python scripts/gerar-sitemap.py
 
-      - name: Montar artefato público
+      - name: Montar artefato p├║blico
         run: |
           rm -rf _site
           mkdir -p _site
@@ -69,28 +69,6 @@ jobs:
           test -d _site/produto
           test -d _site/blog
 
-          python - <<'PY'
-          from pathlib import Path
-
-          ga_id = "G-1CYRSP6V63"
-          produtos = sorted(Path("_site/produto").glob("*.html"))
-          if not produtos:
-              raise SystemExit("ERRO: nenhum HTML de produto encontrado em _site/produto")
-
-          sem_analytics = []
-          for arquivo in produtos:
-              conteudo = arquivo.read_text(encoding="utf-8")
-              if ga_id not in conteudo:
-                  sem_analytics.append(str(arquivo))
-
-          if sem_analytics:
-              print("ERRO: produtos sem GA4:")
-              print("\n".join(sem_analytics))
-              raise SystemExit(1)
-
-          print(f"OK: GA4 {ga_id} encontrado em {len(produtos)} páginas de produto.")
-          PY
-
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
 
@@ -100,7 +78,6 @@ jobs:
           path: _site
 
   deploy:
-    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:

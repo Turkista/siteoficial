@@ -1,0 +1,557 @@
+const fs = require("fs");
+const path = require("path");
+const crypto = require("crypto");
+const instagramOAuth = require("./instagram-oauth");
+const desempenho = require("./desempenho");
+
+const ROOT = path.join(__dirname, "..", "..");
+const PROD = path.join(ROOT, "src", "content", "produtos");
+const DIR = path.join(__dirname, "..", "secrets");
+const HIST = path.join(DIR, "instagram-publicacoes.json");
+const TEMP_DIR = path.join(DIR, "instagram-media-temp");
+
+const SITE = process.env.TURKISTA_SITE_URL || "https://turkista.com.br";
+const PAINEL_PUBLIC_URL =
+  process.env.TURKISTA_PANEL_PUBLIC_URL ||
+  "https://verushka.tail5f4db5.ts.net";
+
+function read() {
+  if (!fs.existsSync(HIST)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(HIST, "utf8"));
+  } catch {
+    return [];
+  }
+}
+
+function save(v) {
+  fs.mkdirSync(DIR, { recursive: true });
+  fs.writeFileSync(HIST, JSON.stringify(v, null, 2), "utf8");
+}
+
+function listarProdutos() {
+  if (!fs.existsSync(PROD)) return [];
+
+  return fs
+    .readdirSync(PROD)
+    .filter((f) => f.endsWith(".json") && f !== "index.json")
+    .map((f) => JSON.parse(fs.readFileSync(path.join(PROD, f), "utf8")))
+    .filter((p) => p.status !== "descontinuado")
+    .sort((a, b) =>
+      String(a.nome).localeCompare(String(b.nome), "pt-BR")
+    );
+}
+
+function imagemPrincipal(p) {
+  const arquivo =
+    p.imagens?.[0]?.arquivo ||
+    p.cores?.[0]?.imagens?.[0]?.arquivo;
+
+  if (!arquivo) {
+    throw new Error("O produto não possui imagem principal.");
+  }
+
+  return (
+    SITE.replace(/\/$/, "") +
+    "/assets/produtos/" +
+    encodeURIComponent(arquivo)
+  );
+}
+
+function urlProduto(p) {
+  return (
+    SITE.replace(/\/$/, "") +
+    "/produto/" +
+    encodeURIComponent(p.slug) +
+    ".html"
+  );
+}
+
+function historico() {
+  return read().sort((a, b) =>
+    String(b.publicado_em || "").localeCompare(
+      String(a.publicado_em || "")
+    )
+  );
+}
+
+function garantirDiretorioTemporario() {
+  fs.mkdirSync(TEMP_DIR, { recursive: true });
+}
+
+function gerarNomeTemporario(slug) {
+  const seguro = String(slug || "instagram")
+    .replace(/[^a-zA-Z0-9_-]/g, "-")
+    .slice(0, 80);
+
+  return `${seguro}-${Date.now()}-${crypto.randomBytes(8).toString("hex")}.jpg`;
+}
+
+async function baixarImagem(url) {
+  const resposta = await fetch(url, {
+    redirect: "follow",
+    headers: {
+      "User-Agent": "Turkista-Instagram-Publisher/1.0",
+      Accept: "image/*",
+    },
+  });
+
+  if (!resposta.ok) {
+    throw new Error(
+      `Não foi possível baixar a imagem do produto. HTTP ${resposta.status}.`
+    );
+  }
+
+  const contentType = String(
+    resposta.headers.get("content-type") || ""
+  ).toLowerCase();
+
+  if (!contentType.startsWith("image/")) {
+    throw new Error(
+      `A URL da imagem retornou um conteúdo que não é imagem (${contentType || "tipo desconhecido"}).`
+    );
+  }
+
+  const arrayBuffer = await resposta.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+
+  if (!buffer.length) {
+    throw new Error("A imagem retornada está vazia.");
+  }
+
+  return buffer;
+}
+
+async function prepararImagemInstagram({ slug, mediaUrl }) {
+  const sharp = require("sharp");
+
+  garantirDiretorioTemporario();
+
+  const origem = String(mediaUrl || "").trim();
+
+  if (!/^https:\/\//i.test(origem)) {
+    throw new Error(
+      "A mídia precisa estar em uma URL pública HTTPS."
+    );
+  }
+
+  const buffer = await baixarImagem(origem);
+
+  const nomeArquivo = gerarNomeTemporario(slug);
+  const caminho = path.join(TEMP_DIR, nomeArquivo);
+
+  await sharp(buffer)
+    .rotate()
+    .resize({
+      width: 1440,
+      height: 1440,
+      fit: "inside",
+      withoutEnlargement: true,
+    })
+    .flatten({ background: "#ffffff" })
+    .jpeg({
+      quality: 90,
+      mozjpeg: true,
+    })
+    .toFile(caminho);
+
+  const urlPublica =
+    PAINEL_PUBLIC_URL.replace(/\/$/, "") +
+    "/api/instagram/media/" +
+    encodeURIComponent(nomeArquivo);
+
+  return {
+    caminho,
+    nomeArquivo,
+    urlPublica,
+  };
+}
+
+function apagarArquivoTemporario(caminho) {
+  try {
+    if (caminho && fs.existsSync(caminho)) {
+      fs.unlinkSync(caminho);
+    }
+  } catch (erro) {
+    console.warn(
+      "Instagram: não foi possível apagar o arquivo temporário:",
+      erro.message
+    );
+  }
+}
+
+async function esperar(id) {
+  for (let i = 0; i < 12; i++) {
+    const d = await instagramOAuth.api(
+      "/" +
+        encodeURIComponent(id) +
+        "?fields=status_code,status"
+    );
+
+    const s = String(d.status_code || "").toUpperCase();
+
+    if (s === "FINISHED") return;
+
+    if (s === "ERROR" || s === "EXPIRED") {
+      throw new Error(
+        "O Instagram não concluiu o processamento: " +
+          JSON.stringify(d)
+      );
+    }
+
+    await new Promise((r) => setTimeout(r, 5000));
+  }
+
+  throw new Error(
+    "O Instagram ainda está processando o conteúdo. Consulte o painel novamente."
+  );
+}
+
+async function publicarMidia({
+  slug,
+  mediaUrl,
+  tipo = "imagem",
+  caption = "",
+  altText = "",
+}) {
+  const p = listarProdutos().find((x) => x.slug === slug);
+
+  if (!p) {
+    throw new Error("Produto não encontrado.");
+  }
+
+  if (p.status === "descontinuado") {
+    throw new Error(
+      "Produtos descontinuados não podem ser publicados."
+    );
+  }
+
+  if (
+    historico().some(
+      (x) => x.slug === slug && x.status === "publicado"
+    )
+  ) {
+    const e = new Error(
+      "Este produto já possui uma publicação do Instagram registrada no painel."
+    );
+    e.status = 409;
+    throw e;
+  }
+
+  const urlOriginal = String(
+    mediaUrl || imagemPrincipal(p)
+  ).trim();
+
+  if (!/^https:\/\//i.test(urlOriginal)) {
+    throw new Error(
+      "A mídia precisa estar em uma URL pública HTTPS."
+    );
+  }
+
+  const uid = instagramOAuth.status().userId;
+
+  if (!uid) {
+    throw new Error("Instagram não está conectado.");
+  }
+
+  let arquivoTemporario = null;
+
+  try {
+    let urlParaInstagram = urlOriginal;
+
+    /*
+     * O site continua usando WebP normalmente.
+     *
+     * Para publicação de imagem no Instagram, criamos uma cópia
+     * temporária em JPEG e disponibilizamos essa cópia pelo
+     * endpoint público do painel.
+     */
+    if (tipo !== "reel") {
+      const preparado = await prepararImagemInstagram({
+        slug: p.slug,
+        mediaUrl: urlOriginal,
+      });
+
+      arquivoTemporario = preparado.caminho;
+      urlParaInstagram = preparado.urlPublica;
+    }
+
+    const payload =
+      tipo === "reel"
+        ? {
+            media_type: "REELS",
+            video_url: urlOriginal,
+            caption: String(
+              caption || p.nome || ""
+            ).slice(0, 2200),
+          }
+        : {
+            image_url: urlParaInstagram,
+            caption: String(
+              caption || p.nome || ""
+            ).slice(0, 2200),
+            ...(altText
+              ? {
+                  alt_text: String(altText).slice(0, 1000),
+                }
+              : {}),
+          };
+
+    const c = await instagramOAuth.api(
+      "/" + encodeURIComponent(uid) + "/media",
+      {
+        method: "POST",
+        body: JSON.stringify(payload),
+      }
+    );
+
+    if (!c.id) {
+      throw new Error(
+        "Instagram não retornou o ID do contêiner."
+      );
+    }
+
+    await esperar(c.id);
+
+    const done = await instagramOAuth.api(
+      "/" +
+        encodeURIComponent(uid) +
+        "/media_publish?creation_id=" +
+        encodeURIComponent(c.id),
+      {
+        method: "POST",
+      }
+    );
+
+    if (!done.id) {
+      throw new Error(
+        "Instagram não retornou o ID da publicação."
+      );
+    }
+
+    const now = new Date().toISOString();
+
+    let permalink = null;
+
+    try {
+      const m = await instagramOAuth.api(
+        "/" +
+          encodeURIComponent(done.id) +
+          "?fields=id,permalink,media_type,timestamp"
+      );
+
+      permalink = m.permalink || null;
+    } catch {}
+
+    const central = desempenho.registrarPublicacao({
+      produto_id: p.id,
+      slug: p.slug,
+      canal: "instagram",
+      external_id: done.id,
+      status: "publicado",
+      data: now,
+      metadados: {
+        creation_id: c.id,
+        media_type: tipo === "reel" ? "REELS" : "IMAGE",
+        permalink,
+        media_url: urlOriginal,
+        instagram_media_url:
+          tipo === "reel" ? urlOriginal : urlParaInstagram,
+      },
+    });
+
+    const registro = {
+      id:
+        "ig_" +
+        Date.now() +
+        "_" +
+        Math.random().toString(36).slice(2, 8),
+      produto_id: p.id,
+      slug: p.slug,
+      nome: p.nome,
+      media_id: done.id,
+      creation_id: c.id,
+      media_type: tipo === "reel" ? "REELS" : "IMAGE",
+      permalink,
+      status: "publicado",
+      publicado_em: now,
+      media_url: urlOriginal,
+      publicacao_id: central.id,
+    };
+
+    const h = read();
+    h.unshift(registro);
+    save(h);
+
+    return {
+      media: done,
+      publicacao: registro,
+    };
+  } finally {
+    apagarArquivoTemporario(arquivoTemporario);
+  }
+}
+
+async function listarMidias({ limit = 50 } = {}) {
+  const uid = instagramOAuth.status().userId;
+
+  if (!uid) {
+    throw new Error("Instagram não está conectado.");
+  }
+
+  const fields = encodeURIComponent(
+    "id,caption,media_type,media_product_type,permalink,timestamp,like_count,comments_count"
+  );
+
+  return instagramOAuth.api(
+    "/" +
+      encodeURIComponent(uid) +
+      "/media?fields=" +
+      fields +
+      "&limit=" +
+      Math.min(Number(limit) || 50, 100)
+  );
+}
+
+async function sincronizarMetricas() {
+  const d = await listarMidias({ limit: 100 });
+  const midias = Array.isArray(d.data) ? d.data : [];
+  const h = historico();
+
+  let novas = 0;
+
+  for (const m of midias) {
+    const p = h.find(
+      (x) => String(x.media_id) === String(m.id)
+    );
+
+    if (!p) continue;
+
+    const data = m.timestamp || p.publicado_em;
+
+    for (const [nome, val] of [
+      ["likes", m.like_count],
+      ["comments", m.comments_count],
+    ]) {
+      if (val == null) continue;
+
+      const dup = desempenho
+        .listarMetricas({
+          canal: "instagram",
+          produto_id: p.produto_id,
+          metrica: nome,
+        })
+        .some(
+          (x) =>
+            x.data === data &&
+            Number(x.valor) === Number(val) &&
+            x.metadados?.media_id === String(m.id)
+        );
+
+      if (!dup) {
+        desempenho.registrarMetrica({
+          publicacao_id: p.publicacao_id || p.media_id,
+          produto_id: p.produto_id,
+          slug: p.slug,
+          canal: "instagram",
+          metrica: nome,
+          valor: Number(val),
+          unidade: "numero",
+          data,
+          origem: "instagram_graph_api",
+          metadados: {
+            media_id: m.id,
+            media_type: m.media_type,
+          },
+        });
+
+        novas++;
+      }
+    }
+
+    for (const nome of [
+      "reach",
+      "views",
+      "shares",
+      "saved",
+      "total_interactions",
+    ]) {
+      try {
+        const x = await instagramOAuth.api(
+          "/" +
+            encodeURIComponent(m.id) +
+            "/insights?metric=" +
+            encodeURIComponent(nome)
+        );
+
+        const item = Array.isArray(x.data)
+          ? x.data[0]
+          : null;
+
+        const val =
+          item?.values?.[0]?.value ?? item?.value;
+
+        if (
+          val == null ||
+          !Number.isFinite(Number(val))
+        ) {
+          continue;
+        }
+
+        const dm =
+          item?.values?.[0]?.end_time || data;
+
+        const dup = desempenho
+          .listarMetricas({
+            canal: "instagram",
+            produto_id: p.produto_id,
+            metrica: nome,
+          })
+          .some(
+            (y) =>
+              y.data === dm &&
+              Number(y.valor) === Number(val) &&
+              y.metadados?.media_id === String(m.id)
+          );
+
+        if (!dup) {
+          desempenho.registrarMetrica({
+            publicacao_id:
+              p.publicacao_id || p.media_id,
+            produto_id: p.produto_id,
+            slug: p.slug,
+            canal: "instagram",
+            metrica: nome,
+            valor: Number(val),
+            unidade: "numero",
+            data: dm,
+            origem: "instagram_graph_api",
+            metadados: {
+              media_id: m.id,
+              media_type: m.media_type,
+            },
+          });
+
+          novas++;
+        }
+      } catch {}
+    }
+  }
+
+  return {
+    ok: true,
+    midias_consultadas: midias.length,
+    publicacoes_do_painel: h.length,
+    metricas_novas: novas,
+  };
+}
+
+module.exports = {
+  listarProdutos,
+  imagemPrincipal,
+  urlProduto,
+  publicarMidia,
+  listarMidias,
+  sincronizarMetricas,
+  historico,
+};
