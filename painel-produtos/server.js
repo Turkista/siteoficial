@@ -1,4 +1,4 @@
-﻿// \n\nPainel local â€” Turkista
+// \n\nPainel local â€” Turkista
 //
 // Um Ãºnico servidor Node local com trÃªs funÃ§Ãµes:
 // 1. Cadastro de PRODUTOS (aba "Produtos") â€” gera .json + ficha de produto
@@ -814,30 +814,27 @@ app.put("/api/artigos/:slug", upload.single("novaCapa"), async (req, res) => {
 // ---------------------------------------------------------------
 
 app.get("/api/fotos-institucionais/slots", (req, res) => {
-  // Slots fixos (hero, linhas, colagem) + um slot por artigo jÃ¡ existente
-  // (os 9 originais + os cadastrados no painel), pra cobrir as capas do Blog tambÃ©m.
-  const slotsBlogOriginais = [
-    ["cuidados-biquini", "Como cuidar do seu biquÃ­ni e fazer durar muito mais"],
-    ["tecido-certo", "O tecido certo faz toda a diferenÃ§a"],
-    ["moda-praia-ano-inteiro", "Moda praia o ano inteiro"],
-    ["biquini-ou-top", "BiquÃ­ni ou top esportivo?"],
-    ["atelie-peca-pronta", "Do ateliÃª Ã  peÃ§a pronta"],
-    ["lavagem-secagem", "Lavagem, secagem e armazenamento corretos"],
-    ["fabricacao-propria", "FabricaÃ§Ã£o prÃ³pria: por que fazemos assim"],
-    ["pecas-movimento", "PeÃ§as que te acompanham em cada movimento"],
-    ["cores-tom-de-pele", "Cores que valorizam seu tom de pele"],
-  ].map(([slug, titulo]) => ({
-    chave: `blog-${slug}`, pasta: "blog", arquivo: `${slug}.webp`,
-    rotulo: `Capa do artigo: ${titulo}`, descricao: "Revista Turkista (blog.html)",
-  }));
+  // Slots fixos (hero, linhas, colagem) + um slot por artigo cadastrado no CMS.
+  // Os artigos do Blog são lidos diretamente dos JSONs para evitar duplicidades
+  // e manter títulos e encoding atualizados.
+  const arquivosArtigos = fs.readdirSync(ARTIGOS.pastaJSON)
+    .filter((f) => f.endsWith(".json") && f !== "index.json");
 
-  const arquivosArtigos = fs.readdirSync(ARTIGOS.pastaJSON).filter((f) => f.endsWith(".json") && f !== "index.json");
-  const slotsBlogNovos = arquivosArtigos.map((f) => {
-    const d = JSON.parse(fs.readFileSync(path.join(ARTIGOS.pastaJSON, f), "utf-8"));
-    return { chave: `blog-${d.slug}`, pasta: "blog", arquivo: `${d.slug}.webp`, rotulo: `Capa do artigo: ${d.titulo}`, descricao: "Revista Turkista (blog.html) â€” cadastrado no painel" };
+  const slotsBlog = arquivosArtigos.map((f) => {
+    const d = JSON.parse(
+      fs.readFileSync(path.join(ARTIGOS.pastaJSON, f), "utf-8")
+    );
+
+    return {
+      chave: `blog-${d.slug}`,
+      pasta: "blog",
+      arquivo: `${d.slug}.webp`,
+      rotulo: `Capa do artigo: ${d.titulo}`,
+      descricao: "Revista Turkista (blog.html) — cadastrado no painel",
+    };
   });
 
-  const todosSlots = [...SLOTS_FOTOS_INSTITUCIONAIS, ...slotsBlogOriginais, ...slotsBlogNovos];
+  const todosSlots = [...SLOTS_FOTOS_INSTITUCIONAIS, ...slotsBlog];
 
   const comStatus = todosSlots.map((s) => ({
     ...s,
@@ -846,7 +843,6 @@ app.get("/api/fotos-institucionais/slots", (req, res) => {
 
   res.json(comStatus);
 });
-
 app.post("/api/fotos-institucionais", upload.single("foto"), async (req, res) => {
   try {
     const { chave } = req.body;
