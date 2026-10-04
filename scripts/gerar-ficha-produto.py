@@ -700,6 +700,15 @@ TEMPLATE = """<!doctype html>
 <link rel="stylesheet" href="../src/styles/componentes/whatsapp-flutuante.css">
 <link rel="stylesheet" href="../src/styles/componentes/carrinho.css">
 <link rel="stylesheet" href="../src/pages/produto/produto.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CYRSP6V63"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1CYRSP6V63');
+</script>
 <script type="application/ld+json">
 {json_ld}
 </script>
