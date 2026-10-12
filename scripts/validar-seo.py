@@ -214,6 +214,46 @@ def parse_price(value):
     except ValueError:
         return None
 
+
+def validate_performance_basics(errors):
+    """Protege as otimizações de renderização contra regressões simples."""
+    index_path = ROOT / "index.html"
+    if not index_path.is_file():
+        errors.append("index.html: página inicial ausente para validação de desempenho")
+        return
+
+    html = index_path.read_text(encoding="utf-8")
+    if "fonts.googleapis.com/css2" in html and "display=swap" in html:
+        errors.append("index.html: Google Fonts deve usar display=optional para reduzir trocas tardias de fonte")
+
+    for relative in (
+        "src/styles/componentes/busca.css",
+        "src/styles/componentes/footer.css",
+        "src/styles/componentes/cards.css",
+        "src/styles/componentes/whatsapp-flutuante.css",
+        "src/styles/componentes/carrinho.css",
+    ):
+        preload = f'<link rel="preload" as="style" href="{relative}"'
+        fallback = f'<noscript><link rel="stylesheet" href="{relative}"></noscript>'
+        if preload not in html:
+            errors.append(f"index.html: folha não crítica sem preload assíncrono: {relative}")
+        if fallback not in html:
+            errors.append(f"index.html: fallback sem JavaScript ausente para {relative}")
+
+    whatsapp_script = ROOT / "src" / "scripts" / "componentes" / "whatsapp-flutuante.js"
+    if whatsapp_script.is_file():
+        js = whatsapp_script.read_text(encoding="utf-8")
+        if "offsetHeight" in js or "offsetWidth" in js:
+            errors.append("whatsapp-flutuante.js: leitura de offset pode provocar reflow forçado")
+        if "IntersectionObserver" not in js:
+            errors.append("whatsapp-flutuante.js: IntersectionObserver ausente para observar o hero")
+    else:
+        errors.append("whatsapp-flutuante.js: script não encontrado")
+
+    workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
+    if workflow.is_file() and "otimizar-imagens-publicacao.py _site" not in workflow.read_text(encoding="utf-8"):
+        errors.append("deploy-pages.yml: otimizador de imagens não está ligado à publicação")
+
 def main():
     errors = []
     product_dir = ROOT / "src" / "content" / "produtos"
@@ -271,6 +311,7 @@ def main():
             elif expected is not None:
                 errors.append(f"{relative}: não encontrei preço visível no cartão de '{slug}'")
 
+    validate_performance_basics(errors)
     validate_category_metadata(errors)
     validate_product_seo_overrides(products, errors)
     validate_product_structured_data(products, errors)
