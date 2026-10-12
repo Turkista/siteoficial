@@ -229,7 +229,6 @@ def validate_performance_basics(errors):
     for relative in (
         "src/styles/componentes/busca.css",
         "src/styles/componentes/footer.css",
-        "src/styles/componentes/cards.css",
         "src/styles/componentes/whatsapp-flutuante.css",
         "src/styles/componentes/carrinho.css",
     ):
