@@ -1,6 +1,6 @@
 /**
  * Botão flutuante de WhatsApp — aparece quando o hero deixa de ocupar
- * a maior parte da área visível, sem ler offsetHeight no carregamento.
+ * a maior parte da área visível, sem leitura geométrica forçada no carregamento.
  */
 (function () {
   const botao = document.querySelector('[data-whatsapp-flutuante]');
