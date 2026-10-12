@@ -37,13 +37,13 @@ def main():
             products[item["slug"]] = item
 
     button_re = re.compile(
-        r'<button\\b(?=[^>]*\\bdata-adicionar-carrinho\\b)'
-        r'(?=[^>]*\\bdata-slug="([^"]+)")'
-        r'(?=[^>]*\\bdata-preco="([^"]+)")[^>]*>',
+        r'<button\b(?=[^>]*\bdata-adicionar-carrinho\b)'
+        r'(?=[^>]*\bdata-slug="([^"]+)")'
+        r'(?=[^>]*\bdata-preco="([^"]+)")[^>]*>',
         re.I,
     )
     visible_price_re = re.compile(
-        r'<p[^>]*class="[^"]*card-produto__preco[^"]*"[^>]*>\\s*R\\$\\s*([0-9.,]+)\\s*</p>',
+        r'<p[^>]*class="[^"]*card-produto__preco[^"]*"[^>]*>\s*R\$\s*([0-9.,]+)\s*</p>',
         re.I,
     )
     for relative in CATALOG_PAGES:
