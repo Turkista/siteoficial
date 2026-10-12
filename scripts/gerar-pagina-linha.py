@@ -39,8 +39,8 @@ LINHAS = {
     },
     "surf": {
         "nome": "Surf",
-        "titulo": "Maiô de Surf e Cropped de Surf | Turkista",
-        "h1": "Maiô de surf e cropped de surf, feitos em Araruama",
+        "titulo": "Maiô de Surf Feminino e Cropped de Surf | Turkista",
+        "h1": "Maiô para surf feminino e cropped de surf, feitos em Araruama",
         "eyebrow": "Linha Surf",
         "ordem": ["Maiô de surf", "Cropped de surf"],
         "leia": ["tecido-certo", "lavagem-secagem", "fabricacao-propria"],
