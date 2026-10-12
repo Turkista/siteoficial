@@ -29,6 +29,8 @@ jobs:
         run: python scripts/gerar-artigo-blog.py
       - name: Gerar sitemap determinístico
         run: python scripts/gerar-sitemap.py
+      - name: Validar consistência SEO
+        run: python scripts/validar-seo.py
       - name: Verificar arquivos gerados
         run: |
           test -d produto
