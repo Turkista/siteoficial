@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Valida consistência SEO básica entre catálogo, fontes de produtos e sitemap."""
+import importlib.util
 import json
 import re
 import sys
@@ -264,6 +265,21 @@ def validate_performance_basics(errors):
         errors.append("otimizar-fontes-publicacao.py: otimizador de fontes ausente")
     elif "googleapis" not in font_optimizer.read_text(encoding="utf-8") or "css2" not in font_optimizer.read_text(encoding="utf-8"):
         errors.append("otimizar-fontes-publicacao.py: regra para Google Fonts ausente")
+    else:
+        spec = importlib.util.spec_from_file_location("otimizar_fontes_publicacao", font_optimizer)
+        module = importlib.util.module_from_spec(spec)
+        try:
+            spec.loader.exec_module(module)
+            sample = '<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">'
+            optimized, count = module.otimizar_html(sample)
+            if count != 1 or 'rel="preload" as="style"' not in optimized or "display=optional" not in optimized or "<noscript><link rel=\"stylesheet\"" not in optimized:
+                errors.append("otimizar-fontes-publicacao.py: teste de conversão assíncrona falhou")
+            fallback = '<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope&display=swap"></noscript>'
+            preserved, fallback_count = module.otimizar_html(fallback)
+            if fallback_count != 0 or preserved != fallback:
+                errors.append("otimizar-fontes-publicacao.py: fallback noscript foi alterado")
+        except Exception as exc:
+            errors.append(f"otimizar-fontes-publicacao.py: teste de execução falhou ({exc})")
 
     workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
     if workflow.is_file() and "otimizar-fontes-publicacao.py _site" not in workflow.read_text(encoding="utf-8"):
