@@ -9,10 +9,9 @@ from PIL import Image
 LARGURAS = (320, 480, 640, 768, 960, 1200, 1440)
 QUALIDADE = 78
 ECONOMIA_MINIMA = 0.02
-IMG_TAG = re.compile(r"<img\\b[^>]*>", re.IGNORECASE)
-SRC_ATTR = re.compile(r"""\\bsrc\\s*=\\s*(["'])(.*?)\\1""", re.IGNORECASE)
-SRCSET_ATTR = re.compile(r"""\\bsrcset\\s*=""", re.IGNORECASE)
-WIDTH_ATTR = re.compile(r"""\\bwidth\\s*=\\s*(["']?)(\\d+)\\1""", re.IGNORECASE)
+IMG_TAG = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
+SRC_ATTR = re.compile(r"""\bsrc\s*=\s*(["'])(.*?)\1""", re.IGNORECASE)
+SRCSET_ATTR = re.compile(r"""\bsrcset\s*=""", re.IGNORECASE)
 
 
 def dimensoes(caminho: Path) -> tuple[int, int]:
@@ -22,11 +21,12 @@ def dimensoes(caminho: Path) -> tuple[int, int]:
 
 def tamanhos_para(url: str, tag: str, contexto: str) -> str:
     classes = " ".join(re.findall(r"""class=["']([^"']+)["']""", tag, re.IGNORECASE))
-    contexto_classes = " ".join(re.findall(r"""class=["']([^"']+)["']""", contexto[-450:], re.IGNORECASE))
-    classes = f"{classes} {contexto_classes}"
+    trecho = contexto[-450:]
+    classes_contexto = " ".join(re.findall(r"""class=["']([^"']+)["']""", trecho, re.IGNORECASE))
+    classes = f"{classes} {classes_contexto}"
     if "hero__foto" in classes:
         return "100vw"
-    if "card-produto__imagem" in classes or "card-produto__imagem" in contexto[-450:]:
+    if "card-produto__imagem" in classes or "card-produto__imagem" in trecho:
         return "(max-width: 640px) 46vw, (max-width: 1024px) 30vw, 338px"
     if "/linhas/" in url or "linha" in classes:
         return "(max-width: 640px) 92vw, (max-width: 1024px) 48vw, 680px"
@@ -40,10 +40,7 @@ def url_para_arquivo(url: str, html_path: Path, raiz: Path) -> Path | None:
     if partes.scheme or partes.netloc or not partes.path.lower().endswith(".webp"):
         return None
     caminho_url = unquote(partes.path)
-    if caminho_url.startswith("/"):
-        caminho = raiz / caminho_url.lstrip("/")
-    else:
-        caminho = html_path.parent / caminho_url
+    caminho = raiz / caminho_url.lstrip("/") if caminho_url.startswith("/") else html_path.parent / caminho_url
     try:
         caminho.resolve().relative_to(raiz.resolve())
     except ValueError:
@@ -63,16 +60,15 @@ def gerar_variantes(arquivo: Path) -> list[tuple[int, str]]:
             return resultado
         perfil = original.info.get("icc_profile")
         for largura in LARGURAS:
-            if largura >= largura_original or largura < 240:
+            if largura >= largura_original:
                 continue
-            altura = max(1, round(altura_original * largura / largura_original))
             destino = arquivo.with_name(f"{arquivo.stem}-{largura}w.webp")
             if destino.exists() and destino.stat().st_mtime >= arquivo.stat().st_mtime:
                 if destino.stat().st_size < tamanho_original:
                     resultado.append((largura, destino.name))
                 continue
             imagem = original.copy()
-            imagem.thumbnail((largura, altura), Image.Resampling.LANCZOS)
+            imagem.thumbnail((largura, max(1, round(altura_original * largura / largura_original))), Image.Resampling.LANCZOS)
             opcoes = {"format": "WEBP", "quality": QUALIDADE, "method": 6}
             if perfil:
                 opcoes["icc_profile"] = perfil
@@ -136,7 +132,7 @@ def main() -> int:
             continue
         novo, quantidade = otimizar_html(original, html, raiz)
         if quantidade:
-            html.write_text(novo, encoding="utf-8", newline="\\n")
+            html.write_text(novo, encoding="utf-8", newline="\n")
             arquivos_html += 1
             imagens += quantidade
             print(f"Imagens responsivas: {html.relative_to(raiz)} ({quantidade} tag(s))")
