@@ -120,12 +120,12 @@ def validate_product_structured_data(products, errors):
 
         html = path.read_text(encoding="utf-8")
         expected_url = f"{BASE}/produto/{slug}.html"
-        canonical = re.search(r'<link\\s+rel="canonical"\\s+href="([^"]+)"', html, re.I)
+        canonical = re.search(r'<link\s+rel="canonical"\s+href="([^"]+)"', html, re.I)
         if not canonical or canonical.group(1).strip() != expected_url:
             errors.append(f"{relative}: canonical não corresponde à URL esperada {expected_url}")
 
         blocks = re.findall(
-            r'<script\\s+type="application/ld\\+json">([\\s\\S]*?)</script>',
+            r'<script\s+type="application/ld\+json">([\s\S]*?)</script>',
             html,
             re.I,
         )
