@@ -63,6 +63,7 @@ jobs:
             --exclude='_site/' \
             ./ _site/
 
+          python scripts/otimizar-fontes-publicacao.py _site
           python scripts/otimizar-imagens-publicacao.py _site
 
           python scripts/injetar-analytics.py _site
