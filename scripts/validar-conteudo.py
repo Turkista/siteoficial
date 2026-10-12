@@ -85,10 +85,58 @@ def validate_collection(name, cfg):
     print(f"{name}: {len(files)} arquivo(s), {valid_count} válido(s)")
     return problems
 
+def validate_product_manifest_seo():
+    """Confere se os overrides SEO dos produtos também constam no manifesto do catálogo."""
+    manifest_path = CONTENT / "produtos" / "index.json"
+    if not manifest_path.is_file():
+        return ["src/content/produtos/index.json: manifesto ausente"]
+
+    try:
+        manifest = load_json(manifest_path)
+    except ValueError as exc:
+        return [str(exc)]
+
+    if not isinstance(manifest, list):
+        return ["src/content/produtos/index.json: o manifesto deve conter uma lista"]
+
+    by_slug = {
+        item.get("slug"): item
+        for item in manifest
+        if isinstance(item, dict) and item.get("slug")
+    }
+    problems = []
+    product_dir = CONTENT / "produtos"
+    for path in sorted(product_dir.glob("*.json")):
+        if path.name == "index.json":
+            continue
+        try:
+            item = load_json(path)
+        except ValueError:
+            continue
+        if not item.get("seoTitulo") and not item.get("seoDescricao"):
+            continue
+
+        manifest_item = by_slug.get(item.get("slug"))
+        if not manifest_item:
+            problems.append(
+                f"{path.relative_to(ROOT)}: produto com override SEO ausente no manifesto"
+            )
+            continue
+        for field in ("seoTitulo", "seoDescricao"):
+            expected = item.get(field)
+            if expected and manifest_item.get(field) != expected:
+                problems.append(
+                    f"{path.relative_to(ROOT)}: {field} diverge de "
+                    "src/content/produtos/index.json"
+                )
+    return problems
+
+
 def main():
     problems = []
     for name, cfg in CONFIG.items():
         problems.extend(validate_collection(name, cfg))
+    problems.extend(validate_product_manifest_seo())
 
     if problems:
         print("\nFALHAS DE VALIDAÇÃO:")
