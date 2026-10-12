@@ -82,19 +82,21 @@ def calcular_tempo_leitura(corpo_texto):
 
 
 def meta_description_seo(resumo, corpo_texto, limite=160):
-    """Monta a meta description usando apenas texto já presente no artigo."""
+    """Gera uma descrição concisa sem repetir o resumo nem expor marcação Markdown."""
     resumo = " ".join((resumo or "").split()).strip()
-    if len(resumo) >= 120:
-        return resumo[:limite].rstrip(" ,;:-")
-
     primeiro_paragrafo = re.split(r"\n\s*\n", (corpo_texto or "").strip(), maxsplit=1)[0]
     primeiro_paragrafo = re.sub(r"^##\s+", "", primeiro_paragrafo)
+    primeiro_paragrafo = re.sub(r"[*_`~]", "", primeiro_paragrafo)
     primeiro_paragrafo = " ".join(primeiro_paragrafo.split()).strip()
 
-    if primeiro_paragrafo and primeiro_paragrafo.lower() != resumo.lower():
-        combinado = f"{resumo} {primeiro_paragrafo}".strip()
-    else:
+    if not resumo:
+        combinado = primeiro_paragrafo
+    elif not primeiro_paragrafo or len(resumo) >= limite:
         combinado = resumo
+    elif primeiro_paragrafo.lower().startswith(resumo.lower()) or resumo.lower().startswith(primeiro_paragrafo.lower()):
+        combinado = resumo
+    else:
+        combinado = f"{resumo} {primeiro_paragrafo}".strip()
 
     if len(combinado) <= limite:
         return combinado
