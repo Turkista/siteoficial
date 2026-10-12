@@ -249,6 +249,16 @@ def validate_performance_basics(errors):
     else:
         errors.append("whatsapp-flutuante.js: script não encontrado")
 
+    home_css = ROOT / "src" / "pages" / "home" / "home.css"
+    if home_css.is_file() and ".eyebrow{color:var(--cor-rosa-acessivel)}" not in home_css.read_text(encoding="utf-8"):
+        errors.append("home.css: eyebrow da home deve usar a cor rosa com contraste acessível")
+
+    marquee_css = ROOT / "src" / "styles" / "componentes" / "letreiro.css"
+    if marquee_css.is_file():
+        marquee = marquee_css.read_text(encoding="utf-8")
+        if "linear-gradient(90deg,#F7A5D9,#F279C8)" not in marquee:
+            errors.append("letreiro.css: fundo do letreiro deve manter contraste legível com texto escuro")
+
     workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
     if workflow.is_file() and "otimizar-imagens-publicacao.py _site" not in workflow.read_text(encoding="utf-8"):
         errors.append("deploy-pages.yml: otimizador de imagens não está ligado à publicação")
