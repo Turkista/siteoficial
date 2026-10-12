@@ -68,7 +68,7 @@ def main():
             if expected is not None and actual is not None and abs(actual - float(expected)) > 0.001:
                 errors.append(f"{relative}: preço no botão de '{slug}' é {raw_price}, mas o JSON informa {expected}")
 
-            card_start = html.rfind('<div class="card-produto', 0, match.start())
+            card_start = html.rfind('<div class="card-produto"', 0, match.start())
             snippet = html[card_start:match.start()] if card_start >= 0 else ""
             visible_matches = list(visible_price_re.finditer(snippet))
             if expected is not None and visible_matches:
