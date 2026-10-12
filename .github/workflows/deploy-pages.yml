@@ -43,6 +43,9 @@ jobs:
       - name: Gerar sitemap
         run: python scripts/gerar-sitemap.py
 
+      - name: Validar consistência SEO
+        run: python scripts/validar-seo.py
+
       - name: Montar artefato p├║blico
         run: |
           rm -rf _site
