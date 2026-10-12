@@ -69,6 +69,20 @@ def validate_category_metadata(errors):
         collection_pages = [item for schema in schemas for item in collect_schema_type(schema, "CollectionPage")]
         if collection_pages and collection_pages[0].get("description"):
             descriptions.append(collection_pages[0]["description"])
+        # Confere também se a faixa de preço anunciada bate com os preços
+        # visíveis nos cartões da categoria (incluindo acessórios).
+        visible_prices = [
+            parse_price(value)
+            for value in re.findall(
+                r'<p[^>]*class="[^"]*card-produto__preco[^"]*"[^>]*>\s*R\$\s*([0-9.,]+)\s*</p>',
+                html,
+                re.I,
+            )
+        ]
+        visible_prices = [price for price in visible_prices if price is not None]
+        actual_min = min(visible_prices) if visible_prices else None
+        actual_max = max(visible_prices) if visible_prices else None
+
         for description in descriptions:
             match = count_re.search(description)
             if match and int(match.group(1)) != actual_count:
@@ -76,6 +90,30 @@ def validate_category_metadata(errors):
                     f"{relative}: descrição anuncia {match.group(1)} peças, "
                     f"mas o ItemList contém {actual_count}"
                 )
+            range_match = re.search(
+                r"Preços?\s+de\s+R\$\s*([0-9.,]+)\s+a\s+R\$\s*([0-9.,]+)",
+                description,
+                re.I,
+            )
+            # Quando a descrição separa explicitamente o preço inicial de
+            # acessórios, a faixa geral refere-se às peças de vestuário.
+            accessory_price_is_separate = re.search(
+                r"xuxinhas? a partir de", description, re.I
+            )
+            if (
+                range_match
+                and actual_min is not None
+                and actual_max is not None
+                and not accessory_price_is_separate
+            ):
+                declared_min = parse_price(range_match.group(1))
+                declared_max = parse_price(range_match.group(2))
+                if declared_min != actual_min or declared_max != actual_max:
+                    errors.append(
+                        f"{relative}: descrição anuncia preços de "
+                        f"R$ {range_match.group(1)} a R$ {range_match.group(2)}, "
+                        f"mas os cartões vão de R$ {actual_min:.2f} a R$ {actual_max:.2f}"
+                    )
 
 
 def validate_product_seo_overrides(products, errors):
