@@ -32,14 +32,14 @@ def collect_schema_type(node, target):
 
 def validate_category_metadata(errors):
     """Confere se a quantidade anunciada nas descrições bate com o ItemList."""
-    count_re = re.compile(r"\\b(\\d+)\\s+peças?\\s+de\\b", re.I)
+    count_re = re.compile(r"\b(\d+)\s+peças?\s+de\b", re.I)
     for relative in CATEGORY_PAGES:
         path = ROOT / relative
         if not path.is_file():
             continue
         html = path.read_text(encoding="utf-8")
         blocks = re.findall(
-            r'<script\\s+type="application/ld\\+json">([\\s\\S]*?)</script>',
+            r'<script\s+type="application/ld\+json">([\s\S]*?)</script>',
             html,
             re.I,
         )
@@ -62,7 +62,7 @@ def validate_category_metadata(errors):
                 f"{relative}: ItemList declara {declared_count} itens, mas contém {actual_count}"
             )
         descriptions = re.findall(
-            r'<meta\\s+name="description"\\s+content="([^"]*)"',
+            r'<meta\s+name="description"\s+content="([^"]*)"',
             html,
             re.I,
         )
@@ -92,17 +92,17 @@ def validate_product_seo_overrides(products, errors):
             if not title_match or title_match.group(1).strip() != title.strip():
                 errors.append(f"{path.relative_to(ROOT)}: título SEO não corresponde a seoTitulo do JSON")
             for meta_name in ("og:title", "twitter:title"):
-                pattern = rf'<meta\\s+property="{re.escape(meta_name)}"\\s+content="([^"]*)"'
+                pattern = rf'<meta\s+property="{re.escape(meta_name)}"\s+content="([^"]*)"'
                 if meta_name.startswith("twitter:"):
-                    pattern = rf'<meta\\s+name="{re.escape(meta_name)}"\\s+content="([^"]*)"'
+                    pattern = rf'<meta\s+name="{re.escape(meta_name)}"\s+content="([^"]*)"'
                 match = re.search(pattern, html, re.I)
                 if not match or match.group(1).strip() != title.strip():
                     errors.append(f"{path.relative_to(ROOT)}: {meta_name} não corresponde a seoTitulo do JSON")
         if description:
             for pattern_name, pattern in (
-                ("description", r'<meta\\s+name="description"\\s+content="([^"]*)"'),
-                ("og:description", r'<meta\\s+property="og:description"\\s+content="([^"]*)"'),
-                ("twitter:description", r'<meta\\s+name="twitter:description"\\s+content="([^"]*)"'),
+                ("description", r'<meta\s+name="description"\s+content="([^"]*)"'),
+                ("og:description", r'<meta\s+property="og:description"\s+content="([^"]*)"'),
+                ("twitter:description", r'<meta\s+name="twitter:description"\s+content="([^"]*)"'),
             ):
                 match = re.search(pattern, html, re.I)
                 if not match or match.group(1).strip() != description.strip():
