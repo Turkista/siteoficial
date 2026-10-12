@@ -38,6 +38,25 @@ CATEGORIA_LABEL = {
 }
 
 
+LINKS_LINHA = {
+    "atelie-peca-pronta": ["praia", "surf", "turk-fit"],
+    "biquini-ou-top": ["turk-fit"],
+    "cores-tom-de-pele": ["praia"],
+    "cuidados-biquini": ["praia"],
+    "fabricacao-propria": ["praia", "surf", "turk-fit"],
+    "lavagem-secagem": ["praia", "surf", "turk-fit"],
+    "moda-praia-ano-inteiro": ["praia"],
+    "pecas-movimento": ["turk-fit"],
+    "roupa-fitness-conforto-ou-estilo-voce-nao-precisa-escolher": ["turk-fit"],
+    "tecido-certo": ["praia", "surf", "turk-fit"],
+}
+LINHA_LINKS = {
+    "praia": ("moda praia", "praia.html"),
+    "surf": ("moda surf", "surf.html"),
+    "turk-fit": ("roupa fitness Turk Fit", "turk-fit.html"),
+}
+
+
 def esc(texto):
     if texto is None:
         return ""
@@ -79,6 +98,24 @@ def calcular_tempo_leitura(corpo_texto):
     palavras = len(corpo_texto.split())
     minutos = max(1, round(palavras / 200))
     return f"{minutos} min de leitura"
+
+
+def links_linha_html(artigo):
+    """Cria links internos contextuais para as linhas relacionadas ao artigo."""
+    slugs = LINKS_LINHA.get(artigo.get("slug"), [])
+    links = [
+        f'<a href="../{LINHA_LINKS[linha][1]}">{LINHA_LINKS[linha][0]}</a>'
+        for linha in slugs
+    ]
+    if not links:
+        return ""
+    if len(links) == 1:
+        texto = f"Conheça também {links[0]}."
+    elif len(links) == 2:
+        texto = f"Explore também {links[0]} e {links[1]}."
+    else:
+        texto = f"Explore também {', '.join(links[:-1])} e {links[-1]}."
+    return f'<p class="artigo-link-relacionado">{texto}</p>'
 
 
 def meta_description_seo(resumo, corpo_texto, limite=160):
@@ -140,6 +177,7 @@ def gerar_pagina(artigo, relacionados):
     capa_alt = capa.get("alt") or titulo
     tempo_leitura = artigo.get("tempoLeitura") or calcular_tempo_leitura(artigo["corpo"])
     corpo_html = corpo_para_html(artigo["corpo"])
+    links_linha = links_linha_html(artigo)
     relacionados_html = "\n".join(card_relacionado_html(a) for a in relacionados)
     whatsapp_msg = esc_attr_url(f'Oi! Li o artigo "{titulo}" na Revista Turkista e queria saber mais.')
     url_artigo = f"https://www.turkista.com.br/blog/{slug}.html"
@@ -282,6 +320,7 @@ def gerar_pagina(artigo, relacionados):
 
       <div class="artigo-corpo">
         {corpo_html}
+        {links_linha}
       </div>
 
       <div class="artigo-cta">
