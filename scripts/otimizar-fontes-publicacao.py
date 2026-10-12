@@ -7,8 +7,8 @@ import sys
 # Captura somente folhas de estilo CSS2 do Google Fonts, sem tocar em outras
 # folhas, links preload existentes ou fallbacks dentro de <noscript>.
 FONT_LINK = re.compile(
-    r"<link\\b(?=[^>]*\\bhref=[\"'](https://fonts\\.googleapis\\.com/css2\\?([^\"']+))[\"'])"
-    r"(?=[^>]*\\brel=[\"']stylesheet[\"'])[^>]*>",
+    r"<link\b(?=[^>]*\bhref=[\"'](https://fonts\.googleapis\.com/css2\?([^\"']+))[\"'])"
+    r"(?=[^>]*\brel=[\"']stylesheet[\"'])[^>]*>",
     re.IGNORECASE,
 )
 
@@ -24,8 +24,7 @@ def otimizar_html(conteudo: str) -> tuple[str, int]:
 
         url = match.group(1).replace("display=swap", "display=optional")
         bloco = (
-            f'<link rel="preload" as="style" href="{url}" '
-            'onload="this.onload=null;this.rel=\'stylesheet\'">\\n'
+            f"""<link rel="preload" as="style" href="{url}" onload="this.onload=null;this.rel='stylesheet'">\n"""
             f'<noscript><link rel="stylesheet" href="{url}"></noscript>'
         )
         alterados += 1
@@ -49,7 +48,7 @@ def main() -> int:
             continue
         novo, quantidade = otimizar_html(original)
         if quantidade:
-            arquivo.write_text(novo, encoding="utf-8", newline="\\n")
+            arquivo.write_text(novo, encoding="utf-8", newline="\n")
             arquivos += 1
             links += quantidade
             print(f"Fontes assíncronas: {arquivo.relative_to(raiz)} ({quantidade})")
