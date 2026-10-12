@@ -95,7 +95,17 @@ def validate_category_metadata(errors):
                 description,
                 re.I,
             )
-            if range_match and actual_min is not None and actual_max is not None:
+            # Quando a descrição separa explicitamente o preço inicial de
+            # acessórios, a faixa geral refere-se às peças de vestuário.
+            accessory_price_is_separate = re.search(
+                r"xuxinhas? a partir de", description, re.I
+            )
+            if (
+                range_match
+                and actual_min is not None
+                and actual_max is not None
+                and not accessory_price_is_separate
+            ):
                 declared_min = parse_price(range_match.group(1))
                 declared_max = parse_price(range_match.group(2))
                 if declared_min != actual_min or declared_max != actual_max:
