@@ -243,10 +243,18 @@ def main():
         urls = re.findall(r"<loc>(.*?)</loc>", content)
         if len(urls) != len(set(urls)):
             errors.append("sitemap.xml: URLs duplicadas")
-        for slug in products:
-            expected_url = f"{BASE}/produto/{slug}.html"
-            if expected_url not in urls:
-                errors.append(f"sitemap.xml: produto publicado ausente: {expected_url}")
+
+        # O sitemap deve listar exatamente as fichas publicadas, sem manter
+        # URLs de produtos que foram retirados do catálogo.
+        expected_product_urls = {
+            f"{BASE}/produto/{slug}.html" for slug in products
+        }
+        sitemap_product_urls = {url for url in urls if "/produto/" in url}
+        for expected_url in sorted(expected_product_urls - sitemap_product_urls):
+            errors.append(f"sitemap.xml: produto publicado ausente: {expected_url}")
+        for stale_url in sorted(sitemap_product_urls - expected_product_urls):
+            errors.append(f"sitemap.xml: produto não publicado listado: {stale_url}")
+
         for url in urls:
             parsed = urlparse(url)
             if parsed.scheme != "https" or parsed.netloc != "www.turkista.com.br":
