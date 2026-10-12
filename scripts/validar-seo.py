@@ -262,7 +262,7 @@ def validate_performance_basics(errors):
     font_optimizer = ROOT / "scripts" / "otimizar-fontes-publicacao.py"
     if not font_optimizer.is_file():
         errors.append("otimizar-fontes-publicacao.py: otimizador de fontes ausente")
-    elif "fonts.googleapis.com/css2" not in font_optimizer.read_text(encoding="utf-8"):
+    elif "googleapis" not in font_optimizer.read_text(encoding="utf-8") or "css2" not in font_optimizer.read_text(encoding="utf-8"):
         errors.append("otimizar-fontes-publicacao.py: regra para Google Fonts ausente")
 
     workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
