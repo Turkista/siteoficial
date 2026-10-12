@@ -94,7 +94,7 @@ def meta_description_seo(resumo, corpo_texto, limite=160):
     elif not primeiro_paragrafo or len(resumo) >= limite:
         combinado = resumo
     elif primeiro_paragrafo.lower().startswith(resumo.lower()) or resumo.lower().startswith(primeiro_paragrafo.lower()):
-        combinado = max((resumo, primeiro_paragrafo), key=len)
+        combinado = resumo
     else:
         combinado = f"{resumo} {primeiro_paragrafo}".strip()
 
