@@ -357,10 +357,27 @@ def gerar_pagina(chave, produtos, f):
     )
     intro = " ".join(partes)
 
-    # meta description (até ~158 caracteres)
-    desc = f"{len(doprodutos)} produtos de {termo} da Turkista: {lista_pt(curtos)}. Preços {faixa}. Fabricação própria em Araruama, RJ."
-    if len(desc) > 158:
-        desc = f"{len(doprodutos)} produtos de {termo} da Turkista: {lista_pt(curtos)}. Fabricação própria em Araruama, RJ."
+    # Meta description (até ~158 caracteres). Quando a categoria inclui
+    # acessórios com preços próprios, não aplicar a faixa das roupas a todos
+    # os itens: informar a faixa das peças e o preço inicial dos acessórios.
+    if "Xuxinha de cabelo" in por_tipo:
+        precos_xuxinhas = [
+            p["preco"]["valor"]
+            for p in por_tipo["Xuxinha de cabelo"]
+            if (p.get("preco") or {}).get("valor") is not None
+        ]
+        preco_inicial_xuxinha = (
+            f.preco_formatado(min(precos_xuxinhas)) if precos_xuxinhas else ""
+        )
+        desc = (
+            f"Moda fitness {nome_linha}: {lista_pt(curtos)} {faixa}. "
+            f"Xuxinhas a partir de {preco_inicial_xuxinha}. "
+            "Fabricação própria em Araruama, RJ."
+        )
+    else:
+        desc = f"{len(doprodutos)} produtos de {termo} da Turkista: {lista_pt(curtos)}. Preços {faixa}. Fabricação própria em Araruama, RJ."
+        if len(desc) > 158:
+            desc = f"{len(doprodutos)} produtos de {termo} da Turkista: {lista_pt(curtos)}. Fabricação própria em Araruama, RJ."
     if len(desc) > 158:
         desc = desc[:157].rsplit(" ", 1)[0].rstrip(",;:") + "."
 
