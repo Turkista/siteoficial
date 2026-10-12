@@ -259,7 +259,15 @@ def validate_performance_basics(errors):
         if "linear-gradient(90deg,#F7A5D9,#F279C8)" not in marquee:
             errors.append("letreiro.css: fundo do letreiro deve manter contraste legível com texto escuro")
 
+    font_optimizer = ROOT / "scripts" / "otimizar-fontes-publicacao.py"
+    if not font_optimizer.is_file():
+        errors.append("otimizar-fontes-publicacao.py: otimizador de fontes ausente")
+    elif "fonts.googleapis.com/css2" not in font_optimizer.read_text(encoding="utf-8"):
+        errors.append("otimizar-fontes-publicacao.py: regra para Google Fonts ausente")
+
     workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
+    if workflow.is_file() and "otimizar-fontes-publicacao.py _site" not in workflow.read_text(encoding="utf-8"):
+        errors.append("deploy-pages.yml: otimizador de fontes não está ligado à publicação")
     if workflow.is_file() and "otimizar-imagens-publicacao.py _site" not in workflow.read_text(encoding="utf-8"):
         errors.append("deploy-pages.yml: otimizador de imagens não está ligado à publicação")
 
