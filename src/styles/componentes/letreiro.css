@@ -1,7 +1,7 @@
 /* ===================== LETREIRO DE FRETE GRÁTIS (somente Home) ===================== */
 :root{--altura-letreiro:34px}
 
-.letreiro{position:fixed;top:0;left:0;right:0;z-index:110;height:var(--altura-letreiro);background:linear-gradient(90deg,var(--cor-rosa-profundo),var(--cor-rosa-turkista));display:flex;align-items:center;overflow:hidden;white-space:nowrap;box-shadow:0 1px 0 rgba(0,0,0,0.08)}
+.letreiro{position:fixed;top:0;left:0;right:0;z-index:110;height:var(--altura-letreiro);background:linear-gradient(90deg,#F7A5D9,#F279C8);display:flex;align-items:center;overflow:hidden;white-space:nowrap;box-shadow:0 1px 0 rgba(0,0,0,0.08)}
 
 .letreiro__trilha{display:flex;align-items:center;width:max-content;animation:letreiro-rolagem 24s linear infinite}
 
