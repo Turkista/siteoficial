@@ -108,6 +108,67 @@ def validate_product_seo_overrides(products, errors):
                 if not match or match.group(1).strip() != description.strip():
                     errors.append(f"{path.relative_to(ROOT)}: {pattern_name} não corresponde a seoDescricao do JSON")
 
+
+def validate_product_structured_data(products, errors):
+    """Confere canonical e dados Product/Offer das fichas contra a fonte do catálogo."""
+    for slug, item in products.items():
+        relative = f"produto/{slug}.html"
+        path = ROOT / relative
+        if not path.is_file():
+            errors.append(f"{relative}: ficha de produto publicado não encontrada")
+            continue
+
+        html = path.read_text(encoding="utf-8")
+        expected_url = f"{BASE}/produto/{slug}.html"
+        canonical = re.search(r'<link\\s+rel="canonical"\\s+href="([^"]+)"', html, re.I)
+        if not canonical or canonical.group(1).strip() != expected_url:
+            errors.append(f"{relative}: canonical não corresponde à URL esperada {expected_url}")
+
+        blocks = re.findall(
+            r'<script\\s+type="application/ld\\+json">([\\s\\S]*?)</script>',
+            html,
+            re.I,
+        )
+        schemas = []
+        for block in blocks:
+            try:
+                schemas.append(json.loads(block))
+            except json.JSONDecodeError:
+                errors.append(f"{relative}: JSON-LD inválido")
+        product_nodes = [
+            node for schema in schemas for node in collect_schema_type(schema, "Product")
+        ]
+        if not product_nodes:
+            errors.append(f"{relative}: schema Product ausente")
+            continue
+
+        product_schema = product_nodes[0]
+        if product_schema.get("sku") != item.get("id"):
+            errors.append(f"{relative}: SKU no JSON-LD não corresponde ao ID do produto")
+        if product_schema.get("name") != item.get("nome"):
+            errors.append(f"{relative}: nome no JSON-LD não corresponde ao nome do produto")
+        if product_schema.get("url") != expected_url:
+            errors.append(f"{relative}: URL no JSON-LD Product está incorreta")
+
+        expected_price = (item.get("preco") or {}).get("valor")
+        offers = product_schema.get("offers") or {}
+        if isinstance(offers, list):
+            offers = offers[0] if offers else {}
+        schema_price = offers.get("price")
+        if expected_price is not None:
+            try:
+                matches = schema_price is not None and abs(float(schema_price) - float(expected_price)) < 0.001
+            except (TypeError, ValueError):
+                matches = False
+            if not matches:
+                errors.append(
+                    f"{relative}: preço no JSON-LD ({schema_price}) "
+                    f"não corresponde ao catálogo ({expected_price})"
+                )
+            if offers.get("priceCurrency") != "BRL":
+                errors.append(f"{relative}: moeda da oferta deve ser BRL")
+
+
 def parse_price(value):
     value = value.strip().replace("R$", "").replace(".", "").replace(",", ".").strip()
     try:
@@ -174,6 +235,7 @@ def main():
 
     validate_category_metadata(errors)
     validate_product_seo_overrides(products, errors)
+    validate_product_structured_data(products, errors)
 
     sitemap = ROOT / "sitemap.xml"
     if sitemap.is_file():
