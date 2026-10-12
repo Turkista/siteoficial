@@ -32,7 +32,7 @@ def collect_schema_type(node, target):
 
 def validate_category_metadata(errors):
     """Confere se a quantidade anunciada nas descrições bate com o ItemList."""
-    count_re = re.compile(r"\b(\d+)\s+peças?\s+de\b", re.I)
+    count_re = re.compile(r"\b(\d+)\s+(?:peças?|produtos?)\s+de\b", re.I)
     for relative in CATEGORY_PAGES:
         path = ROOT / relative
         if not path.is_file():
