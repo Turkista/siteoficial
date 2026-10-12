@@ -370,7 +370,7 @@ def gerar_pagina(chave, produtos, f):
             f.preco_formatado(min(precos_xuxinhas)) if precos_xuxinhas else ""
         )
         desc = (
-            f"Moda fitness {nome_linha}: {lista_pt(curtos)} {faixa}. "
+            f"Moda fitness {nome_linha}: {lista_pt(curtos)}. Preços {faixa}. "
             f"Xuxinhas a partir de {preco_inicial_xuxinha}. "
             "Fabricação própria em Araruama, RJ."
         )
