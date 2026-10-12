@@ -74,7 +74,7 @@ def validate_category_metadata(errors):
         visible_prices = [
             parse_price(value)
             for value in re.findall(
-                r'<p[^>]*class="[^"]*card-produto__preco[^"]*"[^>]*>\\s*R\\$\\s*([0-9.,]+)\\s*</p>',
+                r'<p[^>]*class="[^"]*card-produto__preco[^"]*"[^>]*>\s*R\$\s*([0-9.,]+)\s*</p>',
                 html,
                 re.I,
             )
@@ -91,7 +91,7 @@ def validate_category_metadata(errors):
                     f"mas o ItemList contém {actual_count}"
                 )
             range_match = re.search(
-                r"Preços?\\s+de\\s+R\\$\\s*([0-9.,]+)\\s+a\\s+R\\$\\s*([0-9.,]+)",
+                r"Preços?\s+de\s+R\$\s*([0-9.,]+)\s+a\s+R\$\s*([0-9.,]+)",
                 description,
                 re.I,
             )
