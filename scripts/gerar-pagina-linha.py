@@ -358,9 +358,9 @@ def gerar_pagina(chave, produtos, f):
     intro = " ".join(partes)
 
     # meta description (até ~158 caracteres)
-    desc = f"{len(roupas)} peças de {termo} da Turkista: {lista_pt(curtos)}. Preços {faixa}. Fabricação própria em Araruama, RJ."
+    desc = f"{len(doprodutos)} produtos de {termo} da Turkista: {lista_pt(curtos)}. Preços {faixa}. Fabricação própria em Araruama, RJ."
     if len(desc) > 158:
-        desc = f"{len(roupas)} peças de {termo} da Turkista: {lista_pt(curtos)}. Fabricação própria em Araruama, RJ."
+        desc = f"{len(doprodutos)} produtos de {termo} da Turkista: {lista_pt(curtos)}. Fabricação própria em Araruama, RJ."
     if len(desc) > 158:
         desc = desc[:157].rsplit(" ", 1)[0].rstrip(",;:") + "."
 
