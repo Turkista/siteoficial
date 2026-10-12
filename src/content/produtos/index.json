@@ -115,7 +115,9 @@
     "status": "publicado",
     "dataCriacao": "2026-08-02",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoTitulo": "Biquíni Aurora – Moda Praia | Turkista",
+    "seoDescricao": "Biquíni feminino rosa com textura em relevo e amarração lateral ajustável. Tamanhos P, M e G. Fabricação própria em Araruama, RJ."
   },
   {
     "id": "prod_biquinic",
@@ -755,7 +757,9 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoTitulo": "Biquíni Vermelho Intense: Cortininha | Turkista",
+    "seoDescricao": "Biquíni vermelho cortininha com top triangular franzido e calcinha de amarração ajustável. Tamanho M. R$ 80,00 na Turkista."
   },
   {
     "id": "prod_biquinivivencepartesuperior",
@@ -2533,7 +2537,9 @@
     "status": "publicado",
     "dataCriacao": "2026-08-02",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoTitulo": "Maiô Surf Bloom – Moda Surf | Turkista",
+    "seoDescricao": "Maiô de surf feminino de manga longa, com estampa floral tropical em cores vibrantes e tecido de poliamida com elastano. Fabricação própria em Araruama, RJ."
   },
   {
     "id": "prod_maioteia",
@@ -3543,7 +3549,9 @@
     "status": "publicado",
     "dataCriacao": "2026-08-02",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoTitulo": "Top Turk Fit Essence – Moda Fitness | Turkista",
+    "seoDescricao": "Top fitness feminino rosa, com decote V, alças trançadas e sustentação média para caminhada, yoga e treinos leves a moderados."
   },
   {
     "id": "prod_xuxinhas",
