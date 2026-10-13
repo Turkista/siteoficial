@@ -238,7 +238,7 @@ def validate_public_html_metadata(errors):
         description = description_match.group(1).strip() if description_match else ""
         canonical = canonical_match.group(1).strip() if canonical_match else ""
         robots_match = re.search(
-            r"<meta\\s+name=[\"']robots[\"']\\s+content=[\"']([^\"']*)[\"']",
+            r"<meta\s+name=[\"']robots[\"']\s+content=[\"']([^\"']*)[\"']",
             html,
             re.I,
         )
