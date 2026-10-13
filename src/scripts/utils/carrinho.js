@@ -144,4 +144,7 @@
     linkFinalizarCompra: linkFinalizarCompra,
     chaveItem: chaveItem,
   };
+
+  // Notifica a interface caso ela tenha sido carregada antes do núcleo.
+  global.dispatchEvent(new Event('turkista:carrinho-pronto'));
 })(window);
