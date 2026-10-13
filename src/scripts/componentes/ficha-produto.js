@@ -14,24 +14,9 @@
   const imagemPrincipal = document.querySelector('[data-imagem-principal] img');
   const botaoCarrinho = document.querySelector('[data-adicionar-carrinho]');
 
-  // ---------- Adicionar ao carrinho: exige tamanho, quando a peça tiver ----------
-  // O botão nasce sem carrinho.js/carrinho-ui.js sabendo qual tamanho foi
-  // escolhido — este listener roda ANTES do listener global em
-  // carrinho-ui.js (que está no document, então dispara na fase de bolha,
-  // depois deste) e usa stopPropagation pra bloquear a adição quando falta
-  // escolher o tamanho.
-  if (botaoCarrinho) {
-    const temSeletorTamanho = !!document.querySelector('[data-seletor-tamanho]');
-    botaoCarrinho.addEventListener('click', (evento) => {
-      if (temSeletorTamanho && !botaoCarrinho.getAttribute('data-tamanho')) {
-        evento.preventDefault();
-        evento.stopPropagation();
-        const seletor = document.querySelector('[data-seletor-tamanho]');
-        if (seletor) seletor.classList.add('seletor-tamanho__opcoes--erro');
-        alert('Escolha um tamanho antes de adicionar ao carrinho.');
-      }
-    });
-  }
+  // A validação de tamanho é centralizada no listener de captura do carrinho,
+  // que impede a adição sem tamanho e também garante que o clique seja tratado
+  // mesmo quando outros componentes possuem listeners nos botões.
 
   // ------------------------------------------------------------
   // Rastreamento GA4 do CTA de WhatsApp da ficha
