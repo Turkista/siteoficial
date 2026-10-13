@@ -64,6 +64,7 @@ jobs:
             ./ _site/
 
           python scripts/agrupar-css-publicacao.py _site
+          python scripts/deferir-scripts-finais.py _site
           python scripts/otimizar-fontes-publicacao.py _site
           python scripts/otimizar-imagens-responsivas.py _site
           python scripts/otimizar-imagens-publicacao.py _site
