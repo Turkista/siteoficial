@@ -221,18 +221,18 @@ def validate_public_html_metadata(errors):
             continue
 
         html = path.read_text(encoding="utf-8")
-        title_match = re.search(r"<title\\b[^>]*>(.*?)</title>", html, re.I | re.S)
+        title_match = re.search(r"<title\b[^>]*>(.*?)</title>", html, re.I | re.S)
         description_match = re.search(
-            r"<meta\\s+name=[\"']description[\"']\\s+content=[\"']([^\"']*)[\"']",
+            r"<meta\s+name=[\"']description[\"']\s+content=[\"']([^\"']*)[\"']",
             html,
             re.I,
         )
         canonical_match = re.search(
-            r"<link\\s+rel=[\"']canonical[\"']\\s+href=[\"']([^\"']+)[\"']",
+            r"<link\s+rel=[\"']canonical[\"']\s+href=[\"']([^\"']+)[\"']",
             html,
             re.I,
         )
-        title = re.sub(r"\\s+", " ", title_match.group(1)).strip() if title_match else ""
+        title = re.sub(r"\s+", " ", title_match.group(1)).strip() if title_match else ""
         description = description_match.group(1).strip() if description_match else ""
         canonical = canonical_match.group(1).strip() if canonical_match else ""
         expected_url = (
@@ -255,10 +255,10 @@ def validate_public_html_metadata(errors):
             canonical_paths.setdefault(canonical, []).append(relative.as_posix())
 
         social_checks = (
-            ("og:title", title, r"<meta\\s+property=[\"']og:title[\"']\\s+content=[\"']([^\"']*)[\"']"),
-            ("twitter:title", title, r"<meta\\s+name=[\"']twitter:title[\"']\\s+content=[\"']([^\"']*)[\"']"),
-            ("og:description", description, r"<meta\\s+property=[\"']og:description[\"']\\s+content=[\"']([^\"']*)[\"']"),
-            ("twitter:description", description, r"<meta\\s+name=[\"']twitter:description[\"']\\s+content=[\"']([^\"']*)[\"']"),
+            ("og:title", title, r"<meta\s+property=[\"']og:title[\"']\s+content=[\"']([^\"']*)[\"']"),
+            ("twitter:title", title, r"<meta\s+name=[\"']twitter:title[\"']\s+content=[\"']([^\"']*)[\"']"),
+            ("og:description", description, r"<meta\s+property=[\"']og:description[\"']\s+content=[\"']([^\"']*)[\"']"),
+            ("twitter:description", description, r"<meta\s+name=[\"']twitter:description[\"']\s+content=[\"']([^\"']*)[\"']"),
         )
         for label, expected, pattern in social_checks:
             match = re.search(pattern, html, re.I)
@@ -288,7 +288,7 @@ def validate_public_html_metadata(errors):
         if relative.as_posix() == "404.html":
             continue
         robots_match = re.search(
-            r"<meta\\s+name=[\"']robots[\"']\\s+content=[\"']([^\"']*)[\"']",
+            r"<meta\s+name=[\"']robots[\"']\s+content=[\"']([^\"']*)[\"']",
             html,
             re.I,
         )
@@ -305,7 +305,7 @@ def validate_public_html_metadata(errors):
         if page_path.is_file() and page_path.suffix.lower() == ".html":
             html = page_path.read_text(encoding="utf-8")
             robots_match = re.search(
-                r"<meta\\s+name=[\"']robots[\"']\\s+content=[\"']([^\"']*)[\"']",
+                r"<meta\s+name=[\"']robots[\"']\s+content=[\"']([^\"']*)[\"']",
                 html,
                 re.I,
             )
