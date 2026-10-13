@@ -210,6 +210,109 @@ def validate_product_structured_data(products, errors):
                 errors.append(f"{relative}: moeda da oferta deve ser BRL")
 
 
+def validate_public_html_metadata(errors):
+    """Audita metadados, canonical e cobertura do sitemap em páginas públicas."""
+    canonical_paths = {}
+    pages = []
+
+    for path in sorted(ROOT.rglob("*.html")):
+        relative = path.relative_to(ROOT)
+        if any(part in {"painel-produtos", "_site", ".git"} for part in relative.parts):
+            continue
+
+        html = path.read_text(encoding="utf-8")
+        title_match = re.search(r"<title\\b[^>]*>(.*?)</title>", html, re.I | re.S)
+        description_match = re.search(
+            r"<meta\\s+name=[\"']description[\"']\\s+content=[\"']([^\"']*)[\"']",
+            html,
+            re.I,
+        )
+        canonical_match = re.search(
+            r"<link\\s+rel=[\"']canonical[\"']\\s+href=[\"']([^\"']+)[\"']",
+            html,
+            re.I,
+        )
+        title = re.sub(r"\\s+", " ", title_match.group(1)).strip() if title_match else ""
+        description = description_match.group(1).strip() if description_match else ""
+        canonical = canonical_match.group(1).strip() if canonical_match else ""
+        expected_url = (
+            f"{BASE}/" if relative.as_posix() == "index.html"
+            else f"{BASE}/{relative.as_posix()}"
+        )
+
+        if not title:
+            errors.append(f"{relative.as_posix()}: título <title> ausente ou vazio")
+        if not description:
+            errors.append(f"{relative.as_posix()}: meta description ausente ou vazia")
+        if not canonical:
+            errors.append(f"{relative.as_posix()}: canonical ausente")
+        elif canonical != expected_url:
+            errors.append(
+                f"{relative.as_posix()}: canonical {canonical} não corresponde a {expected_url}"
+            )
+
+        if canonical:
+            canonical_paths.setdefault(canonical, []).append(relative.as_posix())
+
+        social_checks = (
+            ("og:title", title, r"<meta\\s+property=[\"']og:title[\"']\\s+content=[\"']([^\"']*)[\"']"),
+            ("twitter:title", title, r"<meta\\s+name=[\"']twitter:title[\"']\\s+content=[\"']([^\"']*)[\"']"),
+            ("og:description", description, r"<meta\\s+property=[\"']og:description[\"']\\s+content=[\"']([^\"']*)[\"']"),
+            ("twitter:description", description, r"<meta\\s+name=[\"']twitter:description[\"']\\s+content=[\"']([^\"']*)[\"']"),
+        )
+        for label, expected, pattern in social_checks:
+            match = re.search(pattern, html, re.I)
+            if match and expected and match.group(1).strip() != expected:
+                errors.append(
+                    f"{relative.as_posix()}: {label} diverge do título/descrição principal"
+                )
+
+        pages.append((relative, html, canonical, expected_url))
+
+    for canonical, paths in canonical_paths.items():
+        if len(paths) > 1:
+            errors.append(
+                f"canonical duplicada {canonical}: " + ", ".join(paths)
+            )
+
+    sitemap_path = ROOT / "sitemap.xml"
+    if not sitemap_path.is_file():
+        return
+    sitemap_content = sitemap_path.read_text(encoding="utf-8")
+    sitemap_urls = set(re.findall(r"<loc>(.*?)</loc>", sitemap_content))
+
+    # Páginas indexáveis precisam estar no sitemap; páginas noindex não devem estar.
+    for relative, html, canonical, expected_url in pages:
+        if relative.parts[0] in {"produto", "painel-produtos", "_site", ".git"}:
+            continue
+        if relative.as_posix() == "404.html":
+            continue
+        robots_match = re.search(
+            r"<meta\\s+name=[\"']robots[\"']\\s+content=[\"']([^\"']*)[\"']",
+            html,
+            re.I,
+        )
+        is_noindex = bool(robots_match and "noindex" in robots_match.group(1).lower())
+        if is_noindex and canonical in sitemap_urls:
+            errors.append(f"sitemap.xml: página noindex listada: {canonical}")
+        elif not is_noindex and canonical == expected_url and canonical not in sitemap_urls:
+            errors.append(f"sitemap.xml: página indexável ausente: {canonical}")
+
+    for url in sitemap_urls:
+        parsed = urlparse(url)
+        relative = parsed.path.lstrip("/") or "index.html"
+        page_path = ROOT / relative
+        if page_path.is_file() and page_path.suffix.lower() == ".html":
+            html = page_path.read_text(encoding="utf-8")
+            robots_match = re.search(
+                r"<meta\\s+name=[\"']robots[\"']\\s+content=[\"']([^\"']*)[\"']",
+                html,
+                re.I,
+            )
+            if robots_match and "noindex" in robots_match.group(1).lower():
+                errors.append(f"sitemap.xml: página noindex listada: {url}")
+
+
 def parse_price(value):
     value = value.strip().replace("R$", "").replace(".", "").replace(",", ".").strip()
     try:
@@ -428,6 +531,7 @@ def main():
     validate_category_metadata(errors)
     validate_product_seo_overrides(products, errors)
     validate_product_structured_data(products, errors)
+    validate_public_html_metadata(errors)
 
     sitemap = ROOT / "sitemap.xml"
     if sitemap.is_file():
