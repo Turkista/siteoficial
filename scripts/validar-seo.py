@@ -318,6 +318,30 @@ def validate_performance_basics(errors):
         except Exception as exc:
             errors.append(f"otimizar-imagens-responsivas.py: teste de execução falhou ({exc})")
 
+    css_bundler = ROOT / "scripts" / "agrupar-css-publicacao.py"
+    if not css_bundler.is_file():
+        errors.append("agrupar-css-publicacao.py: agrupador de CSS ausente")
+    else:
+        spec = importlib.util.spec_from_file_location("agrupar_css_publicacao", css_bundler)
+        module = importlib.util.module_from_spec(spec)
+        try:
+            spec.loader.exec_module(module)
+            with tempfile.TemporaryDirectory() as temp_dir:
+                temp_root = Path(temp_dir)
+                (temp_root / "a.css").write_text(".primeiro{color:red}", encoding="utf-8")
+                (temp_root / "b.css").write_text(".segundo{color:blue}", encoding="utf-8")
+                sample = '<link rel="stylesheet" href="a.css">\\n<link rel="stylesheet" href="b.css">\\n<link rel="preload" as="style" href="async.css" onload="this.rel=\'stylesheet\'">'
+                optimized, saved = module.optimize_html(sample, temp_root / "index.html", temp_root)
+                bundles = list(temp_root.glob("__css-bundle-*.css"))
+                if saved != 1 or len(bundles) != 1 or optimized.count('rel="stylesheet"') != 1:
+                    errors.append("agrupar-css-publicacao.py: agrupamento de folhas consecutivas falhou")
+                elif ".primeiro{color:red}" not in bundles[0].read_text(encoding="utf-8") or ".segundo{color:blue}" not in bundles[0].read_text(encoding="utf-8"):
+                    errors.append("agrupar-css-publicacao.py: conteúdo do bundle está incompleto")
+                if "href=\\"async.css\\"" not in optimized or "rel=\\"preload\\"" not in optimized:
+                    errors.append("agrupar-css-publicacao.py: folha assíncrona foi alterada")
+        except Exception as exc:
+            errors.append(f"agrupar-css-publicacao.py: teste de execução falhou ({exc})")
+
     workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
     if workflow.is_file() and "otimizar-imagens-responsivas.py _site" not in workflow.read_text(encoding="utf-8"):
         errors.append("deploy-pages.yml: otimizador de imagens responsivas não está ligado à publicação")
