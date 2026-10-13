@@ -330,7 +330,7 @@ def validate_performance_basics(errors):
                 temp_root = Path(temp_dir)
                 (temp_root / "a.css").write_text(".primeiro{color:red}", encoding="utf-8")
                 (temp_root / "b.css").write_text(".segundo{color:blue}", encoding="utf-8")
-                sample = '<link rel="stylesheet" href="a.css">\\n<link rel="stylesheet" href="b.css">\\n<link rel="preload" as="style" href="async.css" onload="this.rel=\'stylesheet\'">'
+                sample = chr(10).join(['<link rel="stylesheet" href="a.css">', '<link rel="stylesheet" href="b.css">', '<link rel="preload" as="style" href="async.css" onload="this.rel=\'stylesheet\'">'])
                 optimized, saved = module.optimize_html(sample, temp_root / "index.html", temp_root)
                 bundles = list(temp_root.glob("__css-bundle-*.css"))
                 if saved != 1 or len(bundles) != 1 or optimized.count('rel="stylesheet"') != 1:
