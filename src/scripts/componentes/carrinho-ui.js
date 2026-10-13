@@ -270,17 +270,30 @@
   // Eventos (delegação — funciona em cards renderizados dinamicamente)
   // ------------------------------------------------------------
   function ligarEventos() {
+    // Captura o clique antes de listeners nos próprios botões. A ficha de
+    // produto também valida o tamanho; na fase de bolha ela pode interromper
+    // o evento antes que a interface global do carrinho o receba.
     document.addEventListener('click', function (evento) {
-      var botaoAdicionar = evento.target.closest('[data-adicionar-carrinho]');
+      var alvo = evento.target instanceof Element ? evento.target : null;
+      if (!alvo) return;
+      var botaoAdicionar = alvo.closest('[data-adicionar-carrinho]');
       if (botaoAdicionar) {
-        // Cards de catálogo/destaque são <a> inteiros — impede navegar pro
-        // produto quando o clique foi no botão de adicionar rápido.
         evento.preventDefault();
         evento.stopPropagation();
+
+        // Peças com seletor de tamanho só entram no carrinho após a escolha.
+        var seletorTamanho = document.querySelector('[data-seletor-tamanho]');
+        if (seletorTamanho && !botaoAdicionar.getAttribute('data-tamanho')) {
+          seletorTamanho.classList.add('seletor-tamanho__opcoes--erro');
+          alert('Escolha um tamanho antes de adicionar ao carrinho.');
+          return;
+        }
+
         var item = lerItemDoBotao(botaoAdicionar);
         if (!item.slug || !item.nome) return;
         var qtdAttr = botaoAdicionar.getAttribute('data-quantidade');
         var quantidade = qtdAttr ? parseInt(qtdAttr, 10) : 1;
+        if (!Number.isFinite(quantidade) || quantidade < 1) quantidade = 1;
         C.adicionarItem(item, quantidade);
         registrarAddToCart(item, quantidade);
         pulsarIcone();
@@ -318,7 +331,7 @@
       } else if (evento.target.closest('[data-carrinho-remover]')) {
         C.removerItem(chave);
       }
-    });
+    }, true);
 
     document.addEventListener('keydown', function (evento) {
       if (evento.key === 'Escape') fecharGaveta();
