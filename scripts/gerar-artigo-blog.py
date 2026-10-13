@@ -210,7 +210,7 @@ def gerar_pagina(artigo, relacionados):
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.turkista.com.br/index.html" }},
+    {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.turkista.com.br/" }},
     {{ "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.turkista.com.br/blog.html" }},
     {{ "@type": "ListItem", "position": 3, "name": "{esc(titulo)}", "item": "{url_artigo}" }}
   ]
