@@ -326,7 +326,7 @@ def validate_internal_links(errors):
         html = page.read_text(encoding="utf-8")
 
         for match in re.finditer(
-            r"\\b(?:href|src)=[\"']([^\"']+)[\"']",
+            r"\b(?:href|src)=[\"']([^\"']+)[\"']",
             html,
             re.I,
         ):
@@ -381,7 +381,7 @@ def validate_performance_basics(errors):
         errors.append("index.html: imagem principal do hero não encontrada")
     else:
         tag = hero_image.group(0)
-        if not re.search(r'\\bwidth="[1-9]\\d*"', tag) or not re.search(r'\\bheight="[1-9]\\d*"', tag):
+        if not re.search(r'\bwidth="[1-9]\\d*"', tag) or not re.search(r'\bheight="[1-9]\\d*"', tag):
             errors.append("index.html: imagem principal precisa de width/height para reduzir CLS")
         if 'loading="eager"' not in tag or 'fetchpriority="high"' not in tag:
             errors.append("index.html: imagem principal precisa de loading=eager e fetchpriority=high")
