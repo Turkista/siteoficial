@@ -281,7 +281,15 @@ def validate_performance_basics(errors):
         except Exception as exc:
             errors.append(f"otimizar-fontes-publicacao.py: teste de execução falhou ({exc})")
 
+    responsive_optimizer = ROOT / "scripts" / "otimizar-imagens-responsivas.py"
+    if not responsive_optimizer.is_file():
+        errors.append("otimizar-imagens-responsivas.py: otimizador de imagens responsivas ausente")
+    elif "srcset" not in responsive_optimizer.read_text(encoding="utf-8") or "sizes" not in responsive_optimizer.read_text(encoding="utf-8"):
+        errors.append("otimizar-imagens-responsivas.py: suporte a srcset/sizes ausente")
+
     workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
+    if workflow.is_file() and "otimizar-imagens-responsivas.py _site" not in workflow.read_text(encoding="utf-8"):
+        errors.append("deploy-pages.yml: otimizador de imagens responsivas não está ligado à publicação")
     if workflow.is_file() and "otimizar-fontes-publicacao.py _site" not in workflow.read_text(encoding="utf-8"):
         errors.append("deploy-pages.yml: otimizador de fontes não está ligado à publicação")
     if workflow.is_file() and "otimizar-imagens-publicacao.py _site" not in workflow.read_text(encoding="utf-8"):
