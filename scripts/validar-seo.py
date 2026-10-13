@@ -307,9 +307,9 @@ def validate_performance_basics(errors):
                 assets.mkdir()
                 sample_image = assets / "sample.webp"
                 Image.effect_noise((1200, 900), 100).convert("RGB").save(sample_image, "WEBP", quality=95)
-                sample_html = '<img src="assets/sample.webp" width="1200" height="900" loading="lazy">'
+                sample_html = '<link rel="preload" as="image" href="assets/sample.webp"><img src="assets/sample.webp" width="1200" height="900" loading="lazy">'
                 optimized, count = module.otimizar_html(sample_html, temp_root / "index.html", temp_root)
-                if count != 1 or "srcset=" not in optimized or "sizes=" not in optimized:
+                if count != 1 or "srcset=" not in optimized or "sizes=" not in optimized or "imagesrcset=" not in optimized or "imagesizes=" not in optimized:
                     errors.append("otimizar-imagens-responsivas.py: teste de srcset/sizes falhou")
                 data_src = '<img data-src="assets/sample.webp" alt="Teste">'
                 unchanged, unchanged_count = module.otimizar_html(data_src, temp_root / "index.html", temp_root)
