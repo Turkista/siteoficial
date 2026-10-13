@@ -118,7 +118,7 @@
     "genero": "feminino",
     "faixaEtaria": "15+",
     "seoTitulo": "Biquíni Aurora – Moda Praia | Turkista",
-    "seoDescricao": "Biquíni feminino rosa com textura em relevo e amarração lateral ajustável. Tamanhos P, M e G. Fabricação própria em Araruama, RJ."
+    "seoDescricao": "Biquíni Aurora rosa com textura em relevo, top franzido, alças brancas trançadas e calcinha com amarração lateral ajustável. Tamanhos P, M e G."
   },
   {
     "id": "prod_biquinic",
@@ -413,7 +413,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top de biquíni Flash com bojo estruturado, modelagem frente única e acabamento de paetês pretos e dourados. Tamanho PP."
   },
   {
     "id": "prod_biquinig",
@@ -769,7 +770,7 @@
     "genero": "feminino",
     "faixaEtaria": "15+",
     "seoTitulo": "Biquíni Vermelho Intense: Cortininha | Turkista",
-    "seoDescricao": "Biquíni vermelho cortininha com top triangular franzido e calcinha de amarração ajustável. Tamanho M. R$ 80,00 na Turkista."
+    "seoDescricao": "Biquíni Vermelho Intense cortininha, com top triangular franzido e amarrações no pescoço e nas costas. Calcinha ajustável. Tamanho M, R$ 80."
   },
   {
     "id": "prod_biquinivivencepartesuperior",
@@ -1694,7 +1695,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Legging Intense de cintura alta para academia e rotina de treinos. Confira a peça na Turkista por R$ 120."
   },
   {
     "id": "prod_maioartx",
@@ -1755,7 +1757,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô ArtX com decote triangular, tiras cruzadas na cintura e modelagem strappy. Tamanho M, por R$ 220 em 4x sem juros."
   },
   {
     "id": "prod_maioblue",
@@ -1816,7 +1819,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô Blue azul royal com franzidos e regulagem lateral por cordões. Tamanho M, por R$ 150 em 3x sem juros."
   },
   {
     "id": "prod_maiocevi",
@@ -1887,7 +1891,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô Cevi laranja de um ombro só, com recorte lateral e detalhe franzido no busto. Tamanho M, por R$ 220."
   },
   {
     "id": "prod_maiochic",
@@ -1948,7 +1953,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô Chicler pink com textura em ondas, um ombro só e recorte na cintura. Tamanho M, por R$ 250 em 3x sem juros."
   },
   {
     "id": "prod_maiodesu",
@@ -2012,7 +2018,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô de surf Flora com estampa floral colorida e mangas com detalhes amarelos. Tamanho M, por R$ 650 em 5x sem juros."
   },
   {
     "id": "prod_maiodesurfmandala",
@@ -2074,7 +2081,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-03",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô de surf Mandala em lycra estampada, com mangas longas e fechamento inferior. Tamanho P, por R$ 580 em 5x sem juros."
   },
   {
     "id": "prod_maiodesurfspider",
@@ -2138,7 +2146,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô de surf Spider de manga longa, com estampa colorida e malha de secagem rápida. Tamanhos P e M, por R$ 680."
   },
   {
     "id": "prod_maiodesurfvivence",
@@ -2189,7 +2198,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-06",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô de surf Vivence em lycra patchwork, com caimento ajustado e abertura inferior. Tamanho P, por R$ 490 em 5x sem juros."
   },
   {
     "id": "prod_maiogree",
@@ -2250,7 +2260,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô Green com tecido de efeito aveludado e alças finas, ideal para praia e piscina. Tamanho M, por R$ 250."
   },
   {
     "id": "prod_maiohigh",
@@ -2301,7 +2312,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô High rosa fúcsia e verde-limão, com recortes laterais na cintura e argola central com aparência amadeirada. Tamanho M, R$ 210."
   },
   {
     "id": "prod_maiopass",
@@ -2363,7 +2375,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô Passarela preto e azul royal metalizado, com decote assimétrico, recortes na cintura e modelagem cavada. Tamanho M, R$ 390."
   },
   {
     "id": "prod_maiopero",
@@ -2427,7 +2440,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô de surf Pérola Mares de manga longa, com blocos de cores rosa, verde, roxo e preto, malha de secagem rápida e fechamento entre as pernas. Tamanho P."
   },
   {
     "id": "prod_maiosupr",
@@ -2488,7 +2502,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô Supreme preto com textura holográfica, gola mais fechada e recortes no colo e na cintura. Tamanho M, R$ 250."
   },
   {
     "id": "prod_surfbloom01",
@@ -2564,7 +2579,7 @@
     "genero": "feminino",
     "faixaEtaria": "15+",
     "seoTitulo": "Maiô Surf Bloom – Moda Surf | Turkista",
-    "seoDescricao": "Maiô de surf feminino de manga longa, com estampa floral tropical em cores vibrantes e tecido de poliamida com elastano. Fabricação própria em Araruama, RJ."
+    "seoDescricao": "Maiô Surf Bloom de manga longa, com estampa floral tropical em laranja, verde, amarelo e rosa. Tecido de poliamida com elastano. Fabricação própria em Araruama, RJ."
   },
   {
     "id": "prod_maioteia",
@@ -2615,7 +2630,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô Teia laranja com top triangular, argola central e tiras cruzadas na cintura. Modelagem cavada com amarrações ajustáveis. Tamanho M, R$ 220."
   },
   {
     "id": "prod_maiotrio",
@@ -2666,7 +2682,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Maiô TrioColor com blocos de cores branco, vermelho e preto e tecido texturizado de toque macio. Tamanho M, R$ 190."
   },
   {
     "id": "prod_flow01",
@@ -2783,7 +2800,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Short de praia Sunquíni Art com estampa tropical verde, amarela e preta, cintura elástica e forro interno. Tamanho M, R$ 120."
   },
   {
     "id": "prod_sunquinibamboo",
@@ -2835,7 +2853,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Sunquíni Bamboo estampado em tons de verde, amarelo e preto, com cós largo e elástico e modelagem curta. Tamanho M, R$ 120."
   },
   {
     "id": "prod_sunquinimandala",
@@ -2887,7 +2906,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Sunquíni Mandala com estampa colorida em rosa, roxo, azul e dourado sobre fundo escuro. Modelagem shortinho com cós elástico e forro. Tamanho M, R$ 120."
   },
   {
     "id": "prod_topdebiq",
@@ -2938,7 +2958,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-06",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top de biquíni cortininha dupla face em lycra, com duas opções de visual em uma peça versátil para praia e piscina. R$ 45."
   },
   {
     "id": "prod_topdebiquinifemininocombojo",
@@ -2989,7 +3010,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-06",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top de biquíni feminino com bojo em lycra e estampa animal print de cobra rosa. Uma peça marcante para praia e piscina. R$ 50."
   },
   {
     "id": "prod_topdetre",
@@ -3052,7 +3074,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top fitness feminino estampado, com design esportivo para combinar personalidade e conforto durante os treinos. R$ 90."
   },
   {
     "id": "prod_topfanny",
@@ -3104,7 +3127,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Fanny fitness em tecido com lycra, com elasticidade e liberdade de movimento para os treinos. R$ 80."
   },
   {
     "id": "prod_topfitbl",
@@ -3155,7 +3179,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Fit Black fitness em tecido com lycra, com elasticidade e liberdade de movimento para treinos. R$ 80."
   },
   {
     "id": "prod_topflori",
@@ -3218,7 +3243,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Flori fitness de modelagem transpassada, com design que cruza o busto e cria um visual moderno. R$ 95."
   },
   {
     "id": "prod_topnadad",
@@ -3271,7 +3297,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Nadador Turkista Rosas & Caveiras com modelagem nadador e estampa frontal de rosas e caveiras. Para treinos e atividades físicas. R$ 90."
   },
   {
     "id": "prod_topoliva",
@@ -3332,7 +3359,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Oliva fitness com malha texturizada de toque suave e modelagem confortável para musculação, yoga e atividades de menor impacto. R$ 60."
   },
   {
     "id": "prod_topprata",
@@ -3396,7 +3424,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Prata fitness feminino com sustentação para treinos de alto impacto, conforto e design moderno. R$ 90."
   },
   {
     "id": "prod_topslimt",
@@ -3447,7 +3476,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Slim Turk para musculação, com alças, decote em V e tecido com lycra. Sem bojo, com visual esportivo. R$ 80."
   },
   {
     "id": "prod_toptrein",
@@ -3500,7 +3530,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Treino Flow fitness com modelagem nadador para conforto, liberdade de movimento e segurança durante os treinos. R$ 50."
   },
   {
     "id": "prod_essence01",
@@ -3576,7 +3607,7 @@
     "genero": "feminino",
     "faixaEtaria": "15+",
     "seoTitulo": "Top Turk Fit Essence – Moda Fitness | Turkista",
-    "seoDescricao": "Top fitness feminino rosa, com decote V, alças trançadas e sustentação média para caminhada, yoga e treinos leves a moderados."
+    "seoDescricao": "Top Turk Fit Essence rosa com decote V, alças trançadas e sustentação média para caminhada, yoga e treinos leves a moderados."
   },
   {
     "id": "prod_xuxinhas",
@@ -3647,7 +3678,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Xuxinha Segredo estampada, feita com retalhos de tecido da Turkista. Cada peça é única; esta versão tem estampa floral em amarelo e verde. R$ 15."
   },
   {
     "id": "prod_xuxinhasegredomix",
@@ -3728,7 +3760,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Xuxinha Segredo Mix feita com retalhos de tecido da Turkista. Cada peça é única; esta versão combina tons de roxo, azul e rosa. R$ 15."
   },
   {
     "id": "prod_xuxinhasegredorosa",
@@ -3799,7 +3832,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Xuxinha Segredo rosa, acessório de cabelo feito com retalhos de tecido da Turkista. Uma peça prática para prender os cabelos no dia a dia. R$ 15."
   },
   {
     "id": "prod_xuxinhascoloridasdiversas",
@@ -3890,7 +3924,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Xuxinhas coloridas diversas feitas com retalhos de tecido da Turkista, em estampas variadas conforme o lote. Cada peça pode ter cores e padrões diferentes. R$ 10."
   },
   {
     "id": "prod_xuxinhascoloridas",
@@ -3991,6 +4026,7 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Xuxinhas coloridas feitas com retalhos de tecido da Turkista. As cores e estampas variam conforme os materiais disponíveis, tornando cada peça única. R$ 10."
   }
 ]
