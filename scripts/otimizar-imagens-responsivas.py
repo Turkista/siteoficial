@@ -10,8 +10,8 @@ LARGURAS = (320, 480, 640, 768, 960, 1200, 1440)
 QUALIDADE = 78
 ECONOMIA_MINIMA = 0.02
 IMG_TAG = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
-SRC_ATTR = re.compile(r"""\bsrc\s*=\s*(["'])(.*?)\1""", re.IGNORECASE)
-SRCSET_ATTR = re.compile(r"""\bsrcset\s*=""", re.IGNORECASE)
+SRC_ATTR = re.compile(r"""(?<![-\w:])src\s*=\s*(["'])(.*?)\1""", re.IGNORECASE)
+SRCSET_ATTR = re.compile(r"""(?<![-\w:])srcset\s*=""", re.IGNORECASE)
 
 
 def dimensoes(caminho: Path) -> tuple[int, int]:
