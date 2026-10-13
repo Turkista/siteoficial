@@ -256,6 +256,14 @@ def validate_performance_basics(errors):
     if home_css.is_file() and ".eyebrow{color:var(--cor-rosa-acessivel)}" not in home_css.read_text(encoding="utf-8"):
         errors.append("home.css: eyebrow da home deve usar a cor rosa com contraste acessível")
 
+    cards_css = ROOT / "src" / "styles" / "componentes" / "cards.css"
+    if cards_css.is_file():
+        cards = cards_css.read_text(encoding="utf-8")
+        if ".card-linha__eyebrow{font-size:var(--tam-eyebrow);text-transform:uppercase;letter-spacing:0.12em;color:var(--cor-rosa-acessivel)" not in cards:
+            errors.append("cards.css: eyebrow dos cartões de linha deve usar rosa acessível")
+        if ".badge--exclusivo{background:rgba(242,121,200,0.14);color:var(--cor-rosa-acessivel)" not in cards:
+            errors.append("cards.css: badge exclusivo deve usar rosa acessível")
+
     marquee_css = ROOT / "src" / "styles" / "componentes" / "letreiro.css"
     if marquee_css.is_file():
         marquee = marquee_css.read_text(encoding="utf-8")
