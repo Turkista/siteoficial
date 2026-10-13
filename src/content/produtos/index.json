@@ -5,7 +5,7 @@
     "nome": "Biquíni Andrea dupla face - Parte superior",
     "linha": "praia",
     "categoria": "Biquíni parte superior",
-    "descricaoCurta": "Parte superior disponível para venda, dupla face. Fácil secagem. Material de malha premium. Regula e pode usar dos dois lados. ",
+    "descricaoCurta": "Top de biquíni Andrea vendido avulso, com malha dupla face, alças ajustáveis e tecido de secagem rápida.",
     "descricaoCompleta": "Top triangular vendido como parte superior avulsa, com alças finas ajustáveis e nós decorativos que repetem a estampa.\r\n\r\nA malha é dupla face: a estampa roxa com detalhes dourados aparece nos dois lados do tecido, permitindo alternar o visual sem trocar de peça. Acabamento em malha premium, de secagem rápida.\r\n\r\nDestaques:\r\n\r\nTop triangular vendido avulso;\r\nAlças ajustáveis, com amarração no pescoço e nas costas;\r\nMalha dupla face, com estampa nos dois lados;\r\nSecagem rápida;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -59,7 +59,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top de biquíni Andrea dupla face com alças ajustáveis, estampa nos dois lados e tecido de secagem rápida. Tamanho P, por R$ 45 em 2x sem juros."
   },
   {
     "id": "prod_aurora01",
@@ -125,7 +126,7 @@
     "nome": "Biquíni Color Mix",
     "linha": "praia",
     "categoria": "Biquíni",
-    "descricaoCurta": "Há somente em estoque a parte superior. \r\nConfeccionado em lycra de alta qualidade.\r\nTop com bojo para maior sustentação e conforto.\r\nModelo de amar",
+    "descricaoCurta": "Top do Biquíni Color Mix em lycra estampada, com bojo estruturado, argola central e amarrações ajustáveis. Somente a parte superior está disponível.",
     "descricaoCompleta": "O biquíni é confeccionado em lycra de alta qualidade, proporcionando excelente elasticidade, conforto e ajuste ao corpo. O top possui bojo estruturado, que oferece melhor sustentação, modela o busto e valoriza o caimento de forma natural.\r\n\r\nSeu design conta com uma argola metálica central, trazendo um toque moderno e sofisticado ao visual. As alças são confeccionadas em lycra lisa na cor roxa e possuem amarração no pescoço e nas costas, permitindo regulagem personalizada para maior conforto e segurança durante o uso.\r\n\r\nA estampa exclusiva combina tons vibrantes de rosa, azul, laranja, amarelo e detalhes animal print, criando um visual alegre, tropical e perfeito para os dias de praia e piscina.\r\n\r\nCaracterísticas:\r\nConfeccionado em lycra de alta qualidade.\r\nTop com bojo para maior sustentação e conforto.\r\nModelo de amarrar no pescoço.\r\nFechamento com amarração nas costas.\r\nArgola metálica no centro do busto.\r\nEstampa exclusiva em cores vibrantes.\r\nTecido macio, com excelente elasticidade e secagem rápida.\r\nIdeal para praia, piscina e lazer.\r\n\r\nDestaque: Um modelo que une conforto, sustentação e estilo, perfeito para quem busca um biquíni moderno, com excelente caimento e uma estampa cheia de personalidade.",
     "composicao": {
       "tecido": "Lycra",
@@ -169,7 +170,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-04",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top do Biquíni Color Mix em lycra estampada, com bojo e argola central. Somente a parte superior está disponível, no tamanho P, por R$ 40."
   },
   {
     "id": "prod_biquiniconsteladuplafacesuperior",
@@ -177,7 +179,7 @@
     "nome": "Biquíni Constela dupla face - Parte superior",
     "linha": "praia",
     "categoria": "Biquíni parte superior",
-    "descricaoCurta": "Dupla face, malha texturizada em com brilho cintilante. Uma verdadeira joia. Pode ser usada em ocasiões de festas e com um glamour de chamar atenção. ",
+    "descricaoCurta": "Top Constela dupla face em malha metalizada texturizada, com um lado lilás com brilho prateado e outro bordô. Alças ajustáveis no pescoço e nas costas.",
     "descricaoCompleta": "Top bicolor dupla face, em malha metalizada com textura: um lado em lilás com brilho prateado, o outro em bordô. Alças finas trançadas, com amarração ajustável no pescoço e nas costas.\r\n\r\nPor ser dupla face, a peça rende duas composições diferentes dependendo do lado usado para fora. Acabamento franzido nas bordas e toque macio ao usar.\r\n\r\nDestaques:\r\n\r\nDuas cores em uma peça: lilás prateado e bordô;\r\nMalha metalizada, com textura;\r\nAlças ajustáveis, com amarração no pescoço e nas costas;\r\nAcabamento franzido;\r\nPeça exclusiva, em quantidade limitada;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -232,7 +234,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top Constela dupla face em malha metalizada lilás e bordô, com alças ajustáveis. Tamanho P, por R$ 55 ou 2x sem juros."
   },
   {
     "id": "prod_biquinicortinhabicolorlaranjaeroxo",
@@ -240,7 +243,7 @@
     "nome": "Biquíni Cortininha Bicolor — Laranja e Roxo",
     "linha": "praia",
     "categoria": "Biquíni parte superior",
-    "descricaoCurta": "Biquíni cortininha bicolor que combina laranja vibrante e roxo intenso em uma composição moderna e cheia de personalidade. Dupla face. Venda da parte superior.",
+    "descricaoCurta": "Top de biquíni cortininha bicolor em laranja e roxo, com modelagem triangular e amarrações ajustáveis no pescoço e nas costas. Venda da parte superior.",
     "descricaoCompleta": "Biquíni cortininha bicolor que combina laranja vibrante e roxo intenso em uma composição moderna e cheia de personalidade. O top possui modelagem triangular com regulagem por amarração no pescoço e nas costas, permitindo ajustar a peça ao corpo. \r\n\r\nDetalhes:\r\n\r\nTop modelo cortininha\r\nDuas cores contrastantes\r\nAmarração no pescoço e nas costas\r\nModelagem ajustável\r\nEstilo tropical e vibrante",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -284,7 +287,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top de biquíni cortininha laranja e roxo, com amarrações ajustáveis e proposta dupla face. Tamanho P, por R$ 40 em 2x sem juros."
   },
   {
     "id": "prod_biquinif",
@@ -292,7 +296,7 @@
     "nome": "Biquíni Fany",
     "linha": "praia",
     "categoria": "Biquíni",
-    "descricaoCurta": "Conjunto em malha de textura agradável, estilo tomara que segure. Amarração frontal. Calcinha com cós largo. ",
+    "descricaoCurta": "Biquíni Fany rosa magenta com top tomara que caia e amarração frontal em laço. A calcinha tem cintura alta e cós largo.",
     "descricaoCompleta": "Biquíni tomara que caia, em rosa magenta liso. O top é reto, sem alças, com amarração central em laço na frente.\r\n\r\nA calcinha tem cintura alta, com cós largo dobrado, cobrindo até a altura do umbigo — um corte clássico para quem prefere mais cobertura sem abrir mão do estilo.\r\n\r\nDestaques:\r\n\r\nTop sem alças, com amarração frontal;\r\nCalcinha de cintura alta, com cós largo;\r\nCor lisa rosa magenta;\r\nTamanho M;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -346,7 +350,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Biquíni Fany rosa magenta, com top tomara que caia e amarração frontal, além de calcinha de cintura alta. Tamanho M, por R$ 190 em 3x sem juros."
   },
   {
     "id": "prod_biquiniflashpartesuperior",
@@ -416,7 +421,7 @@
     "nome": "Biquíni Garota Leve",
     "linha": "praia",
     "categoria": "Biquíni",
-    "descricaoCurta": "Biquíni estampado com inspiração tropical, perfeito para quem gosta de cores e estampas marcantes. Conjunto. ",
+    "descricaoCurta": "Biquíni Garota Leve com estampa tropical, top triangular estilo cortininha e calcinha com laterais ajustáveis por amarração.",
     "descricaoCompleta": "Biquíni estampado com inspiração tropical, perfeito para quem gosta de cores e estampas marcantes. O top possui modelagem triangular estilo cortininha, com amarrações que permitem melhor ajuste ao corpo. A calcinha acompanha a mesma estampa e conta com laterais de amarração, oferecendo praticidade e regulagem. Uma peça descontraída e cheia de personalidade para compor seu look de verão.\r\n\r\nDetalhes:\r\n\r\nEstampa tropical exclusiva\r\nTop triangular estilo cortininha\r\nAmarração no pescoço e nas costas\r\nCalcinha com laterais ajustáveis\r\nModelagem leve e confortável\r\nIdeal para praia e piscina",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -460,7 +465,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Biquíni Garota Leve com estampa tropical, top triangular cortininha e calcinha com laterais ajustáveis. Tamanho P, por R$ 120 em 2x sem juros."
   },
   {
     "id": "prod_biquinim",
@@ -468,7 +474,7 @@
     "nome": "Biquíni Memore",
     "linha": "praia",
     "categoria": "Biquíni ",
-    "descricaoCurta": "Duas peças com modelagem estruturada e acabamento premium, composto por um top estilo meia-taça/balconê e uma calcinha de cintura alta",
+    "descricaoCurta": "Biquíni de duas peças com top meia-taça estruturado e calcinha de cintura alta. A estampa marmorizada combina tons de laranja e amarelo em desenho orgânico.",
     "descricaoCompleta": "O modelo veste um biquíni de duas peças com modelagem estruturada e acabamento premium, composto por um top estilo meia-taça/balconê e uma calcinha de cintura alta.\r\n\r\nTop\r\nModelo meia-taça estruturado, com dois bojos moldados.\r\nOs bojos possuem recortes e costuras estruturais, criando um desenho elegante e bem definido.\r\nDecote em V suave, valorizando o colo.\r\nAlças finas, posicionadas próximas às laterais dos bojos.\r\nAlças com aparência de serem reguláveis.\r\nPossui uma faixa inferior estruturada, acompanhando a linha abaixo do busto.\r\nAs costuras dos bojos formam um desenho central que dá identidade à peça.\r\nAs bordas possuem acabamento em vivo fino, feito no próprio tom laranja da peça.\r\nO top tem uma construção mais firme e sofisticada, diferente de um modelo cortininha.\r\n\r\nCalcinha\r\nModelo clássico, com cintura alta.\r\nLaterais de largura média, sem tiras ou amarrações.\r\nCorte levemente cavado na região das pernas.\r\nParte frontal com cobertura moderada, mantendo uma aparência elegante.\r\nModelagem acompanha naturalmente o quadril.\r\nPossui acabamento em vivo fino ao redor das bordas, combinando com o top.\r\nA parte traseira segue uma modelagem limpa, sem excesso de tecido.\r\n\r\nTecido\r\nTecido de moda praia fosco (matte).\r\nSem brilho, sem acabamento acetinado e sem efeito metalizado.\r\nAparência opaca e uniforme, mesmo quando recebe iluminação direta.\r\nTecido com elasticidade e estrutura suficientes para manter a modelagem do biquíni.\r\nNão apresenta textura brilhante, glitter ou efeito molhado.\r\nEstampa\r\n\r\nA característica mais marcante é a estampa orgânica marmorizada, semelhante a um tie-dye artesanal:\r\n\r\nBase predominante em laranja intenso.\r\nÁreas em laranja queimado.\r\nManchas e nuances em amarelo/dourado.\r\nPequenas variações de tonalidade mais claras e mais escuras.\r\nDesenho irregular e orgânico, sem formas geométricas definidas.\r\nO efeito parece formado por manchas de pigmento ou pinceladas fluidas.\r\nA estampa se mantém contínua no top e na calcinha.\r\nSem brilho na estampa: mesmo os tons amarelos/dourados são foscos, não metálicos.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -522,7 +528,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Biquíni Memore com top meia-taça estruturado e calcinha de cintura alta, em estampa marmorizada laranja. R$ 190, em 3x sem juros."
   },
   {
     "id": "prod_biquinimonsa",
@@ -530,7 +537,7 @@
     "nome": "Biquíni Monsa",
     "linha": "praia",
     "categoria": "Biquíni parte superior",
-    "descricaoCurta": "Parte superior em estilo patch work. Texturizado em linhas e parte preta lisa com leve cintilante. ",
+    "descricaoCurta": "Top de biquíni Monsa em patchwork preto e prata, com desenho de linhas em V e modelo halter com amarração no pescoço e nas costas.",
     "descricaoCompleta": "Top de biquíni em patchwork preto e prata, com desenho de linhas em V que se repete nos dois lados do bojo. A parte preta lisa tem leve brilho cintilante.\r\n\r\nModelo halter, com amarração no pescoço e nas costas e alças finas no mesmo tecido do top.\r\n\r\nDestaques:\r\n\r\nPatchwork preto e prata, em desenho de linhas;\r\nAcabamento preto com leve brilho;\r\nModelo halter, com amarração no pescoço e nas costas;\r\nTamanho PP;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -574,7 +581,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top de biquíni Monsa em patchwork preto e prata, com amarração no pescoço e nas costas. Tamanho PP, por R$ 55 em 2x sem juros."
   },
   {
     "id": "prod_biquinin",
@@ -582,7 +590,7 @@
     "nome": "Biquíni Nautic - Parte superior",
     "linha": "praia",
     "categoria": "Biquíni",
-    "descricaoCurta": "Dupla face, você pode fazer combinações dos dois lados.",
+    "descricaoCurta": "Top de biquíni Nautic dupla face, com modelagem cortininha e possibilidade de variar a combinação usando os dois lados.",
     "descricaoCompleta": "Versatilidade para criar diferentes combinações em uma única peça. O biquíni cortininha dupla face permite usar os dois lados e variar a composição conforme o seu estilo, criando novas possibilidades de looks para praia e piscina.\r\n\r\nCom modelagem clássica e ajustável, o modelo proporciona liberdade para personalizar o caimento e combina praticidade, conforto e estilo. Uma peça versátil para quem gosta de transformar o visual sem abrir mão da funcionalidade.\r\n\r\nDois lados, diferentes combinações e muito mais possibilidades para aproveitar o verão.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -634,7 +642,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top de biquíni Nautic dupla face, com modelagem cortininha e duas opções de uso. Tamanho P, por R$ 95 em 3x sem juros."
   },
   {
     "id": "prod_biquinio",
@@ -642,7 +651,7 @@
     "nome": "Biquíni Orange",
     "linha": "praia",
     "categoria": "Biquíni",
-    "descricaoCurta": "Estilo, conforto e praticidade em uma única peça. O modelo \"tomara que não caia\" traz amarração frontal ajustável, permitindo um ajuste personalizado ao corpo.",
+    "descricaoCurta": "Biquíni Orange em tom laranja marmorizado, com top sem bojo, forro completo e amarração frontal ajustável para personalizar o caimento.",
     "descricaoCompleta": "Estilo, conforto e praticidade em uma única peça. O modelo \"tomara que não caia\" traz amarração frontal ajustável, permitindo um ajuste personalizado ao corpo, além de ser sem bojo e totalmente forrado, garantindo conforto e segurança durante o uso.\r\n\r\nConfeccionado em tecido de toque suave, com acabamento fosco e efeito marmorizado, apresenta visual moderno e sofisticado. A modelagem valoriza a silhueta, enquanto a elasticidade do tecido proporciona liberdade de movimento e facilidade ao vestir.\r\n\r\nUma peça versátil e confortável, perfeita para compor looks de verão, praia e momentos de lazer.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -705,7 +714,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Biquíni Orange laranja marmorizado, sem bojo e totalmente forrado, com amarração frontal ajustável. Tamanho P, por R$ 140 em 3x sem juros."
   },
   {
     "id": "prod_biquiniv",
@@ -767,7 +777,7 @@
     "nome": "Biquíni Vivence - parte superior",
     "linha": "praia",
     "categoria": "Biquíni parte superior",
-    "descricaoCurta": "Com bojo estruturado e de amarrar no pescoço e costas, com fivela não metálica. Tamanho 58. Ideal para uma forte sustentação e conforto. ",
+    "descricaoCurta": "Top de biquíni Vivence preto com lantejoulas e reflexos dourados, bojo estruturado e amarração ajustável no pescoço. Fivela central não metálica.",
     "descricaoCompleta": "Top de biquíni revestido em lantejoulas, em tom preto com reflexos dourados e bronze. Bojo estruturado, com fivela central que imita metal — não é uma peça metálica.\r\n\r\nModelo halter, com amarração no pescoço e alças reguláveis, para ajustar a sustentação. Peça no tamanho GG, equivalente ao tamanho 58.\r\n\r\nDestaques:\r\n\r\nRevestimento total em lantejoulas preto e dourado;\r\nBojo estruturado, com fivela central não metálica;\r\nAmarração regulável no pescoço;\r\nTamanho GG (58);",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -813,7 +823,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Top de biquíni Vivence preto com lantejoulas douradas, bojo estruturado e amarração ajustável. Tamanho GG (58), por R$ 95 em 3x sem juros."
   },
   {
     "id": "prod_calcablu",
@@ -821,7 +832,7 @@
     "nome": "Calça Blue Star",
     "linha": "turk-fit",
     "categoria": "Linha Academia",
-    "descricaoCurta": "Eleve seu treino com uma legging que une estilo, conforto e desempenho. Confeccionada em lycra cintilante de alta qualidade, ela possui um acabamento sofistica",
+    "descricaoCurta": "Legging Blue Star em lycra azul cintilante, com cintura alta, costura reforçada e elasticidade para acompanhar os movimentos nos treinos.",
     "descricaoCompleta": "Legging Fitness Lycra Cintilante Azul\r\n\r\nEleve seu treino com uma legging que une estilo, conforto e desempenho. Confeccionada em lycra cintilante de alta qualidade, ela possui um acabamento sofisticado com brilho discreto, valorizando o visual sem abrir mão da funcionalidade.\r\n\r\nA modelagem de cintura alta oferece excelente sustentação e ajuste ao corpo, enquanto a costura reforçada garante maior resistência e durabilidade, mesmo durante treinos intensos.\r\n\r\nDestaques do produto:\r\n✨ Lycra cintilante premium com toque macio e confortável.\r\n💪 Não transparente, proporcionando segurança e confiança em qualquer movimento.\r\n🧵 Costura reforçada para maior resistência e excelente acabamento.\r\n👖 Cintura alta que modela a silhueta e oferece melhor sustentação.\r\n🤸 Tecido com elasticidade que acompanha os movimentos do corpo sem limitar o desempenho.\r\n🌬️ Confortável para musculação, corrida, pilates, yoga e uso no dia a dia.\r\n\r\nComposição: Lycra de alta elasticidade.\r\nTransparência: Não transparente.\r\nModelagem: Justa ao corpo.\r\nIndicação: Academia, treinos, caminhadas e uso casual esportivo.\r\n\r\nUma peça que combina elegância, resistência e conforto, ideal para quem busca desempenho com um visual moderno.",
     "composicao": {
       "tecido": "Lycra",
@@ -874,7 +885,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-06",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Calça Blue Star, legging azul cintilante de cintura alta e tecido elástico para treinos. Tamanho G, por R$ 120 em 2x sem juros."
   },
   {
     "id": "prod_conjunto",
@@ -882,7 +894,7 @@
     "nome": "Conjunto Azul Dark",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Conjunto de short e top ideal para treinos, corrida, academia e diversas atividades esportivas.",
+    "descricaoCurta": "Conjunto fitness azul escuro cintilante com top de alças largas e gola quadrada, combinado com short de cós alto e tecido de alta compressão.",
     "descricaoCompleta": "Conjunto de short e top em azul escuro cintilante, com top de alças largas e gola quadrada, e short de cós alto.\r\n\r\nTecido de alta compressão, que sustenta o busto e acompanha os movimentos com liberdade, além de respirável e confortável. O cós alto do short ajusta e dá suporte à cintura.\r\n\r\nDestaques:\r\n\r\nCor azul escuro cintilante;\r\nTop de alças largas, gola quadrada;\r\nShort de cós alto;\r\nAlta compressão;\r\nRespirável, ideal para treinos intensos;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -945,7 +957,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-12",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto fitness Azul Dark com top de alças largas e short de cós alto em azul escuro cintilante. Tamanho M, por R$ 120 em 2x sem juros."
   },
   {
     "id": "prod_conjuntodetreinoazulocen",
@@ -953,7 +966,7 @@
     "nome": "Conjunto de treino Azul Oceano",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCurta": "Conjunto fitness azul-marinho com top de decote alto e alças halter cruzadas na frente, combinado com legging de cintura alta e compressão para treinos.",
     "descricaoCompleta": "Conjunto azul-marinho liso, com top de decote alto e alças finas cruzadas na frente (estilo halter) e legging de cintura alta.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com modelagem que valoriza a silhueta, proporcionando firmeza, conforto e liberdade de movimento durante o treino.\r\n\r\nDestaques:\r\n\r\nCor azul-marinho;\r\nTop halter, com alças cruzadas na frente;\r\nLegging de cintura alta;\r\nCompressão e sustentação;\r\nIdeal para corrida, academia e treinos de alto impacto;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -997,7 +1010,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-12",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto fitness Azul Oceano com top halter e legging de cintura alta para corrida, academia e treinos intensos. Tamanho G, por R$ 180."
   },
   {
     "id": "prod_conjuntodetreinolaranjafitness",
@@ -1005,7 +1019,7 @@
     "nome": "Conjunto de treino Laranja Fitness",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Conjunto fitness feminino composto por top de alcinhas finas e legging de cintura alta, com design minimalista, moderno e confortável para acompanhar diferentes",
+    "descricaoCurta": "Conjunto fitness coral com top de alcinhas finas e barra larga, além de legging de cintura alta e cós largo. Modelagem ajustada para treinos.",
     "descricaoCompleta": "O top possui alcinhas finas, modelagem ajustada ao corpo e uma construção que mantém a parte frontal mais fechada, proporcionando cobertura e segurança durante os movimentos. A barra mais larga ajuda a manter a peça firme no corpo.\r\n\r\nA legging de cintura alta possui cós largo e modelagem ajustada, acompanhando as curvas do corpo e proporcionando conforto e liberdade de movimento durante os exercícios.\r\n\r\nConfeccionado em tecido com textura sutil e aparência encorpada, o conjunto apresenta acabamento uniforme e visual esportivo sofisticado.\r\n\r\nA cor coral vibrante traz personalidade à produção e combina com uma proposta fitness moderna e energética.\r\n\r\nDestaques do conjunto:\r\n\r\nTop com alcinhas finas\r\nParte frontal mais fechada\r\nModelagem ajustada\r\nBarra larga no top\r\nLegging de cintura alta\r\nCós largo\r\nTecido com textura sutil\r\nConforto e liberdade de movimento",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1069,7 +1083,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-12",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto fitness Laranja com top de alcinhas finas e legging de cintura alta. Tamanho M, por R$ 180."
   },
   {
     "id": "prod_conjuntodetreinoshortetopcintila",
@@ -1077,7 +1092,7 @@
     "nome": "Conjunto de treino Short e Top Cintila",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Possui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto.",
+    "descricaoCurta": "Conjunto fitness roxo cintilante com top nadador de alças largas e short de cós alto. Tecido liso com toque acetinado e compressão para treinos.",
     "descricaoCompleta": "Conjunto de short e top em roxo cintilante, com top nadador — alças largas e recorte cavado nas costas — e short de cós alto.\r\n\r\nPossui excelente compressão, proporcionando firmeza, sustentação e segurança mesmo durante treinos de alto impacto. Confeccionado em tecido liso, com toque acetinado.\r\n\r\nDestaques:\r\n\r\nCor roxo cintilante;\r\nTop nadador, com recorte cavado nas costas;\r\nShort de cós alto;\r\nAlta compressão;\r\nToque acetinado;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1121,7 +1136,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-12",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto fitness Cintila roxo com top nadador e short de cós alto, em tecido acetinado. Tamanho M, por R$ 140."
   },
   {
     "id": "prod_conjuntofitnessemlycraazulclaro",
@@ -1129,7 +1145,7 @@
     "nome": "Conjunto Fitness em Lycra Azul Claro",
     "linha": "turk-fit",
     "categoria": "Linha Academia",
-    "descricaoCurta": "Treine com conforto, segurança e muito estilo. Este conjunto fitness em lycra azul claro foi desenvolvido para oferecer alto desempenho durante os exercícios, ",
+    "descricaoCurta": "Conjunto fitness azul-claro em lycra, composto por top de alta compressão e legging de cintura alta. Tecido elástico, respirável e não transparente.",
     "descricaoCompleta": "Conjunto Fitness em Lycra Azul Claro\r\n\r\nTreine com conforto, segurança e muito estilo. Este conjunto fitness em lycra azul claro foi desenvolvido para oferecer alto desempenho durante os exercícios, combinando uma modelagem moderna com excelente sustentação.\r\n\r\nO top possui alta compressão na região das mamas, proporcionando firmeza e reduzindo o impacto durante atividades de maior intensidade. A legging de cintura alta oferece ajuste perfeito ao corpo, valorizando a silhueta sem comprometer a liberdade de movimentos.\r\n\r\nDestaques do produto:\r\n💙 Conjunto composto por top e legging.\r\n✨ Confeccionado em lycra premium com toque macio e excelente elasticidade.\r\n💪 Alta compressão para maior estabilidade e conforto durante os treinos.\r\n🏃 Excelente sustentação no busto, ideal para exercícios aeróbicos e de impacto moderado.\r\n👖 Legging de cintura alta que modela o corpo e proporciona ajuste seguro.\r\n🧵 Costuras reforçadas para maior durabilidade.\r\n🚫 Não transparente, oferecendo total segurança em qualquer movimento.\r\n🌬️ Tecido respirável, confortável e de secagem rápida.\r\nIndicação de uso\r\n\r\nPerfeito para corrida, caminhada, academia, spinning, funcional, dança, treino aeróbico, pilates e atividades do dia a dia.\r\n\r\nUm conjunto pensado para mulheres que buscam desempenho, sustentação e conforto, sem abrir mão de um visual elegante e moderno.",
     "composicao": {
       "tecido": "Lycra",
@@ -1172,7 +1188,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-06",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto fitness azul-claro em lycra, com top de alta compressão e legging de cintura alta. Tamanho G, por R$ 220."
   },
   {
     "id": "prod_conjuntofitnesstopcalcaverdan",
@@ -1180,7 +1197,7 @@
     "nome": "Conjunto Fitness Top + Calça Verdan",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCurta": "Conjunto fitness verde com top cropped de alças finas e gola quadrada, além de legging texturizada com bolsos laterais.",
     "descricaoCompleta": "Conjunto verde, com top cropped de alças finas e gola quadrada, e legging com textura em relevo tipo xadrez e bolsos laterais.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. Os bolsos da calça são um diferencial para levar celular ou chave durante a corrida ou o treino.\r\n\r\nDestaques:\r\n\r\nCor verde;\r\nTop cropped de alças finas e gola quadrada;\r\nLegging com textura em relevo;\r\nBolsos laterais na calça;\r\nCompressão e sustentação;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1224,7 +1241,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-12",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto fitness Verdan verde com top cropped e legging texturizada com bolsos laterais. Tamanho M, por R$ 170."
   },
   {
     "id": "prod_conjuntofitnesstopcalca",
@@ -1232,7 +1250,7 @@
     "nome": "Conjunto Fitness Top + Calça",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCurta": "Conjunto fitness roxo profundo com top nadador de alças largas e recorte cavado nas costas, combinado com legging de cintura alta e compressão.",
     "descricaoCompleta": "Conjunto em roxo profundo liso, com top nadador — alças largas e recorte cavado nas costas — e legging de cintura alta.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com modelagem que valoriza a silhueta, proporcionando firmeza, conforto e liberdade de movimento durante o treino.\r\n\r\nDestaques:\r\n\r\nCor roxo profundo;\r\nTop nadador, com recorte cavado nas costas;\r\nLegging de cintura alta;\r\nCompressão e sustentação;\r\nIdeal para corrida, academia e treinos de alto impacto;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1276,7 +1294,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-12",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto fitness roxo com top nadador e legging de cintura alta para academia, corrida e treinos intensos. Tamanho G, por R$ 190."
   },
   {
     "id": "prod_conjuntolilaperfomance",
@@ -1284,7 +1303,7 @@
     "nome": "Conjunto Lila Performance",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Conjunto Fitness Top + Calça com Bolsos Laterais.  Para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCurta": "Conjunto fitness roxo com top de alta compressão e calça com bolsos laterais e costuras reforçadas, para treinos e atividades de alto impacto.",
     "descricaoCompleta": "Conjunto desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça conta com bolsos faca laterais, unindo praticidade e funcionalidade para levar pequenos itens durante o treino.\r\n\r\nCom costuras reforçadas e modelagem que valoriza a silhueta, o conjunto proporciona um caimento firme e confortável, ajudando a destacar as curvas e criando um efeito visual de bumbum mais empinado e definido.\r\n\r\n✨ Destaques:\r\n\r\nTop com compressão e ótima sustentação\r\nCalça com bolsos faca laterais\r\nCosturas reforçadas\r\nModelagem que valoriza as curvas\r\nEfeito visual de bumbum empinado\r\nIdeal para corrida, academia e treinos de alto impacto\r\nConforto, segurança e liberdade de movimento",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1327,7 +1346,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-12",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto Lila Performance roxo com top de compressão e calça com bolsos laterais. Tamanho M, por R$ 220 em 3x sem juros."
   },
   {
     "id": "prod_conjuntomaro",
@@ -1335,7 +1355,7 @@
     "nome": "Conjunto Maro",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Conjunto Fitness Top + Calça - Desenvolvido para acompanhar você nos treinos de alta intensidade, corrida, academia e atividades de alto impacto.",
+    "descricaoCurta": "Conjunto fitness rosa fúcsia com top de alças largas cruzadas nas costas e legging de cintura alta, com compressão e sustentação para treinos.",
     "descricaoCompleta": "Conjunto em rosa fúcsia liso, com top de alças largas duplas que se cruzam nas costas e legging de cintura alta.\r\n\r\nO top possui excelente compressão, oferecendo sustentação e segurança durante os movimentos. A calça acompanha o mesmo tom e tem modelagem que valoriza a silhueta, com liberdade de movimento para o treino.\r\n\r\nDestaques:\r\n\r\nCor rosa fúcsia;\r\nTop com alças largas cruzadas nas costas;\r\nLegging de cintura alta;\r\nCompressão e sustentação;\r\nIdeal para corrida, academia e treinos de alto impacto;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1378,7 +1398,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-12",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto Maro rosa fúcsia com top de alças cruzadas e legging de cintura alta. Tamanho M, por R$ 220 em 3x sem juros."
   },
   {
     "id": "prod_conjuntoshorttopflow",
@@ -1386,7 +1407,7 @@
     "nome": "Conjunto de Short + top",
     "linha": "turk-fit",
     "categoria": "Conjunto ",
-    "descricaoCurta": "Composto por top de alças largas e bermuda de cintura alta, desenvolvido para proporcionar alta sustentação, conforto e segurança durante os treinos.",
+    "descricaoCurta": "Conjunto fitness com top de alças largas e bermuda de cintura alta. Tecido macio, aveludado, com sustentação e sem transparência.",
     "descricaoCompleta": "O top possui modelagem ajustada ao corpo, alças largas e barra reforçada, oferecendo excelente sustentação para atividades que exigem maior estabilidade. A bermuda possui cintura alta e cós largo, proporcionando firmeza e conforto durante os movimentos.\r\n\r\nO tecido tem toque macio e aparência aveludada, proporcionando uma sensação extremamente agradável em contato com a pele. É aquele tipo de roupa que veste tão bem que quase parece que você não está usando nada.\r\n\r\nSua estrutura oferece alta sustentação, ajudando a manter a peça firme durante os movimentos. O tecido também não apresenta transparência, proporcionando mais segurança e tranquilidade durante o treino.\r\n\r\nIdeal para atividades de impacto, como corrida, funcional, musculação, treinos intensos e outras modalidades que exigem liberdade de movimento e segurança.\r\n\r\nDestaques do conjunto:\r\n\r\nToque macio e aveludado\r\nSensação extremamente confortável no corpo\r\nAlta sustentação\r\nTecido sem transparência\r\nTop com alças largas\r\nBarra reforçada no top\r\nBermuda de cintura alta\r\nCós largo e confortável\r\nModelagem que acompanha os movimentos\r\nIdeal para atividades de impacto e treinos intensos",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1443,7 +1464,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-02",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Conjunto fitness Flow com top de alças largas e bermuda de cintura alta. Tecido macio, com sustentação e sem transparência. R$ 180."
   },
   {
     "id": "prod_croppedd",
@@ -1451,7 +1473,7 @@
     "nome": "Cropped de Surf",
     "linha": "surf",
     "categoria": "Cropped",
-    "descricaoCurta": "Cropped feminino desenvolvido para acompanhar momentos de surf, praia e atividades ao ar livre, unindo leveza, conforto e um visual moderno.",
+    "descricaoCurta": "Cropped de surf com corpo estampado, mangas semitransparentes em rosa vibrante e modelagem curta ajustada para praia e atividades ao ar livre.",
     "descricaoCompleta": "A peça possui tecido extremamente leve e macio, com sensação de segunda pele, proporcionando liberdade de movimento e conforto durante o uso. O corpo do cropped recebe uma estampa exclusiva e marcante, enquanto as mangas em rosa vibrante criam um contraste moderno e cheio de personalidade.\r\n\r\nO grande destaque está nas mangas de tecido transparente e leve, que deixam o visual mais delicado e diferenciado sem abrir mão da proposta esportiva. As mangas possuem comprimento até próximo dos cotovelos e acabamento delicado nas extremidades.\r\n\r\nA modelagem é curta e ajustada ao corpo, proporcionando um caimento confortável e moderno. O recorte das mangas acompanha os ombros e facilita os movimentos dos braços, sendo uma ótima opção para quem busca uma peça esportiva com estilo.\r\n\r\nA estampa central apresenta uma combinação de tons de azul, preto, lilás e detalhes claros, criando um efeito visual inspirado na natureza e no universo do mar.\r\n\r\nDestaques da peça:\r\n\r\nTecido super leve e confortável\r\nSensação de segunda pele\r\nMangas transparentes\r\nMangas leves e com ótima mobilidade\r\nModelagem cropped\r\nCaimento ajustado ao corpo\r\nEstampa exclusiva e marcante\r\nCombinação de cores vibrantes\r\nVisual moderno e esportivo\r\nIdeal para surf, praia e atividades ao ar livre\r\n\r\nUma peça para quem gosta de sentir leveza no corpo sem abrir mão de personalidade e estilo.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1496,7 +1518,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Cropped de surf com estampa colorida, mangas semitransparentes e modelagem curta ajustada. Para praia e atividades ao ar livre. R$ 190."
   },
   {
     "id": "prod_croppeds",
@@ -1504,7 +1527,7 @@
     "nome": "Cropped surf",
     "linha": "surf",
     "categoria": "Blusa",
-    "descricaoCurta": "A blusa é um cropped de manga curta em estilo patchwork artesanal, com modelagem ampla e comprimento curto, terminando acima do umbigo.",
+    "descricaoCurta": "Cropped de manga curta em patchwork artesanal, com base vermelha, mangas contrastantes e retalhos coloridos que formam uma composição tropical.",
     "descricaoCompleta": "A blusa é um cropped de manga curta em estilo patchwork artesanal, com modelagem ampla e comprimento curto, terminando acima do umbigo.\r\n\r\nBase: tecido vermelho intenso.\r\nMangas: mangas curtas em laranja/mostarda, aplicadas de forma contrastante.\r\nPatchwork frontal: composição de vários retalhos de tecido costurados e sobrepostos.\r\nCores dos retalhos: vermelho, laranja, amarelo, verde, bege, marrom e tons terrosos.\r\nEstampa central: os retalhos formam uma paisagem tropical/artística, com elementos que lembram pôr do sol, céu, vegetação, palmeiras e praia.\r\nAcabamento: as bordas dos retalhos são irregulares e aparentes, com costuras visíveis, reforçando o aspecto artesanal e feito à mão.\r\nGola: gola redonda simples, com acabamento aparente em tom contrastante.\r\nBarra: curta e irregular, acompanhando o caráter artesanal da peça.\r\nEstilo: mistura de moda praia, arte, upcycling e patchwork, com aparência descontraída, colorida e autoral.\r\nObs.: Para ficar no estilo da modelo, por exemplo: se você normalmente usa P, escolha M.\r\nNeste caso, como temos disponível apenas 1 unidade no tamanho P, ela é indicada para quem normalmente usa PP.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1546,7 +1569,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Cropped Surf em patchwork artesanal colorido, com manga curta e modelagem ampla. Peça exclusiva em tamanho P, por R$ 190."
   },
   {
     "id": "prod_croppedv",
@@ -1554,7 +1578,7 @@
     "nome": "Cropped Verdin",
     "linha": "surf",
     "categoria": "cropped",
-    "descricaoCurta": "O Cropped Esportivo de Manga Longa foi desenvolvido para acompanhar você em diferentes momentos — da prática esportiva aos momentos de lazer — com um design mod",
+    "descricaoCurta": "Cropped esportivo de manga longa com corpo estampado, mangas semitransparentes e respiráveis e tecido elástico para acompanhar os movimentos.",
     "descricaoCompleta": "Movimento, conforto e estilo em uma única peça.\r\n\r\nO Cropped Esportivo de Manga Longa foi desenvolvido para acompanhar você em diferentes momentos — da prática esportiva aos momentos de lazer — com um design moderno e funcional.\r\n\r\nO corpo do cropped é confeccionado em tecido de alta elasticidade, proporcionando ajuste ao corpo, liberdade de movimento e conforto durante a atividade. As mangas em tecido semitransparente e respirável favorecem a circulação de ar, ajudando na ventilação durante os movimentos.\r\n\r\nO contraste entre o tecido estampado e as mangas leves cria uma estética esportiva sofisticada, enquanto o acabamento ajustado valoriza a silhueta sem limitar os movimentos.\r\n\r\nDestaques da peça:\r\n\r\nTecido com alta elasticidade em todo o cropped\r\nMangas semitransparentes e respiráveis\r\nModelagem que acompanha os movimentos do corpo\r\nDesign esportivo contemporâneo\r\nConforto para atividades e momentos de lazer\r\nAcabamento ajustado e sofisticado\r\n\r\nUma peça para quem quer se movimentar com liberdade sem abrir mão do estilo.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1618,7 +1642,8 @@
     "status": "publicado",
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
-    "faixaEtaria": "15+"
+    "faixaEtaria": "15+",
+    "seoDescricao": "Cropped Verdin de manga longa, com corpo estampado e mangas semitransparentes e respiráveis. Tamanho P, por R$ 250."
   },
   {
     "id": "prod_leggingi",
