@@ -52,15 +52,15 @@ jobs:
           mkdir -p _site
 
           rsync -a \
-            --exclude='.git/' \
-            --exclude='.github/' \
-            --exclude='painel-produtos/' \
-            --exclude='scripts/' \
-            --exclude='config/' \
-            --exclude='docs/' \
-            --exclude='src/content/' \
-            --exclude='src/schema/' \
-            --exclude='_site/' \
+            --exclude='/.git/' \
+            --exclude='/.github/' \
+            --exclude='/painel-produtos/' \
+            --exclude='/scripts/' \
+            --exclude='/config/' \
+            --exclude='/docs/' \
+            --exclude='/src/content/' \
+            --exclude='/src/schema/' \
+            --exclude='/_site/' \
             ./ _site/
 
           python scripts/agrupar-css-publicacao.py _site
@@ -78,6 +78,13 @@ jobs:
           test -d _site/assets
           test -d _site/produto
           test -d _site/blog
+          test -f _site/src/scripts/componentes/menu-mobile.js
+          test -f _site/src/scripts/componentes/busca-dinamica.js
+          test -f _site/src/scripts/utils/carrinho.js
+          test -f _site/src/scripts/componentes/carrinho-ui.js
+          test -f _site/src/scripts/componentes/whatsapp-flutuante.js
+          test -f _site/src/scripts/componentes/form-newsletter.js
+          test -f _site/src/scripts/componentes/destaques-dinamico.js
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
