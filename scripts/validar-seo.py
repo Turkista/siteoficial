@@ -4,7 +4,9 @@ import importlib.util
 import json
 import re
 import sys
+import tempfile
 from pathlib import Path
+from PIL import Image
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -286,6 +288,27 @@ def validate_performance_basics(errors):
         errors.append("otimizar-imagens-responsivas.py: otimizador de imagens responsivas ausente")
     elif "srcset" not in responsive_optimizer.read_text(encoding="utf-8") or "sizes" not in responsive_optimizer.read_text(encoding="utf-8"):
         errors.append("otimizar-imagens-responsivas.py: suporte a srcset/sizes ausente")
+    else:
+        spec = importlib.util.spec_from_file_location("otimizar_imagens_responsivas", responsive_optimizer)
+        module = importlib.util.module_from_spec(spec)
+        try:
+            spec.loader.exec_module(module)
+            with tempfile.TemporaryDirectory() as temp_dir:
+                temp_root = Path(temp_dir)
+                assets = temp_root / "assets"
+                assets.mkdir()
+                sample_image = assets / "sample.webp"
+                Image.effect_noise((1200, 900), 100).convert("RGB").save(sample_image, "WEBP", quality=95)
+                sample_html = '<img src="assets/sample.webp" width="1200" height="900" loading="lazy">'
+                optimized, count = module.otimizar_html(sample_html, temp_root / "index.html", temp_root)
+                if count != 1 or "srcset=" not in optimized or "sizes=" not in optimized:
+                    errors.append("otimizar-imagens-responsivas.py: teste de srcset/sizes falhou")
+                data_src = '<img data-src="assets/sample.webp" alt="Teste">'
+                unchanged, unchanged_count = module.otimizar_html(data_src, temp_root / "index.html", temp_root)
+                if unchanged_count != 0 or unchanged != data_src:
+                    errors.append("otimizar-imagens-responsivas.py: atributo data-src foi alterado indevidamente")
+        except Exception as exc:
+            errors.append(f"otimizar-imagens-responsivas.py: teste de execução falhou ({exc})")
 
     workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
     if workflow.is_file() and "otimizar-imagens-responsivas.py _site" not in workflow.read_text(encoding="utf-8"):
