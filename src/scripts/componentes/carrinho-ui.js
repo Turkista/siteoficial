@@ -311,31 +311,31 @@
         abrirGaveta();
         return;
       }
-      if (evento.target.closest('[data-carrinho-fechar]') || evento.target.closest('[data-carrinho-overlay]')) {
+      if (alvo.closest('[data-carrinho-fechar]') || alvo.closest('[data-carrinho-overlay]')) {
         fecharGaveta();
         return;
       }
-      if (evento.target.closest('[data-carrinho-limpar]')) {
+      if (alvo.closest('[data-carrinho-limpar]')) {
         if (C && confirm('Esvaziar o carrinho?')) C.limparCarrinho();
         return;
       }
 
-      if (evento.target.closest('[data-carrinho-finalizar]')) {
+      if (alvo.closest('[data-carrinho-finalizar]')) {
         registrarWhatsappCarrinho();
         return;
       }
 
-      var linhaItem = evento.target.closest('[data-carrinho-item]');
+      var linhaItem = alvo.closest('[data-carrinho-item]');
       if (!linhaItem || !C) return;
       var chave = linhaItem.getAttribute('data-carrinho-item');
       var itemAtual = C.obterCarrinho().filter(function (i) { return C.chaveItem(i) === chave; })[0];
       if (!itemAtual) return;
 
-      if (evento.target.closest('[data-carrinho-qtd-mais]')) {
+      if (alvo.closest('[data-carrinho-qtd-mais]')) {
         C.alterarQtd(chave, itemAtual.qtd + 1);
-      } else if (evento.target.closest('[data-carrinho-qtd-menos]')) {
+      } else if (alvo.closest('[data-carrinho-qtd-menos]')) {
         C.alterarQtd(chave, itemAtual.qtd - 1);
-      } else if (evento.target.closest('[data-carrinho-remover]')) {
+      } else if (alvo.closest('[data-carrinho-remover]')) {
         C.removerItem(chave);
       }
     }, true);
