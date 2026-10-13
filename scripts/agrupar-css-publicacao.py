@@ -27,13 +27,24 @@ def resolve_css(href: str, html_file: Path, root: Path) -> Path | None:
     return path.resolve()
 
 
+def tags_all_remainder(group: str, consumed: int) -> str:
+    tags = LINK_TAG.findall(group)
+    return "\\n".join(tags[consumed:])
+
+
 def bundle_group(match: re.Match, html_file: Path, root: Path) -> str:
     tags = LINK_TAG.findall(match.group(0))
-    if len(tags) < 2:
+    parsed_all = [attributes(tag) for tag in tags]
+    stylesheet_count = 0
+    for attrs in parsed_all:
+        if attrs.get("rel", "").lower() != "stylesheet":
+            break
+        stylesheet_count += 1
+    if stylesheet_count < 2:
         return match.group(0)
-    parsed = [attributes(tag) for tag in tags]
-    if any(attrs.get("rel", "").lower() != "stylesheet" for attrs in parsed):
-        return match.group(0)
+    tags = tags[:stylesheet_count]
+    parsed = parsed_all[:stylesheet_count]
+    remainder = tags_all_remainder(match.group(0), stylesheet_count)
     media_values = {attrs.get("media", "all") for attrs in parsed}
     if len(media_values) != 1:
         return match.group(0)
