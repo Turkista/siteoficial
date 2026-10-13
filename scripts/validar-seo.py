@@ -337,7 +337,7 @@ def validate_performance_basics(errors):
                     errors.append("agrupar-css-publicacao.py: agrupamento de folhas consecutivas falhou")
                 elif ".primeiro{color:red}" not in bundles[0].read_text(encoding="utf-8") or ".segundo{color:blue}" not in bundles[0].read_text(encoding="utf-8"):
                     errors.append("agrupar-css-publicacao.py: conteúdo do bundle está incompleto")
-                if "href=\\"async.css\\"" not in optimized or "rel=\\"preload\\"" not in optimized:
+                if 'href="async.css"' not in optimized or 'rel="preload"' not in optimized:
                     errors.append("agrupar-css-publicacao.py: folha assíncrona foi alterada")
         except Exception as exc:
             errors.append(f"agrupar-css-publicacao.py: teste de execução falhou ({exc})")
