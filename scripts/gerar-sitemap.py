@@ -105,6 +105,43 @@ def main():
             )
             urls_existentes.add(url)
 
+    # Inclui automaticamente páginas HTML públicas, canônicas e indexáveis
+    # que ainda não estejam no sitemap. Evita esquecer novas páginas utilitárias.
+    for path in sorted(ROOT.rglob("*.html")):
+        relative = path.relative_to(ROOT)
+        if relative.parts[0] in {"painel-produtos", "produto", "_site", ".git"}:
+            continue
+        if relative.as_posix() == "404.html":
+            continue
+
+        html = path.read_text(encoding="utf-8")
+        robots = re.search(
+            r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']*)["\']',
+            html,
+            re.I,
+        )
+        if robots and "noindex" in robots.group(1).lower():
+            continue
+
+        canonical = re.search(
+            r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)["\']',
+            html,
+            re.I,
+        )
+        expected_url = (
+            f"{BASE}/" if relative.as_posix() == "index.html"
+            else f"{BASE}/{relative.as_posix()}"
+        )
+        if not canonical or canonical.group(1).strip() != expected_url:
+            continue
+        if expected_url not in urls_existentes:
+            blocos_artigos.append(
+                "  <url>\n"
+                f"    <loc>{expected_url}</loc>\n"
+                "  </url>"
+            )
+            urls_existentes.add(expected_url)
+
     entradas_produtos = [
         entrada_produto(produto)
         for produto in sorted(produtos, key=lambda item: item["slug"])
