@@ -3,8 +3,10 @@ import sys
 
 GA_ID = "G-1CYRSP6V63"
 
+# A coleta continua assíncrona, mas com prioridade de rede baixa para não
+# competir com a imagem LCP, CSS crítico e recursos visíveis no primeiro paint.
 GA_TAG = f"""<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script async fetchpriority="low" src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}

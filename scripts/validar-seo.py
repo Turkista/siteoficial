@@ -396,6 +396,13 @@ def validate_performance_basics(errors):
         return
 
     html = index_path.read_text(encoding="utf-8")
+    analytics_script = ROOT / "scripts" / "injetar-analytics.py"
+    if not analytics_script.is_file():
+        errors.append("injetar-analytics.py: script de analytics ausente")
+    else:
+        analytics_source = analytics_script.read_text(encoding="utf-8")
+        if '<script async fetchpriority="low" src="https://www.googletagmanager.com/gtag/js?id={GA_ID}">' not in analytics_source:
+            errors.append("injetar-analytics.py: Google Analytics deve carregar com prioridade de rede baixa")
     hero_preload = '<link rel="preload" as="image" href="assets/hero/hero-praia.webp" fetchpriority="high">'
     if hero_preload not in html:
         errors.append("index.html: imagem principal não está pré-carregada com prioridade alta")
