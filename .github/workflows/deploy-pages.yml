@@ -46,7 +46,7 @@ jobs:
       - name: Validar consistência SEO
         run: python scripts/validar-seo.py
 
-      - name: Montar artefato p├║blico
+      - name: Montar artefato público
         run: |
           rm -rf _site
           mkdir -p _site
@@ -63,6 +63,7 @@ jobs:
             --exclude='_site/' \
             ./ _site/
 
+          python scripts/agrupar-css-publicacao.py _site
           python scripts/otimizar-fontes-publicacao.py _site
           python scripts/otimizar-imagens-responsivas.py _site
           python scripts/otimizar-imagens-publicacao.py _site
@@ -72,6 +73,7 @@ jobs:
           test -f _site/index.html
           test -f _site/CNAME
           test -f _site/sitemap.xml
+          test -f _site/llms.txt
           test -d _site/assets
           test -d _site/produto
           test -d _site/blog
