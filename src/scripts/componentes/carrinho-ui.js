@@ -111,6 +111,8 @@
   // Renderização
   // ------------------------------------------------------------
   function renderizar() {
+    C = window.Carrinho || C;
+    if (!C) return;
     var itens = C.obterCarrinho();
 
     var contagemEl = document.querySelector('[data-carrinho-contagem]');
@@ -277,6 +279,7 @@
       var alvo = evento.target instanceof Element ? evento.target : null;
       if (!alvo) return;
       var botaoAdicionar = alvo.closest('[data-adicionar-carrinho]');
+      C = window.Carrinho || C;
       if (botaoAdicionar) {
         evento.preventDefault();
         evento.stopPropagation();
@@ -289,6 +292,10 @@
           return;
         }
 
+        if (!C) {
+          alert('O carrinho está carregando. Aguarde um instante e tente novamente.');
+          return;
+        }
         var item = lerItemDoBotao(botaoAdicionar);
         if (!item.slug || !item.nome) return;
         var qtdAttr = botaoAdicionar.getAttribute('data-quantidade');
@@ -300,35 +307,35 @@
         return;
       }
 
-      if (evento.target.closest('[data-carrinho-abrir]')) {
+      if (alvo.closest('[data-carrinho-abrir]')) {
         abrirGaveta();
         return;
       }
-      if (evento.target.closest('[data-carrinho-fechar]') || evento.target.closest('[data-carrinho-overlay]')) {
+      if (alvo.closest('[data-carrinho-fechar]') || alvo.closest('[data-carrinho-overlay]')) {
         fecharGaveta();
         return;
       }
-      if (evento.target.closest('[data-carrinho-limpar]')) {
-        if (confirm('Esvaziar o carrinho?')) C.limparCarrinho();
+      if (alvo.closest('[data-carrinho-limpar]')) {
+        if (C && confirm('Esvaziar o carrinho?')) C.limparCarrinho();
         return;
       }
 
-      if (evento.target.closest('[data-carrinho-finalizar]')) {
+      if (alvo.closest('[data-carrinho-finalizar]')) {
         registrarWhatsappCarrinho();
         return;
       }
 
-      var linhaItem = evento.target.closest('[data-carrinho-item]');
-      if (!linhaItem) return;
+      var linhaItem = alvo.closest('[data-carrinho-item]');
+      if (!linhaItem || !C) return;
       var chave = linhaItem.getAttribute('data-carrinho-item');
       var itemAtual = C.obterCarrinho().filter(function (i) { return C.chaveItem(i) === chave; })[0];
       if (!itemAtual) return;
 
-      if (evento.target.closest('[data-carrinho-qtd-mais]')) {
+      if (alvo.closest('[data-carrinho-qtd-mais]')) {
         C.alterarQtd(chave, itemAtual.qtd + 1);
-      } else if (evento.target.closest('[data-carrinho-qtd-menos]')) {
+      } else if (alvo.closest('[data-carrinho-qtd-menos]')) {
         C.alterarQtd(chave, itemAtual.qtd - 1);
-      } else if (evento.target.closest('[data-carrinho-remover]')) {
+      } else if (alvo.closest('[data-carrinho-remover]')) {
         C.removerItem(chave);
       }
     }, true);
@@ -347,11 +354,10 @@
     renderizar();
   }
 
-  var iniciado = false;
-  function iniciarQuandoPronto() {
-    if (iniciado || !window.Carrinho) return;
-    C = window.Carrinho;
-    iniciado = true;
+  var interfaceIniciada = false;
+  function iniciarInterface() {
+    if (interfaceIniciada) return;
+    interfaceIniciada = true;
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', iniciar, { once: true });
     } else {
@@ -359,6 +365,11 @@
     }
   }
 
-  window.addEventListener('turkista:carrinho-pronto', iniciarQuandoPronto);
-  iniciarQuandoPronto();
+  // A interface e a gaveta iniciam mesmo se o núcleo de dados atrasar.
+  window.addEventListener('turkista:carrinho-pronto', function () {
+    C = window.Carrinho || C;
+    iniciarInterface();
+    renderizar();
+  });
+  iniciarInterface();
 })();
