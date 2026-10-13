@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 from PIL import Image
 
-QUALIDADE = 80
+QUALIDADE = 76
 REDUCAO_MINIMA = 0.03
 LIMITES = {
     "hero": (1600, 1000),
