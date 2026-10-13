@@ -342,6 +342,23 @@ def validate_performance_basics(errors):
         except Exception as exc:
             errors.append(f"agrupar-css-publicacao.py: teste de execução falhou ({exc})")
 
+    script_deferrer = ROOT / "scripts" / "deferir-scripts-finais.py"
+    if not script_deferrer.is_file():
+        errors.append("deferir-scripts-finais.py: otimizador de scripts ausente")
+    else:
+        spec = importlib.util.spec_from_file_location("deferir_scripts_finais", script_deferrer)
+        module = importlib.util.module_from_spec(spec)
+        try:
+            spec.loader.exec_module(module)
+            sample = '<main></main><script src="local.js"></script><script async src="https://example.com/tag.js"></script><script src="https://example.com/remote.js"></script></body>'
+            optimized, count = module.optimize_html(sample)
+            if count != 1 or '<script src="local.js" defer>' not in optimized:
+                errors.append("deferir-scripts-finais.py: script local do fim não recebeu defer")
+            if '<script async src="https://example.com/tag.js">' not in optimized or '<script src="https://example.com/remote.js">' not in optimized:
+                errors.append("deferir-scripts-finais.py: script externo foi alterado")
+        except Exception as exc:
+            errors.append(f"deferir-scripts-finais.py: teste de execução falhou ({exc})")
+
     workflow = ROOT / ".github" / "workflows" / "deploy-pages.yml"
     if workflow.is_file() and "otimizar-imagens-responsivas.py _site" not in workflow.read_text(encoding="utf-8"):
         errors.append("deploy-pages.yml: otimizador de imagens responsivas não está ligado à publicação")
