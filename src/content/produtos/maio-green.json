@@ -4,7 +4,7 @@
   "nome": "Maiô Green",
   "linha": "praia",
   "categoria": "maiô",
-  "descricaoCurta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. ",
+  "descricaoCurta": "Maiô Green com tecido de efeito levemente aveludado e alças finas. Design contemporâneo para compor looks de praia e piscina.",
   "descricaoCompleta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. A lateral apresenta franzidos verticais, que acompanham a silhueta. Na região dos quadris, a peça possui tiras para amarração, permitindo ajuste lateral. A parte inferior tem modelagem cavada.",
   "composicao": {
     "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -57,5 +57,6 @@
   "status": "publicado",
   "dataCriacao": "2026-08-17",
   "genero": "feminino",
-  "faixaEtaria": "15+"
+  "faixaEtaria": "15+",
+  "seoDescricao": "Maiô Green com tecido de efeito aveludado e alças finas, ideal para praia e piscina. Tamanho M, por R$ 250."
 }
