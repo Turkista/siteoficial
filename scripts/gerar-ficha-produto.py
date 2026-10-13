@@ -483,9 +483,9 @@ def montar_meta_descricao(produto):
     """Meta description de até ~158 caracteres, só com fatos cadastrados:
     nome + descrição curta, preço/parcelamento e o selo de fabricação própria.
     Override manual: campo "seoDescricao" do JSON."""
-    if produto.get("seoDescricao"):
-        return limpar_texto_para_html(produto["seoDescricao"])
     limite = 158
+    if produto.get("seoDescricao"):
+        return _cortar(limpar_texto_para_html(produto["seoDescricao"]), limite)
     nome = produto["nome"].strip()
     curta = _sem_ponto_final(limpar_texto_para_html(produto.get("descricaoCurta", "")))
     if len(curta) < 50:
