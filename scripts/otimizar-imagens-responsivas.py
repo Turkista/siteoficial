@@ -82,6 +82,7 @@ def gerar_variantes(arquivo: Path) -> list[tuple[int, str]]:
 
 def otimizar_html(conteudo: str, html_path: Path, raiz: Path) -> tuple[str, int]:
     alterados = 0
+    preloads = {}
 
     def substituir(match: re.Match) -> str:
         nonlocal alterados
@@ -108,6 +109,7 @@ def otimizar_html(conteudo: str, html_path: Path, raiz: Path) -> tuple[str, int]
         srcset = ", ".join(candidatos)
         contexto = conteudo[max(0, match.start() - 450):match.start()]
         sizes = tamanhos_para(url, tag, contexto)
+        preloads[url] = (srcset, sizes)
         insercao = f' srcset="{srcset}" sizes="{sizes}"'
         pos = tag.rfind(">")
         if pos < 0:
@@ -115,8 +117,30 @@ def otimizar_html(conteudo: str, html_path: Path, raiz: Path) -> tuple[str, int]
         alterados += 1
         return tag[:pos] + insercao + tag[pos:]
 
-    return IMG_TAG.sub(substituir, conteudo), alterados
+    html_com_srcset = IMG_TAG.sub(substituir, conteudo)
 
+    # Alinha o preload à mesma seleção responsiva do <img>, evitando baixar
+    # a imagem original no preload e depois baixar uma segunda variante menor.
+    link_tag = re.compile(r"<link\b[^>]*>", re.IGNORECASE)
+    href_attr = re.compile(r"""(?<![-\w:])href\s*=\s*(["'])(.*?)\1""", re.IGNORECASE)
+    rel_preload = re.compile(r"""(?<![-\w:])rel\s*=\s*(["'])preload\1""", re.IGNORECASE)
+    as_image = re.compile(r"""(?<![-\w:])as\s*=\s*(["'])image\1""", re.IGNORECASE)
+    imagesrcset_attr = re.compile(r"""(?<![-\w:])imagesrcset\s*=""", re.IGNORECASE)
+
+    def alinhar_preload(match: re.Match) -> str:
+        tag = match.group(0)
+        if not rel_preload.search(tag) or not as_image.search(tag) or imagesrcset_attr.search(tag):
+            return tag
+        href = href_attr.search(tag)
+        if not href or href.group(2) not in preloads:
+            return tag
+        srcset, sizes = preloads[href.group(2)]
+        pos = tag.rfind(">")
+        if pos < 0:
+            return tag
+        return tag[:pos] + f' imagesrcset="{srcset}" imagesizes="{sizes}"' + tag[pos:]
+
+    return link_tag.sub(alinhar_preload, html_com_srcset), alterados
 
 def main() -> int:
     raiz = Path(sys.argv[1] if len(sys.argv) > 1 else "_site").resolve()
