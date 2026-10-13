@@ -7,7 +7,7 @@ import sys
 from PIL import Image
 
 LARGURAS = (320, 480, 640, 768, 960, 1200, 1440)
-QUALIDADE = 78
+QUALIDADE = 74
 ECONOMIA_MINIMA = 0.02
 IMG_TAG = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
 SRC_ATTR = re.compile(r"""(?<![-\w:])src\s*=\s*(["'])(.*?)\1""", re.IGNORECASE)
@@ -21,11 +21,14 @@ def dimensoes(caminho: Path) -> tuple[int, int]:
 
 def tamanhos_para(url: str, tag: str, contexto: str) -> str:
     classes = " ".join(re.findall(r"""class=["']([^"']+)["']""", tag, re.IGNORECASE))
-    trecho = contexto[-450:]
+    trecho = contexto[-700:]
     classes_contexto = " ".join(re.findall(r"""class=["']([^"']+)["']""", trecho, re.IGNORECASE))
     classes = f"{classes} {classes_contexto}"
     if "hero__foto" in classes:
         return "100vw"
+    # A prévia 'Sobre' usa colunas lado a lado; 100vw superestimava a largura.
+    if "secao-sobre-preview__imagens" in classes or "secao-sobre-preview__imagens" in trecho:
+        return "(max-width: 640px) 60vw, (max-width: 1024px) 35vw, 420px"
     if "card-produto__imagem" in classes or "card-produto__imagem" in trecho:
         return "(max-width: 640px) 46vw, (max-width: 1024px) 30vw, 338px"
     if "/linhas/" in url or "linha" in classes:
@@ -107,7 +110,7 @@ def otimizar_html(conteudo: str, html_path: Path, raiz: Path) -> tuple[str, int]
         candidatos = [f"{prefixo}{nome} {largura}w" for largura, nome in variantes]
         candidatos.append(f"{url} {largura_original}w")
         srcset = ", ".join(candidatos)
-        contexto = conteudo[max(0, match.start() - 450):match.start()]
+        contexto = conteudo[max(0, match.start() - 700):match.start()]
         sizes = tamanhos_para(url, tag, contexto)
         preloads[url] = (srcset, sizes)
         insercao = f' srcset="{srcset}" sizes="{sizes}"'
@@ -118,9 +121,6 @@ def otimizar_html(conteudo: str, html_path: Path, raiz: Path) -> tuple[str, int]
         return tag[:pos] + insercao + tag[pos:]
 
     html_com_srcset = IMG_TAG.sub(substituir, conteudo)
-
-    # Alinha o preload à mesma seleção responsiva do <img>, evitando baixar
-    # a imagem original no preload e depois baixar uma segunda variante menor.
     link_tag = re.compile(r"<link\b[^>]*>", re.IGNORECASE)
     href_attr = re.compile(r"""(?<![-\w:])href\s*=\s*(["'])(.*?)\1""", re.IGNORECASE)
     rel_preload = re.compile(r"""(?<![-\w:])rel\s*=\s*(["'])preload\1""", re.IGNORECASE)
@@ -141,6 +141,7 @@ def otimizar_html(conteudo: str, html_path: Path, raiz: Path) -> tuple[str, int]
         return tag[:pos] + f' imagesrcset="{srcset}" imagesizes="{sizes}"' + tag[pos:]
 
     return link_tag.sub(alinhar_preload, html_com_srcset), alterados
+
 
 def main() -> int:
     raiz = Path(sys.argv[1] if len(sys.argv) > 1 else "_site").resolve()
