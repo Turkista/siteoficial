@@ -213,6 +213,8 @@ def validate_product_structured_data(products, errors):
 def validate_public_html_metadata(errors):
     """Audita metadados, canonical e cobertura do sitemap em páginas públicas."""
     canonical_paths = {}
+    title_values = {}
+    description_values = {}
     pages = []
 
     for path in sorted(ROOT.rglob("*.html")):
@@ -235,6 +237,17 @@ def validate_public_html_metadata(errors):
         title = re.sub(r"\s+", " ", title_match.group(1)).strip() if title_match else ""
         description = description_match.group(1).strip() if description_match else ""
         canonical = canonical_match.group(1).strip() if canonical_match else ""
+        robots_match = re.search(
+            r"<meta\\s+name=[\"']robots[\"']\\s+content=[\"']([^\"']*)[\"']",
+            html,
+            re.I,
+        )
+        is_noindex = bool(robots_match and "noindex" in robots_match.group(1).lower())
+        if not is_noindex:
+            if title:
+                title_values.setdefault(title, []).append(relative.as_posix())
+            if description:
+                description_values.setdefault(description, []).append(relative.as_posix())
         expected_url = (
             f"{BASE}/" if relative.as_posix() == "index.html"
             else f"{BASE}/{relative.as_posix()}"
@@ -273,6 +286,16 @@ def validate_public_html_metadata(errors):
         if len(paths) > 1:
             errors.append(
                 f"canonical duplicada {canonical}: " + ", ".join(paths)
+            )
+    for title, paths in title_values.items():
+        if len(paths) > 1:
+            errors.append(
+                f"title duplicado em páginas indexáveis ({title}): " + ", ".join(paths)
+            )
+    for description, paths in description_values.items():
+        if len(paths) > 1:
+            errors.append(
+                f"meta description duplicada em páginas indexáveis: " + ", ".join(paths)
             )
 
     sitemap_path = ROOT / "sitemap.xml"
