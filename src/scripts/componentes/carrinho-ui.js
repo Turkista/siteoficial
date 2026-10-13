@@ -5,8 +5,9 @@
  * Depende de carrinho.js (window.Carrinho) já carregado antes deste arquivo.
  */
 (function () {
-  if (!window.Carrinho) return;
-  var C = window.Carrinho;
+  // A UI também pode ser executada antes do núcleo em caso de cache ou
+  // carregamento fora de ordem. Aguarda o sinal do núcleo em vez de abortar.
+  var C = window.Carrinho || null;
   var FRETE_GRATIS_MINIMO = 100;
 
   function escapar(texto) {
@@ -333,9 +334,18 @@
     renderizar();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', iniciar);
-  } else {
-    iniciar();
+  var iniciado = false;
+  function iniciarQuandoPronto() {
+    if (iniciado || !window.Carrinho) return;
+    C = window.Carrinho;
+    iniciado = true;
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', iniciar, { once: true });
+    } else {
+      iniciar();
+    }
   }
+
+  window.addEventListener('turkista:carrinho-pronto', iniciarQuandoPronto);
+  iniciarQuandoPronto();
 })();
