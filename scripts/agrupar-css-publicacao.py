@@ -5,7 +5,7 @@ from pathlib import Path
 import re
 import sys
 
-LINK_GROUP = re.compile(r"(?:<link\b[^>]*>\s*){2,}", re.IGNORECASE)
+LINK_GROUP = re.compile(r"""(?:<link\b(?=[^>]*\brel=["']stylesheet["'])[^>]*>\s*){2,}""", re.IGNORECASE)
 ATTR = re.compile(r"""(?<![-\w:])([\w:-]+)\s*=\s*(["'])(.*?)\2""", re.IGNORECASE)
 LINK_TAG = re.compile(r"<link\b[^>]*>", re.IGNORECASE)
 
