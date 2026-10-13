@@ -7,7 +7,7 @@ import sys
 import tempfile
 from pathlib import Path
 from PIL import Image
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://www.turkista.com.br"
@@ -313,6 +313,50 @@ def validate_public_html_metadata(errors):
                 errors.append(f"sitemap.xml: página noindex listada: {url}")
 
 
+def validate_internal_links(errors):
+    """Verifica referências locais href/src para páginas e arquivos inexistentes."""
+    checked = 0
+    missing = []
+    ignored_parts = {"painel-produtos", "_site", ".git"}
+
+    for page in sorted(ROOT.rglob("*.html")):
+        relative = page.relative_to(ROOT)
+        if any(part in ignored_parts for part in relative.parts):
+            continue
+        html = page.read_text(encoding="utf-8")
+
+        for match in re.finditer(
+            r"\\b(?:href|src)=[\"']([^\"']+)[\"']",
+            html,
+            re.I,
+        ):
+            raw_url = match.group(1).strip()
+            if not raw_url or raw_url.startswith("#") or raw_url.startswith("//"):
+                continue
+            parsed = urlparse(raw_url)
+            if parsed.scheme or parsed.netloc:
+                continue
+            raw_path = unquote(parsed.path).strip()
+            if not raw_path:
+                continue
+
+            if raw_path.startswith("/"):
+                target = ROOT / raw_path.lstrip("/")
+            else:
+                target = page.parent / raw_path
+            if raw_path.endswith("/"):
+                target = target / "index.html"
+            checked += 1
+            if not target.is_file():
+                missing.append(f"{relative.as_posix()}: {raw_url}")
+
+    for item in missing:
+        errors.append(f"link/recurso local não encontrado: {item}")
+    if missing:
+        errors.append(f"auditoria de links internos: {len(missing)} referência(s) quebrada(s)")
+    print(f"Links internos: {checked} referências locais verificadas; {len(missing)} ausente(s).")
+
+
 def parse_price(value):
     value = value.strip().replace("R$", "").replace(".", "").replace(",", ".").strip()
     try:
@@ -329,6 +373,19 @@ def validate_performance_basics(errors):
         return
 
     html = index_path.read_text(encoding="utf-8")
+    hero_preload = '<link rel="preload" as="image" href="assets/hero/hero-praia.webp" fetchpriority="high">'
+    if hero_preload not in html:
+        errors.append("index.html: imagem principal não está pré-carregada com prioridade alta")
+    hero_image = re.search(r'<img[^>]*class="hero__foto"[^>]*>', html, re.I)
+    if not hero_image:
+        errors.append("index.html: imagem principal do hero não encontrada")
+    else:
+        tag = hero_image.group(0)
+        if not re.search(r'\\bwidth="[1-9]\\d*"', tag) or not re.search(r'\\bheight="[1-9]\\d*"', tag):
+            errors.append("index.html: imagem principal precisa de width/height para reduzir CLS")
+        if 'loading="eager"' not in tag or 'fetchpriority="high"' not in tag:
+            errors.append("index.html: imagem principal precisa de loading=eager e fetchpriority=high")
+
     if "fonts.googleapis.com/css2" in html and "display=swap" in html:
         errors.append("index.html: Google Fonts deve usar display=optional para reduzir trocas tardias de fonte")
 
@@ -532,6 +589,7 @@ def main():
     validate_product_seo_overrides(products, errors)
     validate_product_structured_data(products, errors)
     validate_public_html_metadata(errors)
+    validate_internal_links(errors)
 
     sitemap = ROOT / "sitemap.xml"
     if sitemap.is_file():
