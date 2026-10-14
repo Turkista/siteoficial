@@ -529,6 +529,7 @@ def gerar_politica_troca_schema():
         "applicableCountry": "BR",
         "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
         "merchantReturnDays": 7,
+        "returnFees": "https://schema.org/FreeReturn",
         "returnMethod": "https://schema.org/ReturnByMail",
         "merchantReturnLink": URL_POLITICA_TROCA,
     }
@@ -569,11 +570,9 @@ def gerar_json_ld(produto, imagens, url):
             "itemCondition": "https://schema.org/NewCondition",
             "seller": {"@type": "Organization", "@id": f"{BASE_URL}/#organizacao", "name": NOME_MARCA},
         }
-        # Política de troca só para peças não íntimas: em biquíni/maiô a troca
-        # é apenas por defeito, e o schema não tem como expressar isso sem
-        # prometer mais do que a política oferece.
-        if not eh_intimo(produto):
-            oferta["hasMerchantReturnPolicy"] = gerar_politica_troca_schema()
+        # A política pública descreve os direitos legais de devolução para
+        # todas as categorias; trocas voluntárias podem ter regras próprias.
+        oferta["hasMerchantReturnPolicy"] = gerar_politica_troca_schema()
         produto_data["offers"] = oferta
 
     # Breadcrumb estruturado — mesmo caminho do breadcrumb visual da página
