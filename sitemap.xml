@@ -488,4 +488,10 @@
     <image:image><image:loc>https://www.turkista.com.br/assets/produtos/xuxinhas-coloridas-diversas-4.webp</image:loc></image:image>
     <image:image><image:loc>https://www.turkista.com.br/assets/produtos/xuxinhas-coloridas-diversas-5.webp</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://www.turkista.com.br/politica-de-troca-e-reembolso.html</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
