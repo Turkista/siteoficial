@@ -121,3 +121,55 @@ ela baixa um componente extra na primeira instalação. Se der erro, o mais
 comum é falta de conexão com a internet nesse momento (só na instalação,
 não no uso do dia a dia). Rode `npm install` de novo com internet ativa.
 
+## Central Pinterest — configuração inicial
+
+A integração do Pinterest fica na aba **Pinterest** do painel local, em
+`http://localhost:3000/pinterest.html`. Ela permite conectar a conta,
+listar/criar Boards, publicar um produto como Pin e consultar o histórico.
+
+### 1. Configurar as credenciais localmente
+
+1. Copie `pinterest-oauth.example.json` para
+   `secrets/pinterest-oauth.json` dentro de `painel-produtos`.
+   Crie a pasta `secrets` se ela ainda não existir.
+2. Abra **somente o arquivo local**
+   `painel-produtos/secrets/pinterest-oauth.json` e preencha:
+   - `client_id`: ID do aplicativo Pinterest.
+   - `client_secret`: chave secreta do aplicativo Pinterest.
+   - `redirect_uri`: `http://localhost:3000/api/pinterest/oauth/callback`.
+3. No painel de desenvolvedor do Pinterest, confirme que a URL de redirecionamento
+   autorizada é exatamente a mesma, incluindo protocolo, porta, caminho e ausência
+   de barra final.
+4. Salve o arquivo e reinicie o painel se ele já estiver aberto.
+
+**Segurança:** não coloque a chave secreta nem tokens em arquivos versionados,
+prints públicos, mensagens ou commits. A pasta `painel-produtos/secrets/` já está
+no `.gitignore`; mantenha as credenciais somente nela. O arquivo de exemplo
+versionado deve conter apenas texto de preenchimento, nunca a chave real.
+
+### 2. Conectar e validar
+
+1. Inicie o painel com `npm start`.
+2. Abra `http://localhost:3000/pinterest.html` e clique em **Conectar Pinterest**.
+3. Autorize as permissões solicitadas na página oficial do Pinterest.
+4. Ao retornar ao painel, confira o estado da conexão e se os Boards aparecem.
+5. Antes de publicar um produto real, valide primeiro a conta e a leitura dos Boards.
+   Se a conta/app estiver com acesso limitado, Pins de teste podem ficar visíveis
+   somente para a conta que os criou, conforme as permissões concedidas pelo Pinterest.
+6. Faça a primeira publicação com um produto de teste que tenha imagem pública
+   acessível por HTTPS. Confira o Pin na conta Pinterest e o histórico do painel.
+
+### 3. Se a conexão falhar
+
+- `OAuth aguardando Client Secret`: confira se o arquivo local existe e se os três
+  campos estão preenchidos.
+- Erro de redirecionamento: compare a URL cadastrada no Pinterest com
+  `http://localhost:3000/api/pinterest/oauth/callback`.
+- Erro de escopo/permissão ou resposta 401/403: confira no painel de desenvolvedor
+  o nível de acesso liberado e as permissões aprovadas para o aplicativo.
+- Erro ao publicar uma imagem: verifique se a imagem do produto está disponível
+  publicamente em HTTPS e se a URL não exige login.
+
+A chave secreta do aplicativo não é o mesmo que o token OAuth da conta. O token
+é obtido durante a conexão autorizada e salvo localmente em
+`painel-produtos/secrets/pinterest-token.json`; não o adicione ao Git.
