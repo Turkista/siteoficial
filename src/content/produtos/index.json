@@ -2,10 +2,10 @@
   {
     "id": "prod_biquinia",
     "slug": "biquini-andrea-dupla-face-parte-superior",
-    "nome": "Biquíni Andrea dupla face - Parte superior",
+    "nome": "Top de Biquíni Andrea Dupla Face Roxo e Dourado",
     "linha": "praia",
     "categoria": "Biquíni parte superior",
-    "descricaoCurta": "Top de biquíni Andrea vendido avulso, com malha dupla face, alças ajustáveis e tecido de secagem rápida.",
+    "descricaoCurta": "Top de biquíni Andrea dupla face roxo e dourado, vendido avulso. Possui modelagem triangular, alças ajustáveis e estampa nos dois lados.",
     "descricaoCompleta": "Top triangular vendido como parte superior avulsa, com alças finas ajustáveis e nós decorativos que repetem a estampa.\r\n\r\nA malha é dupla face: a estampa roxa com detalhes dourados aparece nos dois lados do tecido, permitindo alternar o visual sem trocar de peça. Acabamento em malha premium, de secagem rápida.\r\n\r\nDestaques:\r\n\r\nTop triangular vendido avulso;\r\nAlças ajustáveis, com amarração no pescoço e nas costas;\r\nMalha dupla face, com estampa nos dois lados;\r\nSecagem rápida;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -19,12 +19,12 @@
         "imagens": [
           {
             "arquivo": "biquini-andrea-dupla-face-parte-superior-1.webp",
-            "alt": "Biquíni Andrea dupla face - Parte superior - foto 1",
+            "alt": "Top de biquíni Andrea dupla face com estampa roxa e detalhes dourados",
             "proporcao": "3:4"
           },
           {
             "arquivo": "biquini-andrea-dupla-face-parte-superior-2.webp",
-            "alt": "Biquíni Andrea dupla face - Parte superior - foto 2",
+            "alt": "Top de biquíni Andrea dupla face, segunda vista da estampa roxa e dourada",
             "proporcao": "3:4"
           }
         ]
@@ -40,12 +40,12 @@
     "imagens": [
       {
         "arquivo": "biquini-andrea-dupla-face-parte-superior-1.webp",
-        "alt": "Biquíni Andrea dupla face - Parte superior - foto 1",
+        "alt": "Top de biquíni Andrea dupla face com estampa roxa e detalhes dourados",
         "proporcao": "3:4"
       },
       {
         "arquivo": "biquini-andrea-dupla-face-parte-superior-2.webp",
-        "alt": "Biquíni Andrea dupla face - Parte superior - foto 2",
+        "alt": "Top de biquíni Andrea dupla face, segunda vista da estampa roxa e dourada",
         "proporcao": "3:4"
       }
     ],
@@ -60,7 +60,8 @@
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Top de biquíni Andrea dupla face com alças ajustáveis, estampa nos dois lados e tecido de secagem rápida. Tamanho P, por R$ 45 em 2x sem juros."
+    "seoDescricao": "Top de biquíni Andrea dupla face roxo e dourado, com alças ajustáveis. Só a parte superior; calcinha não incluída. Tamanho P por R$ 45 em 2x.",
+    "seoTitulo": "Top de Biquíni Andrea Dupla Face Roxo e Dourado | Turkista"
   },
   {
     "id": "prod_aurora01",
