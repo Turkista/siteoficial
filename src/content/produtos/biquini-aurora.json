@@ -4,8 +4,8 @@
   "nome": "Biquíni Aurora",
   "linha": "praia",
   "categoria": "biquíni",
-  "descricaoCurta": "Biquíni Aurora rosa em lycra texturizada, com top franzido, alças brancas trançadas e calcinha de amarração lateral ajustável.",
-  "descricaoCompleta": "Biquíni de amarração lateral, em malha rosa com textura em relevo e alças brancas trançadas que contrastam com a cor da peça.\r\n\r\nO acabamento franzido nas bordas do top e a amarração lateral na calcinha permitem ajustar o caimento ao corpo. Uma peça para usar o dia inteiro, da praia à piscina.\r\n\r\nDestaques:\r\n\r\nMalha com textura em relevo;\r\nAlças e detalhes em branco;\r\nAmarração lateral ajustável;\r\nAcabamento franzido;",
+  "descricaoCurta": "Top do Biquíni Aurora rosa em lycra texturizada, com acabamento franzido e alças brancas trançadas. À venda somente a parte superior; calcinha não incluída.",
+  "descricaoCompleta": "Top do Biquíni Aurora em malha rosa com textura em relevo e alças brancas trançadas que contrastam com a cor da peça.\r\n\r\nO acabamento franzido nas bordas e as alças brancas dão destaque ao visual. Importante: este anúncio é referente somente à parte superior (top). A calcinha não está incluída no valor e não faz parte desta venda.\r\n\r\nDestaques:\r\n\r\nSomente a parte superior do biquíni;\r\nMalha com textura em relevo;\r\nAlças e detalhes em branco;\r\nAcabamento franzido;",
   "composicao": {
     "tecido": "Lycra",
     "protecaoUV": null,
@@ -18,7 +18,7 @@
       "imagens": [
         {
           "arquivo": "biquini-aurora.webp",
-          "alt": "Biquíni Aurora na cor Rosa Turkista",
+          "alt": "Top do Biquíni Aurora, somente parte superior, na cor Rosa Turkista",
           "proporcao": "3:4"
         }
       ]
@@ -37,7 +37,7 @@
   "imagens": [
     {
       "arquivo": "biquini-aurora.webp",
-      "alt": "Biquíni Aurora",
+      "alt": "Top do Biquíni Aurora, somente parte superior",
       "proporcao": "3:4"
     }
   ],
@@ -46,13 +46,13 @@
   ],
   "tags": [
     "praia",
-    "amarração",
-    "biquíni"
+    "top de biquíni",
+    "somente parte superior"
   ],
   "status": "publicado",
   "dataCriacao": "2026-08-02",
   "genero": "feminino",
   "faixaEtaria": "15+",
-  "seoTitulo": "Biquíni Aurora – Moda Praia | Turkista",
-  "seoDescricao": "Biquíni Aurora rosa com textura em relevo, top franzido, alças brancas trançadas e calcinha com amarração lateral ajustável. Tamanhos P, M e G."
+  "seoTitulo": "Top Biquíni Aurora – Só a Parte Superior | Turkista",
+  "seoDescricao": "Top do Biquíni Aurora rosa à venda separadamente: o valor inclui somente a parte superior. Calcinha não incluída. Tamanhos P, M e G."
 }
