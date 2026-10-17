@@ -4,7 +4,7 @@
   "nome": "Maiô Passarela",
   "linha": "praia",
   "categoria": "maiô",
-  "descricaoCurta": "Maiô Passarela preto e azul royal metalizado, com decote assimétrico, recortes na cintura e modelagem cavada.",
+  "descricaoCurta": "Maiô feminino preto e azul royal em tecido metalizado, com decote assimétrico, recortes na cintura e modelagem cavada.",
   "descricaoCompleta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico, com a parte superior em formato assimétrico e decote profundo. Possui recortes estratégicos na cintura e nas laterais do abdômen, criando efeito de peça vazada. A parte inferior tem modelagem cavada, com acabamento ajustado ao corpo.",
   "composicao": {
     "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -18,12 +18,12 @@
       "imagens": [
         {
           "arquivo": "maio-passarela-1.webp",
-          "alt": "Maiô Passarela - foto 1",
+          "alt": "Maiô Passarela, preto e azul  – Turkista",
           "proporcao": "3:4"
         },
         {
           "arquivo": "maio-passarela-2.webp",
-          "alt": "Maiô Passarela - foto 2",
+          "alt": "Maiô Passarela, preto e azul  – Turkista",
           "proporcao": "3:4"
         }
       ]
@@ -39,12 +39,12 @@
   "imagens": [
     {
       "arquivo": "maio-passarela-1.webp",
-      "alt": "Maiô Passarela - foto 1",
+      "alt": "Maiô Passarela, preto e azul  – Turkista",
       "proporcao": "3:4"
     },
     {
       "arquivo": "maio-passarela-2.webp",
-      "alt": "Maiô Passarela - foto 2",
+      "alt": "Maiô Passarela, preto e azul  – Turkista",
       "proporcao": "3:4"
     }
   ],
@@ -56,8 +56,9 @@
     "maiô"
   ],
   "status": "publicado",
-  "seoDescricao": "Maiô Passarela preto e azul royal metalizado, com decote assimétrico, recortes na cintura e modelagem cavada. Tamanho M, R$ 390.",
+  "seoDescricao": "Maiô feminino Passarela preto e azul royal metalizado, com decote assimétrico e recortes na cintura. Tamanho M, por R$ 390 em até 5x.",
   "dataCriacao": "2026-08-17",
   "genero": "feminino",
-  "faixaEtaria": "15+"
+  "faixaEtaria": "15+",
+  "seoTitulo": "Maiô Metalizado Assimétrico Passarela | Turkista"
 }
