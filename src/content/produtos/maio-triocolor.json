@@ -4,7 +4,7 @@
   "nome": "Maiô TrioColor",
   "linha": "praia",
   "categoria": "maiô",
-  "descricaoCurta": "Maiô TrioColor com blocos de cores branco, vermelho e preto, tecido texturizado e modelagem contemporânea.",
+  "descricaoCurta": "Maiô feminino TrioColor com blocos de cores branco, vermelho e preto, tecido texturizado e visual contemporâneo para praia e piscina.",
   "descricaoCompleta": "Maiô de design moderno e marcante, com modelagem que combina diferentes blocos de cores em um efeito patchwork sofisticado. O tecido é texturizado e possui uma sensação macia e aveludada, proporcionando um toque agradável e confortável sobre a pele.\r\n\r\nA combinação de cores valoriza a silhueta e traz um visual contemporâneo, perfeito para quem busca uma peça diferenciada para momentos na praia, no surf ou em atividades ao ar livre. Uma peça que une estilo, conforto e personalidade em um único design.",
   "composicao": {
     "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -18,7 +18,7 @@
       "imagens": [
         {
           "arquivo": "maio-triocolor.webp",
-          "alt": "Maiô TrioColor",
+          "alt": "Maiô TrioColor, branco, vermelho e preto – Turkista",
           "proporcao": "3:4"
         }
       ]
@@ -34,7 +34,7 @@
   "imagens": [
     {
       "arquivo": "maio-triocolor.webp",
-      "alt": "Maiô TrioColor",
+      "alt": "Maiô TrioColor, branco, vermelho e preto – Turkista",
       "proporcao": "3:4"
     }
   ],
@@ -45,8 +45,9 @@
     "maiô"
   ],
   "status": "publicado",
-  "seoDescricao": "Maiô TrioColor com blocos de cores branco, vermelho e preto e tecido texturizado de toque macio. Tamanho M, R$ 190.",
+  "seoDescricao": "Maiô feminino TrioColor branco, vermelho e preto, com blocos de cor e tecido texturizado. Modelo tamanho M, por R$ 190 em 3x sem juros.",
   "dataCriacao": "2026-08-17",
   "genero": "feminino",
-  "faixaEtaria": "15+"
+  "faixaEtaria": "15+",
+  "seoTitulo": "Maiô TrioColor Tricolor Texturizado | Turkista"
 }
