@@ -4,7 +4,7 @@
   "nome": "Maiô Blue",
   "linha": "praia",
   "categoria": "maiô",
-  "descricaoCurta": "Maiô azul royal com decote reto franzido, alças finas ajustáveis e laterais com cordões para regular a altura e o caimento.",
+  "descricaoCurta": "Maiô feminino azul royal com decote reto franzido, alças finas ajustáveis e laterais com cordões para regular a altura e o caimento.",
   "descricaoCompleta": "Maiô feminino em azul royal, com design moderno e modelagem que valoriza a silhueta. Possui decote reto com franzido, alças finas ajustáveis e franzidos nas laterais com regulagem por cordões, permitindo ajustar a altura e o caimento da peça conforme a preferência.\r\n\r\nA modelagem une conforto, versatilidade e estilo, sendo ideal para praia, piscina e produções de moda resort. O acabamento franzido proporciona um visual sofisticado e permite personalizar o ajuste da peça.\r\n\r\nDestaques da peça:\r\n\r\nAzul royal vibrante\r\nDecote reto franzido\r\nAlças finas com amarração\r\nLaterais franzidas com regulagem\r\nModelagem que acompanha o corpo\r\nDesign versátil para praia e piscina\r\nEstilo moderno e sofisticado",
   "composicao": {
     "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -18,12 +18,12 @@
       "imagens": [
         {
           "arquivo": "maio-blue-1.webp",
-          "alt": "Maiô Blue - foto 1",
+          "alt": "Maiô Blue, azul caneta – Turkista",
           "proporcao": "3:4"
         },
         {
           "arquivo": "maio-blue-2.webp",
-          "alt": "Maiô Blue - foto 2",
+          "alt": "Maiô Blue, azul caneta – Turkista",
           "proporcao": "3:4"
         }
       ]
@@ -39,12 +39,12 @@
   "imagens": [
     {
       "arquivo": "maio-blue-1.webp",
-      "alt": "Maiô Blue - foto 1",
+      "alt": "Maiô Blue, azul caneta – Turkista",
       "proporcao": "3:4"
     },
     {
       "arquivo": "maio-blue-2.webp",
-      "alt": "Maiô Blue - foto 2",
+      "alt": "Maiô Blue, azul caneta – Turkista",
       "proporcao": "3:4"
     }
   ],
@@ -58,5 +58,6 @@
   "dataCriacao": "2026-08-18",
   "genero": "feminino",
   "faixaEtaria": "15+",
-  "seoDescricao": "Maiô Blue azul royal com franzidos e regulagem lateral por cordões. Tamanho M, por R$ 150 em 3x sem juros."
+  "seoDescricao": "Maiô feminino azul royal com decote reto franzido e laterais reguláveis por cordões. Modelo Blue, tamanho M, por R$ 150 em 3x sem juros.",
+  "seoTitulo": "Maiô Azul Royal com Franzidos Blue | Turkista"
 }
