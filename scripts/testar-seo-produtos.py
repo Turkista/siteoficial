@@ -20,6 +20,11 @@ SLUGS = {
     "maio-de-surf-spider", "maio-de-surf-vivence", "maio-perola-mares",
 }
 
+SLUGS_CONVENCIONAIS = {
+    "maio-artx", "maio-blue", "maio-cevi", "maio-chicler", "maio-green",
+    "maio-hight", "maio-passarela", "maio-supreme", "maio-teia", "maio-triocolor",
+}
+
 
 def load_products():
     folder = ROOT / "src" / "content" / "produtos"
@@ -72,6 +77,42 @@ class TestSeoMaiosSurf(unittest.TestCase):
                     product_schema = json.loads(match.group(1))
                     self.assertEqual("Product", product_schema["@type"])
                     self.assertEqual(p["id"], product_schema["sku"])
+                    self.assertEqual(ficha.descricao_schema(p), product_schema["description"])
+                    self.assertEqual(ficha.disponibilidade(p), product_schema["offers"]["availability"])
+
+    def test_non_surf_maios_have_valid_overrides_and_synced_html(self):
+        for slug in sorted(SLUGS_CONVENCIONAIS):
+            with self.subTest(slug=slug):
+                p = self.by_slug[slug]
+                self.assertTrue(p.get("seoTitulo"))
+                self.assertTrue(p.get("seoDescricao"))
+                self.assertLessEqual(len(p["seoTitulo"]), 60)
+                self.assertGreaterEqual(len(p["seoDescricao"]), 120)
+                self.assertLessEqual(len(p["seoDescricao"]), 158)
+                self.assertRegex(p["seoDescricao"], r"[.!?]$")
+                self.assertEqual([], ficha.avisos_seo_override(p))
+                self.assertEqual(p["seoTitulo"], ficha.montar_titulo(p))
+                self.assertEqual(p["seoDescricao"], ficha.montar_meta_descricao(p))
+                generated = ficha.gerar_pagina(p, self.published)
+                committed = (ROOT / "produto" / f"{slug}.html").read_text(encoding="utf-8")
+                for html in (generated, committed):
+                    self.assertIn(f"<title>{ficha.esc(p['seoTitulo'])}</title>", html)
+                    description = ficha.esc(p["seoDescricao"])
+                    self.assertIn(f'<meta name="description" content="{description}">', html)
+                    self.assertIn(f'<meta property="og:title" content="{ficha.esc(p["seoTitulo"])}">', html)
+                    self.assertIn(f'<meta name="twitter:title" content="{ficha.esc(p["seoTitulo"])}">', html)
+                    self.assertIn(f'<meta property="og:description" content="{description}">', html)
+                    self.assertIn(f'<meta name="twitter:description" content="{description}">', html)
+                    self.assertIn(f'<link rel="canonical" href="{ficha.BASE_URL}/produto/{slug}.html">', html)
+                    match = re.search(
+                        r'<script type="application/ld\\+json">\\s*(\\{.*?\\})\\s*</script>',
+                        html, re.DOTALL
+                    )
+                    self.assertIsNotNone(match)
+                    product_schema = json.loads(match.group(1))
+                    self.assertEqual("Product", product_schema["@type"])
+                    self.assertEqual(p["id"], product_schema["sku"])
+                    self.assertEqual(p["nome"], product_schema["name"])
                     self.assertEqual(ficha.descricao_schema(p), product_schema["description"])
                     self.assertEqual(ficha.disponibilidade(p), product_schema["offers"]["availability"])
 
