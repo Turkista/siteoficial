@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Regressão de SEO para fichas de maiôs de surf no catálogo da Turkista."""
+import importlib.util
 import json
 import re
 import sys
@@ -8,7 +9,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
-import gerar_ficha_produto as ficha
+SPEC = importlib.util.spec_from_file_location(
+    "gerar_ficha_produto", ROOT / "scripts" / "gerar-ficha-produto.py"
+)
+ficha = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(ficha)
 
 SLUGS = {
     "maio-surf-bloom", "maio-de-surf-flora", "maio-de-surf-mandala",
@@ -69,6 +74,21 @@ class TestSeoMaiosSurf(unittest.TestCase):
                     self.assertEqual(p["id"], product_schema["sku"])
                     self.assertEqual(ficha.descricao_schema(p), product_schema["description"])
                     self.assertEqual(ficha.disponibilidade(p), product_schema["offers"]["availability"])
+
+    def test_aurora_listing_states_only_the_top_is_sold(self):
+        product = self.by_slug["biquini-aurora"]
+        self.assertEqual("Top do Biquíni Aurora", product["nome"])
+        self.assertIn("calcinha não incluída", product["descricaoCurta"].lower())
+        self.assertIn("somente a parte superior", product["descricaoCompleta"].lower())
+        self.assertIn("Calcinha não incluída.", product["seoDescricao"])
+
+        detail = (ROOT / "produto" / "biquini-aurora.html").read_text(encoding="utf-8")
+        home = (ROOT / "index.html").read_text(encoding="utf-8")
+        praia = (ROOT / "praia.html").read_text(encoding="utf-8")
+        self.assertIn("A calcinha não está incluída.", detail)
+        self.assertIn("Somente a parte superior; calcinha não incluída.", home)
+        self.assertIn("Somente a parte superior; calcinha não incluída.", praia)
+        self.assertIn("Calcinha não incluída.", detail)
 
     def test_meta_cut_does_not_end_with_a_connector(self):
         text = (
