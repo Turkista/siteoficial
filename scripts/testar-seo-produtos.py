@@ -105,7 +105,7 @@ class TestSeoMaiosSurf(unittest.TestCase):
                     self.assertIn(f'<meta name="twitter:description" content="{description}">', html)
                     self.assertIn(f'<link rel="canonical" href="{ficha.BASE_URL}/produto/{slug}.html">', html)
                     match = re.search(
-                        r'<script type="application/ld\\+json">\\s*(\\{.*?\\})\\s*</script>',
+                        r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>',
                         html, re.DOTALL
                     )
                     self.assertIsNotNone(match)
