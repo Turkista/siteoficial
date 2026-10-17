@@ -1,0 +1,30 @@
+name: SEO das fichas de produto
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/gerar-ficha-produto.py"
+      - "scripts/testar-seo-produtos.py"
+      - "src/content/produtos/**"
+      - "produto/**"
+      - ".github/workflows/seo-validation.yml"
+  push:
+    branches: [fix/seo-maios-surf-main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  testar-seo-fichas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Testar SEO das fichas
+        run: python scripts/testar-seo-produtos.py

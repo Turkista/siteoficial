@@ -120,6 +120,25 @@ def disponibilidade(produto):
     return "https://schema.org/InStock"
 
 
+def disponibilidade_og(produto):
+    """Mapeia estoque do schema.org para os valores aceitos por Open Graph."""
+    return "discontinued" if disponibilidade(produto).endswith("/Discontinued") else "in stock"
+
+
+def avisos_seo_override(produto):
+    """Valida os limites SEO documentados sem interromper a geração do catálogo."""
+    avisos = []
+    titulo = limpar_texto_para_html(produto.get("seoTitulo", ""))
+    descricao = limpar_texto_para_html(produto.get("seoDescricao", ""))
+    if titulo and len(titulo) > 60:
+        avisos.append(f"seoTitulo tem {len(titulo)} caracteres (máximo recomendado: 60)")
+    if descricao and not 120 <= len(descricao) <= 158:
+        avisos.append(f"seoDescricao tem {len(descricao)} caracteres (esperado: 120–158)")
+    if descricao and descricao[-1:] not in ".!?":
+        avisos.append("seoDescricao deve terminar com pontuação")
+    return avisos
+
+
 def _tamanho_webp(caminho):
     """Largura x altura de um .webp lendo só o cabeçalho (sem depender de
     Pillow, que pode não estar instalado no computador de quem roda o painel)."""
@@ -436,7 +455,7 @@ def _sem_ponto_final(t):
 
 
 def _cortar(texto, limite):
-    """Corta em fronteira de vírgula ou palavra, sem reticências."""
+    """Corta sem reticências e evita deixar preposição/conector no fim."""
     if len(texto) <= limite:
         return texto
     corte = texto[:limite]
@@ -445,6 +464,20 @@ def _cortar(texto, limite):
         corte = corte[:virgula]
     elif " " in corte:
         corte = corte[: corte.rfind(" ")]
+
+    corte = corte.rstrip(" ,;:-–—")
+    conectores_finais = {
+        "a", "ao", "aos", "as", "com", "da", "das", "de", "do", "dos",
+        "e", "em", "na", "nas", "no", "nos", "o", "os", "ou", "para",
+        "pela", "pelas", "pelo", "pelos", "por", "um", "uma", "uns", "umas",
+    }
+    palavras = corte.split()
+    if palavras and palavras[-1].lower().strip(".,;:") in conectores_finais:
+        virgula = corte.rfind(", ")
+        if virgula >= max(20, int(limite * 0.25)):
+            corte = corte[:virgula]
+        else:
+            corte = corte[:corte.rfind(" ")] if " " in corte else ""
     return corte.rstrip(" ,;:-–—")
 
 
@@ -891,7 +924,7 @@ def gerar_pagina(produto, todos_produtos):
         )
     og_extra += (
         f'<meta property="product:brand" content="{NOME_MARCA}">\n'
-        f'<meta property="product:availability" content="{"in stock" if publicado else "discontinued"}">\n'
+        f'<meta property="product:availability" content="{disponibilidade_og(produto)}">\n'
     )
 
     whatsapp_texto = (
@@ -954,6 +987,10 @@ def main():
     # não é a ficha de um produto, então fica de fora deste laço.
     arquivos = sorted(p for p in CONTEUDO_DIR.glob("*.json") if p.name != "index.json")
     produtos = [json.loads(p.read_text(encoding="utf-8")) for p in arquivos]
+
+    for produto in produtos:
+        for aviso in avisos_seo_override(produto):
+            print(f"AVISO SEO [{produto.get('slug', produto.get('nome', 'produto'))}]: {aviso}")
 
     publicados = [p for p in produtos if esta_publicado(p)]
 
