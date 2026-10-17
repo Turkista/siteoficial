@@ -1704,7 +1704,7 @@
     "nome": "Maiô ArtX",
     "linha": "praia",
     "categoria": "maiô",
-    "descricaoCurta": "Maiô de design moderno e marcante, com modelagem strappy e recortes estratégicos que criam um visual geométrico e valorizam a silhueta.",
+    "descricaoCurta": "Maiô feminino ArtX laranja com decote triangular profundo, alças finas ajustáveis e tiras cruzadas na cintura em desenho geométrico strappy.",
     "descricaoCompleta": "O top possui decote profundo em formato triangular, com alças finas ajustáveis e acabamento franzido nas laterais.\r\n\r\nA região da cintura traz tiras cruzadas que formam um desenho em X, deixando parte da pele à mostra e conectando o top à parte inferior. A calcinha possui laterais com tiras largas e modelagem cavada, complementando o design ousado da peça.\r\n\r\nConfeccionado em tecido texturizado, com toque macio e agradável, é uma peça que combina conforto, personalidade e um visual contemporâneo, ideal para quem busca um beachwear diferenciado.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1758,7 +1758,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô ArtX com decote triangular, tiras cruzadas na cintura e modelagem strappy. Tamanho M, por R$ 220 em 4x sem juros."
+    "seoDescricao": "Maiô feminino ArtX laranja com decote triangular e tiras cruzadas na cintura. Modelagem strappy, tamanho M, por R$ 220 em 4x sem juros.",
+    "seoTitulo": "Maiô ArtX Strappy Laranja | Turkista"
   },
   {
     "id": "prod_maioblue",
@@ -1766,7 +1767,7 @@
     "nome": "Maiô Blue",
     "linha": "praia",
     "categoria": "maiô",
-    "descricaoCurta": "Maiô Azul Royal Franzido com Regulagem Lateral",
+    "descricaoCurta": "Maiô feminino azul royal com decote reto franzido, alças finas ajustáveis e laterais com cordões para regular a altura e o caimento.",
     "descricaoCompleta": "Maiô feminino em azul royal, com design moderno e modelagem que valoriza a silhueta. Possui decote reto com franzido, alças finas ajustáveis e franzidos nas laterais com regulagem por cordões, permitindo ajustar a altura e o caimento da peça conforme a preferência.\r\n\r\nA modelagem une conforto, versatilidade e estilo, sendo ideal para praia, piscina e produções de moda resort. O acabamento franzido proporciona um visual sofisticado e permite personalizar o ajuste da peça.\r\n\r\nDestaques da peça:\r\n\r\nAzul royal vibrante\r\nDecote reto franzido\r\nAlças finas com amarração\r\nLaterais franzidas com regulagem\r\nModelagem que acompanha o corpo\r\nDesign versátil para praia e piscina\r\nEstilo moderno e sofisticado",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1820,7 +1821,8 @@
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Blue azul royal com franzidos e regulagem lateral por cordões. Tamanho M, por R$ 150 em 3x sem juros."
+    "seoDescricao": "Maiô feminino azul royal com decote reto franzido e laterais reguláveis por cordões. Modelo Blue, tamanho M, por R$ 150 em 3x sem juros.",
+    "seoTitulo": "Maiô Azul Royal com Franzidos Blue | Turkista"
   },
   {
     "id": "prod_maiocevi",
@@ -1828,7 +1830,7 @@
     "nome": "Maiô Cevi",
     "linha": "praia",
     "categoria": "maiô",
-    "descricaoCurta": "Maiô feminino laranja de modelagem assimétrica, confeccionado em tecido liso de acabamento fosco e cor laranja vibrante.",
+    "descricaoCurta": "Maiô feminino laranja com decote assimétrico de um ombro só, recorte lateral na cintura, franzido no busto e cava alta.",
     "descricaoCompleta": "Decote assimétrico, com uma única alça fina sobre um dos ombros.\r\nCorpo do maiô com recorte lateral na cintura, criando um efeito moderno e alongando visualmente a silhueta.\r\nParte frontal com modelagem ajustada ao corpo.\r\nDetalhe franzido na lateral do busto, com pequeno ajuste/amarração.\r\nParte inferior com cava alta, valorizando as pernas.\r\nCosturas e acabamentos discretos, acompanhando o contorno da peça.\r\nTecido sem estampa e sem brilho, com aparência uniforme e sofisticada.\r\nCor: laranja intenso.\r\n\r\nEstilo: moderno, tropical e sofisticado, com uma proposta de beachwear marcante e contemporânea.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1892,7 +1894,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Cevi laranja de um ombro só, com recorte lateral e detalhe franzido no busto. Tamanho M, por R$ 220."
+    "seoDescricao": "Maiô feminino Cevi laranja de um ombro só, com recorte lateral na cintura e franzido no busto. Tamanho M, por R$ 220 em até 4x.",
+    "seoTitulo": "Maiô Assimétrico Laranja Cevi | Turkista"
   },
   {
     "id": "prod_maiochic",
@@ -1900,7 +1903,7 @@
     "nome": "Maiô Chicler",
     "linha": "praia",
     "categoria": "Maiô",
-    "descricaoCurta": "Maiô pink vibrante com textura em ondas e design moderno de um ombro só. A modelagem possui recorte estratégico na região da cintura, criando um visual contempo",
+    "descricaoCurta": "Maiô feminino pink com textura em ondas, design de um ombro só e recorte na cintura; visual marcante para praia, piscina e verão.",
     "descricaoCompleta": "Maiô pink vibrante com textura em ondas e design moderno de um ombro só. A modelagem possui recorte estratégico na região da cintura, criando um visual contemporâneo e valorizando a silhueta. O acabamento texturizado traz um diferencial à peça, enquanto a cor intensa deixa o look marcante e cheio de personalidade. Uma opção versátil para a praia, piscina ou para compor produções de verão.\r\n\r\nDetalhes:\r\n\r\nMaiô de um ombro só\r\nCor pink vibrante\r\nTextura em ondas\r\nRecorte estratégico na cintura\r\nModelagem moderna\r\nVisual marcante e sofisticado\r\nIdeal para praia e piscina",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -1954,7 +1957,8 @@
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Chicler pink com textura em ondas, um ombro só e recorte na cintura. Tamanho M, por R$ 250 em 3x sem juros."
+    "seoDescricao": "Maiô feminino Chicler pink com textura em ondas, um ombro só e recorte na cintura. Modelo marcante para praia e piscina, tamanho M, R$ 250.",
+    "seoTitulo": "Maiô Pink Texturizado Chicler | Turkista"
   },
   {
     "id": "prod_maiodesu",
@@ -2211,7 +2215,7 @@
     "nome": "Maiô Green",
     "linha": "praia",
     "categoria": "maiô",
-    "descricaoCurta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. ",
+    "descricaoCurta": "Maiô feminino verde musgo com tecido de efeito levemente aveludado, alças finas, franzidos verticais e tiras laterais para amarração.",
     "descricaoCompleta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. A lateral apresenta franzidos verticais, que acompanham a silhueta. Na região dos quadris, a peça possui tiras para amarração, permitindo ajuste lateral. A parte inferior tem modelagem cavada.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -2265,7 +2269,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Green com tecido de efeito aveludado e alças finas, ideal para praia e piscina. Tamanho M, por R$ 250."
+    "seoDescricao": "Maiô feminino Green verde musgo com efeito aveludado, alças finas, franzidos e tiras laterais ajustáveis. Tamanho M, por R$ 250 em até 4x.",
+    "seoTitulo": "Maiô Verde Musgo com Tiras Green | Turkista"
   },
   {
     "id": "prod_maiohigh",
@@ -2273,7 +2278,7 @@
     "nome": "Maiô High",
     "linha": "praia",
     "categoria": "maiô",
-    "descricaoCurta": "Modelagem recortada, combinando rosa neon/fúcsia na parte superior e verde-limão na parte inferior. ",
+    "descricaoCurta": "Maiô feminino rosa fúcsia e verde-limão, com alças largas, recortes laterais na cintura e argola central com aparência amadeirada.",
     "descricaoCompleta": "Modelagem recortada, combinando rosa neon/fúcsia na parte superior e verde-limão na parte inferior. O top possui decote arredondado e alças largas. Na região central do abdômen há recortes laterais amplos, deixando a cintura à mostra. As duas partes são conectadas por uma argola circular confeccionada em material que imita madeira, em tom natural amadeirado — não é uma peça metálica. A parte inferior possui modelagem cavada e cintura alta, com laterais largas.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -2317,7 +2322,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô High rosa fúcsia e verde-limão, com recortes laterais na cintura e argola central com aparência amadeirada. Tamanho M, R$ 210."
+    "seoDescricao": "Maiô feminino High rosa fúcsia e verde-limão, com recortes na cintura e argola de aparência amadeirada. Tamanho M, por R$ 210 em 3x.",
+    "seoTitulo": "Maiô High Rosa e Verde com Recortes | Turkista"
   },
   {
     "id": "prod_maiopass",
@@ -2325,7 +2331,7 @@
     "nome": "Maiô Passarela",
     "linha": "praia",
     "categoria": "maiô",
-    "descricaoCurta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico.",
+    "descricaoCurta": "Maiô feminino preto e azul royal em tecido metalizado, com decote assimétrico, recortes na cintura e modelagem cavada.",
     "descricaoCompleta": "Modelagem assimétrica, confeccionado em tecido metalizado de alto brilho. A peça combina preto e azul royal metálico, com a parte superior em formato assimétrico e decote profundo. Possui recortes estratégicos na cintura e nas laterais do abdômen, criando efeito de peça vazada. A parte inferior tem modelagem cavada, com acabamento ajustado ao corpo.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -2380,7 +2386,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Passarela preto e azul royal metalizado, com decote assimétrico, recortes na cintura e modelagem cavada. Tamanho M, R$ 390."
+    "seoDescricao": "Maiô feminino Passarela preto e azul royal metalizado, com decote assimétrico e recortes na cintura. Tamanho M, por R$ 390 em até 5x.",
+    "seoTitulo": "Maiô Metalizado Assimétrico Passarela | Turkista"
   },
   {
     "id": "prod_maiopero",
@@ -2451,10 +2458,10 @@
   {
     "id": "prod_maiosupr",
     "slug": "maio-supreme",
-    "nome": "Maiô supreme",
+    "nome": "Maiô Supreme",
     "linha": "praia",
     "categoria": "Maiô",
-    "descricaoCurta": "Cor preta texturizado estilo holográfico ",
+    "descricaoCurta": "Maiô feminino preto com textura holográfica, gola mais fechada e recortes frontais no colo e na cintura, em visual moderno.",
     "descricaoCompleta": "Maiô preto de design moderno e sofisticado, desenvolvido com recortes estratégicos que criam um visual marcante. A parte superior possui gola mais fechada e recorte frontal na região do colo, enquanto o recorte central na cintura traz um toque contemporâneo à peça. A modelagem valoriza o desenho do corpo e transforma o maiô em uma opção versátil, que pode ser usada tanto na praia quanto em produções de verão.\r\n\r\nDetalhes:\r\n\r\nCor preta texturizado estilo holográfico \r\nGola mais fechada\r\nRecorte frontal no colo\r\nRecorte amplo na cintura\r\nModelagem moderna\r\nPeça versátil para praia e looks de verão",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -2508,7 +2515,8 @@
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Supreme preto com textura holográfica, gola mais fechada e recortes no colo e na cintura. Tamanho M, R$ 250."
+    "seoDescricao": "Maiô feminino Supreme preto com textura holográfica, gola fechada e recortes no colo e na cintura. Tamanho M, por R$ 250 em 3x.",
+    "seoTitulo": "Maiô Supreme Preto Holográfico | Turkista"
   },
   {
     "id": "prod_surfbloom01",
@@ -2592,7 +2600,7 @@
     "nome": "Maiô Teia",
     "linha": "praia",
     "categoria": "maiô",
-    "descricaoCurta": "Esse modelo é um maiô/biquíni de modelagem strappy, com design ousado e cheio de detalhes.",
+    "descricaoCurta": "Maiô feminino laranja de modelagem strappy, com top triangular, argola central, tiras cruzadas na cintura e amarrações ajustáveis.",
     "descricaoCompleta": "Esse modelo é um maiô/biquíni de modelagem strappy, com design ousado e cheio de detalhes.\r\nTop triangular, com alças finas ajustáveis e detalhe de argola metálica central.\r\nPossui uma tira vertical central que conecta o top à parte inferior.\r\nA cintura é formada por tiras finas cruzadas, criando um efeito geométrico e valorizando a silhueta.\r\nAs laterais também possuem tiras com argolas metálicas, trazendo um visual moderno e diferenciado.\r\nCalcinha de modelagem cavada, com tiras finas e reguláveis.\r\nFechamentos e amarrações permitem ajuste ao corpo.\r\nO design das costas é aberto, com várias tiras e amarrações, reforçando a proposta sensual, moderna e sofisticada.\r\nA cor laranja vibrante destaca ainda mais o desenho da peça.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -2636,7 +2644,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Teia laranja com top triangular, argola central e tiras cruzadas na cintura. Modelagem cavada com amarrações ajustáveis. Tamanho M, R$ 220."
+    "seoDescricao": "Maiô feminino Teia laranja com top triangular, argola central e tiras cruzadas na cintura. Amarrações ajustáveis, tamanho M, R$ 220 em 4x.",
+    "seoTitulo": "Maiô Teia Laranja com Tiras Strappy | Turkista"
   },
   {
     "id": "prod_maiotrio",
@@ -2644,7 +2653,7 @@
     "nome": "Maiô TrioColor",
     "linha": "praia",
     "categoria": "maiô",
-    "descricaoCurta": "Maiô de design moderno e marcante, com modelagem que combina diferentes blocos de cores em um efeito patchwork sofisticado.",
+    "descricaoCurta": "Maiô feminino TrioColor com blocos de cores branco, vermelho e preto, tecido texturizado e visual contemporâneo para praia e piscina.",
     "descricaoCompleta": "Maiô de design moderno e marcante, com modelagem que combina diferentes blocos de cores em um efeito patchwork sofisticado. O tecido é texturizado e possui uma sensação macia e aveludada, proporcionando um toque agradável e confortável sobre a pele.\r\n\r\nA combinação de cores valoriza a silhueta e traz um visual contemporâneo, perfeito para quem busca uma peça diferenciada para momentos na praia, no surf ou em atividades ao ar livre. Uma peça que une estilo, conforto e personalidade em um único design.",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -2688,7 +2697,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô TrioColor com blocos de cores branco, vermelho e preto e tecido texturizado de toque macio. Tamanho M, R$ 190."
+    "seoDescricao": "Maiô feminino TrioColor branco, vermelho e preto, com blocos de cor e tecido texturizado. Modelo tamanho M, por R$ 190 em 3x sem juros.",
+    "seoTitulo": "Maiô TrioColor Tricolor Texturizado | Turkista"
   },
   {
     "id": "prod_flow01",

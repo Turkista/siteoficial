@@ -4,7 +4,7 @@
   "nome": "Maiô Cevi",
   "linha": "praia",
   "categoria": "maiô",
-  "descricaoCurta": "Maiô Cevi laranja com decote assimétrico de um ombro só, recorte lateral na cintura e detalhe franzido no busto.",
+  "descricaoCurta": "Maiô feminino laranja com decote assimétrico de um ombro só, recorte lateral na cintura, franzido no busto e cava alta.",
   "descricaoCompleta": "Decote assimétrico, com uma única alça fina sobre um dos ombros.\r\nCorpo do maiô com recorte lateral na cintura, criando um efeito moderno e alongando visualmente a silhueta.\r\nParte frontal com modelagem ajustada ao corpo.\r\nDetalhe franzido na lateral do busto, com pequeno ajuste/amarração.\r\nParte inferior com cava alta, valorizando as pernas.\r\nCosturas e acabamentos discretos, acompanhando o contorno da peça.\r\nTecido sem estampa e sem brilho, com aparência uniforme e sofisticada.\r\nCor: laranja intenso.\r\n\r\nEstilo: moderno, tropical e sofisticado, com uma proposta de beachwear marcante e contemporânea.",
   "composicao": {
     "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -18,17 +18,17 @@
       "imagens": [
         {
           "arquivo": "maio-cevi-1.webp",
-          "alt": "Maiô Cevi - foto 1",
+          "alt": "Maiô Cevi, laranja – Turkista",
           "proporcao": "3:4"
         },
         {
           "arquivo": "maio-cevi-2.webp",
-          "alt": "Maiô Cevi - foto 2",
+          "alt": "Maiô Cevi, laranja – Turkista",
           "proporcao": "3:4"
         },
         {
           "arquivo": "maio-cevi-3.webp",
-          "alt": "Maiô Cevi - foto 3",
+          "alt": "Maiô Cevi, laranja – Turkista",
           "proporcao": "3:4"
         }
       ]
@@ -44,17 +44,17 @@
   "imagens": [
     {
       "arquivo": "maio-cevi-1.webp",
-      "alt": "Maiô Cevi - foto 1",
+      "alt": "Maiô Cevi, laranja – Turkista",
       "proporcao": "3:4"
     },
     {
       "arquivo": "maio-cevi-2.webp",
-      "alt": "Maiô Cevi - foto 2",
+      "alt": "Maiô Cevi, laranja – Turkista",
       "proporcao": "3:4"
     },
     {
       "arquivo": "maio-cevi-3.webp",
-      "alt": "Maiô Cevi - foto 3",
+      "alt": "Maiô Cevi, laranja – Turkista",
       "proporcao": "3:4"
     }
   ],
@@ -68,5 +68,6 @@
   "dataCriacao": "2026-08-17",
   "genero": "feminino",
   "faixaEtaria": "15+",
-  "seoDescricao": "Maiô Cevi laranja de um ombro só, com recorte lateral e detalhe franzido no busto. Tamanho M, por R$ 220."
+  "seoDescricao": "Maiô feminino Cevi laranja de um ombro só, com recorte lateral na cintura e franzido no busto. Tamanho M, por R$ 220 em até 4x.",
+  "seoTitulo": "Maiô Assimétrico Laranja Cevi | Turkista"
 }

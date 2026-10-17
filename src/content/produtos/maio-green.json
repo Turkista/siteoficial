@@ -4,7 +4,7 @@
   "nome": "Maiô Green",
   "linha": "praia",
   "categoria": "maiô",
-  "descricaoCurta": "Maiô Green com tecido de efeito levemente aveludado e alças finas. Design contemporâneo para compor looks de praia e piscina.",
+  "descricaoCurta": "Maiô feminino verde musgo com tecido de efeito levemente aveludado, alças finas, franzidos verticais e tiras laterais para amarração.",
   "descricaoCompleta": "Confeccionado em tecido com leve efeito aveludado, de aparência macia e sofisticada. Possui alças finas, decote arredondado e modelagem ajustada ao corpo. A lateral apresenta franzidos verticais, que acompanham a silhueta. Na região dos quadris, a peça possui tiras para amarração, permitindo ajuste lateral. A parte inferior tem modelagem cavada.",
   "composicao": {
     "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -18,12 +18,12 @@
       "imagens": [
         {
           "arquivo": "maio-green-1.webp",
-          "alt": "Maiô Green - foto 1",
+          "alt": "Maiô Green, Verde musgo – Turkista",
           "proporcao": "3:4"
         },
         {
           "arquivo": "maio-green-2.webp",
-          "alt": "Maiô Green - foto 2",
+          "alt": "Maiô Green, Verde musgo – Turkista",
           "proporcao": "3:4"
         }
       ]
@@ -39,12 +39,12 @@
   "imagens": [
     {
       "arquivo": "maio-green-1.webp",
-      "alt": "Maiô Green - foto 1",
+      "alt": "Maiô Green, Verde musgo – Turkista",
       "proporcao": "3:4"
     },
     {
       "arquivo": "maio-green-2.webp",
-      "alt": "Maiô Green - foto 2",
+      "alt": "Maiô Green, Verde musgo – Turkista",
       "proporcao": "3:4"
     }
   ],
@@ -58,5 +58,6 @@
   "dataCriacao": "2026-08-17",
   "genero": "feminino",
   "faixaEtaria": "15+",
-  "seoDescricao": "Maiô Green com tecido de efeito aveludado e alças finas, ideal para praia e piscina. Tamanho M, por R$ 250."
+  "seoDescricao": "Maiô feminino Green verde musgo com efeito aveludado, alças finas, franzidos e tiras laterais ajustáveis. Tamanho M, por R$ 250 em até 4x.",
+  "seoTitulo": "Maiô Verde Musgo com Tiras Green | Turkista"
 }
