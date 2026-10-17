@@ -117,8 +117,8 @@
     "dataCriacao": "2026-08-02",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoTitulo": "Biquíni Aurora – Moda Praia | Turkista",
-    "seoDescricao": "Biquíni Aurora rosa com textura em relevo, top franzido, alças brancas trançadas e calcinha com amarração lateral ajustável. Tamanhos P, M e G."
+    "seoTitulo": "Top Biquíni Aurora – Só a Parte Superior | Turkista",
+    "seoDescricao": "Top do Biquíni Aurora rosa à venda separadamente: o valor inclui somente a parte superior. Calcinha não incluída. Tamanhos P, M e G."
   },
   {
     "id": "prod_biquinic",
@@ -2019,7 +2019,8 @@
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô de surf Flora com estampa floral colorida e mangas com detalhes amarelos. Tamanho M, por R$ 650 em 5x sem juros."
+    "seoDescricao": "Maiô de surf Flora com estampa floral multicolorida, detalhes amarelos nas mangas e punhos pretos. Tamanho M. R$ 650,00 em 5x sem juros.",
+    "seoTitulo": "Maiô de Surf Flora Estampado | Turkista"
   },
   {
     "id": "prod_maiodesurfmandala",
@@ -2082,7 +2083,8 @@
     "dataCriacao": "2026-08-03",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô de surf Mandala em lycra estampada, com mangas longas e fechamento inferior. Tamanho P, por R$ 580 em 5x sem juros."
+    "seoDescricao": "Maiô de surf Mandala com mangas longas, estampa colorida e fechamento inferior. Tamanho P. R$ 580,00 em 5x sem juros. Feito em Araruama, RJ.",
+    "seoTitulo": "Maiô de Surf Mandala Feminino | Turkista"
   },
   {
     "id": "prod_maiodesurfspider",
@@ -2147,7 +2149,8 @@
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô de surf Spider de manga longa, com estampa colorida e malha de secagem rápida. Tamanhos P e M, por R$ 680."
+    "seoDescricao": "Maiô de surf Spider de manga longa, com visual colorido em rosa, roxo e azul e malha de fácil secagem. Tamanhos P e M. R$ 680,00 em 5x sem juros.",
+    "seoTitulo": "Maiô de Surf Spider Feminino | Turkista"
   },
   {
     "id": "prod_maiodesurfvivence",
@@ -2199,7 +2202,8 @@
     "dataCriacao": "2026-08-06",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô de surf Vivence em lycra patchwork, com caimento ajustado e abertura inferior. Tamanho P, por R$ 490 em 5x sem juros."
+    "seoDescricao": "Maiô de surf Vivence em lycra, com patchwork colorido, modelagem ajustada e abertura inferior. Tamanho P. R$ 490,00 em 5x sem juros.",
+    "seoTitulo": "Maiô de Surf Vivence Patchwork | Turkista"
   },
   {
     "id": "prod_maiogree",
@@ -2441,7 +2445,8 @@
     "dataCriacao": "2026-08-14",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô de surf Pérola Mares de manga longa, com blocos de cores rosa, verde, roxo e preto, malha de secagem rápida e fechamento entre as pernas. Tamanho P."
+    "seoDescricao": "Maiô de surf Pérola Mares de manga longa, com blocos de rosa, verde, roxo e preto. Tamanho P. R$ 800,00 em 6x sem juros. Feito em Araruama, RJ.",
+    "seoTitulo": "Maiô de Surf Pérola Mares | Turkista"
   },
   {
     "id": "prod_maiosupr",
@@ -2578,8 +2583,8 @@
     "dataCriacao": "2026-08-02",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoTitulo": "Maiô Surf Bloom – Moda Surf | Turkista",
-    "seoDescricao": "Maiô Surf Bloom de manga longa, com estampa floral tropical em tons vibrantes. Tecido de poliamida com elastano, fabricação própria em Araruama, RJ."
+    "seoTitulo": "Maiô de Surf Bloom Feminino | Turkista",
+    "seoDescricao": "Maiô de surf Bloom de manga longa, com estampa floral tropical em laranja, verde, amarelo e rosa. Tamanho P. R$ 680,00 em 5x sem juros."
   },
   {
     "id": "prod_maioteia",
