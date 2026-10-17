@@ -1,0 +1,32 @@
+name: SEO das fichas de produto
+
+on:
+  pull_request:
+    branches:
+      - consolidar-painel-verdadeiro
+    paths:
+      - "scripts/gerar-ficha-produto.py"
+      - "scripts/testar-seo-produtos.py"
+      - "src/content/produtos/**"
+      - "produto/**"
+      - ".github/workflows/seo-validation.yml"
+  push:
+    branches:
+      - fix/seo-maios-surf
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  testar-seo-fichas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validar JSON e metadados SEO das fichas
+        run: python scripts/testar-seo-produtos.py
