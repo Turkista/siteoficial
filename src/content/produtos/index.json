@@ -1758,7 +1758,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô ArtX com decote triangular, tiras cruzadas na cintura e modelagem strappy. Tamanho M, por R$ 220 em 4x sem juros."
+    "seoDescricao": "Maiô feminino ArtX laranja com decote triangular e tiras cruzadas na cintura. Modelagem strappy, tamanho M, por R$ 220 em 4x sem juros.",
+    "seoTitulo": "Maiô ArtX Strappy Laranja | Turkista"
   },
   {
     "id": "prod_maioblue",
@@ -1820,7 +1821,8 @@
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Blue azul royal com franzidos e regulagem lateral por cordões. Tamanho M, por R$ 150 em 3x sem juros."
+    "seoDescricao": "Maiô feminino azul royal com decote reto franzido e laterais reguláveis por cordões. Modelo Blue, tamanho M, por R$ 150 em 3x sem juros.",
+    "seoTitulo": "Maiô Azul Royal com Franzidos Blue | Turkista"
   },
   {
     "id": "prod_maiocevi",
@@ -1892,7 +1894,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Cevi laranja de um ombro só, com recorte lateral e detalhe franzido no busto. Tamanho M, por R$ 220."
+    "seoDescricao": "Maiô feminino Cevi laranja de um ombro só, com recorte lateral na cintura e franzido no busto. Tamanho M, por R$ 220 em até 4x.",
+    "seoTitulo": "Maiô Assimétrico Laranja Cevi | Turkista"
   },
   {
     "id": "prod_maiochic",
@@ -1954,7 +1957,8 @@
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Chicler pink com textura em ondas, um ombro só e recorte na cintura. Tamanho M, por R$ 250 em 3x sem juros."
+    "seoDescricao": "Maiô feminino Chicler pink com textura em ondas, um ombro só e recorte na cintura. Modelo marcante para praia e piscina, tamanho M, R$ 250.",
+    "seoTitulo": "Maiô Pink Texturizado Chicler | Turkista"
   },
   {
     "id": "prod_maiodesu",
@@ -2265,7 +2269,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Green com tecido de efeito aveludado e alças finas, ideal para praia e piscina. Tamanho M, por R$ 250."
+    "seoDescricao": "Maiô feminino Green verde musgo com efeito aveludado, alças finas, franzidos e tiras laterais ajustáveis. Tamanho M, por R$ 250 em até 4x.",
+    "seoTitulo": "Maiô Verde Musgo com Tiras Green | Turkista"
   },
   {
     "id": "prod_maiohigh",
@@ -2317,7 +2322,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô High rosa fúcsia e verde-limão, com recortes laterais na cintura e argola central com aparência amadeirada. Tamanho M, R$ 210."
+    "seoDescricao": "Maiô feminino High rosa fúcsia e verde-limão, com recortes na cintura e argola de aparência amadeirada. Tamanho M, por R$ 210 em 3x.",
+    "seoTitulo": "Maiô High Rosa e Verde com Recortes | Turkista"
   },
   {
     "id": "prod_maiopass",
@@ -2380,7 +2386,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Passarela preto e azul royal metalizado, com decote assimétrico, recortes na cintura e modelagem cavada. Tamanho M, R$ 390."
+    "seoDescricao": "Maiô feminino Passarela preto e azul royal metalizado, com decote assimétrico e recortes na cintura. Tamanho M, por R$ 390 em até 5x.",
+    "seoTitulo": "Maiô Metalizado Assimétrico Passarela | Turkista"
   },
   {
     "id": "prod_maiopero",
@@ -2508,7 +2515,8 @@
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Supreme preto com textura holográfica, gola mais fechada e recortes no colo e na cintura. Tamanho M, R$ 250."
+    "seoDescricao": "Maiô feminino Supreme preto com textura holográfica, gola fechada e recortes no colo e na cintura. Tamanho M, por R$ 250 em 3x.",
+    "seoTitulo": "Maiô Supreme Preto Holográfico | Turkista"
   },
   {
     "id": "prod_surfbloom01",
@@ -2636,7 +2644,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô Teia laranja com top triangular, argola central e tiras cruzadas na cintura. Modelagem cavada com amarrações ajustáveis. Tamanho M, R$ 220."
+    "seoDescricao": "Maiô feminino Teia laranja com top triangular, argola central e tiras cruzadas na cintura. Amarrações ajustáveis, tamanho M, R$ 220 em 4x.",
+    "seoTitulo": "Maiô Teia Laranja com Tiras Strappy | Turkista"
   },
   {
     "id": "prod_maiotrio",
@@ -2688,7 +2697,8 @@
     "dataCriacao": "2026-08-17",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Maiô TrioColor com blocos de cores branco, vermelho e preto e tecido texturizado de toque macio. Tamanho M, R$ 190."
+    "seoDescricao": "Maiô feminino TrioColor branco, vermelho e preto, com blocos de cor e tecido texturizado. Modelo tamanho M, por R$ 190 em 3x sem juros.",
+    "seoTitulo": "Maiô TrioColor Tricolor Texturizado | Turkista"
   },
   {
     "id": "prod_flow01",
