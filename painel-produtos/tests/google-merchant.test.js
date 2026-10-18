@@ -2,6 +2,8 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const path = require("node:path");
+const catalogo = require(path.join(__dirname, "../../src/content/produtos/index.json"));
 const { produtoParaMerchant } = require("../integrations/google-merchant");
 
 function produto(overrides = {}) {
@@ -85,4 +87,31 @@ test("continua rejeitando preço inválido", () => {
     () => produtoParaMerchant(produto({ preco: { valor: 0 } })),
     /Preço inválido/
   );
+});
+
+test("dry-run dos biquínis do catálogo: usa SEO e preserva os dados comerciais sem chamar a API", () => {
+  const ehBiquini = (p) => /biqu[ií]n|bikini|top.*praia/i.test(
+    [p.slug, p.nome, p.categoria, p.linha].join(" ")
+  );
+  const biquinis = catalogo.filter(ehBiquini);
+  assert.equal(biquinis.length, 16, "A contagem do catálogo mudou; revisar o escopo do dry-run.");
+
+  const offerIds = new Set();
+  for (const p of biquinis) {
+    assert.ok(p.seoTitulo, `Falta seoTitulo em ${p.slug}`);
+    assert.ok(p.seoDescricao, `Falta seoDescricao em ${p.slug}`);
+    const variantes = require("../integrations/google-merchant").variantesDoProduto(p);
+    variantes.forEach((variante, indice) => {
+      const payload = produtoParaMerchant(p, variante, variantes.length, indice);
+      assert.ok(payload.productAttributes.title.startsWith(p.seoTitulo), `Título SEO não mapeado em ${p.slug}`);
+      assert.equal(payload.productAttributes.description, p.seoDescricao, `Descrição SEO não mapeada em ${p.slug}`);
+      assert.equal(payload.productAttributes.price.currencyCode, "BRL");
+      assert.equal(payload.productAttributes.availability, p.status === "esgotado" ? "OUT_OF_STOCK" : "IN_STOCK");
+      assert.ok(payload.productAttributes.imageLink.includes("/assets/produtos/"));
+      assert.ok(!payload.productAttributes.additionalImageLinks.includes(payload.productAttributes.imageLink));
+      assert.ok(!offerIds.has(payload.offerId), `offerId duplicado no dry-run: ${payload.offerId}`);
+      offerIds.add(payload.offerId);
+    });
+  }
+  assert.ok(offerIds.size >= 16, "O dry-run deve gerar pelo menos uma oferta por produto.");
 });
