@@ -260,7 +260,7 @@
         "imagens": [
           {
             "arquivo": "biquini-cortininha-bicolor-laranja-e-roxo.webp",
-            "alt": "Biquíni Cortininha Bicolor — Laranja e Roxo",
+            "alt": "Cortininha bicolor em laranja e roxo, com amarrações ajustáveis",
             "proporcao": "3:4"
           }
         ]
@@ -276,7 +276,7 @@
     "imagens": [
       {
         "arquivo": "biquini-cortininha-bicolor-laranja-e-roxo.webp",
-        "alt": "Biquíni Cortininha Bicolor — Laranja e Roxo",
+        "alt": "Cortininha bicolor em laranja e roxo, com amarrações ajustáveis",
         "proporcao": "3:4"
       }
     ],
@@ -291,7 +291,8 @@
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Top de biquíni cortininha laranja e roxo, com amarrações ajustáveis e proposta dupla face. Tamanho P, por R$ 40 em 2x sem juros."
+    "seoDescricao": "Top de biquíni cortininha laranja e roxo, com amarrações ajustáveis e proposta dupla face. Tamanho P, por R$ 40 em 2x sem juros.",
+    "seoTitulo": "Top de Biquíni Cortininha Bicolor Laranja e Roxo | Turkista"
   },
   {
     "id": "prod_biquinif",
