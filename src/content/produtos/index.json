@@ -378,12 +378,12 @@
         "imagens": [
           {
             "arquivo": "biquini-flash-parte-superior-1.webp",
-            "alt": "Biquíni Flash - Parte superior",
+            "alt": "Top de biquíni Flash com bojo estruturado e paetês pretos e dourados",
             "proporcao": "3:4"
           },
           {
             "arquivo": "biquini-flash-parte-superior-2.webp",
-            "alt": "Biquíni Flash - Parte superior",
+            "alt": "Top de biquíni Flash frente única com paetês e detalhes florais dourados",
             "proporcao": "3:4"
           }
         ]
@@ -399,12 +399,12 @@
     "imagens": [
       {
         "arquivo": "biquini-flash-parte-superior-1.webp",
-        "alt": "Biquíni Flash - Parte superior",
+        "alt": "Top de biquíni Flash com bojo estruturado e paetês pretos e dourados",
         "proporcao": "3:4"
       },
       {
         "arquivo": "biquini-flash-parte-superior-2.webp",
-        "alt": "Biquíni Flash - Parte superior",
+        "alt": "Top de biquíni Flash frente única com paetês e detalhes florais dourados",
         "proporcao": "3:4"
       }
     ],
@@ -419,7 +419,8 @@
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Top de biquíni Flash com bojo estruturado, modelagem frente única e acabamento de paetês pretos e dourados. Tamanho PP."
+    "seoDescricao": "Top de biquíni Flash com bojo estruturado, modelagem frente única e acabamento de paetês pretos e dourados. Tamanho PP.",
+    "seoTitulo": "Top de Biquíni Flash Preto e Dourado com Paetês | Turkista"
   },
   {
     "id": "prod_biquinig",
