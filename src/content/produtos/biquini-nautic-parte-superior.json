@@ -18,12 +18,12 @@
       "imagens": [
         {
           "arquivo": "biquini-nautic-parte-superior-1.webp",
-          "alt": "Biquíni Nautic - Parte superior - foto 1",
+          "alt": "Top de biquíni Nautic dupla face, modelo cortininha colorido – foto 1",
           "proporcao": "3:4"
         },
         {
           "arquivo": "biquini-nautic-parte-superior-2.webp",
-          "alt": "Biquíni Nautic - Parte superior - foto 2",
+          "alt": "Top de biquíni Nautic dupla face, modelo cortininha colorido – foto 2",
           "proporcao": "3:4"
         }
       ]
@@ -39,12 +39,12 @@
   "imagens": [
     {
       "arquivo": "biquini-nautic-parte-superior-1.webp",
-      "alt": "Biquíni Nautic - Parte superior - foto 1",
+      "alt": "Top de biquíni Nautic dupla face, modelo cortininha colorido – foto 1",
       "proporcao": "3:4"
     },
     {
       "arquivo": "biquini-nautic-parte-superior-2.webp",
-      "alt": "Biquíni Nautic - Parte superior - foto 2",
+      "alt": "Top de biquíni Nautic dupla face, modelo cortininha colorido – foto 2",
       "proporcao": "3:4"
     }
   ],
@@ -57,5 +57,6 @@
   "dataCriacao": "2026-08-18",
   "genero": "feminino",
   "faixaEtaria": "15+",
-  "seoDescricao": "Top de biquíni Nautic dupla face, com modelagem cortininha e duas opções de uso. Tamanho P, por R$ 95 em 3x sem juros."
+  "seoDescricao": "Top de biquíni Nautic dupla face, com modelagem cortininha e duas opções de uso. Tamanho P, por R$ 95 em 3x sem juros.",
+  "seoTitulo": "Top de Biquíni Nautic Dupla Face Cortininha | Turkista"
 }
