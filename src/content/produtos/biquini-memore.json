@@ -18,12 +18,12 @@
       "imagens": [
         {
           "arquivo": "biquini-memore-1.webp",
-          "alt": "Biquíni Memore - foto 1",
+          "alt": "Biquíni Memore laranja marmorizado com top meia-taça estruturado",
           "proporcao": "3:4"
         },
         {
           "arquivo": "biquini-memore-2.webp",
-          "alt": "Biquíni Memore - foto 2",
+          "alt": "Biquíni Memore laranja marmorizado com calcinha de cintura alta",
           "proporcao": "3:4"
         }
       ]
@@ -39,12 +39,12 @@
   "imagens": [
     {
       "arquivo": "biquini-memore-1.webp",
-      "alt": "Biquíni Memore - foto 1",
+      "alt": "Biquíni Memore laranja marmorizado com top meia-taça estruturado",
       "proporcao": "3:4"
     },
     {
       "arquivo": "biquini-memore-2.webp",
-      "alt": "Biquíni Memore - foto 2",
+      "alt": "Biquíni Memore laranja marmorizado com calcinha de cintura alta",
       "proporcao": "3:4"
     }
   ],
@@ -59,5 +59,6 @@
   "dataCriacao": "2026-08-15",
   "genero": "feminino",
   "faixaEtaria": "15+",
-  "seoDescricao": "Biquíni Memore com top meia-taça estruturado e calcinha de cintura alta, em estampa marmorizada laranja. R$ 190, em 3x sem juros."
+  "seoDescricao": "Biquíni Memore com top meia-taça estruturado e calcinha de cintura alta, em estampa marmorizada laranja. R$ 190, em 3x sem juros.",
+  "seoTitulo": "Biquíni Memore Laranja Marmorizado | Turkista"
 }
