@@ -1,0 +1,38 @@
+name: Testes Google Merchant
+
+on:
+  pull_request:
+    paths:
+      - "painel-produtos/integrations/google-merchant.js"
+      - "painel-produtos/tests/**"
+      - "painel-produtos/package.json"
+      - ".github/workflows/merchant-mapping-tests.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "painel-produtos/integrations/google-merchant.js"
+      - "painel-produtos/tests/**"
+      - "painel-produtos/package.json"
+      - ".github/workflows/merchant-mapping-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test-merchant-mapping:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: painel-produtos
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Instalar dependências
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Testar mapeamento e payload
+        run: npm run test:merchant
