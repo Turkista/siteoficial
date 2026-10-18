@@ -180,7 +180,7 @@
     "nome": "Biquíni Constela dupla face - Parte superior",
     "linha": "praia",
     "categoria": "Biquíni parte superior",
-    "descricaoCurta": "Top Constela dupla face em malha metalizada texturizada, com um lado lilás com brilho prateado e outro bordô. Alças ajustáveis no pescoço e nas costas.",
+    "descricaoCurta": "Top Constela dupla face em malha metalizada lilás e bordô, com alças ajustáveis. Venda avulsa da parte superior.",
     "descricaoCompleta": "Top bicolor dupla face, em malha metalizada com textura: um lado em lilás com brilho prateado, o outro em bordô. Alças finas trançadas, com amarração ajustável no pescoço e nas costas.\r\n\r\nPor ser dupla face, a peça rende duas composições diferentes dependendo do lado usado para fora. Acabamento franzido nas bordas e toque macio ao usar.\r\n\r\nDestaques:\r\n\r\nDuas cores em uma peça: lilás prateado e bordô;\r\nMalha metalizada, com textura;\r\nAlças ajustáveis, com amarração no pescoço e nas costas;\r\nAcabamento franzido;\r\nPeça exclusiva, em quantidade limitada;",
     "composicao": {
       "tecido": "Poliamida (84% a 85%) e elastano (15% a 16%)",
@@ -194,12 +194,12 @@
         "imagens": [
           {
             "arquivo": "biquini-constela-dupla-face-parte-superior-1.webp",
-            "alt": "Biquíni Constela dupla face - Parte superior - foto 1",
+            "alt": "Top de biquíni Constela dupla face em malha metalizada lilás e bordô, primeira vista",
             "proporcao": "3:4"
           },
           {
             "arquivo": "biquini-constela-dupla-face-parte-superior-2.webp",
-            "alt": "Biquíni Constela dupla face - Parte superior - foto 2",
+            "alt": "Top de biquíni Constela dupla face com textura metalizada e alças ajustáveis, segunda vista",
             "proporcao": "3:4"
           }
         ]
@@ -215,12 +215,12 @@
     "imagens": [
       {
         "arquivo": "biquini-constela-dupla-face-parte-superior-1.webp",
-        "alt": "Biquíni Constela dupla face - Parte superior - foto 1",
+        "alt": "Top de biquíni Constela dupla face em malha metalizada lilás e bordô, primeira vista",
         "proporcao": "3:4"
       },
       {
         "arquivo": "biquini-constela-dupla-face-parte-superior-2.webp",
-        "alt": "Biquíni Constela dupla face - Parte superior - foto 2",
+        "alt": "Top de biquíni Constela dupla face com textura metalizada e alças ajustáveis, segunda vista",
         "proporcao": "3:4"
       }
     ],
@@ -236,7 +236,8 @@
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Top Constela dupla face em malha metalizada lilás e bordô, com alças ajustáveis. Tamanho P, por R$ 55 ou 2x sem juros."
+    "seoDescricao": "Top de biquíni Constela dupla face lilás e bordô, em malha metalizada e com alças ajustáveis. Só a parte superior, tamanho P, por R$ 55 em 2x.",
+    "seoTitulo": "Top de Biquíni Constela Dupla Face Lilás e Bordô | Turkista"
   },
   {
     "id": "prod_biquinicortinhabicolorlaranjaeroxo",
