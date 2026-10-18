@@ -702,17 +702,17 @@
     "imagens": [
       {
         "arquivo": "biquini-orange-1.webp",
-        "alt": "Biquíni Orange",
+        "alt": "Biquíni Orange laranja marmorizado, top sem bojo com amarração frontal – foto 1",
         "proporcao": "3:4"
       },
       {
         "arquivo": "biquini-orange-2.webp",
-        "alt": "Biquíni Orange",
+        "alt": "Biquíni Orange laranja marmorizado, detalhe do tecido e da modelagem – foto 2",
         "proporcao": "3:4"
       },
       {
         "arquivo": "biquini-orange-3.webp",
-        "alt": "Biquíni Orange",
+        "alt": "Biquíni Orange laranja marmorizado, vista adicional da peça – foto 3",
         "proporcao": "3:4"
       }
     ],
@@ -726,7 +726,8 @@
     "dataCriacao": "2026-08-18",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Biquíni Orange laranja marmorizado, sem bojo e totalmente forrado, com amarração frontal ajustável. Tamanho P, por R$ 140 em 3x sem juros."
+    "seoDescricao": "Biquíni Orange laranja marmorizado, sem bojo e totalmente forrado, com amarração frontal ajustável. Tamanho P, por R$ 140 em 3x sem juros.",
+    "seoTitulo": "Biquíni Orange Laranja Marmorizado Sem Bojo | Turkista"
   },
   {
     "id": "prod_biquiniv",
