@@ -107,8 +107,17 @@ function imagemDaVariante(produto, variante) {
 }
 
 function imagensAdicionais(produto, variante) {
-  const origem = variante?.cor?.imagens?.length ? variante.cor.imagens : (produto.imagens || []);
-  return [...new Set(origem.slice(1).concat(produto.imagens || []).map(x => x?.arquivo).filter(Boolean))].slice(0, 10).map(caminhoImagemPublico);
+  const imagemPrincipal = imagemDaVariante(produto, variante);
+  const origem = variante?.cor?.imagens?.length
+    ? variante.cor.imagens
+    : (produto.imagens || []);
+  const arquivos = [
+    ...origem.map((item) => item?.arquivo),
+    ...(produto.imagens || []).map((item) => item?.arquivo),
+  ]
+    .filter(Boolean)
+    .filter((arquivo) => arquivo !== imagemPrincipal);
+  return [...new Set(arquivos)].slice(0, 10).map(caminhoImagemPublico);
 }
 
 function produtoParaMerchant(produtoOriginal, variante = null, totalVariantes = 1, indice = 0) {
@@ -122,9 +131,17 @@ function produtoParaMerchant(produtoOriginal, variante = null, totalVariantes = 
   const tamanho = String(v?.tamanho || "OS").trim();
   const config = getConfig();
   const offerId = totalVariantes === 1 || indice === 0 ? produto.id : produto.id + "-" + slugVariante(tamanho) + "-" + slugVariante(cor);
+  const tituloSEO = String(produto.seoTitulo || produto.nome).trim();
+  const descricaoSEO = String(
+    produto.seoDescricao ||
+    produto.descricaoCompleta ||
+    produto.descricaoCurta ||
+    produto.nome
+  ).trim();
+
   const atributos = {
-    title: totalVariantes === 1 ? produto.nome.trim() : produto.nome.trim() + " - " + tamanho + " - " + cor,
-    description: String(produto.descricaoCompleta || produto.descricaoCurta || produto.nome).trim(),
+    title: totalVariantes === 1 ? tituloSEO : tituloSEO + " - " + tamanho + " - " + cor,
+    description: descricaoSEO,
     link: config.siteBaseUrl + "/produto/" + encodeURIComponent(produto.slug) + ".html",
     imageLink: caminhoImagemPublico(imagemDaVariante(produto, v)),
     additionalImageLinks: imagensAdicionais(produto, v),
@@ -140,7 +157,7 @@ function produtoParaMerchant(produtoOriginal, variante = null, totalVariantes = 
   };
   if (totalVariantes > 1) {
     atributos.itemGroupId = produto.id;
-    atributos.itemGroupTitle = produto.nome;
+    atributos.itemGroupTitle = tituloSEO;
     atributos.variantOptions = [{ name: "Size", value: tamanho }, { name: "Color", value: cor }];
   }
   return { offerId, contentLanguage: "pt", feedLabel: "BR", productAttributes: atributos };
