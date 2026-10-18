@@ -314,12 +314,12 @@
         "imagens": [
           {
             "arquivo": "biquini-fany-1.webp",
-            "alt": "Biquíni Fany",
+            "alt": "Biquíni Fany rosa magenta com top tomara que caia e amarração frontal",
             "proporcao": "3:4"
           },
           {
             "arquivo": "biquini-fany-2.webp",
-            "alt": "Biquíni Fany",
+            "alt": "Biquíni Fany rosa magenta com calcinha de cintura alta e cós largo",
             "proporcao": "3:4"
           }
         ]
@@ -335,12 +335,12 @@
     "imagens": [
       {
         "arquivo": "biquini-fany-1.webp",
-        "alt": "Biquíni Fany",
+        "alt": "Biquíni Fany rosa magenta com top tomara que caia e amarração frontal",
         "proporcao": "3:4"
       },
       {
         "arquivo": "biquini-fany-2.webp",
-        "alt": "Biquíni Fany",
+        "alt": "Biquíni Fany rosa magenta com calcinha de cintura alta e cós largo",
         "proporcao": "3:4"
       }
     ],
@@ -355,7 +355,8 @@
     "dataCriacao": "2026-08-15",
     "genero": "feminino",
     "faixaEtaria": "15+",
-    "seoDescricao": "Biquíni Fany rosa magenta, com top tomara que caia e amarração frontal, além de calcinha de cintura alta. Tamanho M, por R$ 190 em 3x sem juros."
+    "seoDescricao": "Biquíni Fany rosa magenta, com top tomara que caia e amarração frontal, além de calcinha de cintura alta. Tamanho M, por R$ 190 em 3x sem juros.",
+    "seoTitulo": "Biquíni Fany Rosa Magenta Tomara que Caia | Turkista"
   },
   {
     "id": "prod_biquiniflashpartesuperior",
