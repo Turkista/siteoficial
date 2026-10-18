@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node server.js",
     "normalizar:catalogo": "node ../scripts/normalizar-catalogo.js",
-    "auditar:catalogo": "node ../scripts/auditar-catalogo.js"
+    "auditar:catalogo": "node ../scripts/auditar-catalogo.js",
+    "test:merchant": "node --test tests/google-merchant.test.js"
   },
   "dependencies": {
     "@google-analytics/data": "^7.2.1",
