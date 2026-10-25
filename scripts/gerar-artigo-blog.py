@@ -77,6 +77,24 @@ LINKS_PRODUTO = {
         ("maio-artx", "Maiô ArtX"),
         ("maio-blue", "Maiô Blue"),
     ],
+    "como-identificar-bom-tecido-moda-praia": [
+        ("biquini-aurora", "Biquíni Aurora"),
+        ("biquini-andrea-dupla-face-parte-superior", "Top de Biquíni Andrea Dupla Face"),
+    ],
+    "como-conservar-elastano-lycra": [
+        ("biquini-aurora", "Biquíni Aurora"),
+    ],
+    "como-guardar-biquinis-e-maios": [
+        ("maio-blue", "Maiô Blue"),
+    ],
+    "erros-ao-lavar-roupa-de-praia": [
+        ("biquini-aurora", "Biquíni Aurora"),
+    ],
+    "moda-praia-como-escolher-tamanho": [
+        ("biquini-aurora", "Biquíni Aurora"),
+        ("maio-artx", "Maiô ArtX"),
+    ],
+
 }
 
 
