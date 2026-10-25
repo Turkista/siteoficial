@@ -84,7 +84,7 @@
       publicados.sort(function (a, b) {
         return (b.dataCriacao || '').localeCompare(a.dataCriacao || '');
       });
-      // Acrescenta ao final da grade — os 9 artigos originais do HTML continuam intactos
+      // Acrescenta apenas artigos publicados que ainda não tenham link no HTML.
       grade.insertAdjacentHTML('beforeend', publicados.map(cardHTML).join(''));
       ligarFiltro();
     })
