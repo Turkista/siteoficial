@@ -56,6 +56,30 @@ LINHA_LINKS = {
     "turk-fit": ("roupa fitness Turk Fit", "turk-fit.html"),
 }
 
+LINKS_PRODUTO = {
+    "como-escolher-biquini-feminino": [
+        ("biquini-aurora", "Biquíni Aurora"),
+        ("biquini-vermelho-intense", "Biquíni Vermelho Intense"),
+    ],
+    "top-de-biquini-avulso-como-combinar": [
+        ("biquini-andrea-dupla-face-parte-superior", "Top de Biquíni Andrea Dupla Face"),
+        ("top-de-biquini-cortininha-dupla-face-em-lycra", "Top de Biquíni Cortininha Dupla Face"),
+    ],
+    "biquini-dupla-face-como-funciona": [
+        ("biquini-andrea-dupla-face-parte-superior", "Top de Biquíni Andrea Dupla Face"),
+        ("biquini-constela-dupla-face-parte-superior", "Top Constela Dupla Face"),
+    ],
+    "biquini-com-bojo-ou-sem-bojo": [
+        ("top-de-biquini-feminino-com-bojo-lycra-animal-print-cobra-rosa", "Top de Biquíni com Bojo"),
+        ("biquini-aurora", "Biquíni Aurora"),
+    ],
+    "maio-feminino-moderno-praia-piscina": [
+        ("maio-artx", "Maiô ArtX"),
+        ("maio-blue", "Maiô Blue"),
+    ],
+}
+
+
 
 def esc(texto):
     if texto is None:
@@ -166,6 +190,22 @@ def card_relacionado_html(art):
         </a>'''
 
 
+def links_produto_html(artigo):
+    """Inclui links contextuais apenas para produtos reais cadastrados no catálogo."""
+    produtos = LINKS_PRODUTO.get(artigo.get("slug"), [])
+    if not produtos:
+        return ""
+    itens = "\\n".join(
+        f'<li><a href="../produto/{esc(slug)}.html">{esc(nome)}</a></li>'
+        for slug, nome in produtos
+    )
+    return (
+        '<section class="artigo-produtos-relacionados">'
+        '<h2>Explore peças relacionadas</h2><ul>'
+        f'{itens}</ul></section>'
+    )
+
+
 def gerar_pagina(artigo, relacionados):
     titulo = artigo["titulo"]
     categoria_label = CATEGORIA_LABEL.get(artigo["categoria"], artigo["categoria"])
@@ -178,6 +218,7 @@ def gerar_pagina(artigo, relacionados):
     tempo_leitura = artigo.get("tempoLeitura") or calcular_tempo_leitura(artigo["corpo"])
     corpo_html = corpo_para_html(artigo["corpo"])
     links_linha = links_linha_html(artigo)
+    links_produto = links_produto_html(artigo)
     relacionados_html = "\n".join(card_relacionado_html(a) for a in relacionados)
     whatsapp_msg = esc_attr_url(f'Oi! Li o artigo "{titulo}" na Revista Turkista e queria saber mais.')
     url_artigo = f"https://www.turkista.com.br/blog/{slug}.html"
@@ -321,6 +362,7 @@ def gerar_pagina(artigo, relacionados):
       <div class="artigo-corpo">
         {corpo_html}
         {links_linha}
+        {links_produto}
       </div>
 
       <div class="artigo-cta">
