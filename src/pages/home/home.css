@@ -5,3 +5,91 @@ body{background:var(--cor-branco-cristal);color:var(--cor-preto-grafite)}h1,h2,h
 
 /* Contraste AA dos subtítulos pequenos sobre o fundo branco da home. */
 .eyebrow{color:var(--cor-rosa-acessivel)}
+
+
+/* Hero da home: texto mais à esquerda e composição adaptada a telas menores. */
+.hero{
+  min-height:min(820px,88svh);
+  padding:clamp(84px,8vw,112px) 0 clamp(40px,5vw,64px);
+  box-sizing:border-box;
+}
+.hero__conteudo{
+  z-index:1;
+  width:100%;
+  max-width:1280px;
+  margin-inline:auto;
+  padding:clamp(20px,4vw,64px);
+  box-sizing:border-box;
+}
+.hero__titulo{
+  max-width:13ch;
+  font-size:clamp(2.35rem,4.5vw,4.5rem);
+  line-height:1.04;
+  letter-spacing:-0.035em;
+  text-wrap:balance;
+}
+.hero__subtitulo{
+  max-width:42ch;
+  font-size:clamp(.78rem,1.1vw,.9375rem);
+  line-height:1.6;
+  letter-spacing:clamp(.07em,.12vw,.14em);
+}
+.hero__acoes{margin-top:clamp(20px,2.5vw,32px)}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.88) 30%,rgba(255,255,255,.48) 52%,rgba(255,255,255,.06) 78%);
+}
+.hero__foto{object-position:62% 25%}
+@media (min-width:1280px){
+  .hero__conteudo{padding-left:clamp(64px,6vw,100px);padding-right:40px}
+}
+@media (max-width:767px){
+  .hero{
+    min-height:82svh;
+    padding:96px 0 32px;
+    align-items:flex-end;
+  }
+  .hero__conteudo{
+    padding:24px clamp(20px,6vw,28px) 20px;
+  }
+  .hero__titulo{
+    max-width:12ch;
+    font-size:clamp(2.1rem,8.6vw,3.15rem);
+    line-height:1.04;
+    margin-bottom:18px;
+    letter-spacing:-.04em;
+  }
+  .hero__subtitulo{
+    max-width:30ch;
+    font-size:.76rem;
+    line-height:1.55;
+    letter-spacing:.08em;
+  }
+  .hero__acoes{margin-top:22px}
+  .hero__acoes .botao{
+    width:fit-content;
+    max-width:100%;
+    min-height:48px;
+    padding:14px 18px;
+    white-space:normal;
+    text-align:center;
+    line-height:1.3;
+  }
+  .hero::after{
+    background:linear-gradient(0deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.92) 36%,rgba(255,255,255,.56) 64%,rgba(255,255,255,.12) 100%);
+  }
+  .hero__foto{object-position:64% center}
+}
+@media (max-width:380px){
+  .hero{min-height:78svh;padding-top:88px}
+  .hero__conteudo{padding-inline:18px}
+  .hero__titulo{font-size:clamp(1.95rem,8.2vw,2.3rem)}
+  .hero__acoes .botao{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero__acoes .botao{scroll-behavior:auto}
+}
