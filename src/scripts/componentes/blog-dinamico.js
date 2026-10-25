@@ -71,8 +71,11 @@
       var slugsJaExibidos = new Set(
         Array.from(grade.querySelectorAll('a.card-artigo[href]')).map(function (card) {
           var href = card.getAttribute('href') || '';
-          var match = href.match(/(?:^|\\/)blog\\/([^/?#]+)\\.html(?:[?#].*)?$/);
-          return match ? decodeURIComponent(match[1]) : '';
+          var partes = href.split('/');
+          var arquivo = (partes[partes.length - 1] || '').split(/[?#]/)[0];
+          return href.indexOf('blog/') !== -1 && arquivo.endsWith('.html')
+            ? decodeURIComponent(arquivo.slice(0, -5))
+            : '';
         }).filter(Boolean)
       );
       var publicados = (artigos || []).filter(function (a) {
