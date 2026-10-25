@@ -113,6 +113,27 @@ LINKS_PRODUTO = {
         ("top-turk-fit-essence", "Top Turk Fit Essence"),
         ("legging-intense", "Legging Intense"),
     ],
+    "como-escolher-moda-praia-online": [
+        ("biquini-aurora", "Biquíni Aurora"),
+        ("maio-artx", "Maiô ArtX"),
+    ],
+    "moda-praia-versatilidade-pecas": [
+        ("biquini-andrea-dupla-face-parte-superior", "Top de Biquíni Andrea Dupla Face"),
+        ("maio-blue", "Maiô Blue"),
+    ],
+    "acabamento-roupa-moda-praia": [
+        ("top-de-biquini-feminino-com-bojo-lycra-animal-print-cobra-rosa", "Top de Biquíni com Bojo"),
+        ("biquini-aurora", "Biquíni Aurora"),
+    ],
+    "moda-praia-estampas-e-cores": [
+        ("biquini-color-mix", "Biquíni Color Mix"),
+        ("biquini-vermelho-intense", "Biquíni Vermelho Intense"),
+    ],
+    "como-montar-guarda-roupa-moda-praia": [
+        ("biquini-aurora", "Biquíni Aurora"),
+        ("maio-blue", "Maiô Blue"),
+    ],
+
 
 
 }
