@@ -179,7 +179,7 @@ def card_relacionado_html(art):
     alt = art.get("capaAlt") or art.get("titulo") or "Imagem do artigo"
     return f'''        <a href="{esc_attr_url(art['slug'])}.html" class="card-artigo" data-categoria-artigo="{esc(art['categoria'])}">
           <div class="card-artigo__imagem">
-            <img src="../assets/blog/{esc_attr_url(art['slug'])}.webp" alt="{esc(alt)}" loading="lazy" onerror="this.style.display='none'">
+            <img src="../assets/blog/{esc_attr_url((art.get("capa") or {}).get("arquivo") or (art["slug"] + ".webp"))}" alt="{esc(alt)}" loading="lazy" onerror="this.style.display='none'">
           </div>
           <span class="card-artigo__categoria">{esc(label)}</span>
           <h3 class="card-artigo__titulo">{esc(art['titulo'])}</h3>
@@ -195,7 +195,7 @@ def links_produto_html(artigo):
     produtos = LINKS_PRODUTO.get(artigo.get("slug"), [])
     if not produtos:
         return ""
-    itens = "\\n".join(
+    itens = "\n".join(
         f'<li><a href="../produto/{esc(slug)}.html">{esc(nome)}</a></li>'
         for slug, nome in produtos
     )
