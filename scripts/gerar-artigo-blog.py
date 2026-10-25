@@ -139,6 +139,15 @@ LINKS_PRODUTO = {
 }
 
 
+LINKS_PAGINA = {
+    "como-escolher-moda-praia-online": [
+        ("politica-de-envio-e-prazo-de-entrega.html", "Política de envio e prazo de entrega"),
+        ("politica-de-troca-e-reembolso.html", "Política de troca e reembolso"),
+        ("contato.html", "Fale com a Turkista"),
+    ],
+}
+
+
 
 def esc(texto):
     if texto is None:
@@ -267,6 +276,22 @@ def links_produto_html(artigo):
     )
 
 
+def links_pagina_html(artigo):
+    """Adiciona páginas institucionais úteis com caminhos definidos no código."""
+    paginas = LINKS_PAGINA.get(artigo.get("slug"), [])
+    if not paginas:
+        return ""
+    itens = "\\n".join(
+        f'<li><a href="../{esc_attr_url(caminho)}">{esc(titulo)}</a></li>'
+        for caminho, titulo in paginas
+    )
+    return (
+        '<section class="artigo-paginas-relacionadas">'
+        '<h2>Informações úteis</h2><ul>'
+        f'{itens}</ul></section>'
+    )
+
+
 def gerar_pagina(artigo, relacionados):
     titulo = artigo["titulo"]
     categoria_label = CATEGORIA_LABEL.get(artigo["categoria"], artigo["categoria"])
@@ -280,6 +305,7 @@ def gerar_pagina(artigo, relacionados):
     corpo_html = corpo_para_html(artigo["corpo"])
     links_linha = links_linha_html(artigo)
     links_produto = links_produto_html(artigo)
+    links_pagina = links_pagina_html(artigo)
     relacionados_html = "\n".join(card_relacionado_html(a) for a in relacionados)
     whatsapp_msg = esc_attr_url(f'Oi! Li o artigo "{titulo}" na Revista Turkista e queria saber mais.')
     url_artigo = f"https://www.turkista.com.br/blog/{slug}.html"
@@ -424,6 +450,7 @@ def gerar_pagina(artigo, relacionados):
         {corpo_html}
         {links_linha}
         {links_produto}
+        {links_pagina}
       </div>
 
       <div class="artigo-cta">
