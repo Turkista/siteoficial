@@ -176,7 +176,14 @@ def corpo_para_html(corpo_texto):
         if not bloco:
             continue
         if bloco.startswith("### "):
-            html.append(f"<h3>{esc(bloco[4:].strip())}</h3>")
+            # Em FAQs, o JSON usa a primeira linha como pergunta e a linha
+            # seguinte como resposta. Não envolva a resposta dentro do heading.
+            linhas = bloco.splitlines()
+            pergunta = linhas[0][4:].strip()
+            resposta = " ".join(l.strip() for l in linhas[1:]).strip()
+            html.append(f"<h3>{esc(pergunta)}</h3>")
+            if resposta:
+                html.append(f"<p>{esc(resposta)}</p>")
         elif bloco.startswith("## "):
             html.append(f"<h2>{esc(bloco[3:].strip())}</h2>")
         elif bloco.startswith("> "):
