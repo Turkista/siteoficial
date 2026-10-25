@@ -94,6 +94,26 @@ LINKS_PRODUTO = {
         ("biquini-aurora", "Biquíni Aurora"),
         ("maio-artx", "Maiô ArtX"),
     ],
+    "como-escolher-top-fitness": [
+        ("top-de-treino", "Top de treino"),
+        ("top-turk-fit-essence", "Top Turk Fit Essence"),
+    ],
+    "roupa-fitness-para-academia": [
+        ("conjunto-azul-dark", "Conjunto Azul Dark"),
+        ("conjunto-de-treino-azul-ocen", "Conjunto de treino Azul Oceano"),
+    ],
+    "como-combinar-leggings-e-tops": [
+        ("legging-intense", "Legging Intense"),
+        ("top-turk-fit-essence", "Top Turk Fit Essence"),
+    ],
+    "roupa-fitness-do-treino-ao-dia-a-dia": [
+        ("conjunto-short-top-flow", "Conjunto de Short + top"),
+    ],
+    "como-cuidar-de-roupas-fitness": [
+        ("top-turk-fit-essence", "Top Turk Fit Essence"),
+        ("legging-intense", "Legging Intense"),
+    ],
+
 
 }
 
