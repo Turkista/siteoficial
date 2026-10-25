@@ -107,7 +107,9 @@ def corpo_para_html(corpo_texto):
         bloco = bloco.strip()
         if not bloco:
             continue
-        if bloco.startswith("## "):
+        if bloco.startswith("### "):
+            html.append(f"<h3>{esc(bloco[4:].strip())}</h3>")
+        elif bloco.startswith("## "):
             html.append(f"<h2>{esc(bloco[3:].strip())}</h2>")
         elif bloco.startswith("> "):
             linha = bloco[2:].strip()
