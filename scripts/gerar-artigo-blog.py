@@ -281,7 +281,7 @@ def links_pagina_html(artigo):
     paginas = LINKS_PAGINA.get(artigo.get("slug"), [])
     if not paginas:
         return ""
-    itens = "\\n".join(
+    itens = "\n".join(
         f'<li><a href="../{esc_attr_url(caminho)}">{esc(titulo)}</a></li>'
         for caminho, titulo in paginas
     )
