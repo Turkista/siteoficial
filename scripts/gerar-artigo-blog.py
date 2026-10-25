@@ -463,6 +463,7 @@ def main():
             "categoria": a["categoria"],
             "categoriaLabel": CATEGORIA_LABEL.get(a["categoria"], a["categoria"]),
             "resumo": a["resumo"],
+            "capa": a.get("capa"),
             "capaAlt": a.get("capa", {}).get("alt") or a["titulo"],
         }
         for a in artigos_novos
