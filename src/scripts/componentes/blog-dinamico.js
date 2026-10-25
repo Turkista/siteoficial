@@ -68,8 +68,18 @@
       return resposta.json();
     })
     .then(function (artigos) {
+      var slugsJaExibidos = new Set(
+        Array.from(grade.querySelectorAll('a.card-artigo[href]')).map(function (card) {
+          var href = card.getAttribute('href') || '';
+          var partes = href.split('/');
+          var arquivo = (partes[partes.length - 1] || '').split(/[?#]/)[0];
+          return href.indexOf('blog/') !== -1 && arquivo.endsWith('.html')
+            ? decodeURIComponent(arquivo.slice(0, -5))
+            : '';
+        }).filter(Boolean)
+      );
       var publicados = (artigos || []).filter(function (a) {
-        return a.status === 'publicado';
+        return a.status === 'publicado' && !slugsJaExibidos.has(a.slug);
       });
       publicados.sort(function (a, b) {
         return (b.dataCriacao || '').localeCompare(a.dataCriacao || '');
